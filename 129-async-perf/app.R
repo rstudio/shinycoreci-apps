@@ -51,7 +51,14 @@ ui <- fluidPage(
         })(i)
       }
       jst.add(function() {
-        Jster.assert.isTrue(count < allow_k_failures);
+        Jster.assert.isTrue(
+          count < allow_k_failures,
+          {
+            count: count,
+            allowed_failures: allow_k_failures,
+            max_time: max_time
+          }
+        );
       })
     }
     click_and_validate('success', 50);
