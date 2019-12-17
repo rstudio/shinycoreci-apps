@@ -74,7 +74,7 @@ jobs:
           Rscript -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
 
       - name: Run shinytest
-        run: >
+        run: |
           Rscript -e "apps <- c('001-hello', '002-text', '003-reactivity', '004-mpg', '005-sliders', '006-tabsets', '007-widgets', '008-html', '009-upload', '010-download')
           shinycoreci::test_shinytest(apps)"
 
