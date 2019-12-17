@@ -1,20 +1,22 @@
 {
   "input": {
-    "bins": 22
+    "outliers": true,
+    "variable": "gear"
   },
   "output": {
-    "distPlot": {
-      "src": "[image data sha1: 91fea9b139f4d734978322edad94b418561e3359]",
+    "caption": "mpg ~ gear",
+    "mpgPlot": {
+      "src": "[image data sha1: 076fa597a272448b8cff216f2628346c714043df]",
       "width": 631,
       "height": 400,
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": 40.88,
-              "right": 98.12,
-              "bottom": -1.48,
-              "top": 38.48
+              "left": 0.38,
+              "right": 3.62,
+              "bottom": 9.46,
+              "top": 34.84
             },
             "range": {
               "left": 59.04,

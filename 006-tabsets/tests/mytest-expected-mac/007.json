@@ -1,20 +1,21 @@
 {
   "input": {
-    "bins": 22
+    "dist": "norm",
+    "n": 1
   },
   "output": {
-    "distPlot": {
-      "src": "[image data sha1: 91fea9b139f4d734978322edad94b418561e3359]",
+    "plot": {
+      "src": "[image data sha1: e3c197e78497cb2e9ec6cfe9c481d0b70a2df8a0]",
       "width": 631,
       "height": 400,
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": 40.88,
-              "right": 98.12,
-              "bottom": -1.48,
-              "top": 38.48
+              "left": -1.02,
+              "right": -0.48,
+              "bottom": -0.04,
+              "top": 1.04
             },
             "range": {
               "left": 59.04,

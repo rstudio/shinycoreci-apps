@@ -2,8 +2,10 @@ app <- ShinyDriver$new("../", seed = 100, shinyOptions = list(display.mode = "no
 app$snapshotInit("mytest")
 
 app$snapshot()
-app$setInputs(bins = 8)
+app$setInputs(variable = "am")
 app$snapshot()
-app$setInputs(bins = 5)
-app$setInputs(bins = 22)
+app$setInputs(variable = "gear")
+app$snapshot()
+app$setInputs(outliers = FALSE)
+app$setInputs(variable = "cyl")
 app$snapshot()
