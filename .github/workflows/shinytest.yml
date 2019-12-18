@@ -54,7 +54,6 @@ jobs:
         run: >
           Rscript -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "remotes::install_github('rstudio/shinycoreci')"
-          -e "remotes::install_cran(c('shiny', 'renv'))"
           -e "remotes::update_packages()"
 
       - name: Find PhantomJS path
