@@ -9,11 +9,9 @@ ui <- fluidPage(
   shinyjster_js("
     var jst = jster();
     jst.add(function() { $('#clear').click(); });
-    jst.add(Jster.shiny.waitUntilIdle);
+    jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() {
-      if ($('#plot').children().length > 0) {
-        throw 'Plot is not empty.';
-      }
+      Jster.assert.isTrue($('#plot').children().length == 0, {length: $('#plot').children().length, ele: $('#plot').html()})
     });
     jst.test();
     "
