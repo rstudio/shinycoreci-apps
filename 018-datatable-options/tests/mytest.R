@@ -1,0 +1,13 @@
+app <- ShinyDriver$new("../", seed = 100, shinyOptions = list(display.mode = "normal"))
+app$snapshotInit("mytest")
+
+Sys.sleep(0.5)
+app$snapshot()
+app$setInputs(tabs = 'Length menu')
+app$snapshot()
+app$setInputs(tabs = 'No pagination')
+app$snapshot()
+app$setInputs(tabs = 'No filtering')
+app$snapshot()
+app$setInputs(tabs = 'Function callback')
+app$snapshot()
