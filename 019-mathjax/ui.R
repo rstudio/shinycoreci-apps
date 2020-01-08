@@ -1,6 +1,15 @@
 fluidPage(
   title = 'MathJax Examples',
-  withMathJax(),
+  withMathJax(
+    # Don't show "Processing math...", "Loading math...", to make timing
+    # easier for testing.
+    tags$script(HTML("
+      MathJax.Hub.Config({
+        showProcessingMessages: false,
+        messageStyle: 'none'
+      });
+    "))
+  ),
   helpText('An irrational number \\(\\sqrt{2}\\)
            and a fraction $$1-\\frac{1}{2}$$'),
   helpText('and a fact about \\(\\pi\\):
