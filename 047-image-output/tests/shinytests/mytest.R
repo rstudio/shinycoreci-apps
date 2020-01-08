@@ -1,0 +1,10 @@
+app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
+app$snapshotInit("mytest")
+
+app$snapshot()
+app$setInputs(r = 0.7)
+app$setInputs(picture = "face")
+app$snapshot()
+app$setInputs(r = 0.25)
+app$setInputs(picture = "chainring")
+app$snapshot()
