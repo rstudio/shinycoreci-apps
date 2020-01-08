@@ -1,0 +1,8 @@
+app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
+app$snapshotInit("mytest")
+app$snapshot()
+app$setInputs(a2 = "N")
+app$setInputs(a5 = "N")
+app$setInputs(a2 = "X")
+app$setInputs(a1 = "U")
+app$snapshot()
