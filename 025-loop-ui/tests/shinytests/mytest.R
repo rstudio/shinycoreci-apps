@@ -1,8 +1,8 @@
 app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
 app$snapshotInit("mytest")
-
-Sys.sleep(3)
 app$snapshot()
-app$setInputs(ex5_visible = TRUE)
-Sys.sleep(2)
+app$setInputs(a2 = "N")
+app$setInputs(a5 = "N")
+app$setInputs(a2 = "X")
+app$setInputs(a1 = "U")
 app$snapshot()

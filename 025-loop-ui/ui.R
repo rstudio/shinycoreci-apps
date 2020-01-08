@@ -1,6 +1,5 @@
 n_letter_groups <- 5
-k_letters <- 5
-sample_letters <- replicate(n_letter_groups, {list(sample(LETTERS, k_letters))})
+sample_letters <- replicate(n_letter_groups, {list(c("T", "N", "U", "A" ,"X"))})
 
 
 fluidPage(

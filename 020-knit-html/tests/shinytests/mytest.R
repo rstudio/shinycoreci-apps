@@ -3,6 +3,6 @@ app$snapshotInit("mytest")
 
 Sys.sleep(3)
 app$snapshot()
-app$setInputs(ex5_visible = TRUE)
+app$setInputs(x = "hp")
 Sys.sleep(2)
 app$snapshot()
