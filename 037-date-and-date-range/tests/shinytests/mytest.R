@@ -1,0 +1,11 @@
+app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
+app$snapshotInit("mytest")
+
+app$snapshot()
+app$setInputs(date = "2020-03-13")
+app$setInputs(date2 = "2020-01-12")
+app$setInputs(dateRange = c("2019-12-01", "2020-01-10"))
+app$setInputs(dateRange = c("2019-12-01", "2020-04-24"))
+app$setInputs(dateRange2 = c("2020-01-02", "2020-01-11"))
+app$setInputs(dateRange2 = c("2020-01-02", "2020-01-17"))
+app$snapshot()
