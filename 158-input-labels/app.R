@@ -132,6 +132,7 @@ ui <- fluidPage(
 
 
 server <- function(input, output, session) {
+  shinyjster::shinyjster_server(input, output, session)
 
   observeEvent(input$update, {
     label1 <- if (isTRUE(input$update %% 2 == 0)) character(0) else "An <i>escaped</i> Label"
