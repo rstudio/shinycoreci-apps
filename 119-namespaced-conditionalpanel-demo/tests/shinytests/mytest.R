@@ -1,0 +1,8 @@
+app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
+app$snapshotInit("mytest")
+
+app$snapshot()
+app$setInputs(`plot1-n` = 180)
+app$snapshot()
+app$setInputs(`plot2-n` = 190)
+app$snapshot()

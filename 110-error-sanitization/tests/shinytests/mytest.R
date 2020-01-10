@@ -1,0 +1,10 @@
+app <- ShinyDriver$new("../../")
+app$snapshotInit("mytest")
+
+app$snapshot()
+app$setInputs(sanitize = "TRUE")
+app$snapshot()
+app$setInputs(tabset = "Using safeError()")
+app$snapshot()
+app$setInputs(sanitize = "FALSE")
+app$snapshot()

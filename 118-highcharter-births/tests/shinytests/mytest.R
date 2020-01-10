@@ -1,0 +1,11 @@
+app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
+app$snapshotInit("mytest")
+
+Sys.sleep(2)
+app$snapshot()
+app$setInputs(year = c(1994, 2005))
+app$setInputs(year = c(1997, 2005))
+app$setInputs(plot_type = "column")
+app$setInputs(theme = "fivethirtyeight")
+Sys.sleep(1)
+app$snapshot()
