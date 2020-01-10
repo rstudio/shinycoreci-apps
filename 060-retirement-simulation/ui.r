@@ -1,4 +1,5 @@
 library(shiny)
+library(shinythemes)
 
 renderInputs <- function(prefix) {
   wellPanel(
@@ -23,7 +24,8 @@ renderInputs <- function(prefix) {
 }
 
 # Define UI for application that plots random distributions
-fluidPage(theme="simplex.min.css",
+fluidPage(
+  theme = shinytheme("simplex"),
   tags$style(type="text/css",
     "label {font-size: 12px;}",
     ".recalculating {opacity: 1.0;}"

@@ -7,7 +7,7 @@ fluidPage(
   "))),
 
   h1("Shiny", span("Widgets Gallery", style = "font-weight: 300"),
-      style = "font-family: 'Source Sans Pro';
+      style = "
         color: #fff; text-align: center;
         background-image: url('texturebg.png');
         padding: 20px"),
@@ -17,8 +17,7 @@ fluidPage(
     column(6, offset = 3,
       p("For each widget below, the Current Value(s) window
         displays the value that the widget provides to shinyServer.
-        Notice that the values change as you interact with the widgets.",
-        style = "font-family: 'Source Sans Pro';")
+        Notice that the values change as you interact with the widgets.")
     )
   ),
 
