@@ -58,14 +58,14 @@ ui <- fluidPage(
   shinyjster::shinyjster_js(
     "
     var jst = jster();
-    jst.add(Jster.shiny.waitUntilIdle);
+    jst.add(Jster.shiny.waitUntilStable);
 
     var choose_and_validate = function(val, expected) {
       jst.add(function() {
         Jster.radio.clickOption('type', val);
         Jster.button.click('go');
       })
-      jst.add(Jster.shiny.waitUntilIdle);
+      jst.add(Jster.shiny.waitUntilStable);
       jst.add(function() {
         Jster.assert.isEqual($('#sync_output').text(), expected);
         Jster.assert.isEqual($('#async_output').text(), expected);

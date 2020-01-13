@@ -13,12 +13,16 @@ ui <- fluidPage(
   jst.add(function() {
     Jster.button.click('go');
   })
-  jst.add(Jster.shiny.waitUntilIdle);
+  jst.add(Jster.shiny.waitUntilStable);
 
   jst.add(function() {
-    Jster.assert.isTrue($('#plot img').length > 0);
+    Jster.assert.isTrue($('#plot img').length > 0, {length: $('#plot img').length});
     Jster.assert.isTrue(
-      Jster.image.data('plot').length > 100 // 640000
+      Jster.image.data('plot').length > 100, // 640000
+      {
+        type: 'image_data',
+        length: Jster.image.data('plot').length
+      }
     );
   });
 
