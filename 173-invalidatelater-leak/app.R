@@ -44,8 +44,7 @@ ui <- fluidPage(
     jst.add(function() {
       Jster.assert.isEqual(
         $('#status').text().trim(),
-        'Pass',
-        {bad_counter: bad_counter, tolerance: tolerance, n: n}
+        'Pass'
       );
     })
 
