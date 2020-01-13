@@ -70,11 +70,11 @@
     "rawdata_rows_selected": null,
     "rawdata_search": "",
     "rawdata_state": null,
-    "state": "Alabama"
+    "state": "California"
   },
   "output": {
     "parcoord": {
-      "src": "[image data sha1: 676c517b8803711e27a54d0b2f181e52a85001cc]",
+      "src": "[image data sha1: 036f7fbebb8fc40b66c2ec90bf0912f9136388e1]",
       "width": 383,
       "height": 400,
       "coordmap": {
