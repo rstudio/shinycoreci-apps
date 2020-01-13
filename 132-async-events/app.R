@@ -66,6 +66,7 @@ ui <- fluidPage(
         Jster.button.click('go');
       })
       jst.add(Jster.shiny.waitUntilStable);
+      jst.add(function(done) { setTimeout(done, 1000); });
       jst.add(function() {
         Jster.assert.isEqual($('#sync_output').text(), expected);
         Jster.assert.isEqual($('#async_output').text(), expected);
