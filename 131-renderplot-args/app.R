@@ -30,13 +30,25 @@ ui <- withTags(fluidPage(
       return zeros / (data.length/4);
     }
 
-    var jst = jster();
-    jst.add(Jster.shiny.waitUntilIdle);
+    var jst = jster(1);
+    jst.add(function(done) {
+      var wait = function() {
+        if ($('#plot img').length) {
+          done();
+        } else {
+          setTimeout(wait, 50);
+        }
+      }
+      wait();
+    });
 
     jst.add(function() {
-      if (proportion_transparent('plot') <= 0.95) {
-        throw 'Plot is not >= 95% transparent.';
-      }
+      Jster.assert.isTrue(
+        proportion_transparent('plot') >= 0.95,
+        {
+          context: 'Plot is not >= 95% transparent'
+        }
+      );
     });
 
     jst.test();
