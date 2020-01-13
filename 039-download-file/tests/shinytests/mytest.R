@@ -1,0 +1,10 @@
+app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
+app$snapshotInit("mytest")
+
+app$snapshot()
+app$snapshotDownload("downloadData")
+app$setInputs(filetype = "tsv")
+app$setInputs(dataset = "Cars")
+app$setInputs(dataset = "Pressure")
+app$snapshot()
+app$snapshotDownload("downloadData")

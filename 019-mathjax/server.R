@@ -15,7 +15,6 @@ function(input, output, session) {
                \\left(\\frac{x-x_0}{\\gamma}\\right)^2\\right]}\\!$$'))
   })
   output$ex4 <- renderUI({
-    invalidateLater(5000, session)
     x <- round(rcauchy(1), 3)
     withMathJax(sprintf("If \\(X\\) is a Cauchy random variable, then
                         $$P(X \\leq %.03f ) = %.03f$$", x, pcauchy(x)))
