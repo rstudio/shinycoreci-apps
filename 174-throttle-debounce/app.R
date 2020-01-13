@@ -24,7 +24,7 @@ ui <- fluidPage(
   ),
   shinyjster::shinyjster_js("
     var jst = jster(0);
-    jst.add(Jster.shiny.waitUntilIdle);
+    jst.add(Jster.shiny.waitUntilStable);
 
     var click = function() {
       $('#click').click();
