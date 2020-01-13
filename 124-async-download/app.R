@@ -2,7 +2,6 @@ library(shiny)
 library(promises)
 library(future)
 plan(multiprocess)
-library(shinyjster)
 
 ui <- fluidPage(
   h2("Async downloadHandler test"),
@@ -15,7 +14,7 @@ ui <- fluidPage(
   checkboxInput("throw", "Throw on download?"),
   downloadButton("download", "Download (wait 3 seconds)"),
   plotOutput("plot"),
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster();
 
     var resetApp = function() {
@@ -117,7 +116,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   output$download <- downloadHandler("rock.csv", function(file) {
     future({Sys.sleep(2)}) %...>%

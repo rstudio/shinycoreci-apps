@@ -1,6 +1,5 @@
 library(shiny)
 library(promises)
-library(shinyjster)
 
 
 ui <- fluidPage(
@@ -56,7 +55,7 @@ ui <- fluidPage(
   p(
     h3("Last successful observeEvent: "), verbatimTextOutput("observeEventStatus")
   ),
-  shinyjster_js(
+  shinyjster::shinyjster_js(
     "
     var jst = jster();
     jst.add(Jster.shiny.waitUntilIdle);
@@ -112,7 +111,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   root <- eventReactive(input$type, {
     switch(input$type,

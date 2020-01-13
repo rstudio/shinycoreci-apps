@@ -1,5 +1,4 @@
 library(shiny)
-library(shinyjster)
 
 ui <- withTags(fluidPage(
   h3("Test of additional renderPlot args"),
@@ -11,7 +10,7 @@ ui <- withTags(fluidPage(
   style("body { background-color: #A3E4D7; }"),
   plotOutput("plot"),
 
-  shinyjster_js(set_timeout = FALSE, "
+  shinyjster::shinyjster_js(set_timeout = FALSE, "
 
     // Given an img tag object, return the proportion of pixels that have zero
     // alpha.
@@ -45,7 +44,7 @@ ui <- withTags(fluidPage(
 ))
 
 server <- function(input, output, session) {
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   output$plot <- renderPlot({
     par(bg = NA)

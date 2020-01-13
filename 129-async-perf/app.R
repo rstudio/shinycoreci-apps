@@ -3,7 +3,6 @@ library(promises)
 library(future)
 plan(multicore)
 library(ggplot2)
-library(shinyjster)
 
 
 ui <- fluidPage(
@@ -24,7 +23,7 @@ ui <- fluidPage(
   actionButton("success", "Benchmark success"),
   actionButton("failure", "Benchmark failure"),
   textOutput("time"),
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster(1);
     jst.add(Jster.shiny.waitUntilIdle);
 
@@ -70,7 +69,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   mode <- reactiveVal()
   elapsed <- reactiveVal()

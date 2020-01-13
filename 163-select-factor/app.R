@@ -12,7 +12,7 @@ ui <- fluidPage(
   selectInput("letter", "Letters", choices = choices),
   tags$h3("Output"),
   verbatimTextOutput("selected"),
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster(50);
 
     var alpha = 'abcdefghijklmnopqrstuvwxyz';

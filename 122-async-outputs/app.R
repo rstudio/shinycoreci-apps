@@ -2,7 +2,6 @@ library(shiny)
 library(promises)
 library(future)
 plan(multisession)
-library(shinyjster)
 
 
 make_row <- function(func, base_id, label, ...) {
@@ -43,7 +42,7 @@ ui <- fluidPage(
   make_row(imageOutput, "image", "Image", height = "auto"),
   make_row(tableOutput, "table", "Table"),
   make_row(uiOutput, "ui", "UI"),
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
     jst.add(function(done) {
@@ -92,7 +91,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   output$plot <- renderPlot({
     plot(cars)

@@ -3,7 +3,6 @@ library(future)
 library(promises)
 library(magrittr)
 plan(multisession)
-library(shinyjster)
 
 ui <- fluidPage(
   p("This app tests that ", tags$code("invalidateLater()"), " calls are held until async operations are complete."),
@@ -15,7 +14,7 @@ ui <- fluidPage(
   verbatimTextOutput("out"),
   verbatimTextOutput("out_flushed"),
   uiOutput("status"),
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(function(done) {
       var wait = function() {
@@ -73,7 +72,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   value <- reactiveVal(0L)
   n <- 10

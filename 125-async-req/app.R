@@ -2,7 +2,6 @@ library(shiny)
 library(promises)
 library(future)
 plan(multiprocess)
-library(shinyjster)
 
 ui <- fluidPage(
   tags$style(
@@ -35,7 +34,7 @@ ui <- fluidPage(
       )
     )
   ),
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() {
@@ -72,7 +71,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   output$req <- renderText({
     req(!isTruthy(input$boom))

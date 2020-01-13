@@ -2,7 +2,6 @@ library(shiny)
 library(future)
 library(promises)
 plan(multiprocess)
-library(shinyjster)
 
 ui <- fluidPage(
   h1("renderPrint tests"),
@@ -29,7 +28,7 @@ ui <- fluidPage(
       )
     )
   ),
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilIdle);
     jst.add(function() {
@@ -50,7 +49,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   output$sync_visible <- renderPrint({
     "Hello"

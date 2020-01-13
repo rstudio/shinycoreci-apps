@@ -2,7 +2,6 @@ library(shiny)
 library(promises)
 library(future)
 plan(multiprocess)
-library(shinyjster)
 
 testForMissingRenderFunctions <- function() {
   # If we add any render functions, they should be added to this test app. This test
@@ -79,7 +78,7 @@ ui <- fluidPage(
   make_row(imageOutput, "image", "Image", height = "auto"),
   make_row(tableOutput, "table", "Table"),
   make_row(uiOutput, "ui", "UI"),
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilIdle);
 
@@ -108,7 +107,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   state <- "before"
   later::later(function() {

@@ -33,6 +33,8 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
+    shinyjster::shinyjster_server(input, output, session)
+
   test_evt_count <- reactiveVal(0)
   observeEvent(input$test_evt, {
     test_evt_count(test_evt_count() + 1)

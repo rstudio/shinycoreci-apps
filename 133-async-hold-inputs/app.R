@@ -1,7 +1,6 @@
 library(shiny)
 library(promises)
 library(later)
-library(shinyjster)
 
 
 wait <- function(secs) {
@@ -29,7 +28,7 @@ ui <- fluidPage(
     ),
     mainPanel(
       verbatimTextOutput("out"),
-      shinyjster_js(
+      shinyjster::shinyjster_js(
         "
         var jst = jster();
         jst.add(Jster.shiny.waitUntilStable);
@@ -78,7 +77,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   output$out <- renderPrint({
     req(input$go)

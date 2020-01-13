@@ -1,7 +1,6 @@
 library(shiny)
 library(promises)
 library(ggplot2)
-library(shinyjster)
 
 ui <- fluidPage(
   h1("Caching async plots/keys"),
@@ -47,7 +46,7 @@ ui <- fluidPage(
       plotOutput("ggplotYY")
     )
   ),
-  shinyjster_js(
+  shinyjster::shinyjster_js(
     "var jst = jster();",
     "jst.add(Jster.shiny.waitUntilIdle);",
     paste0(
@@ -82,7 +81,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   syncPlot <- function() {
     plot(cars)

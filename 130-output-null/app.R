@@ -1,12 +1,11 @@
 library(shiny)
-library(shinyjster)
 
 ui <- fluidPage(
   h3("Pressing \"Clear\" should clear the plot."),
   plotOutput("plot"),
   actionButton("clear", "Clear"),
 
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(function() { $('#clear').click(); });
     jst.add(Jster.shiny.waitUntilStable);
@@ -19,7 +18,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   output$plot <- renderPlot({ plot(cars) })
 

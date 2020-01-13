@@ -1,5 +1,4 @@
 library(shiny)
-library(shinyjster)
 
 bigvec <- paste0("a", 1:1e5)
 named_bigvec <- setNames(bigvec, bigvec)
@@ -176,7 +175,7 @@ ui <- fluidPage(
       )
     })
   ),
-  shinyjster_js(
+  shinyjster::shinyjster_js(
     "var jst = jster();",
     "jst.add(Jster.shiny.waitUntilIdle);",
     paste0(
@@ -200,7 +199,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   lapply(seq_along(test_set), function(i) {
     test_name <- names(test_set)[i]

@@ -20,7 +20,7 @@ ui <- fluidPage(
     tags$tr(tags$td("Iteration:"), tags$td(verbatimTextOutput("iteration"))),
     tags$tr(tags$td("Memory usage:"), tags$td(verbatimTextOutput("memory"))),
     tags$tr(tags$td("Increase:"), tags$td(verbatimTextOutput("increase"))),
-    tags$tr(tags$td("Status:"), tags$td(uiOutput("status")))
+    tags$tr(tags$td("Avg Status:"), tags$td(uiOutput("status")))
   ),
   shinyjster::shinyjster_js("
     var jst = jster(500);
@@ -30,27 +30,23 @@ ui <- fluidPage(
         if (txt === '') {
           setTimeout(wait, 50);
         } else {
-          done();
+          var iteration = $('#iteration').text().trim();
+          if ((iteration - 0) > 40) {
+            done();
+          } else {
+            setTimeout(wait, 50);
+          }
         }
       }
       wait();
     });
 
-    var bad_counter = 0;
-    var n = 20;
-    var tolerance = Math.floor(n / 10);
-    for (var i = 0; i < n; i++) {
-      (function(ii) {
-        jst.add(function() {
-          var txt = $('#status').text().trim();
-          if (txt !== 'Pass') {
-            bad_counter++;
-          }
-        })
-      })()
-    }
     jst.add(function() {
-      Jster.assert.isTrue(bad_counter <= tolerance, {bad_counter: bad_counter, tolerance: tolerance, n: n})
+      Jster.assert.isEqual(
+        $('#status').text().trim(),
+        'Pass',
+        {bad_counter: bad_counter, tolerance: tolerance, n: n}
+      );
     })
 
     jst.test();
@@ -62,6 +58,7 @@ server <- function(input, output, session) {
 
   i <- 0
   last_mem <- mem_used()
+  last_10 <- rep(0, 10)
 
   output$hist1 <- renderPlot({
     invalidateLater(500)
@@ -76,11 +73,13 @@ server <- function(input, output, session) {
       last_mem <<- cur_mem
     })
     increase <- cur_mem - last_mem
+    last_10 <- c(last_10[-1], increase)
 
     list(
       i = i,
       cur_mem = cur_mem,
-      increase = increase
+      increase = increase,
+      last_10 = last_10
     )
   })
 
@@ -97,7 +96,9 @@ server <- function(input, output, session) {
     if (info()$i < 5) {
       return("");
     }
-    if (info()$increase <= 512) {
+
+    # make sure 80% of the results are < 512
+    if (quantile(info()$last_10, 0.8, type = 1) <= 512) {
       p(style = "color:green;", "Pass")
     } else {
       p(style = "color:red;", "Fail: Leaking too much memory!")

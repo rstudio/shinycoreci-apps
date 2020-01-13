@@ -1,7 +1,6 @@
 library(shiny)
 library(promises)
 library(later)
-library(shinyjster)
 
 wait_seconds <- function(secs) {
   force(secs)
@@ -12,7 +11,7 @@ ui <- fluidPage(
   h2("Verify timers don't run until async tasks are complete"),
   "If this app runs for about 10 seconds without killing the session, that's success!",
   uiOutput("status"),
-  shinyjster_js(
+  shinyjster::shinyjster_js(
     "
     var jst = jster();
     jst.add(function(done) {
@@ -32,7 +31,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   timer <- reactiveTimer(500)
 
