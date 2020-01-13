@@ -10,7 +10,7 @@ list_to_string <- function(obj, listname) {
 
 function(input, output, session) {
 
-  shinyjster::shinyjster_server(input, output, session)
+  # shinyjster::shinyjster_server(input, output, session)
 
   known_names <- c(
     "output_queryText_hidden",
@@ -33,7 +33,11 @@ function(input, output, session) {
       if (is.list(val)) {
         list_to_string(val, name)
       } else {
-        # paste(name, val, sep=" = ")
+        # Special case for shinytest: set url_port to a fixed value because it
+        # is randomly generated.
+        if (isTRUE(getOption("shiny.testmode")) && name == "url_port") {
+          val <- 99999
+        }
         as.character(val)
       }
     })
