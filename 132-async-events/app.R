@@ -98,10 +98,12 @@ ui <- fluidPage(
     jst.add(function() {
       Jster.assert.isFalse(Jster.shiny.hasOverlay());
     });
-    click_and_validate('error');
-    jst.add(function() {
-      Jster.assert.isTrue(Jster.shiny.hasOverlay());
-    });
+
+    //// if this is tested, it'll kill the app. That is bad
+    // click_and_validate('error');
+    // jst.add(function() {
+    //   Jster.assert.isTrue(Jster.shiny.hasOverlay());
+    // });
 
     jst.test();"
   )

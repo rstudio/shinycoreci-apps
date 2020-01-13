@@ -10,7 +10,7 @@ list_to_string <- function(obj, listname) {
 
 function(input, output, session) {
 
-  # shinyjster::shinyjster_server(input, output, session)
+  shinyjster::shinyjster_server(input, output, session)
 
   known_names <- c(
     "output_queryText_hidden",
