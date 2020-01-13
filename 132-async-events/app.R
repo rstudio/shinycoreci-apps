@@ -110,7 +110,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # include shinyjster_server call at top of server definition
-  # shinyjster_server(input, output, session)
+  shinyjster_server(input, output, session)
 
   root <- eventReactive(input$type, {
     switch(input$type,
