@@ -1,3 +1,3 @@
 $("#test-message")
-  .text("Test passed :)")
+  .text("Pass")
   .css("color", "green");
