@@ -23,7 +23,7 @@ ui <- fluidPage(
         $('#test-message').text().trim(),
         'Pass'
       );
-    })
+    });
 
     jst.test();
   ")
