@@ -43,9 +43,9 @@ ui <- fluidPage(
       var equal_vals = function(raw_val, debounce_val) {
         var observed_raw = $('#raw').text().trim() - base_value;
         // make sure observed is never bigger than actual
-        Jster.assert.isTrue(raw_val >= observed_raw);
+        Jster.assert.isTrue(raw_val >= observed_raw, {raw_val: raw_val, observed_raw: observed_raw, context: 'raw >= observed'});
         // make sure the gap is never bigger than 1
-        Jster.assert.isTrue((raw_val - observed_raw) <= 1);
+        Jster.assert.isTrue((raw_val - observed_raw) <= 1, {raw_val: raw_val, observed_raw: observed_raw, context: 'raw - observed <= 1'});
 
         // is_equal('throttle', throttle_val, raw_val);
         var throttle_val = $('#throttle').text().trim() - base_value;
@@ -55,38 +55,65 @@ ui <- fluidPage(
         is_equal('debounce', debounce_val, raw_val);
       }
 
+      var err_found = undefined;
       jst.add(function(done) {
+
         equal_vals(0, 0);
         is_equal('throttle', 0, 0);
 
-        setTimeout(click, 0);
-        setTimeout(click, 250);
-        setTimeout(click, 500);
-        setTimeout(click, 750);
-        setTimeout(click, 1000);
-        setTimeout(click, 1250);
-        setTimeout(click, 1500);
-        setTimeout(click, 1750);
-        setTimeout(click, 2000);
-        setTimeout(click, 2250);
+        var jst_setTimeout = function(fn, timeout) {
+          setTimeout(
+            function() {
+              try {
+                fn();
+              } catch (e) {
+                if (!err_found) {
+                  err_found = e;
+                }
+                throw e;
+              }
+            },
+            timeout
+          );
+        }
 
-        setTimeout(function() { equal_vals( 1,  0); },    0 + 125);
-        setTimeout(function() { equal_vals( 2,  0); },  250 + 125);
-        setTimeout(function() { equal_vals( 3,  0); },  500 + 125);
-        setTimeout(function() { equal_vals( 4,  0); },  750 + 125);
-        setTimeout(function() { equal_vals( 5,  0); }, 1000 + 125);
-        setTimeout(function() { equal_vals( 6,  0); }, 1250 + 125);
-        setTimeout(function() { equal_vals( 7,  0); }, 1500 + 125);
-        setTimeout(function() { equal_vals( 8,  0); }, 1750 + 125);
-        setTimeout(function() { equal_vals( 9,  0); }, 2000 + 125);
-        setTimeout(function() { equal_vals(10,  0); }, 2250 + 125);
+        jst_setTimeout(click, 0);
+        jst_setTimeout(click, 250);
+        jst_setTimeout(click, 500);
+        jst_setTimeout(click, 750);
+        jst_setTimeout(click, 1000);
+        jst_setTimeout(click, 1250);
+        jst_setTimeout(click, 1500);
+        jst_setTimeout(click, 1750);
+        jst_setTimeout(click, 2000);
+        jst_setTimeout(click, 2250);
 
-        setTimeout(function() {
+        jst_setTimeout(function() { equal_vals( 1,  0); },    0 + 125);
+        jst_setTimeout(function() { equal_vals( 2,  0); },  250 + 125);
+        jst_setTimeout(function() { equal_vals( 3,  0); },  500 + 125);
+        jst_setTimeout(function() { equal_vals( 4,  0); },  750 + 125);
+        jst_setTimeout(function() { equal_vals( 5,  0); }, 1000 + 125);
+        jst_setTimeout(function() { equal_vals( 6,  0); }, 1250 + 125);
+        jst_setTimeout(function() { equal_vals( 7,  0); }, 1500 + 125);
+        jst_setTimeout(function() { equal_vals( 8,  1); }, 1750 + 125);
+        jst_setTimeout(function() { equal_vals( 9,  2); }, 2000 + 125);
+        jst_setTimeout(function() { equal_vals(10,  0); }, 2250 + 125);
+
+        jst_setTimeout(function() {
           equal_vals(10, 10);
           is_equal('throttle', 10, 10);
-          done();
         }, 3250 + 125);
+
+        setTimeout(function() {
+          done();
+        }, 3500 + 125);
       });
+
+      jst.add(function() {
+        if (err_found) {
+          throw err_found;
+        }
+      })
     });
 
 
