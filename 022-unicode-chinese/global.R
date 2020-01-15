@@ -1,3 +1,16 @@
+# On Windows, set locale to Chinese while this app is running
+if (.Platform[['OS.type']] == 'windows') {
+  old_locale <- Sys.getlocale()
+  Sys.setlocale(category = "LC_ALL", locale = "chs")
+  onStop(function() {
+    cats <- strsplit(old_locale, ';')[[1]]
+    lapply(cats, function(cat) {
+      x <- strsplit(cat, '=')[[1]]
+      Sys.setlocale(x[1], x[2])
+    })
+  })
+}
+
 library(datasets)
 rock2 <- rock
 names(rock2) <- c("面积", "周长", "形状", "渗透性")
