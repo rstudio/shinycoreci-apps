@@ -1,0 +1,29 @@
+name: shinytest
+
+on:
+  schedule:
+    - cron:  '0 0 * * *' # every day at midnight
+
+jobs:
+  trim_branches:
+    runs-on: ubuntu-latest
+
+    name: Trim Older Branches
+
+    steps:
+      - uses: actions/checkout@v2
+        name: GitHub Pull
+
+      - name: Trim Branches
+        shell: bash
+        # delete branches starting with `gha-`
+        # do not delete the most recent 5 branches
+        # delete all branches whose latest commit is older than a week.
+        run: |
+          git config --local --unset http.https://github.com/.extraheader
+          git config --local --list
+          for k in $(git branch -r | awk -F/ '/\/gha-/{print $2}' | tail -n+6); do
+            if [ -z "$(git log -1 --since='1 week ago' -s origin/$k)" ]; then
+              git push https://schloerke:${{secrets.GH_PAT}}@github.com/rstudio/shinycoreci-apps.git --delete $k
+            fi
+          done
