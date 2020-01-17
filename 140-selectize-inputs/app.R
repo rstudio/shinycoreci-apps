@@ -81,6 +81,7 @@ test_set <- list(
 
 js_for_id <- function(select_id, output_id, test_val) {
   paste0("
+    jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() {
       console.log('", select_id, "');
       console.log('current label')
@@ -177,7 +178,7 @@ ui <- fluidPage(
   ),
   shinyjster::shinyjster_js(
     "var jst = jster();",
-    "jst.add(Jster.shiny.waitUntilIdle);",
+    "jst.add(Jster.shiny.waitUntilStable);",
     paste0(
       collapse = "\n",
       lapply(seq_along(test_set), function(i) {
