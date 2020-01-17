@@ -34,3 +34,77 @@ shinyAppDir("app2")
 ```{r}
 shinyAppDir("app3")
 ```
+
+```{r, echo = FALSE}
+shinyjster::shinyjster_js("
+  var jst = jster();
+  jst.add(Jster.shiny.waitUntilStable);
+
+  jst.add(function(done) {
+    var wait = function() {
+      var app1 = $($('iframe').get(0)).contents();
+      var summary = app1.find('#summary').text().trim();
+      if (summary.length == 0) {
+        setTimeout(wait, 100);
+      } else {
+        done();
+      }
+    };
+    wait();
+  })
+  jst.add(function() {
+    var app1 = $($('iframe').get(0)).contents();
+    var summary = app1.find('#summary').text().trim();
+    Jster.assert.isEqual(
+      summary.replace(/\\n/g, '-'),
+      'Length Class  Mode   -cov    36     -none- numeric-center  6     -none- numeric-n.obs   1     -none- numeric');
+  });
+
+
+  jst.add(function(done) {
+    var wait = function() {
+      var app2 = $($('iframe').get(1)).contents();
+      var summary = app2.text().trim();
+      if (summary.length == 0) {
+        setTimeout(wait, 100);
+      } else {
+        done();
+      }
+    };
+    wait();
+  })
+  jst.add(function() {
+    var app2 = $($('iframe').get(1)).contents();
+    var summary = app2.text().trim();
+    Jster.assert.isEqual(
+      summary,
+      'Hello, world!');
+  });
+
+
+  jst.add(function(done) {
+    var wait = function() {
+      var app3 = $($('iframe').get(2)).contents();
+      var map = app3.find('.leaflet-map-pane');
+      if (map.length == 0) {
+        setTimeout(wait, 100);
+      } else {
+        done();
+      }
+    };
+    wait();
+  })
+  jst.add(function() {
+    var app3 = $($('iframe').get(2)).contents();
+    var zoombutton = app3.find('.leaflet-control-zoom-in');
+    Jster.assert.isTrue(
+      zoombutton.length == 1,
+      {length: zoombutton.length});
+  });
+
+
+  jst.test();
+")
+shinyjster::shinyjster_server(input, output)
+
+```
