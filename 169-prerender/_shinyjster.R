@@ -15,7 +15,7 @@ function(app = ".", ..., type = "ignored") {
     }
   }, add = TRUE)
 
-  ret <- shinyjster::run_headless(
+  shinyjster::run_headless(
     apps = c(
       file.path(app, "169-prerender-a", "index.Rmd"),
       file.path(app, "169-prerender-b")
@@ -23,13 +23,4 @@ function(app = ".", ..., type = "ignored") {
     ...,
     type = "lapply"
   )
-
-  ret169 <- ret[1, ]
-  ret169$appDir <- app
-  ret169$successful <- all(ret$successful)
-  if (!ret169$successful[[1]]) {
-    ret169$returnValue[[1]] <- ret$returnValue[[(!ret$successful)[[1]]]]
-  }
-
-  return(ret169)
 }
