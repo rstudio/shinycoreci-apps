@@ -26,7 +26,83 @@ ui <- fluidPage(
     "The Global web counter will appear faded. ",
     "In the console, Glob should continue unabated, while Sess pauses for 5 seconds, then jumps ahead by 5."
   ),
-  actionButton("busy_async", "Be busy for 5 seconds (async)")
+  actionButton("busy_async", "Be busy for 5 seconds (async)"),
+
+  shinyjster::shinyjster_js("
+    var jst = jster(0);
+
+    var get_global = function() {
+      return $('#global_counter').text().trim() - 0;
+    }
+    var get_session = function() {
+      return $('#session_counter').text().trim() - 0;
+    }
+
+    var infos = [
+      {button: 'busy_sync', base_num: 3, increase: 0},
+      {button: 'busy_async', base_num: 5, increase: 5},
+      {button: 'busy_sync', base_num: 12, increase: 0},
+      {button: 'busy_async', base_num: 15, increase: 5}
+    ];
+    infos.map(function(info) {
+      var base_global = 0;
+      var base_session = 0;
+      var assert_is_kinda_equal = function(x, expected) {
+        Jster.assert.isTrue(x <= expected, {x: x, expected: expected, info: info})
+        Jster.assert.isTrue(Math.abs(expected - x) <= 2, {x: x, expected: expected, tolerance: 2, info: info})
+      }
+
+      // wait until global counter is geq `info.base_num`
+      jst.add(function(done) {
+        var wait = function() {
+          if (get_global() >= info.base_num) {
+            done();
+          } else {
+            setTimeout(wait, 50);
+          }
+        }
+        wait();
+      })
+
+      // capture current values
+      jst.add(function() {
+        base_global = get_global();
+        base_session = get_session();
+
+        Jster.button.click(info.button);
+      });
+      // wait 4 seconds and then wait until both values have changed
+      jst.add(function(done) {
+        var cur_global = get_global();
+        var cur_session = get_session();
+        var wait = function() {
+          if (get_global() != cur_global) {
+            if (get_session() != cur_session) {
+              // global changed, session changed
+              done();
+            } else {
+              // global changed, session NOT changed
+              setTimeout(wait, 2);
+            }
+            done();
+          } else {
+            // global NOT changed
+            setTimeout(wait, 50);
+          }
+        }
+        setTimeout(wait, 4000);
+      })
+
+      // validate numbers are close.  Add 1 because we waited until number changed (increasing the value by 1)
+      jst.add(function() {
+        assert_is_kinda_equal(get_global(), base_global + info.increase + 1);
+        assert_is_kinda_equal(get_session(), base_session + info.increase + 1);
+      });
+
+    });
+
+    jst.test();
+  ")
 )
 
 global_timer <- reactiveTimer(1000)
