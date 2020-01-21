@@ -52,7 +52,7 @@ ui <- fluidPage(
         Jster.assert.isTrue(throttle_val <= raw_val, {throttle_val: throttle_val, raw_val: raw_val})
         Jster.assert.isTrue(debounce_val <= throttle_val, {throttle_val: throttle_val, debounce_val: debounce_val})
 
-        is_equal('debounce', debounce_val, raw_val);
+        // is_equal('debounce', debounce_val, raw_val);
       }
 
       var err_found = undefined;
