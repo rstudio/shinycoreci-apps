@@ -108,6 +108,8 @@ ui <- fluidPage(
 global_timer <- reactiveTimer(1000)
 
 server <- function(input, output, session) {
+  shinyjster::shinyjster_server(input, output)
+
   session_timer <- reactiveTimer(1000)
 
   global_counter_i <- 0L
