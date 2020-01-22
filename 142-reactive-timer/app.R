@@ -48,7 +48,7 @@ ui <- fluidPage(
       var base_global = 0;
       var base_session = 0;
       var assert_is_kinda_equal = function(x, expected, id) {
-        Jster.assert.isTrue(x <= expected, {x: x, expected: expected, info: info})
+        Jster.assert.isTrue(x <= expected + 1, {id: id, x: x, expected: expected, info: info})
         Jster.assert.isTrue(Math.abs(expected - x) <= 2, {id: id, x: x, expected: expected, tolerance: 2, info: info})
       }
 
@@ -79,19 +79,18 @@ ui <- fluidPage(
           if (get_global() != cur_global) {
             if (get_session() != cur_session) {
               // global changed, session changed
-              done();
+              Jster.shiny.waitUntilStable(done);
             } else {
               // global changed, session NOT changed
               setTimeout(wait, 2);
             }
-            done();
           } else {
             // global NOT changed
             setTimeout(wait, 50);
           }
         }
         setTimeout(wait, 4000);
-      })
+      });
 
       // validate numbers are close.  Add 1 because we waited until number changed (increasing the value by 1)
       jst.add(function() {
