@@ -47,9 +47,9 @@ ui <- fluidPage(
     infos.map(function(info) {
       var base_global = 0;
       var base_session = 0;
-      var assert_is_kinda_equal = function(x, expected) {
+      var assert_is_kinda_equal = function(x, expected, id) {
         Jster.assert.isTrue(x <= expected, {x: x, expected: expected, info: info})
-        Jster.assert.isTrue(Math.abs(expected - x) <= 2, {x: x, expected: expected, tolerance: 2, info: info})
+        Jster.assert.isTrue(Math.abs(expected - x) <= 2, {id: id, x: x, expected: expected, tolerance: 2, info: info})
       }
 
       // wait until global counter is geq `info.base_num`
@@ -95,8 +95,8 @@ ui <- fluidPage(
 
       // validate numbers are close.  Add 1 because we waited until number changed (increasing the value by 1)
       jst.add(function() {
-        assert_is_kinda_equal(get_global(), base_global + info.increase + 1);
-        assert_is_kinda_equal(get_session(), base_session + info.increase + 1);
+        assert_is_kinda_equal(get_global(), base_global + info.increase + 1, 'global');
+        assert_is_kinda_equal(get_session(), base_session + info.increase + 1, 'session');
       });
 
     });
