@@ -7,7 +7,7 @@
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2020-01-14                  
+ date     2020-01-22                  
 --------------------------------------------------------------------------------
               Package    Version Source     SHA              Ref
 1         AsioHeaders   1.12.1-1   CRAN                         
@@ -16,9 +16,9 @@
 4           backports      1.1.5   CRAN                         
 5           base64enc      0.1-3   CRAN                         
 6                  BH   1.72.0-3   CRAN                         
-7                 bit     1.1-14   CRAN                         
+7                 bit   1.1-15.1   CRAN                         
 8               bit64      0.9-7   CRAN                         
-9                blob      1.2.0   CRAN                         
+9                blob      1.2.1   CRAN                         
 10              broom      0.5.3   CRAN                         
 11              callr      3.4.0   CRAN                         
 12                cli      2.0.1   CRAN                         
@@ -37,11 +37,11 @@
 25           ellipsis      0.3.0   CRAN                         
 26           evaluate       0.14   CRAN                         
 27              fansi      0.4.1   CRAN                         
-28             farver      2.0.1   CRAN                         
+28             farver      2.0.3   CRAN                         
 29            fastmap      1.0.1 GitHub 61c6099     r-lib/master
 30      flexdashboard 0.5.1.9000 GitHub 404cdac   rstudio/master
 31                 fs      1.3.1   CRAN                         
-32             future     1.15.1   CRAN                         
+32             future     1.16.0   CRAN                         
 33           generics      0.0.2   CRAN                         
 34            ggplot2      3.2.1   CRAN                         
 35              ggvis      0.4.5   CRAN                         
@@ -52,13 +52,13 @@
 40             hexbin     1.28.0   CRAN                         
 41        highcharter      0.7.0   CRAN                         
 42              highr        0.8   CRAN                         
-43          htmltools 0.4.0.9001 GitHub e60e803   rstudio/master
+43          htmltools 0.4.0.9002 GitHub e07546c   rstudio/master
 44        htmlwidgets 1.5.1.9000 GitHub b357323  ramnathv/master
 45             httpuv 1.5.2.9000 GitHub d88039d   rstudio/master
 46               httr      1.4.1   CRAN                         
 47             igraph    1.2.4.2   CRAN                         
 48           jsonlite        1.6   CRAN                         
-49              knitr       1.26   CRAN                         
+49              knitr       1.27   CRAN                         
 50           labeling        0.3   CRAN                         
 51              later 1.0.0.9002 GitHub 077245d     r-lib/master
 52           lazyeval      0.2.2   CRAN                         
@@ -106,15 +106,15 @@
 94           reshape2      1.4.3   CRAN                         
 95              rlang      0.4.2   CRAN                         
 96              rlist    0.4.6.1   CRAN                         
-97          rmarkdown        2.0   CRAN                         
+97          rmarkdown        2.1   CRAN                         
 98          rprojroot      1.3-2   CRAN                         
 99            RSQLite      2.2.0   CRAN                         
 100        rstudioapi       0.10   CRAN                         
 101            scales      1.1.0   CRAN                         
 102       sessioninfo      1.1.1   CRAN                         
-103             shiny 1.4.0.9001 GitHub e7ec5e5   rstudio/master
-104           shinyjs        1.0   CRAN                         
-105        shinyjster 0.0.0.9001 GitHub ce155b3 schloerke/master
+103             shiny 1.4.0.9001 GitHub cdbdb45   rstudio/master
+104           shinyjs        1.1   CRAN                         
+105        shinyjster 0.0.0.9003 GitHub a890dda schloerke/master
 106         shinymeta      0.2.0 GitHub b0ac455   rstudio/master
 107         shinytest 1.3.1.9001 GitHub eca7930   rstudio/master
 108       shinythemes      1.1.2   CRAN                         
@@ -130,7 +130,7 @@
 118            tibble      2.1.3   CRAN                         
 119             tidyr      1.0.0   CRAN                         
 120        tidyselect      0.2.5   CRAN                         
-121           tinytex       0.18   CRAN                         
+121           tinytex       0.19   CRAN                         
 122                tm      0.7-7   CRAN                         
 123               TTR     0.23-6   CRAN                         
 124              utf8      1.1.4   CRAN                         
@@ -142,11 +142,11 @@
 130           whisker        0.4   CRAN                         
 131             withr      2.1.2   CRAN                         
 132         wordcloud        2.6   CRAN                         
-133              xfun       0.11   CRAN                         
-134               XML  3.98-1.20   CRAN                         
+133              xfun       0.12   CRAN                         
+134               XML   3.99-0.3   CRAN                         
 135              xml2      1.2.2   CRAN                         
 136            xtable      1.8-4   CRAN                         
-137               xts     0.11-2   CRAN                         
+137               xts     0.12-0   CRAN                         
 138              yaml      2.2.0   CRAN                         
 139           zeallot      0.1.0   CRAN                         
 140               zoo      1.8-7   CRAN                         
