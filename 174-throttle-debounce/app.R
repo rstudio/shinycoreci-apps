@@ -102,11 +102,11 @@ ui <- fluidPage(
         jst_setTimeout(function() {
           equal_vals(10, 10);
           is_equal('throttle', 10, 10);
-        }, 3250 + 125);
+        }, 3500 + 125);
 
         setTimeout(function() {
           done();
-        }, 3500 + 125);
+        }, 3750 + 125);
       });
 
       jst.add(function() {
