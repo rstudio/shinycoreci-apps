@@ -1,6 +1,9 @@
 name: Trim Old Branches
 
 on:
+  push:
+    branches:
+      - ghactions
   repository_dispatch:
     types:
       - all
@@ -28,6 +31,7 @@ jobs:
           git config --local --list
           for k in $(git branch -r --sort=-committerdate | awk -F/ '/\/gha-/{print $2}' | tail -n+6); do
             if [ -z "$(git log -1 --since='1 week ago' -s origin/$k)" ]; then
+              echo "Deleting branch: $k"
               git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git --delete $k
             fi
           done
