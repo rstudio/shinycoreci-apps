@@ -65,7 +65,7 @@ jobs:
           key: ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinytest-${{ steps.cache_id.outputs.value }}
           restore-keys: |
             ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinytest-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-libs-rcmdcheck-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-libs-testthat-
 
       - name: Install Packages
         run: >
