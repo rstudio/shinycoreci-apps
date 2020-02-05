@@ -111,12 +111,12 @@ jobs:
       - name: Log platform and package information
         run: Rscript -e "shinycoreci::write_sysinfo()"
 
-      # - name: Run headless Chrome checks
-      #   timeout-minutes: 20
-      #   shell: bash
-      #   run: >
-      #     Rscript
-      #     -e "shinycoreci::test_shinyjster(browser = 'chrome', type = 'serial')"
+      - name: Run headless Chrome checks
+        timeout-minutes: 20
+        shell: bash
+        run: >
+          Rscript
+          -e "shinycoreci::test_shinyjster(browser = 'chrome', type = 'serial')"
       # - name: Run headless Firefox checks
       #   if: false
       #   run: >

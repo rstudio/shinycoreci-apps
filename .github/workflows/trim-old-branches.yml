@@ -28,6 +28,6 @@ jobs:
           git config --local --list
           for k in $(git branch -r --sort=-committerdate | awk -F/ '/\/gha-/{print $2}' | tail -n+6); do
             if [ -z "$(git log -1 --since='1 week ago' -s origin/$k)" ]; then
-              git push https://schloerke:${{secrets.GH_PAT}}@github.com/rstudio/shinycoreci-apps.git --delete $k
+              git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git --delete $k
             fi
           done
