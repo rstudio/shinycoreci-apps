@@ -117,11 +117,14 @@ jobs:
           cd apps
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions"
-          git add .
-          git commit -m "GitHub Actions changes" || echo "No changes to commit"
           git config --local --unset http.https://github.com/.extraheader
           git config --local --list
-          git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git HEAD:gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}
+          BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}"
+          git checkout -b "$BRANCH"
+          git add .
+          git commit -m "GitHub Actions changes" || echo "No changes to commit"
+          git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
+
 
       - name: Fix path for Windows caching
         if: runner.os == 'Windows'
