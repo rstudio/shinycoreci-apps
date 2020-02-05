@@ -1,6 +1,10 @@
 name: shinytest
 
 on:
+  repository_dispatch:
+    types:
+      - all
+      - trim
   schedule:
     - cron:  '0 0 * * *' # every day at midnight
 
