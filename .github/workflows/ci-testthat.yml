@@ -100,9 +100,9 @@ jobs:
       - name: Log platform and package information
         run: Rscript -e "shinycoreci::write_sysinfo()"
 
-      # - name: Run testthat
-      #   run: >
-      #     Rscript -e "shinycoreci::test_testthat(dir = 'apps')"
+      - name: Run testthat
+        run: >
+          Rscript -e "shinycoreci::test_testthat(dir = 'apps')"
 
       - name: Upload test results
         if: failure()
