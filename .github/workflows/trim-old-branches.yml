@@ -31,9 +31,10 @@ jobs:
           git config --local --list
           echo ""
           echo "Branches:"
-          $(git branch -r --sort=-committerdate | awk -F/ '/\/gha-/{print $2}' | tail -n+6 | echo
+          git branch -r --sort=-committerdate | awk -F/ '/\/gha-/{print $2}' | tail -n+6 | echo
+          echo ""
           for k in $(git branch -r --sort=-committerdate | awk -F/ '/\/gha-/{print $2}' | tail -n+6); do
-            $(git log -1 --since='1 week ago' -s origin/$k) | echo
+            git log -1 --since='1 week ago' -s origin/$k | echo
             if [ -z "$(git log -1 --since='1 week ago' -s origin/$k)" ]; then
               echo "Deleting branch: $k"
               git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git --delete $k
