@@ -1,4 +1,4 @@
-name: shinytest
+name: Trim Old Branches
 
 on:
   repository_dispatch:
@@ -12,7 +12,7 @@ jobs:
   trim_branches:
     runs-on: ubuntu-latest
 
-    name: Trim Older Branches
+    name: Trim Old Branches
 
     steps:
       - uses: actions/checkout@v2
