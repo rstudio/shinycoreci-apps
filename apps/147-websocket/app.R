@@ -74,7 +74,7 @@ ui <- fluidPage(
         }
         wait();
       });
-      jst.add(Jster.shiny.waitUntilStable)
+      jst.add(Jster.shiny.waitUntilIdleFor(2000));
 
       jst.add(function() {
         Jster.assert.isEqual(
