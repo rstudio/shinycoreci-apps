@@ -33,6 +33,25 @@ ui <- fluidPage(
     ].map(function(testVal) {
 
       jst.add(Jster.shiny.waitUntilStable);
+      jst.add(function(done) {
+        var i = 0;
+        var wait = function() {
+          console.log('waiting!')
+          if (/^Connected/.test($('#status').text().trim()) ) {
+            done();
+            return;
+          }
+
+          if (i > 30 * 10) {
+            done();
+            return;
+          }
+
+          i = i + 1;
+          setTimeout(wait, 100);
+        }
+        wait();
+      })
       jst.add(function() {
         Jster.assert.isEqual($('#status').text().trim(), 'Connected to wss://echo.websocket.org');
 
