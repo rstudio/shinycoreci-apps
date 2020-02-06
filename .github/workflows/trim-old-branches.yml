@@ -34,16 +34,17 @@ jobs:
         run: |
           git config --local --unset http.https://github.com/.extraheader
           git config --local --list
-          echo "\nAll Branches:"
+          echo ""
+          echo "All Branches:"
           git branch -r --sort=-committerdate
-          echo "\nBranches older than most recent 5 branches"
+          echo ""
+          echo "Branches older than most recent 5 branches"
           git branch -r --sort=-committerdate | awk -F/ '/\/gha-/{print $2}' | tail -n+6
           echo ""
           for k in $(git branch -r --sort=-committerdate | awk -F/ '/\/gha-/{print $2}' | tail -n+6); do
-            echo "\n$k"
-            git log -1 --since='1 week ago' -s origin/$k
+            echo "Branch: $k"
             if [ -z "$(git log -1 --since='1 week ago' -s origin/$k)" ]; then
-              echo "Deleting branch: $k"
+              echo "-- Deleting branch: $k"
               git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git --delete $k
             fi
           done
