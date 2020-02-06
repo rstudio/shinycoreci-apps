@@ -119,6 +119,8 @@ jobs:
         if: failure()
         shell: bash
         # need to unset the extra header to allow for regular https push
+        # git checkout -B -- Creates the branch <new_branch> and start it at <start_point>; if it already exists, then reset it to <start_point>.
+        # git push --force -- JUST in case the prior branch existed
         run: |
           cd apps
           git config --local user.email "action@github.com"
@@ -126,10 +128,10 @@ jobs:
           git config --local --unset http.https://github.com/.extraheader
           git config --local --list
           BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}"
-          git checkout -b "$BRANCH"
+          git checkout -B "$BRANCH"
           git add .
           git commit -m "GitHub Actions changes" || echo "No changes to commit"
-          git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
+          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
 
 
       - name: Fix path for Windows caching
