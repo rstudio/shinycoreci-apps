@@ -1,16 +1,13 @@
 app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
 app$snapshotInit("mytest")
 
-# Spin until input$state gives us a useful value, or timeout.
-for (i in 1:100) {
-  state <- try(app$getValue("state", "input"))
-  if (inherits(state, "try-error") || identical(state, "")) {
-    Sys.sleep(0.2)
-  } else {
-    break
-  }
-}
+# Wait until the DT table is fully initialized
+init_parcoord <- app$waitForValue("parcoord", ignore = list(NULL, ""), iotype = "output")
+app$waitForValue("rawdata_rows_current", ignore = list(NULL, ""))
 app$snapshot()
+
 app$setInputs(state = "California")
-Sys.sleep(1)
+# Wait until the DT table is has new values
+app$waitForValue("parcoord", ignore = list(init_parcoord), iotype = "output")
+
 app$snapshot()

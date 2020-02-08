@@ -81,11 +81,17 @@ jobs:
           -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
           -e "shinycoreci::install_app_deps()"
 
+      # The `github.sha` value is the commit sha as if the PR was merged. :-(
+      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
+      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If master branch, only the `.sha` exists. If a PR, the PR sha exists.
+      #  Either way, take the first 7 characters.
+      # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
+      # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
       - name: Create failure branch name
         id: failed_branch
         run: >
           Rscript
-          -e "cat('::set-output name=name::', substr('${{ github.sha }}', 1, 7), '-', format(Sys.time(), '%Y_%m_%d'), sep = '')"
+          -e "cat('::set-output name=name::', substr(paste0('${{ github.event.pull_request.head.sha }}', '${{ github.sha }}'), 1, 7), '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
 
       - name: Find PhantomJS path
         id: phantomjs
@@ -113,15 +119,20 @@ jobs:
         if: failure()
         shell: bash
         # need to unset the extra header to allow for regular https push
+        # git checkout -B -- Creates the branch <new_branch> and start it at <start_point>; if it already exists, then reset it to <start_point>.
+        # git push --force -- JUST in case the prior branch existed
         run: |
           cd apps
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions"
-          git add .
-          git commit -m "GitHub Actions changes" || echo "No changes to commit"
           git config --local --unset http.https://github.com/.extraheader
           git config --local --list
-          git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git HEAD:gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}
+          BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}"
+          git checkout -B "$BRANCH"
+          git add .
+          git commit -m "GitHub Actions changes" || echo "No changes to commit"
+          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
+
 
       - name: Fix path for Windows caching
         if: runner.os == 'Windows'
