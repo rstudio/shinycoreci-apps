@@ -36,7 +36,6 @@ ui <- fluidPage(
       jst.add(function(done) {
         var i = 0;
         var wait = function() {
-          console.log('waiting!')
           if (/^Connected/.test($('#status').text().trim()) ) {
             done();
             return;
@@ -66,7 +65,6 @@ ui <- fluidPage(
       jst.add(function(done) {
         var wait = function() {
           if (Jster.input.value('input') === '') {
-            console.log('done!')
             done();
             return;
           }
