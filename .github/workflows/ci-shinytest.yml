@@ -10,7 +10,7 @@ on:
       - master
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   schedule:
-    - cron:  '0 0 * * 1' # every monday at midnight
+    - cron:  '0 6 * * 0-4' # every work night at ~ midnight central time
   repository_dispatch:
     types:
       - all
