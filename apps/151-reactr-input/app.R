@@ -86,6 +86,16 @@ ui <- function(request) {
 server <- function(input, output, session) {
   shinyjster::shinyjster_server(input, output, session)
   output$simpleTextOutput <- renderText(input$simpleTextInput)
+
+  # When running in Shinytest, we need to display a consistent port number for
+  # snapshots. (This URL won't actually work for restoring a bookmark.)
+  if (isTRUE(getOption("shiny.testmode"))) {
+    onBookmarked(function(url) {
+      browser()
+      url <- sub(":\\d+/", ":9999/", url)
+      showBookmarkUrlModal(url)
+    })
+  }
 }
 
 shinyApp(ui, server, enableBookmarking = "url")
