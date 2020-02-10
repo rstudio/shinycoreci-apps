@@ -5,16 +5,16 @@
     "one-table_cell_clicked": {
 
     },
-    "one-table_rows_all": null,
-    "one-table_rows_current": null,
+    "one-table_rows_all": 1,
+    "one-table_rows_current": 1,
     "one-table_rows_selected": null,
     "one-table_search": "",
     "one-table_state": null,
     "table_cell_clicked": {
 
     },
-    "table_rows_all": null,
-    "table_rows_current": null,
+    "table_rows_all": 1,
+    "table_rows_current": 1,
     "table_rows_selected": null,
     "table_search": "",
     "table_state": null

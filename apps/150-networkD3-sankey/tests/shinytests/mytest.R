@@ -1,8 +1,6 @@
 app <- ShinyDriver$new("../../", seed = 100)
 app$snapshotInit("mytest")
 
-Sys.sleep(1)
-app$snapshot()
 # Progress won't work right with shinytest because of timing.
 #app$setInputs(progress = "click")
 #app$snapshot()
