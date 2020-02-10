@@ -2,7 +2,6 @@ library(shiny)
 
 ui <- withTags(fluidPage(
   h3("Test of additional renderPlot args"),
-  p("TODO: automate resizing - need to do in separate window."),
   ol(
     li("The background of the plot should be the same color as the page background."),
     li("Try resizing the browser's width, make sure it's transparent even after redraw.")
