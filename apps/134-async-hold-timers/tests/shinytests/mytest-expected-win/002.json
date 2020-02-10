@@ -4,7 +4,7 @@
   },
   "output": {
     "status": {
-      "html": "<h4>\n  <span style=\"background-color: #dddddd;\">Waiting...<\/span>\n<\/h4>",
+      "html": "<h4>\n  <span style=\"background-color: #7be092;\">Pass!<\/span>\n<\/h4>",
       "deps": [
 
       ]
