@@ -1,6 +1,21 @@
 {
   "input": {
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
 
+      ]
+    },
+    "plotly_afterplot-A": "\"p3\"",
+    "plotly_relayout-A": "{\"annotations\":[{\"text\":\"Test passed!\",\"x\":0,\"y\":0,\"showarrow\":false}]}"
   },
   "output": {
     "p1": {
