@@ -1,0 +1,10 @@
+app <- ShinyDriver$new("../../")
+app$snapshotInit("mytest")
+
+app$snapshot()
+app$waitForValue("table_cell_clicked")
+app$setInputs(inc = "click")
+app$setInputs(inc = "click")
+app$setInputs(inc = "click")
+app$setInputs(`one-inc` = "click")
+app$snapshot()
