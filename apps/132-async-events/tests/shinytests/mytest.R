@@ -1,7 +1,7 @@
 app <- ShinyDriver$new("../../")
 app$snapshotInit("mytest")
 
-app$waitForValue("observeEventStatus", "output")
+app$waitForValue("observeEventStatus", iotype = "output")
 app$snapshot()
 app$setInputs(type = "silent")
 app$snapshot()
