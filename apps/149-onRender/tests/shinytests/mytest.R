@@ -1,5 +1,6 @@
 app <- ShinyDriver$new("../../")
 app$snapshotInit("mytest")
 
-Sys.sleep(1)
+app$waitForValue("p3", iotype = "output")
+Sys.sleep(2)
 app$snapshot()
