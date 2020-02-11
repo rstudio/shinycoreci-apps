@@ -64,8 +64,8 @@ ui <- fluidPage(
     checkboxGroupInput("checkboxGroupInput2", label = label_initial, choices = "a")
   ),
   row(
-    dateInput("dateInput1", label = NULL),
-    dateInput("dateInput2", label = label_initial)
+    dateInput("dateInput1", label = NULL, value = "2020-02-01"),
+    dateInput("dateInput2", label = label_initial, value = "2020-02-01")
   ),
   shinyjster::shinyjster_js("
     var jst = jster();
