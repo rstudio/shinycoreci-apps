@@ -411,9 +411,9 @@
       "deps": [
         {
           "name": "dt-core",
-          "version": "1.10.19",
+          "version": "1.10.20",
           "src": {
-            "href": "dt-core-1.10.19"
+            "href": "dt-core-1.10.20"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
@@ -514,9 +514,9 @@
       "deps": [
         {
           "name": "dt-core",
-          "version": "1.10.19",
+          "version": "1.10.20",
           "src": {
-            "href": "dt-core-1.10.19"
+            "href": "dt-core-1.10.20"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
