@@ -8,40 +8,6 @@ There are three main workflows:
 * [**testthat**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Atestthat): Test applications using [`rstudio/testthat`](https://github.com/rstudio/testthat) via INTEGRATION_TESTING_LINK
 
 
-## Usage
-
-```r
-# (Install `shinycoreci` once per R session)
-remotes::install_github("rstudio/shinycoreci")
-
-# Sitting at the root folder of the rstudio/shinycoreci-apps repo
-shinycoreci::test_shinytest()
-shinycoreci::test_shinyjster()
-shinycoreci::test_testthat()
-```
-
-This GitHub repo works in concert with [`rstudio/shinycoreci`](https://github.com/rstudio/shinycoreci)
-
-Each of the major `test_*()` methods will (by default) ask a [Spreadsheet of Apps](https://docs.google.com/spreadsheets/d/1jPWPNmSQbbE8E6KS5tXnm5Jq7r01GaOCCE1Vvz5e9a8/edit#gid=0) to determine which apps to test.  `test_testthat()` will inspect all apps in the supplied directory inspecting for a `tests/testthat.R` file.
-
-New apps **must be added** to the [spreadsheet](https://docs.google.com/spreadsheets/d/1jPWPNmSQbbE8E6KS5tXnm5Jq7r01GaOCCE1Vvz5e9a8/edit#gid=0).  Check the appropriate boxes to trigger respective workflows.
-
-
-### Diagnosing `shinytest` problems posted by GitHub Actions
-
-```r
-# Sitting at the root folder of the rstudio/shinycoreci-apps repo
-
-# git pull
-# git checkout BROKEN_BRANCH_NAME
-shinycoreci::view_test_diff()
-## Add all new and removed files
-# git add -u .
-# git commit -m "MESSAGE"
-# git push
-# Make a PR on GitHub
-```
-
 ## Testing Environments
 
 [**`shinytest`**](https://github.com/rstudio/shinytest)
@@ -71,6 +37,70 @@ shinycoreci::view_test_diff()
   * ~~[rstudio.cloud](http://rstudio.cloud)~~
     * ~~Log into a session, then RUN LOCAL IDE~~
 
+
+## Usage
+
+```r
+# (Install `shinycoreci` once per R session)
+remotes::install_github("rstudio/shinycoreci")
+
+# Sitting at the root folder of the rstudio/shinycoreci-apps repo
+shinycoreci::test_shinytest()
+shinycoreci::test_shinyjster()
+shinycoreci::test_testthat()
+```
+
+This GitHub repo works in concert with [`rstudio/shinycoreci`](https://github.com/rstudio/shinycoreci)
+
+Each of the major `test_*()` methods will (by default) ask a [Spreadsheet of Apps](https://docs.google.com/spreadsheets/d/1jPWPNmSQbbE8E6KS5tXnm5Jq7r01GaOCCE1Vvz5e9a8/edit#gid=0) to determine which apps to test.  `test_testthat()` will inspect all apps in the supplied directory inspecting for a `tests/testthat.R` file.
+
+New apps **must be added** to the [spreadsheet](https://docs.google.com/spreadsheets/d/1jPWPNmSQbbE8E6KS5tXnm5Jq7r01GaOCCE1Vvz5e9a8/edit#gid=0).  Check the appropriate boxes to trigger respective workflows.
+
+
+### Diagnosing `shinytest` problems posted by GitHub Actions
+
+![shinytest broken branch name](README_files/broken_tests_action.png)
+
+When `shinytest` fails, the workflow will capture the failed test artifacts and push them to a new branch of `rstudio/shinycoreci-apps`.  This branch will be in the form of `gha-SHA-DATE-OS`.
+
+* `SHA` - The git sha of the commit that triggered the workflow
+* `DATE` - The year, month, day, hour, and minute with the format `YEAR_MO_DY_HR_MN`
+* `OS` - One of `macOS`, `Windows`, or `Linux`.
+
+#### Steps fix broken `shinytest` apps
+
+The following manual bash steps might be useful in resolving `shinytest` problems.
+
+```bash
+#!/usr/bin/bash
+# Sitting at the root folder of the rstudio/shinycoreci-apps repo
+
+git checkout master
+git pull
+git checkout BROKEN_BRANCH_NAME
+
+# Accept or reject results
+Rscript -e "shinycoreci::view_test_diff()"
+
+# If any apps need to be fixed, fix them and re-run tests for those apps.
+
+# At this point, need to delete any *-current directories that remain.
+find . -name "*-current"
+# If any are found, delete them
+rm -rf XXXXXX-current
+
+# Add deleted files to git
+git add -u .
+# Make sure that the right files are staged. No *-current directories!
+git status
+git commit -m "MESSAGE"
+
+# Merge the branch into master
+git checkout master
+git merge BROKEN_BRANCH_NAME
+git push
+git branch -D BROKEN_BRANCH_NAME
+```
 
 # FAQ
 
