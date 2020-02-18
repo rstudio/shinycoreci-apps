@@ -131,14 +131,21 @@ jobs:
             git config --local user.name "GitHub Actions" && \
             git config --local --unset http.https://github.com/.extraheader && \
             git config --local --list
+
           BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}"
           git checkout -B "$BRANCH"
+
           git add apps/sysinfo-* && \
             git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }}' || \
             echo "No apps/sysinfo-* changes to commit"
+
           git add . && \
             git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }}'|| \
             echo "No shinytest changes to commit"
+
+          # view log
+          git log -n 4 --pretty=oneline --simplify-by-decoration
+
           # if any commits occured, then push to repo
           echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}`"
           if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
