@@ -87,11 +87,16 @@ jobs:
       #  Either way, take the first 7 characters.
       # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
       # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
+      - name: Create short sha
+        id: short_sha
+        run: >
+          Rscript
+          -e "cat('::set-output name=sha::', substr(paste0('${{ github.event.pull_request.head.sha }}', '${{ github.sha }}'), 1, 7), sep = '')"
       - name: Create failure branch name
         id: failed_branch
         run: >
           Rscript
-          -e "cat('::set-output name=name::', substr(paste0('${{ github.event.pull_request.head.sha }}', '${{ github.sha }}'), 1, 7), '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
+          -e "cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
 
       - name: Find PhantomJS path
         id: phantomjs
@@ -129,10 +134,10 @@ jobs:
           BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}"
           git checkout -B "$BRANCH"
           git add apps/sysinfo-* && \
-            git commit -m 'gha- `sysinfo` Changes' || \
+            git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }}' || \
             echo "No apps/sysinfo-* changes to commit"
           git add . && \
-            git commit -m 'gha- `shinytest` Changes' && \
+            git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }}' && \
             git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH" || \
             echo "No shinytest changes to commit"
 
