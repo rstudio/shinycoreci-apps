@@ -200,7 +200,7 @@ jobs:
           -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
-          -e "remotes::install_github('rstudio/shinycoreci@CRAN', dependencies = FALSE, force = TRUE)"
+          -e "remotes::install_github('rstudio/shinycoreci@CRAN', dependencies = TRUE, force = TRUE)"
 
       - name: Install app deps
         run: >
