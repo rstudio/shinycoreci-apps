@@ -140,8 +140,8 @@ jobs:
             git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }}'|| \
             echo "No shinytest changes to commit"
           # if any commits occured, then push to repo
-          echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha`"
-          if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha` }} > 0 )); then
+          echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}`"
+          if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
             git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
           fi
 
