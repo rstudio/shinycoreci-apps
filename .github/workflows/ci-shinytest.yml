@@ -207,11 +207,6 @@ jobs:
           Rscript
           -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
           -e "shinycoreci::install_app_deps()"
-      - name: Re-install shinycoreci
-        run: >
-          Rscript
-          -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
-          -e "remotes::install_github('rstudio/shinycoreci@CRAN', dependencies = TRUE, force = TRUE)"
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
