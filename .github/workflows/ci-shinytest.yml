@@ -115,23 +115,26 @@ jobs:
         run: >
           Rscript -e "shinycoreci::test_shinytest(dir = 'apps')"
 
-      - name: Push broken tests to rstudio/shinycoreci-apps
-        if: failure()
+      - name: Push updated files to rstudio/shinycoreci-apps
+        if: always()
         shell: bash
         # need to unset the extra header to allow for regular https push
         # git checkout -B -- Creates the branch <new_branch> and start it at <start_point>; if it already exists, then reset it to <start_point>.
         # git push --force -- JUST in case the prior branch existed
         run: |
-          cd apps
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Actions"
-          git config --local --unset http.https://github.com/.extraheader
-          git config --local --list
+          git config --local user.email "action@github.com" && \
+            git config --local user.name "GitHub Actions" && \
+            git config --local --unset http.https://github.com/.extraheader && \
+            git config --local --list
           BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}"
           git checkout -B "$BRANCH"
-          git add .
-          git commit -m "GitHub Actions changes" || echo "No changes to commit"
-          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
+          git add apps/sysinfo-* && \
+            git commit -m 'gha- `sysinfo` Changes' || \
+            echo "No apps/sysinfo-* changes to commit"
+          git add . && \
+            git commit -m 'gha- `shinytest` Changes' && \
+            git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH" || \
+            echo "No shinytest changes to commit"
 
 
       - name: Fix path for Windows caching
