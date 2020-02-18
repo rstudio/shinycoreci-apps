@@ -43,6 +43,12 @@ jobs:
 
       - uses: actions/checkout@v2
         name: GitHub Pull
+      # Ref: https://github.com/actions/checkout/pull/115/files#diff-04c6e90faac2675aa89e2176d2eec7d8R203-R209
+      # Related: https://stackoverflow.com/a/54710129/591574
+      # Allows for pushing back to git after checks
+      - name: Fetch Full Repo
+        run: |
+          git fetch --prune --unshallow
 
       - uses: r-lib/actions/setup-pandoc@master
 
