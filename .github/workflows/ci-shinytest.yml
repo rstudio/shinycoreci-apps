@@ -141,3 +141,130 @@ jobs:
         # we'll just set the path so that the original tar that would be
         # found, will be found.
         run: echo "::add-path::C:/Program Files/Git/usr/bin"
+
+
+
+
+  shinytest-apps-cran:
+    runs-on: ${{ matrix.config.os }}
+
+    name: ${{ matrix.config.os }}-CRAN (${{ matrix.config.r }})
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        config:
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org"}
+        - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org"}
+
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      CRAN: ${{ matrix.config.cran }}
+
+    steps:
+      - name: Windows git setup
+        if: runner.os == 'Windows'
+        run:
+          git config --global core.autocrlf false
+
+      - uses: actions/checkout@v2
+        name: GitHub Pull
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - uses: r-lib/actions/setup-r@master
+        with:
+          r-version: ${{ matrix.config.r }}
+      - name: R Options
+        shell: bash
+        run: |
+          echo 'MAKEFLAGS=-j2' >> .Renviron
+
+      - name: Create cache ID from time
+        id: cache_id
+        run: |
+          echo "::set-output name=value::$(Rscript -e 'cat(as.numeric(Sys.time()))')"
+      - name: Cache R packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-CRAN-libs-shinytest-${{ steps.cache_id.outputs.value }}
+          restore-keys: |
+            ${{ runner.os }}-r-${{ matrix.config.r }}-CRAN-libs-shinytest-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-CRAN-libs-testthat-
+
+      - name: Install Packages
+        run: >
+          Rscript
+          -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
+          -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
+          -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
+          -e "remotes::install_github('rstudio/shinycoreci', dependencies = FALSE, force = TRUE)"
+
+      - name: Install app deps
+        run: >
+          Rscript
+          -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
+          -e "shinycoreci::install_app_deps()"
+
+      # The `github.sha` value is the commit sha as if the PR was merged. :-(
+      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
+      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If master branch, only the `.sha` exists. If a PR, the PR sha exists.
+      #  Either way, take the first 7 characters.
+      # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
+      # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
+      - name: Create failure branch name
+        id: failed_branch
+        run: >
+          Rscript
+          -e "cat('::set-output name=name::', substr(paste0('${{ github.event.pull_request.head.sha }}', '${{ github.sha }}'), 1, 7), '-CRAN-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
+
+      - name: Find PhantomJS path
+        id: phantomjs
+        run: |
+          echo "::set-output name=path::$(Rscript -e 'cat(shinytest:::phantom_paths()[[1]])')"
+      - name: Cache PhantomJS
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.phantomjs.outputs.path }}
+          key: ${{ runner.os }}-phantomjs
+          restore-keys: ${{ runner.os }}-phantomjs
+      - name: Install PhantomJS
+        run: >
+          Rscript
+          -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
+
+      - name: Log platform and package information
+        run: Rscript -e "shinycoreci::write_sysinfo()"
+
+      - name: Run shinytest
+        run: >
+          Rscript -e "shinycoreci::test_shinytest(dir = 'apps')"
+
+      - name: Push broken tests to rstudio/shinycoreci-apps
+        if: failure()
+        shell: bash
+        # need to unset the extra header to allow for regular https push
+        # git checkout -B -- Creates the branch <new_branch> and start it at <start_point>; if it already exists, then reset it to <start_point>.
+        # git push --force -- JUST in case the prior branch existed
+        run: |
+          cd apps
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+          git config --local --unset http.https://github.com/.extraheader
+          git config --local --list
+          BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}"
+          git checkout -B "$BRANCH"
+          git add .
+          git commit -m "GitHub Actions changes" || echo "No changes to commit"
+          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
+
+
+      - name: Fix path for Windows caching
+        if: runner.os == 'Windows'
+        # This is needed because if you use the default tar at this stage,
+        # C:/Rtools/bin/tar.exe, it will say that it can't find gzip.exe. So
+        # we'll just set the path so that the original tar that would be
+        # found, will be found.
+        run: echo "::add-path::C:/Program Files/Git/usr/bin"
