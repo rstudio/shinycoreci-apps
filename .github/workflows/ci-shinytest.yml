@@ -21,15 +21,18 @@ jobs:
   shinytest-apps:
     runs-on: ${{ matrix.config.os }}
 
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+    name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.config.r }})
 
     strategy:
       fail-fast: false
 
       matrix:
+        shinycoreci:
+        - { branch: "master", text: ""}
+        # - { branch: "CRAN", text: "-CRAN"}
         config:
-        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org"}
-        - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org"}
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "master", shinycoreci_text: ""}
+        - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "master", shinycoreci_text: ""}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -68,18 +71,24 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinytest-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinytest-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinytest-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-libs-testthat-
+            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinytest-
+            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-testthat-
 
       - name: Install Packages
+        # if non linux, install binaries
+        # make sure to get the best version number possible
+        # If remotes isn't installed, install it
+        # If shinytest isn't available, install the cran version to init the R library
+        # install the specific branch of shinycoreci
         run: >
           Rscript
           -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
-          -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
+          -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
+          -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', dependencies = TRUE, force = TRUE)"
 
       - name: Install app deps
         run: >
@@ -102,7 +111,7 @@ jobs:
         id: failed_branch
         run: >
           Rscript
-          -e "cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
+          -e "cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
 
       - name: Find PhantomJS path
         id: phantomjs
@@ -142,11 +151,11 @@ jobs:
           git checkout -B "$BRANCH"
 
           git add apps/sysinfo-* && \
-            git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }}' || \
+            git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
             echo "No apps/sysinfo-* changes to commit"
 
           git add . && \
-            git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }}'|| \
+            git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}'|| \
             echo "No shinytest changes to commit"
 
           # view log
