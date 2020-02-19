@@ -7,7 +7,7 @@
  collate  English_United States.1252  
  ctype    English_United States.1252  
  tz       UTC                         
- date     2020-02-18                  
+ date     2020-02-19                  
 --------------------------------------------------------------------------------
               Package    Version Source     SHA              Ref
 1         AsioHeaders   1.12.1-1   CRAN                         
@@ -20,7 +20,7 @@
 8               bit64      0.9-7   CRAN                         
 9                blob      1.2.1   CRAN                         
 10              broom      0.5.4   CRAN                         
-11              callr      3.4.1   CRAN                         
+11              callr      3.4.2   CRAN                         
 12                cli      2.0.1   CRAN                         
 13         colorspace      1.4-1   CRAN                         
 14             crayon      1.3.4   CRAN                         
@@ -31,7 +31,7 @@
 19             dbplyr      1.4.2   CRAN                         
 20            debugme      1.1.0   CRAN                         
 21               desc      1.2.0   CRAN                         
-22             digest     0.6.23   CRAN                         
+22             digest     0.6.24   CRAN                         
 23              dplyr      0.8.4   CRAN                         
 24                 DT       0.12   CRAN                         
 25           ellipsis      0.3.0   CRAN                         
@@ -52,7 +52,7 @@
 40             hexbin     1.28.1   CRAN                         
 41        highcharter      0.7.0   CRAN                         
 42              highr        0.8   CRAN                         
-43          htmltools 0.4.0.9002 GitHub e07546c   rstudio/master
+43          htmltools 0.4.0.9003 GitHub c838588   rstudio/master
 44        htmlwidgets 1.5.1.9000 GitHub b357323  ramnathv/master
 45             httpuv 1.5.2.9000 GitHub 4164605   rstudio/master
 46               httr      1.4.1   CRAN                         
@@ -92,22 +92,22 @@
 80           processx      3.4.2   CRAN                         
 81           promises 1.1.0.9000 GitHub 627dfc6   rstudio/master
 82               pryr      0.1.4   CRAN                         
-83                 ps      1.3.0   CRAN                         
+83                 ps      1.3.2   CRAN                         
 84              purrr      0.3.3   CRAN                         
 85           quantmod     0.4-15   CRAN                         
 86            R.cache     0.14.0   CRAN                         
-87        R.methodsS3      1.7.1   CRAN                         
+87        R.methodsS3      1.8.0   CRAN                         
 88               R.oo     1.23.0   CRAN                         
 89            R.utils      2.9.2   CRAN                         
 90                 R6      2.4.1   CRAN                         
 91             raster     3.0-12   CRAN                         
 92       RColorBrewer      1.1-2   CRAN                         
 93               Rcpp      1.0.3   CRAN                         
-94           reactlog 1.0.0.9000 GitHub 67f6e07   rstudio/master
+94           reactlog 1.0.0.9000 GitHub f078d88   rstudio/master
 95             reactR      0.4.2   CRAN                         
 96            rematch      1.0.1   CRAN                         
 97           rematch2      2.1.0   CRAN                         
-98            remotes      2.1.0   CRAN                         
+98            remotes      2.1.1   CRAN                         
 99               renv      0.9.2   CRAN                         
 100          reshape2      1.4.3   CRAN                         
 101             rlang      0.4.4   CRAN                         
@@ -118,7 +118,7 @@
 106        rstudioapi       0.11   CRAN                         
 107            scales      1.1.0   CRAN                         
 108       sessioninfo      1.1.1   CRAN                         
-109             shiny 1.4.0.9001 GitHub dbc518b   rstudio/master
+109             shiny 1.4.0.9002 GitHub c69f34d   rstudio/master
 110       shinycoreci 0.0.0.9000 GitHub f3be3ad   rstudio/master
 111    shinydashboard      0.7.1   CRAN                         
 112           shinyjs        1.1   CRAN                         
@@ -130,9 +130,9 @@
 118              slam     0.1-47   CRAN                         
 119       sourcetools      0.1.7   CRAN                         
 120                sp      1.3-2   CRAN                         
-121           stringi      1.4.4   CRAN                         
+121           stringi      1.4.6   CRAN                         
 122           stringr      1.4.0   CRAN                         
-123            styler      1.3.0   CRAN                         
+123            styler      1.3.1   CRAN                         
 124               sys        3.3   CRAN                         
 125          testthat      2.3.1   CRAN                         
 126            tibble      2.1.3   CRAN                         
