@@ -14,7 +14,7 @@ ui <- fluidPage(
   tags$ol(
     tags$li("'onRender' called"),
     tags$li("'onStaticRender' called"),
-    tags$li("The map appears, with background tiles and markers."),
+    tags$li("The map appears, with markers (and no background tiles)."),
   ),
   p("You should see a status of `Pass` below the map."),
   uiOutput("ui"),
