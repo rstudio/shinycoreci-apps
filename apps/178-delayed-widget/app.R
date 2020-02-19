@@ -32,6 +32,7 @@ ui <- fluidPage(
       }
       wait();
     })
+    jst.add(Jster.shiny.waitUntilStable);
 
     jst.add(function() {
       Jster.assert.isEqual(
@@ -60,7 +61,7 @@ server <- function(input, output, session) {
 
   output$map <- renderLeaflet({
     leaflet(quakes) %>%
-      addTiles() %>%
+      # addTiles() %>% # do not add tiles for CI purposes
       addMarkers() %>%
       fitBounds(-72, 40, -70, 43) %>%
       flyTo(0,0,1) %>% # trigger a zoom to know when the map has initialized

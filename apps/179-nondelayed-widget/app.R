@@ -33,7 +33,8 @@ ui <- fluidPage(
         setTimeout(wait, 50);
       }
       wait();
-    })
+    });
+    jst.add(Jster.shiny.waitUntilStable);
 
     jst.add(function() {
       Jster.assert.isEqual(
@@ -52,7 +53,7 @@ server <- function(input, output, session) {
 
   output$map <- renderLeaflet({
     leaflet(quakes) %>%
-      addTiles() %>%
+      # addTiles() %>% # do not add tiles for CI purposes
       addMarkers() %>%
       htmlwidgets::onRender("function(el, x) {
         console.log('onRender called');
