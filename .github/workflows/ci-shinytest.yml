@@ -76,11 +76,17 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.config.shinycoreci_text }}-libs-testthat-
 
       - name: Install Packages
+        # if non linux, install binaries
+        # make sure to get the best version number possible
+        # If remotes isn't installed, install it
+        # If shinytest isn't available, install the cran version to init the R library
+        # install the specific branch of shinycoreci
         run: >
           Rscript
           -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
+          -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
           -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.config.shinycoreci_branch }}', dependencies = TRUE, force = TRUE)"
 
       - name: Install app deps
