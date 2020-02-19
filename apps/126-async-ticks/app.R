@@ -82,6 +82,27 @@ ui <- fluidPage(
     var jst = jster();
     jst.add(Jster.shiny.waitUntilIdleFor(500));
 
+    var validate_id = function(id) {
+      var ida = id + 'a';
+      var regular = $('#' + id).text().trim();
+      var async = $('#' + ida).text().trim();
+      Jster.assert.isEqual(
+        regular,
+        'OK',
+        {
+          id: id,
+          text: regular
+        }
+      );
+      Jster.assert.isEqual(
+        async,
+        'OK',
+        {
+          id: ida,
+          text: async
+        }
+      );
+    }
     jst.add(function() {
       var ids = [
         'text',
@@ -91,14 +112,6 @@ ui <- fluidPage(
         'table',
         'ui'
       ];
-      var validate_id = function(id) {
-        if ($('#' + id).text() !== 'OK') {
-          throw 'id: ' + id + ' did not say OK'
-        }
-        if ($('#' + id + 'a').text() !== 'OK') {
-          throw 'id: ' + id + ' did not say OK'
-        }
-      }
       ids.map(validate_id);
     });
     jst.test();
