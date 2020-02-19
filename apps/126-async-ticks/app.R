@@ -80,7 +80,7 @@ ui <- fluidPage(
   make_row(uiOutput, "ui", "UI"),
   shinyjster::shinyjster_js("
     var jst = jster();
-    jst.add(Jster.shiny.waitUntilIdle);
+    jst.add(Jster.shiny.waitUntilIdleFor(500));
 
     jst.add(function() {
       var ids = [
