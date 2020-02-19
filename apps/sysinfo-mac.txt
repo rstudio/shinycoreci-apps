@@ -7,7 +7,7 @@
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2020-02-18                  
+ date     2020-02-19                  
 --------------------------------------------------------------------------------
               Package    Version Source     SHA              Ref
 1         AsioHeaders   1.12.1-1   CRAN                         
@@ -52,7 +52,7 @@
 40             hexbin     1.28.1   CRAN                         
 41        highcharter      0.7.0   CRAN                         
 42              highr        0.8   CRAN                         
-43          htmltools 0.4.0.9002 GitHub e07546c   rstudio/master
+43          htmltools 0.4.0.9003 GitHub c838588   rstudio/master
 44        htmlwidgets 1.5.1.9000 GitHub b357323  ramnathv/master
 45             httpuv 1.5.2.9000 GitHub 4164605   rstudio/master
 46               httr      1.4.1   CRAN                         
@@ -98,7 +98,7 @@
 86             raster     3.0-12   CRAN                         
 87       RColorBrewer      1.1-2   CRAN                         
 88               Rcpp      1.0.3   CRAN                         
-89           reactlog 1.0.0.9000 GitHub 67f6e07   rstudio/master
+89           reactlog 1.0.0.9000 GitHub f078d88   rstudio/master
 90             reactR      0.4.2   CRAN                         
 91            rematch      1.0.1   CRAN                         
 92           rematch2      2.1.0   CRAN                         
@@ -113,7 +113,7 @@
 101        rstudioapi       0.11   CRAN                         
 102            scales      1.1.0   CRAN                         
 103       sessioninfo      1.1.1   CRAN                         
-104             shiny 1.4.0.9001 GitHub dbc518b   rstudio/master
+104             shiny 1.4.0.9002 GitHub c69f34d   rstudio/master
 105       shinycoreci 0.0.0.9000 GitHub f3be3ad   rstudio/master
 106    shinydashboard      0.7.1   CRAN                         
 107           shinyjs        1.1   CRAN                         
@@ -125,7 +125,7 @@
 113              slam     0.1-47   CRAN                         
 114       sourcetools      0.1.7   CRAN                         
 115                sp      1.3-2   CRAN                         
-116           stringi      1.4.5   CRAN                         
+116           stringi      1.4.6   CRAN                         
 117           stringr      1.4.0   CRAN                         
 118            styler      1.2.0   CRAN                         
 119               sys        3.3   CRAN                         
