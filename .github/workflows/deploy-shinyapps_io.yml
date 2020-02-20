@@ -1,0 +1,85 @@
+name: shinytest
+
+on:
+  push:
+    branches:
+      - "shinyapps.io"
+      - "ghactions"
+  # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
+  schedule:
+    - cron:  '0 6 * * 0,3' # every sunday and wednesday night at ~ midnight central time
+  repository_dispatch:
+    types:
+      - "all"
+      - "deploy"
+      - "shinyapps.io"
+
+jobs:
+  shinyapps-io:
+    runs-on: ${{ matrix.config.os }}
+
+    name: "shinyapps.io (${{ matrix.config.r }})"
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        config:
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org" }
+
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      CRAN: ${{ matrix.config.cran }}
+
+    steps:
+      - uses: actions/checkout@v2
+        name: GitHub Pull
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - uses: r-lib/actions/setup-r@master
+        with:
+          r-version: ${{ matrix.config.r }}
+      - name: R Options
+        shell: bash
+        run: |
+          echo 'MAKEFLAGS=-j2' >> .Renviron
+
+      - name: Create cache ID from time
+        id: cache_id
+        run: |
+          echo "::set-output name=value::$(Rscript -e 'cat(as.numeric(Sys.time()))')"
+      - name: Cache R packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinyappsio-${{ steps.cache_id.outputs.value }}
+          restore-keys: |
+            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinyappsio-
+            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinytest-
+            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-testthat-
+
+      - name: Install Packages
+        # if non linux, install binaries
+        # make sure to get the best version number possible
+        # If remotes isn't installed, install it
+        # If shinytest isn't available, install the cran version to init the R library
+        # install the specific branch of shinycoreci
+        run: >
+          Rscript
+          -e "options(pkgType = 'binary')"
+          -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
+          -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
+          -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
+          -e "remotes::install_github('rstudio/shinycoreci@deploy_apps', dependencies = TRUE, force = TRUE)"
+
+      - name: Set up rsconnect
+        run: >
+          RScript
+          - e "rsconnect::setAccountInfo(name='testing-apps', token='${{ secrets.shinyapps_io_testing_apps_token }}', secret='${{ secrets.shinyapps_io_testing_apps_secret }}')"
+
+      - name: Deploy Apps to shinyapps.io
+        run: >
+          Rscript
+          -e "options(pkgType = 'binary')"
+          -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = 'testing-apps', server = 'shinyapps.io', update_pkgs = 'all')"
