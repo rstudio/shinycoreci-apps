@@ -59,7 +59,7 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-testthat-
 
-      - name: Install Packages
+      - name: Install shinycoreci
         # if non linux, install binaries
         # make sure to get the best version number possible
         # If remotes isn't installed, install it
@@ -82,4 +82,4 @@ jobs:
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
-          -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text', '002-hello-jster', '003-reactivity'), cores = 4, account = 'testing-apps', server = 'shinyapps.io', update_pkgs = 'all')"
+          -e "shinycoreci::deploy_apps(dir = 'apps', cores = 4, account = 'testing-apps', server = 'shinyapps.io', update_pkgs = 'all')"
