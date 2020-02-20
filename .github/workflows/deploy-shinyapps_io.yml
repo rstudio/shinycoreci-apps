@@ -76,7 +76,7 @@ jobs:
       - name: Set up rsconnect
         run: >
           RScript
-          - e "rsconnect::setAccountInfo(name='testing-apps', token='${{ secrets.shinyapps_io_testing_apps_token }}', secret='${{ secrets.shinyapps_io_testing_apps_secret }}')"
+          -e "rsconnect::setAccountInfo(name='testing-apps', token='${{ secrets.shinyapps_io_testing_apps_token }}', secret='${{ secrets.shinyapps_io_testing_apps_secret }}')"
 
       - name: Deploy Apps to shinyapps.io
         run: >
