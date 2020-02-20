@@ -12,53 +12,53 @@ years <- unique(births$year)
 
 # UI ----------------------------------------------------------------
 ui <- fluidPage(
-  
+
   # App title -------------------------------------------------------
   titlePanel("The Friday the 13th effect"),
-  
+
   # Sidebar layout with a input and output definitions --------------
   sidebarLayout(
 
-    # Inputs --------------------------------------------------------    
+    # Inputs --------------------------------------------------------
     sidebarPanel(
-           
-           sliderInput("year", 
+
+           sliderInput("year",
                        label = "Year",
-                       min = min(years), 
-                       max = max(years), 
+                       min = min(years),
+                       max = max(years),
                        step = 1,
                        sep = "",
                        value = range(years)),
-           
-           selectInput("plot_type", 
+
+           selectInput("plot_type",
                        label = "Plot type",
-                       choices = c("Scatter" = "scatter", 
-                                   "Bar" = "column", 
+                       choices = c("Scatter" = "scatter",
+                                   "Bar" = "column",
                                    "Line" = "line")),
-           selectInput("theme", 
+           selectInput("theme",
                        label = "Theme",
-                       choices = c("No theme", 
+                       choices = c("No theme",
                                    "Chalk" = "chalk",
-                                   "Dark Unica" = "darkunica", 
+                                   "Dark Unica" = "darkunica",
                                    "Economist" = "economist",
-                                   "FiveThirtyEight" = "fivethirtyeight", 
-                                   "Gridlight" = "gridlight", 
-                                   "Handdrawn" = "handdrawn", 
+                                   "FiveThirtyEight" = "fivethirtyeight",
+                                   "Gridlight" = "gridlight",
+                                   "Handdrawn" = "handdrawn",
                                    "Sandsignika" = "sandsignika"))
     ),
-    
-    # Output --------------------------------------------------------    
+
+    # Output --------------------------------------------------------
     mainPanel(
       highchartOutput("hcontainer", height = "500px")
     )
-    
+
   )
 )
 
 
 # SERVER ------------------------------------------------------------
 server = function(input, output) {
-  
+
   # Calculate differences between 13th and avg of 6th and 20th ------
   diff13 <- reactive({
     births %>%
@@ -71,42 +71,42 @@ server = function(input, output) {
       spread(day, mean_births) %>%
       mutate(diff_ppt = ((thirteen - not_thirteen) / not_thirteen) * 100)
   })
-  
+
   # Text string of selected years for plot subtitle -----------------
   selected_years_to_print <- reactive({
-    if(input$year[1] == input$year[2]) { 
+    if(input$year[1] == input$year[2]) {
       as.character(input$year[1])
     } else {
       paste(input$year[1], " - ", input$year[2])
     }
   })
- 
+
   # Highchart -------------------------------------------------------
   output$hcontainer <- renderHighchart({
-    
+
     hc <- highchart() %>%
-      hc_add_series(data = diff13()$diff_ppt, 
+      hc_add_series(data = diff13()$diff_ppt,
                     type = input$plot_type,
                     name = "Difference, in ppt",
                     showInLegend = FALSE) %>%
-      hc_yAxis(title = list(text = "Difference, in ppt"), 
+      hc_yAxis(title = list(text = "Difference, in ppt"),
                allowDecimals = FALSE) %>%
-      hc_xAxis(categories = c("Monday", "Tuesday", "Wednesday", "Thursday", 
+      hc_xAxis(categories = c("Monday", "Tuesday", "Wednesday", "Thursday",
                               "Friday", "Saturday", "Sunday"),
                tickmarkPlacement = "on",
                opposite = TRUE) %>%
       hc_title(text = "The Friday the 13th effect",
-               style = list(fontWeight = "bold")) %>% 
-      hc_subtitle(text = paste("Difference in the share of U.S. births on 13th 
-                               of each month from the average of births on the 6th 
+               style = list(fontWeight = "bold")) %>%
+      hc_subtitle(text = paste("Difference in the share of U.S. births on 13th
+                               of each month from the average of births on the 6th
                                and the 20th,",
                                selected_years_to_print())) %>%
       hc_tooltip(valueDecimals = 4,
                  pointFormat = "Day: {point.x} <br> Diff: {point.y}") %>%
-      hc_credits(enabled = TRUE, 
+      hc_credits(enabled = TRUE,
                  text = "Sources: CDC/NCHS, SOCIAL SECURITY ADMINISTRATION",
                  style = list(fontSize = "10px"))
-    
+
     # Determine theme and apply to highchart ------------------------
     if (input$theme != "No theme") {
       theme <- switch(input$theme,
@@ -121,11 +121,11 @@ server = function(input, output) {
       hc <- hc %>%
         hc_add_theme(theme)
     }
-    
+
     # Print highchart -----------------------------------------------
     hc
   })
-  
+
 }
 
 # Run app -----------------------------------------------------------
