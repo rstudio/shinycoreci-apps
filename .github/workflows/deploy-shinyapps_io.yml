@@ -82,4 +82,4 @@ jobs:
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
-          -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = 'testing-apps', server = 'shinyapps.io', update_pkgs = 'all')"
+          -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text', '002-hello-jster', '003-reactivity'), cores = 4, account = 'testing-apps', server = 'shinyapps.io', update_pkgs = 'all')"
