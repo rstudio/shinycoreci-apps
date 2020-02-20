@@ -1,4 +1,4 @@
-name: shinytest
+name: Deploy
 
 on:
   push:
