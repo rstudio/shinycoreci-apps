@@ -74,7 +74,7 @@ jobs:
           -e "remotes::install_github('rstudio/shinycoreci@deploy_apps', dependencies = TRUE, force = TRUE)"
 
       - name: Deploy Apps to shinyapps.io
-        if: matrix.config.type == "shinyappsio"
+        if: matrix.config.type == 'shinyappsio'
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
@@ -82,7 +82,7 @@ jobs:
           -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = 'testing-apps', server = 'shinyapps.io', update_pkgs = 'all')"
 
       - name: Deploy Apps to beta.rstudioconnect.com
-        if: matrix.config.type == "connect"
+        if: matrix.config.type == 'connect'
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
