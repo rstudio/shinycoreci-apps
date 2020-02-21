@@ -53,11 +53,11 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-${{ matrix.config.type }}-
-            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinytest-
-            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-testthat-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-${{ matrix.config.type }}-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-shinytest-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-testthat-
 
       - name: Install shinycoreci
         # if non linux, install binaries
@@ -86,6 +86,6 @@ jobs:
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
-          -e "rsconnect::connectApiUser('${{ matrix.config.account }}', '${{ matrix.config.server }}', apiKey = ' ${{ secrets.barret_beta_rstudioconnect_com_API_key }}')"
+          -e "rsconnect::connectApiUser('${{ matrix.config.account }}', '${{ matrix.config.server }}', apiKey = '${{ secrets.barret_beta_rstudioconnect_com_API_key }}')"
           -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server }}', update_pkgs = 'all')"
           -e "shinycoreci::connect_set_public(dir = 'apps', apps = c('001-hello', '002-text'), account = '${{ matrix.config.account }}', server = '${{ matrix.config.server }}')"
