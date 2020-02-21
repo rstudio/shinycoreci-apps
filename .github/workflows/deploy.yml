@@ -24,8 +24,8 @@ jobs:
 
       matrix:
         config:
-        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server: "shinyapps.io" }
-        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server: "beta.rstudioconnect.com" }
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io" }
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__" }
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -78,14 +78,15 @@ jobs:
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
-          -e "rsconnect::setAccountInfo(name='testing-apps', token='${{ secrets.shinyapps_io_testing_apps_token }}', secret='${{ secrets.shinyapps_io_testing_apps_secret }}')"
-          -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = 'testing-apps', server = 'shinyapps.io', update_pkgs = 'all')"
+          -e "rsconnect::setAccountInfo(name='${{ matrix.config.account }}', token='${{ secrets.shinyapps_io_testing_apps_token }}', secret='${{ secrets.shinyapps_io_testing_apps_secret }}')"
+          -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all')"
 
       - name: Deploy Apps to beta.rstudioconnect.com
         if: matrix.config.type == 'connect'
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
-          -e "rsconnect::connectApiUser('${{ matrix.config.account }}', '${{ matrix.config.server }}', apiKey = '${{ secrets.barret_beta_rstudioconnect_com_API_key }}')"
-          -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server }}', update_pkgs = 'all')"
-          -e "shinycoreci::connect_set_public(dir = 'apps', apps = c('001-hello', '002-text'), account = '${{ matrix.config.account }}', server = '${{ matrix.config.server }}')"
+          -e "rsconnect::connectServer(url = '${{ matrix.config.server_url }}', name = '${{ matrix.config.server_url }}')"
+          -e "rsconnect::connectApiUser('${{ matrix.config.account }}', '${{ matrix.config.server_name }}', apiKey = '${{ secrets.barret_beta_rstudioconnect_com_API_key }}')"
+          -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all')"
+          -e "shinycoreci::connect_set_public(dir = 'apps', apps = c('001-hello', '002-text'), account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}')"
