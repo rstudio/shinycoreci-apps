@@ -86,7 +86,7 @@ jobs:
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
-          -e "rsconnect::addConnectServer(url = '${{ matrix.config.server_url }}', name = '${{ matrix.config.server_url }}')"
+          -e "rsconnect::addConnectServer(url = '${{ matrix.config.server_url }}', name = '${{ matrix.config.server_name }}')"
           -e "rsconnect::connectApiUser('${{ matrix.config.account }}', '${{ matrix.config.server_name }}', apiKey = '${{ secrets.barret_beta_rstudioconnect_com_API_key }}')"
           -e "shinycoreci::deploy_apps(dir = 'apps', apps = c('001-hello', '002-text'), cores = 1, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all')"
           -e "shinycoreci::connect_set_public(dir = 'apps', apps = c('001-hello', '002-text'), account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}')"
