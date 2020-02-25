@@ -1,4 +1,4 @@
-# shinycoreci-apps
+# shinycoreci-apps  
 
 <!-- badges: start -->
 [![shinytest](https://github.com/rstudio/shinycoreci-apps/workflows/shinytest/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinytest)
