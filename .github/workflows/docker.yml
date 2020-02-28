@@ -1,0 +1,38 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - docker
+      - ghactions
+  # # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
+  # schedule:
+  #   - cron:  '0 6 * * 0,3' # every sunday and wednesday night at ~ midnight central time
+  repository_dispatch:
+    types:
+      - all
+      - docker
+
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name == 'push' }}
+        workdir: Docker/ubuntu
+        # ARG R_VERSION=3.6
+        # ARG DISTRO=ubuntu
+        # ARG RELEASE=bionic
+        # ARG GITHUB_PAT=NOTSUPPLIED
+        # ARG APPS_SHA=master
+        buildargs: "R_VERSION=3.6,DISTRO=ubuntu,RELEASE=bionic,APPS_SHA=master,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        tags: "base-3.6-bionic"
