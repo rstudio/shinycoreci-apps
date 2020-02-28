@@ -15,7 +15,8 @@ on:
 
 
 jobs:
-  update:
+  ubuntu:
+    name: Ubuntu
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -36,3 +37,19 @@ jobs:
         # ARG APPS_SHA=master
         buildargs: "R_VERSION=3.6,DISTRO=ubuntu,RELEASE=bionic,APPS_SHA=master,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
         tags: "base-3.6-bionic"
+
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name == 'push' }}
+        workdir: Docker/ubuntu_sso
+        # ARG R_VERSION=3.6
+        # ARG RELEASE=bionic
+        # ARG AWS_BUILD_MACHINE=ubuntu-14.04
+        buildargs: "R_VERSION=3.6,RELEASE=bionic"
+        tags: "sso-3.6-bionic"
