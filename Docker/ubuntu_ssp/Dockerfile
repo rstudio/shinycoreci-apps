@@ -10,7 +10,7 @@ ARG R_VERSION=3.6
 # ARG DISTRO=ubuntu
 ARG UBUNTU_RELEASE=bionic
 
-FROM rstudio/shinycoreci:ssp-${R_VERSION}-${UBUNTU_RELEASE}
+FROM rstudio/shinycoreci:base-${R_VERSION}-${UBUNTU_RELEASE}
 
 # ARG DISTRO=ubuntu
 ARG UBUNTU_RELEASE=bionic
