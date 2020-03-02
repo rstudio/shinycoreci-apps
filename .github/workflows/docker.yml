@@ -28,7 +28,8 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        # cache: ${{ github.event_name == 'push' }}
+        cache: false
         workdir: Docker/ubuntu
         # ARG R_VERSION=3.6
         # ARG RELEASE=bionic
@@ -46,7 +47,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: false
         workdir: Docker/ubuntu_sso
         # ARG R_VERSION=3.6
         # ARG RELEASE=bionic
@@ -68,7 +69,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: false
         workdir: Docker/centos
         # ARG R_VERSION=3.6
         # ARG GITHUB_PAT=NOTSUPPLIED
@@ -85,7 +86,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: false
         workdir: Docker/centos_sso
         # ARG R_VERSION=3.6
         buildargs: "R_VERSION=3.6"
