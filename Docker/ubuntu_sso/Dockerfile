@@ -2,17 +2,17 @@
 #   docker build -t rstudio/shinycoreci:sso-3.6-bionic .
 #
 # To run:
-#   docker run --rm -p 3838:3838 --name delete_me_sso rstudio/shinycoreci:sso-3.6-bionic
+#   docker run --rm -p 3838:3838 --name sso_bionic rstudio/shinycoreci:sso-3.6-bionic
 
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
 ARG R_VERSION=3.6
 # ARG DISTRO=ubuntu
-ARG RELEASE=bionic
+ARG UBUNTU_RELEASE=bionic
 
-FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}
+FROM rstudio/shinycoreci:base-${R_VERSION}-${UBUNTU_RELEASE}
 
 # ARG DISTRO=ubuntu
-# ARG RELEASE=bionic
+# ARG UBUNTU_RELEASE=bionic
 ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
 # switch(distro,
@@ -39,5 +39,5 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/$A
 
 
 
-RUN echo "Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
+RUN echo "${R_VERSION}-${UBUNTU_RELEASE} Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt
