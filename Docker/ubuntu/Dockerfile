@@ -1,23 +1,19 @@
 # To build, cd to this directory, then:
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-3.6-bionic .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg RELEASE=xenial -t rstudio/shinycoreci:base-3.6-xenial .
 #
 
 ARG R_VERSION=3.6
-ARG DISTRO=ubuntu
+
+# bionic, xenial
 ARG RELEASE=bionic
 FROM rstudio/r-base:${R_VERSION}-${RELEASE}
-ARG DISTRO=ubuntu
 ARG RELEASE=bionic
 
 MAINTAINER Barret Schloerke "barret@rstudio.com"
 
 # Don't print "debconf: unable to initialize frontend: Dialog" messages
 ARG DEBIAN_FRONTEND=noninteractive
-
-# RUN apt-get update
-# # Pre install scripts
-# {{ pre_install_scripts }}
-# # (end) Pre install scripts
 
 # Prep
 RUN apt-get update && apt-get install -y \
@@ -113,12 +109,13 @@ RUN R -e 'source("https://demo.rstudiopm.com/__docs__/admin/check-user-agent.R")
 
 ARG GITHUB_PAT=NOTSUPPLIED
 ENV GITHUB_PAT=$GITHUB_PAT
+ARG SHINYCORECI_SHA=docker
 
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
 
 # install testing repo at specific sha
-RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@docker', auth_token ='$GITHUB_PAT')"
+RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}', auth_token ='$GITHUB_PAT')"
 
 
 ###
@@ -138,7 +135,6 @@ RUN mkdir -p /tmp/apps_repo && \
 RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 
 # install R pkg system requirements
-RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@docker', auth_token = '$GITHUB_PAT')"
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', docker_release = '${RELEASE}')))"
 # install r pkgs

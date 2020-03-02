@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@master
 
     # https://github.com/marketplace/actions/publish-docker
-    - name: Publish to Registry
+    - name: Publish Base
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -31,16 +31,16 @@ jobs:
         cache: ${{ github.event_name == 'push' }}
         workdir: Docker/ubuntu
         # ARG R_VERSION=3.6
-        # ARG DISTRO=ubuntu
         # ARG RELEASE=bionic
         # ARG GITHUB_PAT=NOTSUPPLIED
         # ARG APPS_SHA=master
-        buildargs: "R_VERSION=3.6,DISTRO=ubuntu,RELEASE=bionic,APPS_SHA=master,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        # ARG SHINYCORECI_SHA=docker
+        buildargs: "R_VERSION=3.6,RELEASE=bionic,APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
         tags: "base-3.6-bionic"
 
 
     # https://github.com/marketplace/actions/publish-docker
-    - name: Publish to Registry
+    - name: Publish SSO
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -53,3 +53,40 @@ jobs:
         # ARG AWS_BUILD_MACHINE=ubuntu-14.04
         buildargs: "R_VERSION=3.6,RELEASE=bionic"
         tags: "sso-3.6-bionic"
+
+
+  centos:
+    name: Centos
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: Publish Base
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name == 'push' }}
+        workdir: Docker/centos
+        # ARG R_VERSION=3.6
+        # ARG GITHUB_PAT=NOTSUPPLIED
+        # ARG APPS_SHA=master
+        # ARG SHINYCORECI_SHA=docker
+        buildargs: "R_VERSION=3.6,APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        tags: "base-3.6-centos7"
+
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: Publish SSO
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name == 'push' }}
+        workdir: Docker/centos_sso
+        # ARG R_VERSION=3.6
+        buildargs: "R_VERSION=3.6"
+        tags: "sso-3.6-centos7"

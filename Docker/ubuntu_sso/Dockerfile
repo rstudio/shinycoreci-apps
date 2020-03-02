@@ -1,8 +1,8 @@
 # To build, cd to this directory, then:
-#   docker build -t delete_me/sso:3.6-bionic .
+#   docker build -t rstudio/shinycoreci:sso-3.6-bionic .
 #
 # To run:
-#   docker run --rm -p 3838:3838 --name delete_me_sso delete_me/sso:3.6-bionic
+#   docker run --rm -p 3838:3838 --name delete_me_sso rstudio/shinycoreci:sso-3.6-bionic
 
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
 ARG R_VERSION=3.6

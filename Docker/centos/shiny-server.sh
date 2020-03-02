@@ -14,7 +14,7 @@ chmod -R 777 /srv/shiny-server
 mkdir -p /var/log/shiny-server
 chown shiny.shiny /var/log/shiny-server
 
-retail /var/log/shiny-server/ &
+# retail /var/log/shiny-server/ &
 
 echo ""
 echo ""
