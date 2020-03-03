@@ -83,18 +83,19 @@ RUN yum install -y epel-release glpk-devel gmp-devel libcurl-devel libicu-devel 
 
 ARG GITHUB_PAT=NOTSUPPLIED
 ENV GITHUB_PAT=$GITHUB_PAT
-ARG SHINYCORECI_SHA=docker
-ARG APPS_SHA=master
 
-
+# prep install
 RUN R --quiet -e "install.packages('remotes')"
-
+RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
 # has trouble installing from rspm
 RUN R --quiet -e "remotes::install_cran(c('plogr'), repos='https://cran.rstudio.com/')"
 # some how this package isn't a dep, but is required for a package
 RUN R --quiet -e "remotes::install_cran(c('markdown'))"
 # shinycoreci deps
 RUN R --quiet -e "remotes::install_cran(c('sessioninfo', 'renv', 'remotes', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'leaflet', 'leaflet.providers', 'crosstalk', 'flexdashboard', 'pool', 'curl', 'jsonlite', 'callr', 'progress', 'rsconnect', 'httr'))"
+
+ARG SHINYCORECI_SHA=docker
+ARG APPS_SHA=master
 
 # install testing repo at specific sha
 RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}', auth_token ='$GITHUB_PAT')"

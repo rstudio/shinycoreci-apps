@@ -110,12 +110,13 @@ RUN R -e 'source("https://demo.rstudiopm.com/__docs__/admin/check-user-agent.R")
 ARG GITHUB_PAT=NOTSUPPLIED
 # make sure the variable persists
 ENV GITHUB_PAT=$GITHUB_PAT
-ARG SHINYCORECI_SHA=docker
-ARG APPS_SHA=master
 
-
+# prep install
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
+
+ARG SHINYCORECI_SHA=docker
+ARG APPS_SHA=master
 
 # install testing repo at specific sha
 RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}', auth_token ='${GITHUB_PAT}')"
