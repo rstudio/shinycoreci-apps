@@ -26,27 +26,30 @@ jobs:
 
         - name: Bionic
           workdir: Docker/ubuntu
-          release_type: UBUNTU
           type: bionic
+          aws_build_machine: ubuntu-14.04
           r: 3.6
 
         - name: Xenial
           workdir: Docker/ubuntu
-          release_type: UBUNTU
           type: xenial
+          aws_build_machine: ubuntu-14.04
           r: 3.6
 
         - name: Centos7
           workdir: Docker/centos
-          release_type: CENTOS
           type: centos7
+          aws_build_machine: centos6.3
           r: 3.6
 
     steps:
     - uses: actions/checkout@master
 
+
+
+
     # https://github.com/marketplace/actions/publish-docker
-    - name: Publish Base
+    - name: Base
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -55,12 +58,12 @@ jobs:
         # cache: ${{ github.event_name == 'push' }}
         cache: false
         workdir: ${{ matrix.config.workdir }}
-        buildargs: "R_VERSION=${{ matrix.config.r }},${{ matrix.config.release_type }}_RELEASE=${{ matrix.config.type }},APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
         tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}"
 
 
     # https://github.com/marketplace/actions/publish-docker
-    - name: Publish SSO
+    - name: SSO
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -68,5 +71,5 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         cache: false
         workdir: ${{ matrix.config.workdir }}_sso
-        buildargs: "R_VERSION=${{ matrix.config.r }},${{ matrix.config.release_type }}_RELEASE=${{ matrix.config.type }}"
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }}"
         tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}"

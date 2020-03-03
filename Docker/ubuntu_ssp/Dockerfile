@@ -8,13 +8,13 @@
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
 ARG R_VERSION=3.6
 # ARG DISTRO=ubuntu
-ARG UBUNTU_RELEASE=bionic
+ARG RELEASE=bionic
 
-FROM rstudio/shinycoreci:base-${R_VERSION}-${UBUNTU_RELEASE}
+FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}
 
 # ARG DISTRO=ubuntu
-ARG UBUNTU_RELEASE=bionic
-ARG UBUNTU_AWS_BUILD_MACHINE=ubuntu-14.04
+ARG RELEASE=bionic
+ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
 RUN apt-get update && apt-get install -y \
   libssl1.0.0 \
@@ -25,9 +25,9 @@ RUN apt-get update && apt-get install -y \
 # =====================================================================
 
 # Download and install shiny server pro
-RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${UBUNTU_AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
+RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
   VERSION=$(cat version.txt)  && \
-  wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${UBUNTU_AWS_BUILD_MACHINE}/x86_64/shiny-server-commercial-$VERSION-amd64.deb" -O ssp-latest.deb && \
+  wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/shiny-server-commercial-$VERSION-amd64.deb" -O ssp-latest.deb && \
   gdebi -n ssp-latest.deb && \
   rm -f ssp-latest.deb && \
   rm /srv/shiny-server/index.html
@@ -35,8 +35,7 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/$
 # activate license
 ARG SSP_LICENSE
 RUN printf "${SSP_LICENSE}" > ~/_license.lic
-RUN cat ~/_license.lic
 RUN /opt/shiny-server/bin/license-manager activate-file ~/_license.lic
 
-RUN echo "${R_VERSION}-${UBUNTU_RELEASE} Shiny Server PRO: `cat version.txt`\n" >> /srv/shiny-server/__version && \
+RUN echo "${R_VERSION}-${RELEASE} Shiny Server PRO: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt

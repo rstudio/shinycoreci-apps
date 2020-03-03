@@ -1,14 +1,14 @@
 # To build, cd to this directory, then:
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-3.6-bionic .
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg UBUNTU_RELEASE=xenial -t rstudio/shinycoreci:base-3.6-xenial .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg RELEASE=xenial -t rstudio/shinycoreci:base-3.6-xenial .
 #
 
 ARG R_VERSION=3.6
 
 # bionic, xenial
-ARG UBUNTU_RELEASE=bionic
-FROM rstudio/r-base:${R_VERSION}-${UBUNTU_RELEASE}
-ARG UBUNTU_RELEASE=bionic
+ARG RELEASE=bionic
+FROM rstudio/r-base:${R_VERSION}-${RELEASE}
+ARG RELEASE=bionic
 
 MAINTAINER Barret Schloerke "barret@rstudio.com"
 
@@ -95,7 +95,7 @@ RUN apt-get update && apt-get install -y \
 
 # set up R to point to latest binary cran
 RUN echo "options(\n\
-  repos = c(CRAN = 'https://demo.rstudiopm.com/cran/__linux__/${UBUNTU_RELEASE}/latest'),\n\
+  repos = c(CRAN = 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest'),\n\
   download.file.method = 'libcurl',\n\
   # Detect number of physical cores\n\
   Ncpus = parallel::detectCores(logical=FALSE)\n\
@@ -137,7 +137,7 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 
 # install R pkg system requirements
 # Must use `~/apps` as default working directory is not `~`
-RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', docker_release = '${UBUNTU_RELEASE}')))"
+RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', docker_release = '${RELEASE}')))"
 # install r pkgs
 RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps', update_pkgs = 'all')"
 

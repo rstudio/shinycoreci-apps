@@ -7,13 +7,13 @@
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
 ARG R_VERSION=3.6
 # ARG DISTRO=ubuntu
-ARG UBUNTU_RELEASE=bionic
+ARG RELEASE=bionic
 
-FROM rstudio/shinycoreci:base-${R_VERSION}-${UBUNTU_RELEASE}
+FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}
 
 # ARG DISTRO=ubuntu
-# ARG UBUNTU_RELEASE=bionic
-ARG UBUNTU_AWS_BUILD_MACHINE=ubuntu-14.04
+# ARG RELEASE=bionic
+ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
 # switch(distro,
 #   "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04"),
@@ -25,11 +25,11 @@ ARG UBUNTU_AWS_BUILD_MACHINE=ubuntu-14.04
 # =====================================================================
 
 # Download and install shiny server
-RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${UBUNTU_AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
+RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
   VERSION=$(cat version.txt)  && \
   wget \
     --no-verbose \
-    "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${UBUNTU_AWS_BUILD_MACHINE}/x86_64/shiny-server-$VERSION-amd64.deb" \
+    "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${AWS_BUILD_MACHINE}/x86_64/shiny-server-$VERSION-amd64.deb" \
     -O ss-latest.deb && \
   gdebi -n ss-latest.deb && \
   rm -f ssp-latest.deb && \
@@ -39,5 +39,5 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${
 
 
 
-RUN echo "${R_VERSION}-${UBUNTU_RELEASE} Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
+RUN echo "${R_VERSION}-${RELEASE} Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt

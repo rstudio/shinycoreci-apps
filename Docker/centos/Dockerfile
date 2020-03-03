@@ -5,9 +5,9 @@
 ARG R_VERSION=3.6
 
 # centos7
-ARG CENTOS_RELEASE=centos7
-FROM rstudio/r-base:${R_VERSION}-${CENTOS_RELEASE}
-ARG CENTOS_RELEASE=centos7
+ARG RELEASE=centos7
+FROM rstudio/r-base:${R_VERSION}-${RELEASE}
+ARG RELEASE=centos7
 
 MAINTAINER Barret Schloerke "barret@rstudio.com"
 
@@ -68,7 +68,7 @@ RUN curl -O https://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz \
 ####
 
 # RUN mkdir -p /usr/local/lib64/R/etc
-RUN printf "options(\nrepos = c(CRAN = 'https://demo.rstudiopm.com/cran/__linux__/${CENTOS_RELEASE}/latest'),\ndownload.file.method = 'libcurl',\n# Detect number of physical cores\nNcpus = parallel::detectCores(logical=FALSE)\n)" >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
+RUN printf "options(\nrepos = c(CRAN = 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest'),\ndownload.file.method = 'libcurl',\n# Detect number of physical cores\nNcpus = parallel::detectCores(logical=FALSE)\n)" >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
 
 RUN R -e 'source("https://demo.rstudiopm.com/__docs__/admin/check-user-agent.R")'
 
@@ -115,7 +115,7 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 
 # install R pkg system requirements
 # Must use `~/apps` as default working directory is not `~`
-RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', docker_release = '${CENTOS_RELEASE}')))"
+RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', docker_release = '${RELEASE}')))"
 # install r pkgs
 RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps', update_pkgs = 'all')"
 
