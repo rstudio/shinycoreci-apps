@@ -11,10 +11,10 @@ RELEASE=`echo "$DOCKER_TAG" | cut -d '-' -f 3`
 GITHUB_PAT="${GITHUB_PAT}"
 
 if [ -z "$GITHUB_PAT" ]; then
-  echo "GITHUB_PAT SUPPLIED"
-else
   echo "GITHUB_PAT NOT SUPPLIED!"
   exit 1
+else
+  echo "GITHUB_PAT SUPPLIED"
 fi
 
 

@@ -11,10 +11,10 @@ RELEASE=`echo "$DOCKER_TAG" | cut -d '-' -f 3`
 SSP_LICENSE="${SSP_LICENSE}"
 
 if [ -z "$SSP_LICENSE" ]; then
-  echo "SSP_LICENSE SUPPLIED"
-else
   echo "SSP_LICENSE NOT SUPPLIED!"
   exit 1
+else
+  echo "SSP_LICENSE SUPPLIED"
 fi
 
 
