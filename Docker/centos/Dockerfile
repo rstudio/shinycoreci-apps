@@ -6,7 +6,7 @@ ARG R_VERSION=3.6
 
 # centos7
 ARG CENTOS_RELEASE=centos7
-FROM rstudio/r-base:${R_VERSION}-${CENTOS_RELEASE}}
+FROM rstudio/r-base:${R_VERSION}-${CENTOS_RELEASE}
 ARG CENTOS_RELEASE=centos7
 
 MAINTAINER Barret Schloerke "barret@rstudio.com"
