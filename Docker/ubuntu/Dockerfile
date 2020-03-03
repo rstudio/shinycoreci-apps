@@ -111,6 +111,8 @@ ARG GITHUB_PAT=NOTSUPPLIED
 # make sure the variable persists
 ENV GITHUB_PAT=$GITHUB_PAT
 ARG SHINYCORECI_SHA=docker
+ARG APPS_SHA=master
+
 
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
@@ -122,8 +124,6 @@ RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA
 ###
 # shinycoreci-apps
 ###
-
-ARG APPS_SHA=master
 
 # Download the repo in a temp folder, then unzip it into the home folder
 RUN mkdir -p /tmp/apps_repo && \
