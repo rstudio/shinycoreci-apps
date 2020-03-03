@@ -14,7 +14,7 @@ FROM rstudio/shinycoreci:base-${R_VERSION}-${UBUNTU_RELEASE}
 
 # ARG DISTRO=ubuntu
 ARG UBUNTU_RELEASE=bionic
-ARG AWS_BUILD_MACHINE=ubuntu-14.04
+ARG UBUNTU_AWS_BUILD_MACHINE=ubuntu-14.04
 
 RUN apt-get update && apt-get install -y \
   libssl1.0.0 \
@@ -25,9 +25,9 @@ RUN apt-get update && apt-get install -y \
 # =====================================================================
 
 # Download and install shiny server pro
-RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
+RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${UBUNTU_AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
   VERSION=$(cat version.txt)  && \
-  wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/shiny-server-commercial-$VERSION-amd64.deb" -O ssp-latest.deb && \
+  wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${UBUNTU_AWS_BUILD_MACHINE}/x86_64/shiny-server-commercial-$VERSION-amd64.deb" -O ssp-latest.deb && \
   gdebi -n ssp-latest.deb && \
   rm -f ssp-latest.deb && \
   rm /srv/shiny-server/index.html

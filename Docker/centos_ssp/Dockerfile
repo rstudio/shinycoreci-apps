@@ -5,8 +5,11 @@
 #   docker run --rm -p 7979:3838 --name ssp_centos rstudio/shinycoreci:ssp-3.6-centos7
 
 ARG R_VERSION=3.6
-FROM rstudio/shinycoreci:base-${R_VERSION}-centos7
+ARG CENTOS_RELEASE=centos7
+FROM rstudio/shinycoreci:base-${R_VERSION}-${CENTOS_RELEASE}
 ARG R_VERSION=3.6
+ARG CENTOS_RELEASE=centos7
+ARG CENTOS_AWS_BUILD_MACHINE=centos6.3
 
 RUN yum install -y \
   openssl \
@@ -17,9 +20,9 @@ RUN yum install -y \
 # =====================================================================
 
 # Download and install shiny server
-RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-pro-build/centos6.3/x86_64/VERSION -O "version.txt" && \
+RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${CENTOS_AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
   VERSION=$(cat version.txt)  && \
-  wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/centos6.3/x86_64/shiny-server-commercial-$VERSION-redhat-x86_64.rpm" -O ss-latest.rpm && \
+  wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${CENTOS_AWS_BUILD_MACHINE}/x86_64/shiny-server-commercial-$VERSION-redhat-x86_64.rpm" -O ss-latest.rpm && \
   yum install -y ss-latest.rpm && \
   rm -f ssp-latest.rpm && \
   rm /srv/shiny-server/index.html
@@ -29,7 +32,7 @@ ARG SSP_LICENSE
 RUN echo -e "${SSP_LICENSE}" > ~/_license.lic
 RUN /opt/shiny-server/bin/license-manager activate-file ~/_license.lic
 
-RUN echo "${R_VERSION}-centos7 Shiny Server PRO: `cat version.txt`\n" >> /srv/shiny-server/__version && \
+RUN echo "${R_VERSION}-${CENTOS_RELEASE} Shiny Server PRO: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt
 
 RUN yum clean all
