@@ -82,3 +82,17 @@ jobs:
         workdir: ${{ matrix.config.workdir }}_sso
         buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }}"
         tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}"
+
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: SSP
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name == 'push' }}
+        workdir: ${{ matrix.config.workdir }}_ssp
+        # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE }}"
+        tags: "ssp-${{ matrix.config.r }}-${{ matrix.config.type }}"
