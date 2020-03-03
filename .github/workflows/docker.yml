@@ -45,8 +45,18 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-
-
+    - name: Get apps sha
+      shell: bash
+      id: apps
+      run: |
+        SHA=${{ github.event.pull_request.head.sha }}
+        if [[ -z "$SHA" ]]; then
+          SHA=${{ github.sha }}
+        fi
+        echo $SHA
+        SHORT_SHA=${SHA:0:7}
+        echo $SHORT_SHA
+        echo "::set-output name=sha::$SHORT_SHA"
 
     # https://github.com/marketplace/actions/publish-docker
     - name: Base
@@ -55,10 +65,9 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        # cache: ${{ github.event_name == 'push' }}
-        cache: false
+        cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}
-        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
         tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}"
 
 
@@ -69,7 +78,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: false
+        cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}_sso
         buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }}"
         tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}"
