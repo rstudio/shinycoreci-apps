@@ -26,24 +26,21 @@ jobs:
 
         - name: Bionic
           workdir: Docker/ubuntu
-          base_buildargs: "R_VERSION=3.6,UBUNTU_RELEASE=bionic,APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
-          base_tags: "base-3.6-bionic"
-          sso_buildargs: "R_VERSION=3.6,UBUNTU_RELEASE=bionic"
-          sso_tags: "sso-3.6-bionic"
+          release_type: UBUNTU
+          type: bionic
+          r: 3.6
 
         - name: Xenial
           workdir: Docker/ubuntu
-          base_buildargs: "R_VERSION=3.6,UBUNTU_RELEASE=xenial,APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
-          base_tags: "base-3.6-xenial"
-          sso_buildargs: "R_VERSION=3.6,UBUNTU_RELEASE=xenial"
-          sso_tags: "sso-3.6-xenial"
+          release_type: UBUNTU
+          type: xenial
+          r: 3.6
 
         - name: Centos7
           workdir: Docker/centos
-          base_buildargs: "R_VERSION=3.6,APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
-          base_tags: "base-3.6-centos7"
-          sso_buildargs: "R_VERSION=3.6"
-          sso_tags: "sso-3.6-centos7"
+          release_type: CENTOS
+          type: centos7
+          r: 3.6
 
     steps:
     - uses: actions/checkout@master
@@ -58,8 +55,8 @@ jobs:
         # cache: ${{ github.event_name == 'push' }}
         cache: false
         workdir: ${{ matrix.config.workdir }}
-        buildargs: ${{ matrix.config.base_buildargs }}
-        tags: ${{ matrix.config.tag }}
+        buildargs: "R_VERSION=${{ matrix.config.r }},${{ matrix.config.release_type }}_RELEASE=${{ matrix.config.type }},APPS_SHA=master,SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}"
 
 
     # https://github.com/marketplace/actions/publish-docker
@@ -71,5 +68,5 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         cache: false
         workdir: ${{ matrix.config.workdir }}_sso
-        buildargs: ${{ matrix.config.sso_buildargs }}
-        tags: ${{ matrix.config.sso_tags }}
+        buildargs: "R_VERSION=${{ matrix.config.r }},${{ matrix.config.release_type }}_RELEASE=${{ matrix.config.type }}"
+        tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}"
