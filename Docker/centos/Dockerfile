@@ -68,12 +68,12 @@ RUN curl -O https://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz \
 ####
 
 # RUN mkdir -p /usr/local/lib64/R/etc
-RUN echo $'options(\n\
-  repos = c(CRAN = "https://demo.rstudiopm.com/cran/__linux__/${CENTOS_RELEASE}/latest"),\n\
-  download.file.method = "libcurl",\n\
+RUN echo $"options(\n\
+  repos = c(CRAN = 'https://demo.rstudiopm.com/cran/__linux__/${CENTOS_RELEASE}/latest'),\n\
+  download.file.method = 'libcurl',\n\
   # Detect number of physical cores\n\
   Ncpus = parallel::detectCores(logical=FALSE)\n\
-  )' >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
+  )" >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
 
 RUN R -e 'source("https://demo.rstudiopm.com/__docs__/admin/check-user-agent.R")'
 
