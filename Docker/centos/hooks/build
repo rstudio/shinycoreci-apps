@@ -31,12 +31,12 @@ echo "R_VERSION=$R_VERSION"
 echo "RELEASE=$RELEASE"
 echo '-->'
 
+  # --build-arg SHINYCORECI_SHA=docker \
+  # --build-arg APPS_SHA=master \
 docker build \
   --build-arg R_VERSION=$R_VERSION \
   --build-arg RELEASE=$RELEASE \
   --build-arg GITHUB_PAT=$GITHUB_PAT \
-  # --build-arg SHINYCORECI_SHA=docker \
-  # --build-arg APPS_SHA=master \
   -f $DOCKERFILE_PATH \
   -t $IMAGE_NAME \
   .
