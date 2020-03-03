@@ -34,7 +34,7 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/$
 
 # activate license
 ARG SSP_LICENSE
-RUN echo -e "${SSP_LICENSE}" > ~/_license.lic
+RUN printf "${SSP_LICENSE}" > ~/_license.lic
 RUN cat ~/_license.lic
 RUN /opt/shiny-server/bin/license-manager activate-file ~/_license.lic
 
