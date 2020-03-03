@@ -1,5 +1,5 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg SSP_LICENSE="$(cat ssp-rstudio-license-2024-09-06.lic)" -t rstudio/shinycoreci:ssp-3.6-centos7 .
+#   docker build --build-arg SSP_LICENSE="$(cat ssp-rstudio-license-2024-09-06-activated.lic)" -t rstudio/shinycoreci:ssp-3.6-centos7 .
 #
 # To run:
 #   docker run --rm -p 7979:3838 --name ssp_centos rstudio/shinycoreci:ssp-3.6-centos7
