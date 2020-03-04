@@ -84,7 +84,7 @@
 72           pkgbuild       1.0.6   CRAN                                        
 73          pkgconfig       2.0.3   CRAN                                        
 74            pkgload       1.0.2   CRAN                                        
-75             plotly     4.9.2.1 GitHub 25b28c9                 ropensci/master
+75             plotly     4.9.2.1 GitHub 33fc723                 ropensci/master
 76               plyr       1.8.5   CRAN                                        
 77                png       0.1-7   CRAN                                        
 78               pool  0.1.4.9000 GitHub 0b03680                  rstudio/master
@@ -122,7 +122,7 @@
 110            scales       1.1.0   CRAN                                        
 111       sessioninfo       1.1.1   CRAN                                        
 112             shiny  1.4.0.9002 GitHub 02219df                  rstudio/master
-113       shinycoreci  0.0.0.9002 GitHub c44d255                  rstudio/master
+113       shinycoreci  0.0.0.9002 GitHub 88e8642                  rstudio/master
 114    shinydashboard       0.7.1   CRAN                                        
 115           shinyjs         1.1   CRAN                                        
 116        shinyjster  0.0.0.9003 GitHub d037de7                schloerke/master
