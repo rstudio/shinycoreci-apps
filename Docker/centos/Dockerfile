@@ -117,7 +117,7 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 
 # install R pkg system requirements
 # Must use `~/apps` as default working directory is not `~`
-RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', docker_release = '${RELEASE}')))"
+RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 # install r pkgs
 RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps', update_pkgs = 'all')"
 
