@@ -7,163 +7,171 @@
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2020-02-19                  
+ date     2020-03-04                  
 --------------------------------------------------------------------------------
-              Package    Version Source     SHA              Ref
-1         AsioHeaders   1.12.1-1   CRAN                         
-2             askpass        1.1   CRAN                         
-3          assertthat      0.2.1   CRAN                         
-4           backports      1.1.5   CRAN                         
-5           base64enc      0.1-3   CRAN                         
-6                  BH   1.72.0-3   CRAN                         
-7                 bit   1.1-15.2   CRAN                         
-8               bit64      0.9-7   CRAN                         
-9                blob      1.2.1   CRAN                         
-10              broom      0.5.4   CRAN                         
-11              callr      3.4.2   CRAN                         
-12                cli      2.0.1   CRAN                         
-13         colorspace      1.4-1   CRAN                         
-14             crayon      1.3.4   CRAN                         
-15          crosstalk 1.0.1.9000 GitHub 68b0b61   rstudio/master
-16               curl        4.3   CRAN                         
-17         data.table     1.12.8   CRAN                         
-18                DBI      1.1.0   CRAN                         
-19             dbplyr      1.4.2   CRAN                         
-20            debugme      1.1.0   CRAN                         
-21               desc      1.2.0   CRAN                         
-22             digest     0.6.24   CRAN                         
-23              dplyr      0.8.4   CRAN                         
-24                 DT       0.12   CRAN                         
-25           ellipsis      0.3.0   CRAN                         
-26           evaluate       0.14   CRAN                         
-27              fansi      0.4.1   CRAN                         
-28             farver      2.0.3   CRAN                         
-29            fastmap      1.0.1 GitHub 61c6099     r-lib/master
-30      flexdashboard 0.5.1.9000 GitHub 404cdac   rstudio/master
-31                 fs      1.3.1   CRAN                         
-32             future     1.16.0   CRAN                         
-33           generics      0.0.2   CRAN                         
-34            ggplot2      3.2.1   CRAN                         
-35              ggvis      0.4.5   CRAN                         
-36            globals     0.12.5   CRAN                         
-37               glue      1.3.1   CRAN                         
-38          gridExtra        2.3   CRAN                         
-39             gtable      0.3.0   CRAN                         
-40             hexbin     1.28.1   CRAN                         
-41        highcharter      0.7.0   CRAN                         
-42              highr        0.8   CRAN                         
-43          htmltools 0.4.0.9003 GitHub c838588   rstudio/master
-44        htmlwidgets 1.5.1.9000 GitHub b357323  ramnathv/master
-45             httpuv 1.5.2.9000 GitHub 4164605   rstudio/master
-46               httr      1.4.1   CRAN                         
-47             igraph    1.2.4.2   CRAN                         
-48           jsonlite      1.6.1   CRAN                         
-49              knitr       1.28   CRAN                         
-50           labeling        0.3   CRAN                         
-51              later 1.0.0.9002 GitHub 0fb877a     r-lib/master
-52           lazyeval      0.2.2   CRAN                         
-53            leaflet 2.0.3.9000 GitHub c19b0fb   rstudio/master
-54  leaflet.providers      1.9.0 GitHub a992fad   rstudio/master
-55          lifecycle      0.1.0   CRAN                         
-56            listenv      0.8.0   CRAN                         
-57          lubridate      1.7.4   CRAN                         
-58           magrittr        1.5   CRAN                         
-59               maps      3.3.0   CRAN                         
-60           markdown        1.1   CRAN                         
-61            memoise      1.1.0   CRAN                         
-62               mime        0.9   CRAN                         
-63            munsell      0.5.0   CRAN                         
-64          networkD3        0.4   CRAN                         
-65                NLP      0.2-0   CRAN                         
-66            openssl      1.4.1   CRAN                         
-67          parsedate      1.2.0   CRAN                         
-68             pillar      1.4.3   CRAN                         
-69              pingr      2.0.0   CRAN                         
-70           pkgbuild      1.0.6   CRAN                         
-71          pkgconfig      2.0.3   CRAN                         
-72            pkgload      1.0.2   CRAN                         
-73             plotly      4.9.2 GitHub a63b048  ropensci/master
-74               plyr      1.8.5   CRAN                         
-75                png      0.1-7   CRAN                         
-76               pool 0.1.4.9000 GitHub 0b03680   rstudio/master
-77             praise      1.0.0   CRAN                         
-78        prettyunits      1.1.1   CRAN                         
-79           processx      3.4.2   CRAN                         
-80           promises 1.1.0.9000 GitHub 627dfc6   rstudio/master
-81               pryr      0.1.4   CRAN                         
-82                 ps      1.3.2   CRAN                         
-83              purrr      0.3.3   CRAN                         
-84           quantmod     0.4-15   CRAN                         
-85                 R6      2.4.1   CRAN                         
-86             raster     3.0-12   CRAN                         
-87       RColorBrewer      1.1-2   CRAN                         
-88               Rcpp      1.0.3   CRAN                         
-89           reactlog 1.0.0.9000 GitHub f078d88   rstudio/master
-90             reactR      0.4.2   CRAN                         
-91            rematch      1.0.1   CRAN                         
-92           rematch2      2.1.0   CRAN                         
-93            remotes      2.1.1   CRAN                         
-94               renv      0.9.2   CRAN                         
-95           reshape2      1.4.3   CRAN                         
-96              rlang      0.4.4   CRAN                         
-97              rlist    0.4.6.1   CRAN                         
-98          rmarkdown      2.1.1 GitHub 62f96c9   rstudio/master
-99          rprojroot      1.3-2   CRAN                         
-100           RSQLite      2.2.0   CRAN                         
-101        rstudioapi       0.11   CRAN                         
-102            scales      1.1.0   CRAN                         
-103       sessioninfo      1.1.1   CRAN                         
-104             shiny 1.4.0.9002 GitHub c69f34d   rstudio/master
-105       shinycoreci 0.0.0.9000 GitHub f3be3ad   rstudio/master
-106    shinydashboard      0.7.1   CRAN                         
-107           shinyjs        1.1   CRAN                         
-108        shinyjster 0.0.0.9003 GitHub 0ad907a schloerke/master
-109         shinymeta      0.2.0 GitHub b0ac455   rstudio/master
-110         shinytest 1.3.1.9002 GitHub 0170c66   rstudio/master
-111       shinythemes      1.1.2   CRAN                         
-112         showimage      1.0.0   CRAN                         
-113              slam     0.1-47   CRAN                         
-114       sourcetools      0.1.7   CRAN                         
-115                sp      1.3-2   CRAN                         
-116           stringi      1.4.6   CRAN                         
-117           stringr      1.4.0   CRAN                         
-118            styler      1.2.0   CRAN                         
-119               sys        3.3   CRAN                         
-120          testthat      2.3.1   CRAN                         
-121            tibble      2.1.3   CRAN                         
-122             tidyr      1.0.2   CRAN                         
-123        tidyselect      1.0.0   CRAN                         
-124           tinytex       0.19   CRAN                         
-125                tm      0.7-7   CRAN                         
-126               TTR     0.23-6   CRAN                         
-127              utf8      1.1.4   CRAN                         
-128             vctrs      0.2.2   CRAN                         
-129           viridis      0.5.1   CRAN                         
-130       viridisLite      0.3.0   CRAN                         
-131         webdriver      1.0.5   CRAN                         
-132         websocket 1.1.0.9001 GitHub 78a553d   rstudio/master
-133           whisker        0.4   CRAN                         
-134             withr      2.1.2   CRAN                         
-135         wordcloud        2.6   CRAN                         
-136              xfun       0.12   CRAN                         
-137               XML   3.99-0.3   CRAN                         
-138              xml2      1.2.2   CRAN                         
-139            xtable      1.8-4   CRAN                         
-140               xts     0.12-0   CRAN                         
-141              yaml      2.2.1   CRAN                         
-142               zoo      1.8-7   CRAN                         
-143              boot     1.3-23   CRAN                         
-144             class     7.3-15   CRAN                         
-145           cluster      2.1.0   CRAN                         
-146         codetools     0.2-16   CRAN                         
-147           foreign     0.8-72   CRAN                         
-148        KernSmooth    2.23-16   CRAN                         
-149           lattice    0.20-38   CRAN                         
-150              MASS   7.3-51.4   CRAN                         
-151            Matrix     1.2-18   CRAN                         
-152              mgcv     1.8-31   CRAN                         
-153              nlme    3.1-142   CRAN                         
-154              nnet     7.3-12   CRAN                         
-155             rpart     4.1-15   CRAN                         
-156           spatial     7.3-11   CRAN                         
-157          survival      3.1-8   CRAN                         
+              Package     Version Source     SHA                             Ref
+1         AsioHeaders    1.12.1-1   CRAN                                        
+2             askpass         1.1   CRAN                                        
+3          assertthat       0.2.1   CRAN                                        
+4           backports       1.1.5   CRAN                                        
+5           base64enc       0.1-3   CRAN                                        
+6                  BH    1.72.0-3   CRAN                                        
+7                 bit    1.1-15.2   CRAN                                        
+8               bit64       0.9-7   CRAN                                        
+9                blob       1.2.1   CRAN                                        
+10              broom       0.5.5   CRAN                                        
+11              callr       3.4.2   CRAN                                        
+12                cli       2.0.2   CRAN                                        
+13         colorspace       1.4-1   CRAN                                        
+14             crayon       1.3.4   CRAN                                        
+15          crosstalk  1.0.1.9000 GitHub 68b0b61                  rstudio/master
+16               curl         4.3   CRAN                                        
+17         data.table      1.12.8   CRAN                                        
+18                DBI       1.1.0   CRAN                                        
+19             dbplyr       1.4.2   CRAN                                        
+20            debugme       1.1.0   CRAN                                        
+21               desc       1.2.0   CRAN                                        
+22             digest      0.6.25   CRAN                                        
+23              dplyr       0.8.4   CRAN                                        
+24                 DT        0.12   CRAN                                        
+25           ellipsis       0.3.0   CRAN                                        
+26           evaluate        0.14   CRAN                                        
+27              fansi       0.4.1   CRAN                                        
+28             farver       2.0.3   CRAN                                        
+29            fastmap       1.0.1 GitHub 61c6099                    r-lib/master
+30      flexdashboard  0.5.1.9000 GitHub 404cdac                  rstudio/master
+31                 fs       1.3.1   CRAN                                        
+32             future      1.16.0   CRAN                                        
+33           generics       0.0.2   CRAN                                        
+34            ggplot2       3.2.1   CRAN                                        
+35              ggvis       0.4.5   CRAN                                        
+36            globals      0.12.5   CRAN                                        
+37               glue       1.3.1   CRAN                                        
+38          gridExtra         2.3   CRAN                                        
+39             gtable       0.3.0   CRAN                                        
+40             hexbin      1.28.1   CRAN                                        
+41        highcharter       0.7.0   CRAN                                        
+42              highr         0.8   CRAN                                        
+43                hms       0.5.3   CRAN                                        
+44          htmltools  0.4.0.9003 GitHub ce76055                  rstudio/master
+45        htmlwidgets  1.5.1.9000 GitHub b357323                 ramnathv/master
+46             httpuv  1.5.2.9000 GitHub 4164605                  rstudio/master
+47               httr       1.4.1   CRAN                                        
+48             igraph     1.2.4.2   CRAN                                        
+49           jsonlite       1.6.1   CRAN                                        
+50              knitr        1.28   CRAN                                        
+51           labeling         0.3   CRAN                                        
+52              later  1.0.0.9002 GitHub 0fb877a                    r-lib/master
+53           lazyeval       0.2.2   CRAN                                        
+54            leaflet  2.0.3.9000 GitHub c19b0fb                  rstudio/master
+55  leaflet.providers       1.9.0 GitHub a992fad                  rstudio/master
+56          lifecycle       0.1.0   CRAN                                        
+57            listenv       0.8.0   CRAN                                        
+58          lubridate       1.7.4   CRAN                                        
+59           magrittr         1.5   CRAN                                        
+60               maps       3.3.0   CRAN                                        
+61           markdown         1.1   CRAN                                        
+62            memoise       1.1.0   CRAN                                        
+63               mime         0.9   CRAN                                        
+64            munsell       0.5.0   CRAN                                        
+65          networkD3         0.4   CRAN                                        
+66                NLP       0.2-0   CRAN                                        
+67            openssl       1.4.1   CRAN                                        
+68            packrat       0.5.0   CRAN                                        
+69          parsedate       1.2.0   CRAN                                        
+70             pillar       1.4.3   CRAN                                        
+71              pingr       2.0.0   CRAN                                        
+72           pkgbuild       1.0.6   CRAN                                        
+73          pkgconfig       2.0.3   CRAN                                        
+74            pkgload       1.0.2   CRAN                                        
+75             plotly     4.9.2.1 GitHub 25b28c9                 ropensci/master
+76               plyr       1.8.5   CRAN                                        
+77                png       0.1-7   CRAN                                        
+78               pool  0.1.4.9000 GitHub 0b03680                  rstudio/master
+79             praise       1.0.0   CRAN                                        
+80        prettyunits       1.1.1   CRAN                                        
+81           processx       3.4.2   CRAN                                        
+82           progress       1.2.2   CRAN                                        
+83           promises  1.1.0.9000 GitHub 627dfc6                  rstudio/master
+84               pryr       0.1.4   CRAN                                        
+85                 ps       1.3.2   CRAN                                        
+86              purrr       0.3.3   CRAN                                        
+87           quantmod      0.4-15   CRAN                                        
+88            R.cache      0.14.0   CRAN                                        
+89        R.methodsS3       1.8.0   CRAN                                        
+90               R.oo      1.23.0   CRAN                                        
+91            R.utils       2.9.2   CRAN                                        
+92                 R6       2.4.1   CRAN                                        
+93             raster      3.0-12   CRAN                                        
+94       RColorBrewer       1.1-2   CRAN                                        
+95               Rcpp       1.0.3   CRAN                                        
+96           reactlog  1.0.0.9000 GitHub f078d88                  rstudio/master
+97             reactR       0.4.2   CRAN                                        
+98            rematch       1.0.1   CRAN                                        
+99           rematch2       2.1.0   CRAN                                        
+100           remotes       2.1.1   CRAN                                        
+101              renv       0.9.2   CRAN                                        
+102          reshape2       1.4.3   CRAN                                        
+103             rlang       0.4.5   CRAN                                        
+104             rlist     0.4.6.1   CRAN                                        
+105         rmarkdown         2.1   CRAN                                        
+106         rprojroot       1.3-2   CRAN                                        
+107         rsconnect 0.8.16-9001 GitHub 275fd97 rstudio/bugfix/barret-accountId
+108           RSQLite       2.2.0   CRAN                                        
+109        rstudioapi        0.11   CRAN                                        
+110            scales       1.1.0   CRAN                                        
+111       sessioninfo       1.1.1   CRAN                                        
+112             shiny  1.4.0.9002 GitHub 02219df                  rstudio/master
+113       shinycoreci  0.0.0.9002 GitHub c44d255                  rstudio/master
+114    shinydashboard       0.7.1   CRAN                                        
+115           shinyjs         1.1   CRAN                                        
+116        shinyjster  0.0.0.9003 GitHub d037de7                schloerke/master
+117         shinymeta       0.2.0 GitHub b0ac455                  rstudio/master
+118         shinytest  1.3.1.9002 GitHub 0170c66                  rstudio/master
+119       shinythemes       1.1.2   CRAN                                        
+120         showimage       1.0.0   CRAN                                        
+121              slam      0.1-47   CRAN                                        
+122       sourcetools       0.1.7   CRAN                                        
+123                sp       1.4-1   CRAN                                        
+124           stringi       1.4.6   CRAN                                        
+125           stringr       1.4.0   CRAN                                        
+126            styler       1.3.2   CRAN                                        
+127               sys         3.3   CRAN                                        
+128          testthat       2.3.2   CRAN                                        
+129            tibble       2.1.3   CRAN                                        
+130             tidyr       1.0.2   CRAN                                        
+131        tidyselect       1.0.0   CRAN                                        
+132           tinytex        0.20   CRAN                                        
+133                tm       0.7-7   CRAN                                        
+134               TTR      0.23-6   CRAN                                        
+135              utf8       1.1.4   CRAN                                        
+136             vctrs       0.2.3   CRAN                                        
+137           viridis       0.5.1   CRAN                                        
+138       viridisLite       0.3.0   CRAN                                        
+139         webdriver       1.0.5   CRAN                                        
+140         websocket  1.1.0.9001 GitHub 78a553d                  rstudio/master
+141           whisker         0.4   CRAN                                        
+142             withr       2.1.2   CRAN                                        
+143         wordcloud         2.6   CRAN                                        
+144              xfun        0.12   CRAN                                        
+145               XML    3.99-0.3   CRAN                                        
+146              xml2       1.2.2   CRAN                                        
+147            xtable       1.8-4   CRAN                                        
+148               xts      0.12-0   CRAN                                        
+149              yaml       2.2.1   CRAN                                        
+150               zoo       1.8-7   CRAN                                        
+151              boot      1.3-23   CRAN                                        
+152             class      7.3-15   CRAN                                        
+153           cluster       2.1.0   CRAN                                        
+154         codetools      0.2-16   CRAN                                        
+155           foreign      0.8-72   CRAN                                        
+156        KernSmooth     2.23-16   CRAN                                        
+157           lattice     0.20-38   CRAN                                        
+158              MASS    7.3-51.4   CRAN                                        
+159            Matrix      1.2-18   CRAN                                        
+160              mgcv      1.8-31   CRAN                                        
+161              nlme     3.1-142   CRAN                                        
+162              nnet      7.3-12   CRAN                                        
+163             rpart      4.1-15   CRAN                                        
+164           spatial      7.3-11   CRAN                                        
+165          survival       3.1-8   CRAN                                        
