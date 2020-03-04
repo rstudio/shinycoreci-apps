@@ -4,6 +4,8 @@
 [![shinytest](https://github.com/rstudio/shinycoreci-apps/workflows/shinytest/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinytest)
 [![shinyjster](https://github.com/rstudio/shinycoreci-apps/workflows/shinyjster/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinyjster)
 [![testthat](https://github.com/rstudio/shinycoreci-apps/workflows/testthat/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Atestthat)
+[![Docker](https://github.com/rstudio/shinycoreci-apps/workflows/Docker/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
+
 <!-- badges: end -->
 
 Test applications and workflows for Shiny R packages.
@@ -43,6 +45,13 @@ There are three main workflows:
   * ~~[rstudio.cloud](http://rstudio.cloud)~~
     * ~~Log into a session, then RUN LOCAL IDE~~
 
+**Docker**
+* Run SSO / SSP docker images locally
+* Images are [built nightly](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
+* Functions:
+  * SSO: `shinycoreci::docker_run_sso("bionic")`
+  * SSP: `shinycoreci::docker_run_ssp("bionic")`
+  * Clear up hard disk space: `shinycoreci::docker_clean(stopped_containers = TRUE, untagged_images = TRUE)`
 
 ## Usage
 
