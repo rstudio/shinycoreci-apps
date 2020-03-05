@@ -67,7 +67,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}
-        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=docker,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=master,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
         tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}"
 
 

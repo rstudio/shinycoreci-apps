@@ -115,7 +115,7 @@ ENV GITHUB_PAT=$GITHUB_PAT
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
 
-ARG SHINYCORECI_SHA=docker
+ARG SHINYCORECI_SHA=master
 ARG APPS_SHA=master
 
 # install testing repo at specific sha
