@@ -15,7 +15,7 @@ function(app = ".", ..., type = "ignored") {
     }
   }, add = TRUE)
 
-  shinyjster::run_headless(
+  shinyjster::run_jster_apps(
     apps = c(
       file.path(app, "169-prerender-a", "index.Rmd"),
       file.path(app, "169-prerender-b")
