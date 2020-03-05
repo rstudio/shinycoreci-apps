@@ -37,29 +37,6 @@ jobs:
       - uses: actions/checkout@v2
         name: GitHub Pull
 
-      - name: Setup macOS Browsers
-        if: runner.os == 'macOS'
-        run: |
-          brew update
-          brew cask install google-chrome
-          brew cask info google-chrome
-          brew cask install firefox
-          brew cask info firefox
-      - name: Confirm macOS Browsers
-        if: runner.os == 'macOS'
-        run: |
-          '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --version
-      - name: Confirm Linux Browsers
-        if: runner.os == 'Linux'
-        run: |
-          google-chrome --version
-          which firefox
-      - name: Confirm Windows Browsers
-        if: runner.os == 'Windows'
-        shell: bash
-        run: |
-          'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe' --headless --disable-gpu --dump-dom https://www.google.com/
-
       - uses: r-lib/actions/setup-r@master
         with:
           r-version: ${{ matrix.config.r }}
@@ -108,20 +85,42 @@ jobs:
           -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
           -e "shinycoreci::install_app_deps()"
 
-      - name: Log platform and package information
-        run: Rscript -e "shinycoreci::write_sysinfo()"
 
-      - name: Run headless Chrome checks
-        timeout-minutes: 20
+
+
+      - name: shinyjster - Internet Explorer
+        if: always() && runner.os == 'Windows'
         shell: bash
         run: >
           Rscript
-          -e "shinycoreci::test_shinyjster(browser = 'chrome', type = 'serial')"
-      # - name: Run headless Firefox checks
-      #   if: false
-      #   run: >
-      #     Rscript
-      #     -e "shinycoreci::test_shinyjster(browser = 'firefox', type = 'serial')"
+          -e "shinycoreci::test_shinyjster(browser = 'ie')"
+
+      - name: shinyjster - Microsoft Edge
+        # if: always() && (runner.os == 'Windows' || runner.os == 'macOS')
+        if: always() && runner.os == 'Windows'
+        shell: bash
+        run: >
+          Rscript
+          -e "shinycoreci::test_shinyjster(browser = 'edge')"
+
+      - name: shinyjster - Google Chrome
+        if: always()
+        shell: bash
+        run: >
+          Rscript
+          -e "shinycoreci::test_shinyjster(browser = 'chrome')"
+
+      - name: shinyjster - Firefox
+        if: always()
+        shell: bash
+        run: >
+          Rscript
+          -e "shinyjster::run_jster_apps(apps = shinyjster:::apps_to_test(), browser = shinyjster::selenium_firefox(headless = TRUE), type = 'serial')"
+
+
+
+
+
 
       - name: Fix path for Windows caching
         if: runner.os == 'Windows'
