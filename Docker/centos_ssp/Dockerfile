@@ -29,7 +29,7 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/$
 
 # activate license
 ARG SSP_LICENSE
-RUN /opt/shiny-server/bin/license-manager activate ${SSP_LICENSE} > /dev/null
+RUN /opt/shiny-server/bin/license-manager activate ${SSP_LICENSE} > /dev/null 2>&1
 
 RUN echo "${R_VERSION}-${RELEASE} Shiny Server PRO: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt
