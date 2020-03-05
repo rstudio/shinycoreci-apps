@@ -1,0 +1,98 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - docker
+      - ghactions
+  # # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
+  # schedule:
+  #   - cron:  '0 6 * * 0-4' # every work night at ~ midnight central time
+  repository_dispatch:
+    types:
+      - all
+      - docker
+
+
+jobs:
+  docker:
+    name: ${{ matrix.config.name }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+
+        - name: Bionic
+          workdir: Docker/ubuntu
+          type: bionic
+          aws_build_machine: ubuntu-14.04
+          r: 3.6
+
+        - name: Xenial
+          workdir: Docker/ubuntu
+          type: xenial
+          aws_build_machine: ubuntu-14.04
+          r: 3.6
+
+        - name: Centos7
+          workdir: Docker/centos
+          type: centos7
+          aws_build_machine: centos6.3
+          r: 3.6
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Get apps sha
+      shell: bash
+      id: apps
+      run: |
+        SHA=${{ github.event.pull_request.head.sha }}
+        if [[ -z "$SHA" ]]; then
+          SHA=${{ github.sha }}
+        fi
+        echo $SHA
+        SHORT_SHA=${SHA:0:7}
+        echo $SHORT_SHA
+        echo "::set-output name=sha::$SHORT_SHA"
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: Base
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name == 'push' }}
+        workdir: ${{ matrix.config.workdir }}
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=master,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}"
+
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: SSO
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name == 'push' }}
+        workdir: ${{ matrix.config.workdir }}_sso
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }}"
+        tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}"
+
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: SSP
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name == 'push' }}
+        workdir: ${{ matrix.config.workdir }}_ssp
+        # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE }}"
+        tags: "ssp-${{ matrix.config.r }}-${{ matrix.config.type }}"
