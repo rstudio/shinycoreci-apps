@@ -23,11 +23,14 @@ jobs:
       fail-fast: false
       matrix:
 
-        r: 3.6
+        r:
+          - 3.6
         # shinycoreci_sha: master
-        shinycoreci_sha: shiny-1.4.0.1
+        shinycoreci_sha:
+          - shiny-1.4.0.1
         # extra_base_tag:
-        extra_base_tag: -rc_v1.4.0.1
+        extra_base_tag:
+          - "-rc_v1.4.0.1"
 
 
         config:
