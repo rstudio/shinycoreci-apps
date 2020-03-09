@@ -23,11 +23,17 @@ jobs:
       fail-fast: false
       matrix:
 
+        cache:
+          # - ${{ github.event_name == 'push' }}
+          - false
+
         r:
           - 3.6
+
         # shinycoreci_sha: master
         shinycoreci_sha:
           - shiny-1.4.0.1
+
         # extra_base_tag:
         extra_base_tag:
           - "-rc_v1.4.0.1"
@@ -74,7 +80,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: ${{ matrix.cache }}
         workdir: ${{ matrix.config.workdir }}
         buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
         tags: "base-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
@@ -87,7 +93,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: ${{ matrix.cache }}
         workdir: ${{ matrix.config.workdir }}_sso
         buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
         tags: "sso-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
@@ -100,7 +106,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: ${{ matrix.cache }}
         workdir: ${{ matrix.config.workdir }}_ssp
         # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
         buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
