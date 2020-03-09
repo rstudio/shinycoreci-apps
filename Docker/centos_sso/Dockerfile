@@ -6,9 +6,12 @@
 
 ARG R_VERSION=3.6
 ARG RELEASE=centos7
-FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}
+ARG EXTRA_BASE_TAG=
+FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
+
 ARG R_VERSION=3.6
 ARG RELEASE=centos7
+ARG EXTRA_BASE_TAG=
 ARG AWS_BUILD_MACHINE=centos6.3
 
 
@@ -30,7 +33,7 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${
 
 
 
-RUN echo "${R_VERSION}-${RELEASE} Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
+RUN echo "${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG} Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt
 
 

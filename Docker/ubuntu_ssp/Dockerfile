@@ -7,13 +7,13 @@
 
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
 ARG R_VERSION=3.6
-# ARG DISTRO=ubuntu
 ARG RELEASE=bionic
+ARG EXTRA_BASE_TAG=
+FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
 
-FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}
-
-# ARG DISTRO=ubuntu
+ARG R_VERSION=3.6
 ARG RELEASE=bionic
+ARG EXTRA_BASE_TAG=
 ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
 RUN apt-get update && apt-get install -y \
@@ -36,5 +36,5 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/$
 ARG SSP_LICENSE
 RUN /opt/shiny-server/bin/license-manager activate ${SSP_LICENSE} > /dev/null 2>&1
 
-RUN echo "${R_VERSION}-${RELEASE} Shiny Server PRO: `cat version.txt`\n" >> /srv/shiny-server/__version && \
+RUN echo "${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG} Shiny Server PRO: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt

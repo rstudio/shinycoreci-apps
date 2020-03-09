@@ -22,25 +22,31 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+
+        r: 3.6
+        # shinycoreci_sha: master
+        shinycoreci_sha: shiny-1.4.0.1
+        # extra_base_tag:
+        extra_base_tag: -rc_v1.4.0.1
+
+
         config:
 
         - name: Bionic
           workdir: Docker/ubuntu
           type: bionic
           aws_build_machine: ubuntu-14.04
-          r: 3.6
 
         - name: Xenial
           workdir: Docker/ubuntu
           type: xenial
           aws_build_machine: ubuntu-14.04
-          r: 3.6
 
         - name: Centos7
           workdir: Docker/centos
           type: centos7
           aws_build_machine: centos6.3
-          r: 3.6
+
 
     steps:
     - uses: actions/checkout@master
@@ -67,8 +73,8 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}
-        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=master,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
-        tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}"
+        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        tags: "base-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
 
 
     # https://github.com/marketplace/actions/publish-docker
@@ -80,8 +86,8 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}_sso
-        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }}"
-        tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}"
+        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
+        tags: "sso-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
 
 
     # https://github.com/marketplace/actions/publish-docker
@@ -94,5 +100,5 @@ jobs:
         cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}_ssp
         # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
-        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE }}"
-        tags: "ssp-${{ matrix.config.r }}-${{ matrix.config.type }}"
+        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
+        tags: "ssp-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
