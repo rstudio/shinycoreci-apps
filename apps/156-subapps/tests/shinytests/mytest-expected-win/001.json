@@ -70,9 +70,9 @@
         },
         {
           "name": "shinyjster-assets",
-          "version": "0.0.0.9003",
+          "version": "0.0.0.9004",
           "src": {
-            "href": "shinyjster-assets-0.0.0.9003"
+            "href": "shinyjster-assets-0.0.0.9004"
           },
           "meta": null,
           "script": "js/shinyjster.js",
