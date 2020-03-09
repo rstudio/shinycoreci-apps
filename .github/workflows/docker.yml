@@ -16,7 +16,7 @@ on:
 
 jobs:
   docker:
-    name: ${{ matrix.config.name }}
+    name: ${{ matrix.config.type }}-${{ matrix.r }}${{ matrix.config.extra_base_tag }}
     runs-on: ubuntu-latest
 
     strategy:
