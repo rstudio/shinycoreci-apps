@@ -78,7 +78,7 @@ jobs:
 
     - name: SSP License
       run: |
-        echo "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.config.workdir }}_ssp/ssp.lic
+        echo "randomnoise" > ${{ matrix.config.workdir }}_ssp/ssp.lic
         wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
 
     # https://github.com/marketplace/actions/publish-docker
