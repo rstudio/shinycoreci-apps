@@ -97,7 +97,7 @@ jobs:
     - name: SSP License
       shell: bash
       run: |
-        printf "%b" "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.config.workdir }}_ssp/ssp.lic
+        printf "%b" "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.config.workdir }}_ssp/ssp.lic 2>/dev/null
         wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
     # https://github.com/marketplace/actions/publish-docker
     - name: SSP
