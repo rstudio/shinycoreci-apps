@@ -76,10 +76,10 @@ jobs:
         echo $SHORT_SHA
         echo "::set-output name=sha::$SHORT_SHA"
 
-    - name: SSP License
-      run: |
-        echo "randomnoise" > ${{ matrix.config.workdir }}_ssp/ssp.lic
-        wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
+    # - name: SSP License
+    #   run: |
+    #     echo "randomnoise" > ${{ matrix.config.workdir }}_ssp/ssp.lic
+    #     wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
 
     # https://github.com/marketplace/actions/publish-docker
     - name: SSP
@@ -94,9 +94,9 @@ jobs:
         buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE_FILE=${{ matrix.config.workdir }}_ssp/ssp.lic,EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
         tags: "ssp-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
 
-    - name: Remove SSP License
-      run: |
-        rm ${{ matrix.config.workdir }}_ssp/ssp.lic
+    # - name: Remove SSP License
+    #   run: |
+    #     rm ${{ matrix.config.workdir }}_ssp/ssp.lic
 
     # # https://github.com/marketplace/actions/publish-docker
     # - name: Base
