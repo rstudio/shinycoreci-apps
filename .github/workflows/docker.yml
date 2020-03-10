@@ -102,6 +102,10 @@ jobs:
     #     tags: "sso-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
 
 
+    - name: SSP License
+      run: |
+        echo ${{ secrets.SSP_LICENSE_FILE }} > ${{ matrix.config.workdir }}_ssp/ssp.lic
+        wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
     # https://github.com/marketplace/actions/publish-docker
     - name: SSP
       uses: elgohr/Publish-Docker-Github-Action@2.12
@@ -112,5 +116,8 @@ jobs:
         cache: ${{ matrix.cache }}
         workdir: ${{ matrix.config.workdir }}_ssp
         # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
-        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE_FILE }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
+        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE_FILE=${{ matrix.config.workdir }}_ssp/ssp.lic,EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
         tags: "ssp-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
+    - name: Remove SSP License
+      run: |
+        rm ${{ matrix.config.workdir }}_ssp/ssp.lic
