@@ -28,7 +28,7 @@ jobs:
           - false
 
         r:
-          - 3.5
+          # - 3.5
           - 3.6
 
         # shinycoreci_sha: master
@@ -74,30 +74,30 @@ jobs:
         echo $SHORT_SHA
         echo "::set-output name=sha::$SHORT_SHA"
 
-    # https://github.com/marketplace/actions/publish-docker
-    - name: Base
-      uses: elgohr/Publish-Docker-Github-Action@2.12
-      with:
-        name: rstudio/shinycoreci
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ matrix.cache }}
-        workdir: ${{ matrix.config.workdir }}
-        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
-        tags: "base-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
+    # # https://github.com/marketplace/actions/publish-docker
+    # - name: Base
+    #   uses: elgohr/Publish-Docker-Github-Action@2.12
+    #   with:
+    #     name: rstudio/shinycoreci
+    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+    #     cache: ${{ matrix.cache }}
+    #     workdir: ${{ matrix.config.workdir }}
+    #     buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+    #     tags: "base-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
 
 
-    # https://github.com/marketplace/actions/publish-docker
-    - name: SSO
-      uses: elgohr/Publish-Docker-Github-Action@2.12
-      with:
-        name: rstudio/shinycoreci
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ matrix.cache }}
-        workdir: ${{ matrix.config.workdir }}_sso
-        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
-        tags: "sso-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
+    # # https://github.com/marketplace/actions/publish-docker
+    # - name: SSO
+    #   uses: elgohr/Publish-Docker-Github-Action@2.12
+    #   with:
+    #     name: rstudio/shinycoreci
+    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+    #     cache: ${{ matrix.cache }}
+    #     workdir: ${{ matrix.config.workdir }}_sso
+    #     buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
+    #     tags: "sso-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
 
 
     # https://github.com/marketplace/actions/publish-docker
