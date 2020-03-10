@@ -1,5 +1,4 @@
 library(ggplot2)
-library(Cairo)   # For nicer ggplot2 output when deployed on Linux
 
 ui <- fluidPage(
   fluidRow(
@@ -26,7 +25,7 @@ server <- function(input, output) {
     # Plot the kept and excluded points as two separate data sets
     keep    <- mtcars[ vals$keeprows, , drop = FALSE]
     exclude <- mtcars[!vals$keeprows, , drop = FALSE]
-    
+
     ggplot(keep, aes(wt, mpg)) + geom_point() +
       geom_smooth(method = lm, fullrange = TRUE, color = "black") +
       geom_point(data = exclude, shape = 21, fill = NA, color = "black", alpha = 0.25) +

@@ -1,5 +1,4 @@
 library(ggplot2)
-library(Cairo)   # For nicer ggplot2 output when deployed on Linux
 
 # We'll use a subset of the mtcars data set, with fewer columns
 # so that it prints nicely

@@ -1,5 +1,4 @@
 library(ggplot2)
-library(Cairo)   # For nicer ggplot2 output when deployed on Linux
 library(DT)
 
 # A modified version of mtcars with some columns removed, some columns added,

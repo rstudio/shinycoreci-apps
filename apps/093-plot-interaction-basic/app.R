@@ -1,5 +1,4 @@
 library(ggplot2)
-library(Cairo)   # For nicer ggplot2 output when deployed on Linux
 
 ui <- fluidPage(
   # Some custom CSS for a smaller font for preformatted text
