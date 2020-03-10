@@ -112,5 +112,5 @@ jobs:
         cache: ${{ matrix.cache }}
         workdir: ${{ matrix.config.workdir }}_ssp
         # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
-        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
+        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE_FILE }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
         tags: "ssp-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"

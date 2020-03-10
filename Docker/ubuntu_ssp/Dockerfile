@@ -1,5 +1,6 @@
 # To build, cd to this directory, then:
 #   docker build --build-arg SSP_LICENSE="$(cat ssp-rstudio-license-2024-09-06-activated.lic)" -t rstudio/shinycoreci:ssp-3.6-bionic .
+#   docker build --build-arg SSP_LICENSE="$(cat ssp-rstudio-license-2024-09-06.lic)" -t rstudio/shinycoreci:ssp-3.6-bionic .
 #
 # To run:
 #   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-3.6-bionic
@@ -34,7 +35,10 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/$
 
 # activate license
 ARG SSP_LICENSE
-RUN /opt/shiny-server/bin/license-manager activate ${SSP_LICENSE} > /dev/null 2>&1
+RUN echo "${SSP_LICENSE}" > ~/ssp.lic && \
+  wc -l ~/ssp.lic && \
+  /opt/shiny-server/bin/license-manager activate-file ~/ssp.lic > /dev/null 2>&1 && \
+  rm ~/ssp.lic
 
 RUN echo "${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG} Shiny Server PRO: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt
