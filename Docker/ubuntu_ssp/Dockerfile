@@ -1,8 +1,10 @@
 # To build, cd to this directory, then:
 #   docker build --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-3.6-bionic .
-#
+#   docker build --build-arg EXTRA_BASE_TAG=-rc_v1.4.0.1 --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-3.6-bionic-rc_v1.4.0.1 .
+
 # To run:
 #   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-3.6-bionic
+#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-3.6-bionic-rc_v1.4.0.1
 
 
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
