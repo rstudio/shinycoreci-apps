@@ -24,15 +24,15 @@ jobs:
       matrix:
 
         r:
-          # - 3.5
+          - 3.5
           - 3.6
 
         shinycoreci_sha:
           # shinycoreci_sha: master
           - shiny-1.4.0.1
 
+        # extra_base_tag: ''
         extra_base_tag:
-          # extra_base_tag:
           - "-rc_v1.4.0.1"
 
 
@@ -42,9 +42,9 @@ jobs:
           workdir: Docker/ubuntu
           type: bionic
 
-        # - name: Xenial
-        #   workdir: Docker/ubuntu
-        #   type: xenial
+        - name: Xenial
+          workdir: Docker/ubuntu
+          type: xenial
 
         - name: Centos7
           workdir: Docker/centos
@@ -68,42 +68,40 @@ jobs:
         echo "::set-output name=sha::$SHORT_SHA"
 
 
-    # # https://github.com/marketplace/actions/publish-docker
-    # - name: Base
-    #   uses: elgohr/Publish-Docker-Github-Action@2.12
-    #   with:
-    #     name: rstudio/shinycoreci
-    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
-    #     cache: ${{ github.event_name != 'schedule' }}
-    #     workdir: ${{ matrix.config.workdir }}
-    #     buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
-    #     tags: "base-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
+    # https://github.com/marketplace/actions/publish-docker
+    - name: Build Base
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name != 'schedule' }}
+        workdir: ${{ matrix.config.workdir }}
+        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        tags: "base-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
 
 
-    # # https://github.com/marketplace/actions/publish-docker
-    # - name: SSO
-    #   uses: elgohr/Publish-Docker-Github-Action@2.12
-    #   with:
-    #     name: rstudio/shinycoreci
-    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
-    #     cache: ${{ github.event_name != 'schedule' }}
-    #     workdir: ${{ matrix.config.workdir }}_sso
-    #     buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
-    #     tags: "sso-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
+    # https://github.com/marketplace/actions/publish-docker
+    - name: Build SSO
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ github.event_name != 'schedule' }}
+        workdir: ${{ matrix.config.workdir }}_sso
+        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
+        tags: "sso-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
 
 
-    - name: SSP License
+        # Note: Store the license as a single line string with new lines as visible '\n' characters.
+    - name: Store SSP License
       shell: bash
       run: |
         printf "%b" "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.config.workdir }}_ssp/ssp.lic 2>/dev/null
-        echo ${{ matrix.config.workdir }}_ssp/ssp.lic
         wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
-        ls -d $PWD/${{ matrix.config.workdir }}_ssp/*
-
     # https://github.com/marketplace/actions/publish-docker
-    - name: SSP
+    - name: Build SSP
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -115,5 +113,6 @@ jobs:
         buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE_FILE=ssp.lic,EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
         tags: "ssp-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
     - name: Remove SSP License
+      if: always()
       run: |
         rm ${{ matrix.config.workdir }}_ssp/ssp.lic
