@@ -26,8 +26,8 @@ jobs:
         # The APPS_SHA is dynamically found below and sent in at the same time as SHINYCORECI_SHA value
         # Cache as much as possible!
         cache:
-          - ${{ github.event_name == 'push' }}
-          # - false
+          # - ${{ github.event_name == 'push' }}
+          - true
 
         # - 3.5
         r:
