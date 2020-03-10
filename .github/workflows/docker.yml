@@ -76,6 +76,7 @@ jobs:
         echo $SHORT_SHA
         echo "::set-output name=sha::$SHORT_SHA"
 
+
     # # https://github.com/marketplace/actions/publish-docker
     # - name: Base
     #   uses: elgohr/Publish-Docker-Github-Action@2.12
