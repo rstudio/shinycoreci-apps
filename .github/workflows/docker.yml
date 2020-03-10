@@ -23,14 +23,14 @@ jobs:
       fail-fast: false
       matrix:
 
+        # The APPS_SHA is dynamically found below and sent in at the same time as SHINYCORECI_SHA value
+        # Cache as much as possible!
         cache:
-          # The APPS_SHA is dynamically found below and sent in at the same time as SHINYCORECI_SHA value
-          # Cache as much as possible!
           - ${{ github.event_name == 'push' }}
           # - false
 
+        # - 3.5
         r:
-          # - 3.5
           - 3.6
 
         # shinycoreci_sha: master
@@ -76,6 +76,27 @@ jobs:
         echo $SHORT_SHA
         echo "::set-output name=sha::$SHORT_SHA"
 
+    - name: SSP License
+      run: |
+        echo "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.config.workdir }}_ssp/ssp.lic
+        wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
+
+    # https://github.com/marketplace/actions/publish-docker
+    - name: SSP
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: rstudio/shinycoreci
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        cache: ${{ matrix.cache }}
+        workdir: ${{ matrix.config.workdir }}_ssp
+        # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
+        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE_FILE=${{ matrix.config.workdir }}_ssp/ssp.lic,EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
+        tags: "ssp-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
+
+    - name: Remove SSP License
+      run: |
+        rm ${{ matrix.config.workdir }}_ssp/ssp.lic
 
     # # https://github.com/marketplace/actions/publish-docker
     # - name: Base
@@ -101,24 +122,3 @@ jobs:
     #     workdir: ${{ matrix.config.workdir }}_sso
     #     buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
     #     tags: "sso-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
-
-
-    - name: SSP License
-      run: |
-        echo "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.config.workdir }}_ssp/ssp.lic
-        wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
-    # https://github.com/marketplace/actions/publish-docker
-    - name: SSP
-      uses: elgohr/Publish-Docker-Github-Action@2.12
-      with:
-        name: rstudio/shinycoreci
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ matrix.cache }}
-        workdir: ${{ matrix.config.workdir }}_ssp
-        # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
-        buildargs: "R_VERSION=${{ matrix.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE_FILE=${{ matrix.config.workdir }}_ssp/ssp.lic,EXTRA_BASE_TAG=${{ matrix.extra_base_tag }}"
-        tags: "ssp-${{ matrix.r }}-${{ matrix.config.type }}${{ matrix.extra_base_tag }}"
-    - name: Remove SSP License
-      run: |
-        rm ${{ matrix.config.workdir }}_ssp/ssp.lic
