@@ -98,7 +98,10 @@ jobs:
       shell: bash
       run: |
         printf "%b" "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.config.workdir }}_ssp/ssp.lic 2>/dev/null
+        echo ${{ matrix.config.workdir }}_ssp/ssp.lic
         wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
+        ls -d $PWD/${{ matrix.config.workdir }}_ssp/
+
     # https://github.com/marketplace/actions/publish-docker
     - name: SSP
       uses: elgohr/Publish-Docker-Github-Action@2.12
