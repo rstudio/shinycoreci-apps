@@ -25,7 +25,6 @@ renderInputs <- function(prefix) {
 
 # Define UI for application that plots random distributions
 fluidPage(
-  theme = shinytheme("simplex"),
   tags$style(type="text/css",
     "label {font-size: 12px;}",
     ".recalculating {opacity: 1.0;}"
