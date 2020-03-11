@@ -16,31 +16,47 @@ on:
 
 jobs:
   docker:
-    name: ${{ matrix.config.name }}
+    name: ${{ matrix.config.type }}-${{ matrix.config.r }}${{ matrix.flavor.extra_base_tag }}
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
+
+        flavor:
+          - shinycoreci_sha: master
+            extra_base_tag: ""
+
+          # - shinycoreci_sha: shiny-1.4.0.1
+          #   extra_base_tag: "-rc_v1.4.0.1"
+
+
         config:
 
         - name: Bionic
           workdir: Docker/ubuntu
           type: bionic
-          aws_build_machine: ubuntu-14.04
+          r: 3.5
+        - name: Bionic
+          workdir: Docker/ubuntu
+          type: bionic
           r: 3.6
 
         - name: Xenial
           workdir: Docker/ubuntu
           type: xenial
-          aws_build_machine: ubuntu-14.04
           r: 3.6
+          # Xenial has trouble installing R 3.5
 
         - name: Centos7
           workdir: Docker/centos
           type: centos7
-          aws_build_machine: centos6.3
+          r: 3.5
+        - name: Centos7
+          workdir: Docker/centos
+          type: centos7
           r: 3.6
+
 
     steps:
     - uses: actions/checkout@master
@@ -58,41 +74,52 @@ jobs:
         echo $SHORT_SHA
         echo "::set-output name=sha::$SHORT_SHA"
 
+
     # https://github.com/marketplace/actions/publish-docker
-    - name: Base
+    - name: Build Base
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: ${{ github.event_name != 'schedule' }}
         workdir: ${{ matrix.config.workdir }}
-        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=master,GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
-        tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}"
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.flavor.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}${{ matrix.flavor.extra_base_tag }}"
 
 
     # https://github.com/marketplace/actions/publish-docker
-    - name: SSO
+    - name: Build SSO
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: ${{ github.event_name != 'schedule' }}
         workdir: ${{ matrix.config.workdir }}_sso
-        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }}"
-        tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}"
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
+        tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}${{ matrix.flavor.extra_base_tag }}"
 
 
+        # Note: Store the license as a single line string with new lines as visible '\n' characters.
+    - name: Store SSP License
+      shell: bash
+      run: |
+        printf "%b" "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.config.workdir }}_ssp/ssp.lic 2>/dev/null
+        wc -l ${{ matrix.config.workdir }}_ssp/ssp.lic
     # https://github.com/marketplace/actions/publish-docker
-    - name: SSP
+    - name: Build SSP
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name == 'push' }}
+        cache: ${{ github.event_name != 'schedule' }}
         workdir: ${{ matrix.config.workdir }}_ssp
-        # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent
-        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE=${{ secrets.SSP_LICENSE }}"
-        tags: "ssp-${{ matrix.config.r }}-${{ matrix.config.type }}"
+        # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent within file
+        buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE_FILE=ssp.lic,EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
+        tags: "ssp-${{ matrix.config.r }}-${{ matrix.config.type }}${{ matrix.flavor.extra_base_tag }}"
+    - name: Remove SSP License
+      if: always()
+      run: |
+        rm ${{ matrix.config.workdir }}_ssp/ssp.lic

@@ -1,18 +1,19 @@
 # To build, cd to this directory, then:
 #   docker build -t rstudio/shinycoreci:sso-3.6-bionic .
+#   docker build --build-arg EXTRA_BASE_TAG="-rc_v1.4.0.1" -t rstudio/shinycoreci:sso-3.6-bionic-rc_v1.4.0.1 .
 #
 # To run:
 #   docker run --rm -p 3838:3838 --name sso_bionic rstudio/shinycoreci:sso-3.6-bionic
 
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
 ARG R_VERSION=3.6
-# ARG DISTRO=ubuntu
 ARG RELEASE=bionic
+ARG EXTRA_BASE_TAG=
+FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
 
-FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}
-
-# ARG DISTRO=ubuntu
-# ARG RELEASE=bionic
+ARG R_VERSION=3.6
+ARG RELEASE=bionic
+ARG EXTRA_BASE_TAG=
 ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
 # switch(distro,
@@ -39,5 +40,5 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${
 
 
 
-RUN echo "${R_VERSION}-${RELEASE} Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
+RUN echo "${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG} Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt
