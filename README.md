@@ -4,6 +4,8 @@
 [![shinytest](https://github.com/rstudio/shinycoreci-apps/workflows/shinytest/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinytest)
 [![shinyjster](https://github.com/rstudio/shinycoreci-apps/workflows/shinyjster/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinyjster)
 [![testthat](https://github.com/rstudio/shinycoreci-apps/workflows/testthat/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Atestthat)
+[![Docker](https://github.com/rstudio/shinycoreci-apps/workflows/Docker/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
+
 <!-- badges: end -->
 
 Test applications and workflows for Shiny R packages.
