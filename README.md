@@ -32,17 +32,25 @@ There are three main workflows:
 * Test javascript code is added in `app.R`
 * `shinyjster` is currently intended for testing apps specifically created to test something in particular. It is not something we suggest be used to test most applications. This positions `shinyjster` differently than `shinytest` and the forthcoming _integration testing_ feature of Shiny.
 * Functions:
-  * Local Headless
+  * Local Headless Browser
     * Chrome: `shinycoreci::test_shinyjster(browser = "chrome")`
-    * ~~Firefox: `shinycoreci::test_shinyjster(browser = "firefox")~~
-    * ~~Internet Exploreer: `shinycoreci::test_shinyjster(browser = "ie")~~
+    * Firefox: `shinycoreci::test_shinyjster(browser = "firefox")~
+    * Microsoft Edge: `shinycoreci::test_shinyjster(browser = "edge")
+    * Internet Exploreer: `shinycoreci::test_shinyjster(browser = "ie")
     * ~~Safari: `shinycoreci::test_shinyjster(browser = "safari")~~
-  * ~~Local IDE~~
+  * Local RStudio IDE: `shinycoreci::test_shinyjster(browser = getOption('browser'))`
   * ~~Connect~~
   * ~~SSO/SSP~~
-  * ~~[rstudio.cloud](http://rstudio.cloud)~~
-    * ~~Log into a session, then RUN LOCAL IDE~~
+  * [RStudio Cloud](http://rstudio.cloud)
+    * Log into a project R session, `shinycoreci::test_shinyjster(browser = getOption('browser'))`
 
+**Docker**
+* Run SSO / SSP docker images locally
+* Images are [built nightly](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
+* Functions:
+  * SSO: `shinycoreci::docker_run_sso()`
+  * SSP: `shinycoreci::docker_run_ssp()`
+  * Clear up hard disk space: `shinycoreci::docker_clean(stopped_containers = TRUE, untagged_images = TRUE)`
 
 ## Usage
 
