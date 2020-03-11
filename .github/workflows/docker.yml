@@ -5,9 +5,9 @@ on:
     branches:
       - docker
       - ghactions
-  # # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
-  # schedule:
-  #   - cron:  '0 6 * * 0-4' # every work night at ~ midnight central time
+  # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
+  schedule:
+    - cron:  '0 6 * * 0-4' # every work night at ~ midnight central time
   repository_dispatch:
     types:
       - all
