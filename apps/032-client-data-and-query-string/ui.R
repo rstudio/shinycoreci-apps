@@ -49,15 +49,9 @@ fluidPage(
   shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.updateHref(window.location.href + '&test=%28fan%C3%A7y%21%29#hashVal'));
 
     jst.add(function(done) {
-      if ($('#queryText').text().trim() == 'shinyjster=1') {
-        // redirect to testing url
-        window.location = window.location.href + '&test=%28fançy%21%29#hashVal';
-        // do not call `done` to not kill testing server
-        return;
-      }
-
       // update the hash value
       window.location = window.location = window.location.href.split('#')[0] + '#updatedHashVal';
 
