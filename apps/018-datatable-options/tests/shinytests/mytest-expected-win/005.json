@@ -1091,9 +1091,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.0.1.9000",
+          "version": "1.0.1.9001",
           "src": {
-            "href": "crosstalk-1.0.1.9000"
+            "href": "crosstalk-1.0.1.9001"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
@@ -1194,9 +1194,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.0.1.9000",
+          "version": "1.0.1.9001",
           "src": {
-            "href": "crosstalk-1.0.1.9000"
+            "href": "crosstalk-1.0.1.9001"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
@@ -1285,9 +1285,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.0.1.9000",
+          "version": "1.0.1.9001",
           "src": {
-            "href": "crosstalk-1.0.1.9000"
+            "href": "crosstalk-1.0.1.9001"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
@@ -1376,9 +1376,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.0.1.9000",
+          "version": "1.0.1.9001",
           "src": {
-            "href": "crosstalk-1.0.1.9000"
+            "href": "crosstalk-1.0.1.9001"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
@@ -1468,9 +1468,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.0.1.9000",
+          "version": "1.0.1.9001",
           "src": {
-            "href": "crosstalk-1.0.1.9000"
+            "href": "crosstalk-1.0.1.9001"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
