@@ -1,7 +1,7 @@
 
 function(app, ...) {
-  shinyjster::run_headless(
-    apps = file.path(app, "index.Rmd"),
+  shinyjster::run_jster(
+    appDir = file.path(app, "index.Rmd"),
     ...
   )
 }

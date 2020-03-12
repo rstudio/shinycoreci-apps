@@ -74,8 +74,7 @@ ui <- function(request) {
         };
 
         var new_url = $('.modal-body .form-control').val() + '&shinyjster=1';
-        window.location.assign(new_url);
-        // never call `done()` as to not allow shinyjster to close the window
+        Jster.shiny.updateHref(new_url)(done);
       })
 
       jst.test();
