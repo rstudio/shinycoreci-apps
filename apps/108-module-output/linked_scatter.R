@@ -10,22 +10,27 @@ linkedScatterUI <- function(id) {
   )
 }
 
-linkedScatter <- function(input, output, session, data, left, right) {
-  # Yields the data frame with an additional column "selected_"
-  # that indicates whether that observation is brushed
-  dataWithSelection <- reactive({
-    brushedPoints(data(), input$brush, allRows = TRUE)
-  })
+linkedScatterServer <- function(id, data, left, right) {
+  moduleServer(
+    id,
+    function(input, output, session) {
+      # Yields the data frame with an additional column "selected_"
+      # that indicates whether that observation is brushed
+      dataWithSelection <- reactive({
+        brushedPoints(data(), input$brush, allRows = TRUE)
+      })
 
-  output$plot1 <- renderPlot({
-    scatterPlot(dataWithSelection(), left())
-  })
+      output$plot1 <- renderPlot({
+        scatterPlot(dataWithSelection(), left())
+      })
 
-  output$plot2 <- renderPlot({
-    scatterPlot(dataWithSelection(), right())
-  })
+      output$plot2 <- renderPlot({
+        scatterPlot(dataWithSelection(), right())
+      })
 
-  return(dataWithSelection)
+      return(dataWithSelection)
+    }
+  )
 }
 
 scatterPlot <- function(data, cols) {

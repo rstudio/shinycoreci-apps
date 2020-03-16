@@ -9,7 +9,9 @@ ui <- fixedPage(
 )
 
 server <- function(input, output, session) {
-  df <- callModule(linkedScatter, "scatters", reactive(mpg),
+  df <- linkedScatterServer(
+    "scatters",
+    reactive(mpg),
     left = reactive(c("cty", "hwy")),
     right = reactive(c("drv", "hwy"))
   )
