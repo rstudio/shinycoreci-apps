@@ -7,7 +7,7 @@
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2020-03-17                  
+ date     2020-03-18                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA                             Ref
 1         AsioHeaders    1.12.2-1   CRAN                                        
@@ -53,7 +53,7 @@
 41        highcharter       0.7.0   CRAN                                        
 42              highr         0.8   CRAN                                        
 43                hms       0.5.3   CRAN                                        
-44          htmltools  0.4.0.9003 GitHub ce76055                  rstudio/master
+44          htmltools  0.4.0.9003 GitHub 1a35072                  rstudio/master
 45        htmlwidgets  1.5.1.9000 GitHub b357323                 ramnathv/master
 46             httpuv  1.5.2.9000 GitHub 622c76a                  rstudio/master
 47               httr       1.4.1   CRAN                                        
@@ -122,7 +122,7 @@
 110        rstudioapi        0.11   CRAN                                        
 111            scales       1.1.0   CRAN                                        
 112       sessioninfo       1.1.1   CRAN                                        
-113             shiny  1.4.0.9002 GitHub 182ff3d                  rstudio/master
+113             shiny  1.4.0.9002 GitHub e1e738f                  rstudio/master
 114       shinycoreci  0.0.0.9004 GitHub a9bc0f6                  rstudio/master
 115    shinydashboard       0.7.1   CRAN                                        
 116           shinyjs         1.1   CRAN                                        
