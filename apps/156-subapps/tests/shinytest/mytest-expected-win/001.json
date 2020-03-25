@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 239677c6b84b663e19d1020244bf23da04c3bb89]",
+      "html": "[html data sha1: f0898c4033241b8cf73a1daa357a7a496fcae65d]",
       "deps": [
         {
           "name": "jquery",
@@ -70,9 +70,9 @@
         },
         {
           "name": "shinyjster-assets",
-          "version": "0.0.0.9008",
+          "version": "0.0.0.9007",
           "src": {
-            "href": "shinyjster-assets-0.0.0.9008"
+            "href": "shinyjster-assets-0.0.0.9007"
           },
           "meta": null,
           "script": "js/shinyjster.js",

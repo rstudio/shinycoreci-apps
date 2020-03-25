@@ -20,7 +20,7 @@ There are three main workflows:
 
 [**`shinytest`**](https://github.com/rstudio/shinytest)
 * Local App Driver testing (w/ headless Phantom.js browser)
-* Apps have tests in `./APP/tests/shinytests` directory
+* Apps have tests in `./APP/tests/shinytest` directory
 * Functions:
   * `shinycoreci::test_shinytest()`
 
