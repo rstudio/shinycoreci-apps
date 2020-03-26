@@ -3,7 +3,7 @@ function(input, output) {
     hist(rnorm(input$n))
   })
 
-  output$text <- renderText({
-    paste("Input text is:", input$textout)
+  output$textout <- renderText({
+    paste("Input text is:", input$text)
   })
 }
