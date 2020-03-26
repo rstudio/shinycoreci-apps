@@ -6,3 +6,4 @@ apps/r_version.txt
 rsconnect
 *.lic
 .DS_Store
+test_status
