@@ -37,7 +37,7 @@ ui <- fluidPage(
 
   # include shinyjster JS at end of UI definition
   shinyjster::shinyjster_js("
-    var jst = jster(500);
+    var jst = jster(1);
     jst.add(Jster.shiny.waitUntilStable);
 
     jst.add(function() {
