@@ -98,7 +98,7 @@ ui <- fluidPage(
 # Define server logic to summarize and view selected dataset ----
 server <- function(input, output) {
   # include shinyjster_server call at top of server definition
-  #shinyjster::shinyjster_server(input, output)
+  shinyjster::shinyjster_server(input, output)
 
   # Return the requested dataset ----
   datasetInput <- reactive({
