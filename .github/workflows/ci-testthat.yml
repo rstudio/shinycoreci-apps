@@ -83,6 +83,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinytest-
 
+      # remove this step once Rcpp (> 1.0.4) is uploaded
+      - name: Rcpp band-aid
+        run: >
+          Rscript
+          -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', '${{ matrix.config.cran }}'), type = 'source')"
       - name: Install Packages
         run: >
           Rscript

@@ -2,6 +2,8 @@ on:
   push:
     branches:
       - master
+      - jster
+      - shinyjster
       - ghactions
   pull_request:
     branches:
@@ -60,7 +62,11 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinyjster-
             ${{ runner.os }}-r-${{ matrix.config.r }}-libs-testthat-
 
-
+      # remove this step once Rcpp (> 1.0.4) is uploaded
+      - name: Rcpp band-aid
+        run: >
+          Rscript
+          -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', '${{ matrix.config.cran }}'), type = 'source')"
       - name: Install Packages
         run: >
           Rscript
@@ -90,6 +96,7 @@ jobs:
 
       - name: shinyjster - Internet Explorer
         if: always() && runner.os == 'Windows'
+        timeout-minutes: 45
         shell: bash
         run: >
           Rscript
@@ -98,6 +105,7 @@ jobs:
       - name: shinyjster - Microsoft Edge
         # if: always() && (runner.os == 'Windows' || runner.os == 'macOS')
         if: always() && runner.os == 'Windows'
+        timeout-minutes: 45
         shell: bash
         run: >
           Rscript
@@ -105,6 +113,7 @@ jobs:
 
       - name: shinyjster - Google Chrome
         if: always()
+        timeout-minutes: 45
         shell: bash
         run: >
           Rscript
@@ -112,6 +121,7 @@ jobs:
 
       - name: shinyjster - Firefox
         if: always()
+        timeout-minutes: 45
         shell: bash
         run: >
           Rscript
