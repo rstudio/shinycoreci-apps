@@ -43,14 +43,14 @@ ui <- fluidPage(
       var equal_vals = function(raw_val, debounce_val) {
         var observed_raw = $('#raw').text().trim() - base_value;
         // make sure observed is never bigger than actual
-        Jster.assert.isTrue(raw_val >= observed_raw, {raw_val: raw_val, observed_raw: observed_raw, context: 'raw >= observed'});
+        Jster.assert.isTrue(raw_val >= observed_raw, {raw_val: raw_val, observed_raw: observed_raw, context: 'raw >= observed', base_value: base_value});
         // make sure the gap is never bigger than 1
-        Jster.assert.isTrue((raw_val - observed_raw) <= 1, {raw_val: raw_val, observed_raw: observed_raw, context: 'raw - observed <= 1'});
+        Jster.assert.isTrue((raw_val - observed_raw) <= 1, {raw_val: raw_val, observed_raw: observed_raw, context: 'raw - observed <= 1', base_value: base_value});
 
         // is_equal('throttle', throttle_val, raw_val);
         var throttle_val = $('#throttle').text().trim() - base_value;
-        Jster.assert.isTrue(throttle_val <= raw_val, {throttle_val: throttle_val, raw_val: raw_val})
-        Jster.assert.isTrue(debounce_val <= throttle_val, {throttle_val: throttle_val, debounce_val: debounce_val})
+        Jster.assert.isTrue(throttle_val <= raw_val, {throttle_val: throttle_val, raw_val: raw_val, base_value: base_value})
+        Jster.assert.isTrue(debounce_val <= throttle_val, {throttle_val: throttle_val, debounce_val: debounce_val, base_value: base_value})
 
         // is_equal('debounce', debounce_val, raw_val);
       }
@@ -102,11 +102,11 @@ ui <- fluidPage(
         jst_setTimeout(function() {
           equal_vals(10, 10);
           is_equal('throttle', 10, 10);
-        }, 3500 + 125);
+        }, 5000);
 
         setTimeout(function() {
           done();
-        }, 3750 + 125);
+        }, 5500);
       });
 
       jst.add(function() {
