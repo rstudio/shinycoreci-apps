@@ -31,7 +31,7 @@ ui <- fluidPage(
   ),
 
   # include shinyjster JS at end of UI definition
-  shinyjster_js("
+  shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
     jst.add(Jster.shiny.waitUntilIdleFor(1000));
@@ -60,7 +60,7 @@ ui <- fluidPage(
 server <- function(input, output) {
 
   # include shinyjster_server call at top of server definition
-  shinyjster_server(input, output)
+  shinyjster::shinyjster_server(input, output)
 
   x <- faithful$waiting
 
