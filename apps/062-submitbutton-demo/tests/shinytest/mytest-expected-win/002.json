@@ -37,7 +37,8 @@
           "height": 300
         }
       }
-    }
+    },
+    "textout": "Input text is: text here"
   },
   "export": {
 
