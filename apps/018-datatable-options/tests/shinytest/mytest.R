@@ -1,17 +1,21 @@
 app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
 app$snapshotInit("mytest")
 
-Sys.sleep(0.5)
+app$waitForValue("ex1_rows_all")
 app$snapshot()
 app$setInputs(tabs = 'Length menu')
-Sys.sleep(0.5)
+
+app$waitForValue("ex2_rows_all")
 app$snapshot()
 app$setInputs(tabs = 'No pagination')
-Sys.sleep(0.5)
+
+app$waitForValue("ex3_rows_all")
 app$snapshot()
 app$setInputs(tabs = 'No filtering')
-Sys.sleep(0.5)
+
+app$waitForValue("ex4_rows_all")
 app$snapshot()
 app$setInputs(tabs = 'Function callback')
-Sys.sleep(0.5)
+
+app$waitForValue("ex5_rows_all")
 app$snapshot()
