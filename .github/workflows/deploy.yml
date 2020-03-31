@@ -5,6 +5,7 @@ on:
     branches:
       - deploy
       - ghactions
+      - connect_urls
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   schedule:
     - cron:  '0 6 * * 0-4' # every work night at ~ midnight central time
@@ -24,10 +25,10 @@ jobs:
 
       matrix:
         config:
-        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5 }
-        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 2 }
+        # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5 }
+        # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 2 }
         # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 1, extra_app_text: ", apps = c('001-hello', '002-text')" }
-        # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, extra_app_text: ", apps = c('001-hello', '002-text')" }
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, extra_app_text: ", apps = c('001-hello', '002-text')" }
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -76,7 +77,7 @@ jobs:
           -e "if (system.file(package = 'plogr') == '') remotes::install_cran('plogr')"
           -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
 
-      - name: Deploy Apps to shinyapps.io
+      - name: Deploy Apps to Shinyapps.io
         if: matrix.config.type == 'shinyappsio'
         run: >
           Rscript
@@ -84,7 +85,7 @@ jobs:
           -e "rsconnect::setAccountInfo(name='${{ matrix.config.account }}', token='${{ secrets.shinyapps_io_testing_apps_token }}', secret='${{ secrets.shinyapps_io_testing_apps_secret }}')"
           -e "shinycoreci::deploy_apps(dir = 'apps', cores = ${{ matrix.config.cores }}, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all'${{ matrix.config.extra_app_text }})"
 
-      - name: Deploy Apps to beta.rstudioconnect.com
+      - name: Deploy Apps to Connect
         if: matrix.config.type == 'connect'
         run: >
           Rscript
@@ -93,3 +94,17 @@ jobs:
           -e "rsconnect::connectApiUser('${{ matrix.config.account }}', '${{ matrix.config.server_name }}', apiKey = '${{ secrets.barret_beta_rstudioconnect_com_API_key }}')"
           -e "shinycoreci::deploy_apps(dir = 'apps', cores = ${{ matrix.config.cores }}, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all'${{ matrix.config.extra_app_text }})"
           -e "shinycoreci::connect_set_public(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_app_text }})"
+          -e "shinycoreci::connect_urls_cache_save(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_app_text }})"
+      # - name: Git Push (PR)
+      #   uses: r-lib/actions/pr-push@master
+      #   if: github.event_name == 'pull_request' && matrix.config.type == 'connect'
+      #   with:
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload config for Connect
+        if: matrix.config.type == 'connect'
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add ./zzz_shinycoreci
+          git commit -m 'Generate Connect URLs (GitHub Actions)' || echo "No Connect URL changes to commit"
+          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No Connect URLs to push"
