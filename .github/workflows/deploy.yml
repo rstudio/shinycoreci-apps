@@ -62,6 +62,11 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-testthat-
 
+      # remove this step once Rcpp (> 1.0.4) is uploaded
+      - name: Rcpp band-aid
+        run: >
+          Rscript
+          -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', '${{ matrix.config.cran }}'), type = 'source')"
       - name: Install shinycoreci
         # if non linux, install binaries
         # make sure to get the best version number possible
@@ -95,12 +100,7 @@ jobs:
           -e "shinycoreci::deploy_apps(dir = 'apps', cores = ${{ matrix.config.cores }}, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all'${{ matrix.config.extra_app_text }})"
           -e "shinycoreci::connect_set_public(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_app_text }})"
           -e "shinycoreci::connect_urls_cache_save(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_app_text }})"
-      # - name: Git Push (PR)
-      #   uses: r-lib/actions/pr-push@master
-      #   if: github.event_name == 'pull_request' && matrix.config.type == 'connect'
-      #   with:
-      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload config for Connect
+      - name: Save Connect Urls to Repo
         if: matrix.config.type == 'connect'
         run: |
           git config user.name "${GITHUB_ACTOR}"
