@@ -95,11 +95,16 @@ jobs:
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
+          -e "## add server info"
           -e "rsconnect::addConnectServer(url = '${{ matrix.config.server_url }}', name = '${{ matrix.config.server_name }}')"
+          -e "## add user info"
           -e "rsconnect::connectApiUser('${{ matrix.config.account }}', '${{ matrix.config.server_name }}', apiKey = '${{ secrets.barret_beta_rstudioconnect_com_API_key }}')"
+          -e "## deploy"
           -e "shinycoreci::deploy_apps(dir = 'apps', cores = ${{ matrix.config.cores }}, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all'${{ matrix.config.extra_app_text }})"
+          -e "## make public"
           -e "shinycoreci::connect_set_public(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_app_text }})"
-          -e "shinycoreci::connect_urls_cache_save(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_app_text }})"
+          -e "## save ALL urls"
+          -e "shinycoreci::connect_urls_cache_save(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_connect_app_text }})"
       - name: Save Connect Urls to Repo
         if: matrix.config.type == 'connect'
         run: |
