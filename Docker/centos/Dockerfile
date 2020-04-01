@@ -84,6 +84,9 @@ RUN yum install -y epel-release glpk-devel gmp-devel libcurl-devel libicu-devel 
 ARG GITHUB_PAT=NOTSUPPLIED
 ENV GITHUB_PAT=$GITHUB_PAT
 
+# remove this step once Rcpp (> 1.0.4) is uploaded
+RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest'), type = 'source')"
+
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
