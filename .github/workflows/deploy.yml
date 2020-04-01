@@ -61,6 +61,11 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-testthat-
 
+      # remove this step once Rcpp (> 1.0.4) is uploaded
+      - name: Rcpp band-aid
+        run: >
+          Rscript
+          -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', '${{ matrix.config.cran }}'), type = 'source')"
       - name: Install shinycoreci
         # if non linux, install binaries
         # make sure to get the best version number possible
@@ -76,7 +81,7 @@ jobs:
           -e "if (system.file(package = 'plogr') == '') remotes::install_cran('plogr')"
           -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
 
-      - name: Deploy Apps to shinyapps.io
+      - name: Deploy Apps to Shinyapps.io
         if: matrix.config.type == 'shinyappsio'
         run: >
           Rscript
@@ -84,12 +89,26 @@ jobs:
           -e "rsconnect::setAccountInfo(name='${{ matrix.config.account }}', token='${{ secrets.shinyapps_io_testing_apps_token }}', secret='${{ secrets.shinyapps_io_testing_apps_secret }}')"
           -e "shinycoreci::deploy_apps(dir = 'apps', cores = ${{ matrix.config.cores }}, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all'${{ matrix.config.extra_app_text }})"
 
-      - name: Deploy Apps to beta.rstudioconnect.com
+      - name: Deploy Apps to Connect
         if: matrix.config.type == 'connect'
         run: >
           Rscript
           -e "options(pkgType = 'binary')"
+          -e "## add server info"
           -e "rsconnect::addConnectServer(url = '${{ matrix.config.server_url }}', name = '${{ matrix.config.server_name }}')"
+          -e "## add user info"
           -e "rsconnect::connectApiUser('${{ matrix.config.account }}', '${{ matrix.config.server_name }}', apiKey = '${{ secrets.barret_beta_rstudioconnect_com_API_key }}')"
+          -e "## deploy"
           -e "shinycoreci::deploy_apps(dir = 'apps', cores = ${{ matrix.config.cores }}, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}', update_pkgs = 'all'${{ matrix.config.extra_app_text }})"
+          -e "## make public"
           -e "shinycoreci::connect_set_public(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_app_text }})"
+          -e "## save ALL urls"
+          -e "shinycoreci::connect_urls_cache_save(dir = 'apps', account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_connect_app_text }})"
+      - name: Save Connect Urls to Repo
+        if: matrix.config.type == 'connect'
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add ./zzz_shinycoreci
+          git commit -m 'Generate Connect URLs (GitHub Actions)' || echo "No Connect URL changes to commit"
+          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No Connect URLs to push"
