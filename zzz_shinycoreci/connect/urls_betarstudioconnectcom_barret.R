@@ -115,5 +115,6 @@ structure(c(`001-hello` = "https://beta.rstudioconnect.com/content/4892/",
 `175-setInputValue` = "https://beta.rstudioconnect.com/content/8463/", 
 `178-delayed-widget` = "https://beta.rstudioconnect.com/content/8464/", 
 `179-nondelayed-widget` = "https://beta.rstudioconnect.com/content/8465/", 
-`180-delayed-staticwidget` = "https://beta.rstudioconnect.com/content/8466/"
+`180-delayed-staticwidget` = "https://beta.rstudioconnect.com/content/8466/", 
+`900-text-jster` = "https://beta.rstudioconnect.com/content/9750/"
 ), account = "barret", server = "beta.rstudioconnect.com")
