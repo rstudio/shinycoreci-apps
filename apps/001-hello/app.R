@@ -38,19 +38,18 @@ ui <- fluidPage(
     var img30;
 
     jst.add(function(){
-         Jster.assert.isEqual(Jster.slider.getValue('bins'),30);
-       img30 = Jster.image.data('distPlot').toString();
+      Jster.assert.isEqual(Jster.slider.getValue('bins'), 30);
+      img30 = Jster.image.data('distPlot').toString();
 
-       Jster.slider.setValue('bins',10);
-
+      Jster.slider.setValue('bins',10);
     });
 
     jst.add(Jster.shiny.waitUntilStable);
     jst.add(function(){
-       Jster.assert.isEqual(Jster.slider.getValue('bins'),10);
-       var img10 = Jster.image.data('distPlot').toString();
-      Jster.assert.isTrue(img30!==img10,{xbins:30,ybins:10});
-    })
+      Jster.assert.isEqual(Jster.slider.getValue('bins'), 10);
+      var img10 = Jster.image.data('distPlot').toString();
+      Jster.assert.isTrue(img30 !== img10, {xbins: 30, ybins: 10});
+    });
 
     jst.test();
   ")
