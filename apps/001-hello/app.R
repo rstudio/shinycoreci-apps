@@ -28,11 +28,38 @@ ui <- fluidPage(
       plotOutput(outputId = "distPlot")
 
     )
-  )
+  ),
+
+  # include shinyjster JS at end of UI definition
+  shinyjster::shinyjster_js("
+    var jst = jster();
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilIdleFor(1000));
+    var img30;
+
+    jst.add(function(){
+      Jster.assert.isEqual(Jster.slider.getValue('bins'), 30);
+      img30 = Jster.image.data('distPlot').toString();
+
+      Jster.slider.setValue('bins',10);
+    });
+
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(function(){
+      Jster.assert.isEqual(Jster.slider.getValue('bins'), 10);
+      var img10 = Jster.image.data('distPlot').toString();
+      Jster.assert.isTrue(img30 !== img10, {xbins: 30, ybins: 10});
+    });
+
+    jst.test();
+  ")
 )
 
 # Define server logic required to draw a histogram ----
 server <- function(input, output) {
+
+  # include shinyjster_server call at top of server definition
+  shinyjster::shinyjster_server(input, output)
 
   x <- faithful$waiting
 
