@@ -29,7 +29,7 @@ shinyApp(ui, server)
 shinyAppDir("app2")
 ```
 
-(3 of 3) Verify that you see a leaflet map.
+(3 of 3) Verify that you see a leaflet map with markers (and no tiles).
 
 ```{r}
 shinyAppDir("app3")
