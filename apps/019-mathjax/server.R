@@ -1,3 +1,6 @@
+### Keep this line to manually test this shiny application. Do not edit this line; shinycoreci::::is_manual_app
+
+
 function(input, output, session) {
   output$ex1 <- renderUI({
     withMathJax(helpText('Dynamic output 1:  $$\\alpha^2$$'))
