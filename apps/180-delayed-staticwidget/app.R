@@ -52,7 +52,7 @@ server <- function(input, output, session) {
     tagList(
       leaflet(quakes) %>%
         # addTiles() %>% # do not add tiles for CI purposes
-        addMarkers() %>%
+        addMarkers(~ long, ~ lat) %>%
         htmlwidgets::onRender("function(el, x) {
           console.log('onRender called');
           window.leaflet_calls.push('onRender');
