@@ -23,7 +23,7 @@ jobs:
 
     name: ${{ matrix.config.os }} (${{ matrix.r }})
 
-    if: !( matrix.r == 'devel' && contains(matrix.config.os, 'ubuntu'))
+    if: matrix.r != 'devel' && !contains(matrix.config.os, 'ubuntu')
     strategy:
       fail-fast: false
       matrix:
