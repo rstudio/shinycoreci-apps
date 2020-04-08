@@ -104,7 +104,8 @@ jobs:
 
       - name: shinyjster - Microsoft Edge
         # if: always() && (runner.os == 'Windows' || runner.os == 'macOS')
-        if: always() && runner.os == 'Windows'
+        # if: always() && runner.os == 'Windows'
+        if: false # current selenium can't find v80 edge
         timeout-minutes: 45
         shell: bash
         run: >
