@@ -35,7 +35,7 @@ jobs:
         - { os: ubuntu-16.04, cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
 
         r:
-        # - {version: "devel", pkgType: "source"}
+        - {version: "devel", pkgType: "source"}
         - {version: "3.6", pkgType: "binary"}
         # - {version: "3.5", pkgType: "binary"}
         # - {version: "3.4", pkgType: "binary"}
@@ -87,7 +87,7 @@ jobs:
       - name: Install Packages
         run: >
           Rscript
-          -e "options(pkgType = '${{ matrix.config.pkgType }}')"
+          -e "options(pkgType = '${{ matrix.r.pkgType }}')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
@@ -105,7 +105,7 @@ jobs:
       - name: Install app deps
         run: >
           Rscript
-          -e "options(pkgType = '${{ matrix.config.pkgType }}')"
+          -e "options(pkgType = '${{ matrix.r.pkgType }}')"
           -e "shinycoreci::install_app_deps()"
 
 
