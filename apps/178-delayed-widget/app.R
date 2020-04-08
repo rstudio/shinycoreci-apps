@@ -62,7 +62,7 @@ server <- function(input, output, session) {
   output$map <- renderLeaflet({
     leaflet(quakes) %>%
       # addTiles() %>% # do not add tiles for CI purposes
-      addMarkers() %>%
+      addMarkers(~ long, ~ lat) %>%
       fitBounds(-72, 40, -70, 43) %>%
       flyTo(0,0,1) %>% # trigger a zoom to know when the map has initialized
       htmlwidgets::onRender("function(el, x) {
