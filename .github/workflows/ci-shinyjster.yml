@@ -23,13 +23,23 @@ jobs:
 
   headless:
     name: ${{ matrix.config.os }}
+
+    if: !( matrix.r == 'devel' && contains(matrix.config.os, 'ubuntu'))
     strategy:
       fail-fast: false
       matrix:
+        r:
+        - "devel"
+        - "3.6"
+        - "3.5"
+        - "3.4"
+
         config:
-        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org"}
-        - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org"}
-        - { os: ubuntu-16.04, r: '3.6', cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
+        - { os: macOS-latest, cran: "https://cloud.r-project.org"}
+        - { os: windows-latest, cran: "https://cloud.r-project.org"}
+        - { os: ubuntu-18.04, cran: "https://demo.rstudiopm.com/all/__linux__/bionic/latest"}
+        - { os: ubuntu-16.04, cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
+
     runs-on: ${{ matrix.config.os }}
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -41,7 +51,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r@master
         with:
-          r-version: ${{ matrix.config.r }}
+          r-version: ${{ matrix.r }}
       - name: R Options
         shell: bash
         run: |
@@ -57,10 +67,10 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinyjster-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.r }}-libs-shinyjster-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinyjster-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-libs-testthat-
+            ${{ runner.os }}-r-${{ matrix.r }}-libs-shinyjster-
+            ${{ runner.os }}-r-${{ matrix.r }}-libs-testthat-
 
       # remove this step once Rcpp (> 1.0.4) is uploaded
       - name: Rcpp band-aid
@@ -104,7 +114,8 @@ jobs:
 
       - name: shinyjster - Microsoft Edge
         # if: always() && (runner.os == 'Windows' || runner.os == 'macOS')
-        if: always() && runner.os == 'Windows'
+        # if: always() && runner.os == 'Windows'
+        if: false # edge is currently broken. :-(
         timeout-minutes: 45
         shell: bash
         run: >
