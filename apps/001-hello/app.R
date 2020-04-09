@@ -42,15 +42,18 @@ ui <- fluidPage(
 
     jst.add(function(){
       Jster.assert.isEqual(Jster.slider.getValue('bins'), 30);
-      img30 = Jster.image.data('distPlot').toString();
+
+      // convert to character string
+      img30 = JSON.stringify(Jster.image.data('distPlot'));
 
       Jster.slider.setValue('bins',10);
     });
 
     jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilIdleFor(1000));
     jst.add(function(){
       Jster.assert.isEqual(Jster.slider.getValue('bins'), 10);
-      var img10 = Jster.image.data('distPlot').toString();
+      var img10 = JSON.stringify(Jster.image.data('distPlot'));
       Jster.assert.isTrue(img30 !== img10, {xbins: 30, ybins: 10});
     });
 
