@@ -79,6 +79,7 @@ jobs:
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
           -e "if (system.file(package = 'plogr') == '') remotes::install_cran('plogr')"
+          -e "if (system.file(package = 'RcppEigen') == '') remotes::install_cran('RcppEigen')"
           -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
 
       - name: Deploy Apps to Shinyapps.io
