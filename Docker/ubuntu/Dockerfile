@@ -145,6 +145,8 @@ RUN mkdir -p /tmp/apps_repo && \
 
 # list the folders to see that it worked
 RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
+# remove radiant as it has a lot of trouble being installed
+RUN rm -r ~/apps/141-radiant
 
 # install R pkg system requirements
 # Must use `~/apps` as default working directory is not `~`
