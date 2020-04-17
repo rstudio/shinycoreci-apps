@@ -1,5 +1,6 @@
 # To build, cd to this directory, then:
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-3.6-bionic .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg R_VERSION=3.5 -t rstudio/shinycoreci:base-3.5-bionic .
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg RELEASE=xenial -t rstudio/shinycoreci:base-3.6-xenial .
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg SHINYCORECI_SHA="shiny-1.4.0.1" -t rstudio/shinycoreci:base-3.6-bionic-rc_v1.4.0.1 .
 
@@ -97,7 +98,7 @@ RUN apt-get update && apt-get install -y \
 
 # set up R to point to latest binary cran
 RUN echo "options(\n\
-  repos = c(CRAN = 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest'),\n\
+  repos = c('https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'),\n\
   download.file.method = 'libcurl',\n\
   # Detect number of physical cores\n\
   Ncpus = parallel::detectCores(logical=FALSE)\n\
@@ -114,11 +115,14 @@ ARG GITHUB_PAT=NOTSUPPLIED
 ENV GITHUB_PAT=$GITHUB_PAT
 
 # remove this step once Rcpp (> 1.0.4) is uploaded
-RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest'), type = 'source')"
+RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'), type = 'source')"
 
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
+
+# if pbkrtest can not be installed, install v0.4-7 to install on earlier versions of R
+RUN R --quiet -e "tryCatch({remotes::install_cran('pbkrtest')}, error = function(e) { remotes::install_version('pbkrtest', '0.4-7') })"
 
 ARG SHINYCORECI_SHA=master
 ARG APPS_SHA=master

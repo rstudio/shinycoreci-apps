@@ -68,7 +68,7 @@ RUN curl -O https://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz \
 ####
 
 # RUN mkdir -p /usr/local/lib64/R/etc
-RUN echo "options(repos = c(CRAN = 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest'),download.file.method = 'libcurl', Ncpus = parallel::detectCores(logical=FALSE))" >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
+RUN echo "options(repos = c('https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'),download.file.method = 'libcurl', Ncpus = parallel::detectCores(logical=FALSE))" >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
 RUN cat `Rscript -e "cat(R.home())"`/etc/Rprofile.site
 
 RUN R -e 'source("https://demo.rstudiopm.com/__docs__/admin/check-user-agent.R")'
@@ -85,13 +85,11 @@ ARG GITHUB_PAT=NOTSUPPLIED
 ENV GITHUB_PAT=$GITHUB_PAT
 
 # remove this step once Rcpp (> 1.0.4) is uploaded
-RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest'), type = 'source')"
+RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'), type = 'source')"
 
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
-# has trouble installing from rspm
-RUN R --quiet -e "remotes::install_cran(c('plogr'), repos='https://cran.rstudio.com/')"
 # some how this package isn't a dep, but is required for a package
 RUN R --quiet -e "remotes::install_cran(c('markdown'))"
 # shinycoreci deps
@@ -117,10 +115,13 @@ RUN mkdir -p /tmp/apps_repo && \
 
 # list the folders to see that it worked
 RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
+# remove radiant as it has a lot of trouble being installed on centos
+RUN rm -r ~/apps/141-radiant
 
 # install R pkg system requirements
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
+
 # install r pkgs
 RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps', update_pkgs = 'all')"
 
