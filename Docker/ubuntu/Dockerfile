@@ -120,6 +120,7 @@ RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/dra
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
+RUN R --quiet -e "remotes::install_cran(c('radiant'), dependencies = TRUE)"
 
 # if pbkrtest can not be installed, install v0.4-7 to install on earlier versions of R
 RUN R --quiet -e "tryCatch({remotes::install_cran('pbkrtest')}, error = function(e) { remotes::install_version('pbkrtest', '0.4-7') })"
