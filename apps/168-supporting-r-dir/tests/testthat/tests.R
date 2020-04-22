@@ -1,5 +1,4 @@
-library(testthat)
-library(shiny)
+context("app")
 
 test_that("counter works", {
   testServer(counterServer, {
