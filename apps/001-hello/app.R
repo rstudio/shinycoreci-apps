@@ -62,7 +62,7 @@ ui <- fluidPage(
 )
 
 # Define server logic required to draw a histogram ----
-server <- function(input, output) {
+server <- function(input, output, session) {
 
   # include shinyjster_server call at top of server definition
   shinyjster::shinyjster_server(input, output)

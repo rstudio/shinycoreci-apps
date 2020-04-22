@@ -58,7 +58,7 @@ ui <- fluidPage(
 )
 
 # Define server logic for slider examples ----
-server <- function(input, output) {
+server <- function(input, output, session) {
 
   # Reactive expression to create data frame of all input values ----
   sliderValues <- reactive({

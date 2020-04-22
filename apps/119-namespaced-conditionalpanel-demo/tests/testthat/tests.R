@@ -1,15 +1,14 @@
-library(testthat)
-library(shiny)
-library(withr)
+context("app")
 
-# TODO Determine the ideal way for module-reliant test code to load an app
-with_dir(shiny:::findApp(), {
-  local({
-    source("app.R")
-    test_that("module works", {
-      testModule(myPlot, {
-        expect_true(TRUE)
-      })
-    })
+test_that("app works", {
+  testServer(expr = {
+    session$setInputs(`plot1-n` = 4)
+    plot4 <- output$`plot1-scatterPlot`
+    expect_true(!is.null(plot4))
+
+    session$setInputs(`plot1-n` = 8)
+    plot8 <- output$`plot1-scatterPlot`
+    expect_true(!is.null(plot8))
+    expect_true(!identical(plot4, plot8))
   })
 })
