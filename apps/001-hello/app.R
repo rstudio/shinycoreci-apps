@@ -1,3 +1,6 @@
+### Keep this line to manually test this shiny application. Do not edit this line; shinycoreci::::is_manual_app
+
+
 library(shiny)
 
 # Define UI for app that draws a histogram ----
@@ -39,15 +42,18 @@ ui <- fluidPage(
 
     jst.add(function(){
       Jster.assert.isEqual(Jster.slider.getValue('bins'), 30);
-      img30 = Jster.image.data('distPlot').toString();
+
+      // convert to character string
+      img30 = JSON.stringify(Jster.image.data('distPlot'));
 
       Jster.slider.setValue('bins',10);
     });
 
     jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilIdleFor(1000));
     jst.add(function(){
       Jster.assert.isEqual(Jster.slider.getValue('bins'), 10);
-      var img10 = Jster.image.data('distPlot').toString();
+      var img10 = JSON.stringify(Jster.image.data('distPlot'));
       Jster.assert.isTrue(img30 !== img10, {xbins: 30, ybins: 10});
     });
 
@@ -56,7 +62,7 @@ ui <- fluidPage(
 )
 
 # Define server logic required to draw a histogram ----
-server <- function(input, output) {
+server <- function(input, output, session) {
 
   # include shinyjster_server call at top of server definition
   shinyjster::shinyjster_server(input, output)

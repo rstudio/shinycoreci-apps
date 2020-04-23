@@ -1,3 +1,6 @@
+### Keep this line to manually test this shiny application. Do not edit this line; shinycoreci::::is_manual_app
+
+
 # Generate a png for renderImage
 image_file <- tempfile(fileext='.png')
 png(image_file, width=250, height=250)

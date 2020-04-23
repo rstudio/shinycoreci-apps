@@ -4,6 +4,7 @@ on:
       - master
       - jster
       - shinyjster
+      - ie_hanging
       - ghactions
   pull_request:
     branches:
@@ -122,7 +123,7 @@ jobs:
       - name: shinyjster - Microsoft Edge
         # if: always() && (runner.os == 'Windows' || runner.os == 'macOS')
         # if: always() && runner.os == 'Windows'
-        if: false # edge is currently broken. :-(
+        if: false # current selenium can't find v80 edge
         timeout-minutes: 45
         shell: bash
         run: >
@@ -130,7 +131,8 @@ jobs:
           -e "shinycoreci::test_shinyjster(browser = 'edge')"
 
       - name: shinyjster - Google Chrome
-        if: always()
+        # if: always()
+        if: false
         timeout-minutes: 45
         shell: bash
         run: >
@@ -138,7 +140,8 @@ jobs:
           -e "shinycoreci::test_shinyjster(browser = 'chrome')"
 
       - name: shinyjster - Firefox
-        if: always()
+        # if: always()
+        if: false
         timeout-minutes: 45
         shell: bash
         run: >

@@ -1,8 +1,7 @@
-library(testthat)
-library(shiny)
+context("app")
 
 test_that("counter works", {
-  testModule(counter, {
+  testServer(counterServer, {
     inc <- function(x) if (is.null(x)) 0 else x+1
     expect_equal(count(), 0)
     session$setInputs(button = inc(input$button))

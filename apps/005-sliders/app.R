@@ -1,3 +1,6 @@
+### Keep this line to manually test this shiny application. Do not edit this line; shinycoreci::::is_manual_app
+
+
 library(shiny)
 
 # Define UI for slider demo app ----
@@ -55,7 +58,7 @@ ui <- fluidPage(
 )
 
 # Define server logic for slider examples ----
-server <- function(input, output) {
+server <- function(input, output, session) {
 
   # Reactive expression to create data frame of all input values ----
   sliderValues <- reactive({

@@ -1,8 +1,7 @@
-library(testthat)
-library(shiny)
+context("app")
 
 test_that("inputs are stored", {
-  testServer({
+  testServer(expr = {
     session$setInputs(
       integer = 593,
       decimal = 0.6,

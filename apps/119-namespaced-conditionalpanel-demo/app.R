@@ -38,7 +38,7 @@ myPlot <- function(input, output, session, deviates) {
   output$scatterPlot <- renderPlot(plot(x(), y()))
 }
 
-server <- function(input, output) {
+server <- function(input, output, session) {
   callModule(myPlot, "plot1")
   callModule(myPlot, "plot2")
 }

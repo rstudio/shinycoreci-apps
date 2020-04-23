@@ -1,7 +1,6 @@
-library(testthat)
-library(shiny)
+context("app")
 
-testServer({
+testServer(expr = {
   test_that("it works", {
     session$setInputs(
       xcol = "Sepal.Length",
