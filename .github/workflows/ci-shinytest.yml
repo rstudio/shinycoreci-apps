@@ -40,8 +40,8 @@ jobs:
         r:
         - {version: "devel", pkgType: "source"}
         - {version: "3.6", pkgType: "binary"}
-        # - {version: "3.5", pkgType: "binary"}
-        # - {version: "3.4", pkgType: "binary"}
+        - {version: "3.5", pkgType: "binary"}
+        - {version: "3.4", pkgType: "binary"}
 
         # devel not supported on ubuntu
         exclude:
