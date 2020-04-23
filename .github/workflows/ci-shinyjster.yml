@@ -4,7 +4,6 @@ on:
       - master
       - jster
       - shinyjster
-      - ie_hanging
       - ghactions
   pull_request:
     branches:
@@ -131,8 +130,8 @@ jobs:
           -e "shinycoreci::test_shinyjster(browser = 'edge')"
 
       - name: shinyjster - Google Chrome
-        # if: always()
-        if: false
+        if: always()
+        # if: false
         timeout-minutes: 45
         shell: bash
         run: >
@@ -140,8 +139,8 @@ jobs:
           -e "shinycoreci::test_shinyjster(browser = 'chrome')"
 
       - name: shinyjster - Firefox
-        # if: always()
-        if: false
+        if: always()
+        # if: false
         timeout-minutes: 45
         shell: bash
         run: >
