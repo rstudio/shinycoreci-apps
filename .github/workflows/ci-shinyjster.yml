@@ -4,7 +4,6 @@ on:
       - master
       - jster
       - shinyjster
-      - ie_hanging
       - ghactions
   pull_request:
     branches:
