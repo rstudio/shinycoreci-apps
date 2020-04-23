@@ -101,7 +101,7 @@ jobs:
         shell: bash
         run: >
           Rscript
-          -e "shinycoreci::test_shinyjster(browser = 'ie', apps = sample(shinycoreci::apps_shinyjster('apps')))"
+          -e "shinycoreci::test_shinyjster(browser = 'ie')"
 
       - name: shinyjster - Microsoft Edge
         # if: always() && (runner.os == 'Windows' || runner.os == 'macOS')
