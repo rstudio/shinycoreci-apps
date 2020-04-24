@@ -104,6 +104,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo -s apt-get update
+          sudo -s apt-get install -y libcurl4-openssl-dev
           Rscript -e "install.packages('curl', repos = 'https://cloud.r-project.org')"
           Rscript -e "system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))"
 
