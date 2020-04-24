@@ -79,6 +79,14 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-testthat-
 
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        # same output from `shinycoreci::rspm_all_install_scripts(release = "bionic")`
+        # same output from `shinycoreci::rspm_all_install_scripts(release = "xenial")`
+        run: |
+          sudo -s apt-get update
+          sudo -s apt-get install -y git libcurl4-openssl-dev libglpk-dev libgmp3-dev libicu-dev libpng-dev libssl-dev libxml2-dev make pandoc zlib1g-dev
+
       # remove this step once Rcpp (> 1.0.4) is uploaded
       - name: Rcpp band-aid
         run: >
