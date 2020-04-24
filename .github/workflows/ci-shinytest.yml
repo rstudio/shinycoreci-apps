@@ -34,8 +34,8 @@ jobs:
         config:
         # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "master", shinycoreci_text: ""}
         # - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "master", shinycoreci_text: ""}
-        - { os: ubuntu-18.04, r: '3.6', cran: "https://demo.rstudiopm.com/all/__linux__/bionic/latest"}
-        - { os: ubuntu-16.04, r: '3.6', cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
+        - { os: ubuntu-18.04, r: '3.6', cran: "https://demo.rstudiopm.com/all/__linux__/bionic/latest", release: bionic }
+        - { os: ubuntu-16.04, r: '3.6', cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest", release: xenial }
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -80,14 +80,6 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-testthat-
 
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
-        # same output from `shinycoreci::rspm_all_install_scripts(release = "bionic")`
-        # same output from `shinycoreci::rspm_all_install_scripts(release = "xenial")`
-        run: |
-          sudo -s apt-get update
-          sudo -s apt-get install -y git libcurl4-openssl-dev libglpk-dev libgmp3-dev libicu-dev libpng-dev libssl-dev libxml2-dev make pandoc zlib1g-dev
-
       # remove this step once Rcpp (> 1.0.4) is uploaded
       - name: Rcpp band-aid
         run: >
@@ -106,6 +98,14 @@ jobs:
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
           -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', dependencies = TRUE, force = TRUE)"
+
+      # Install all deps as we are installing from rspm
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo -s apt-get update
+          Rscript -e "system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))"
+
 
       - name: Install app deps
         run: >
