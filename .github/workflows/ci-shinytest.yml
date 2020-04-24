@@ -140,6 +140,7 @@ jobs:
         run: Rscript -e "shinycoreci::write_sysinfo()"
 
       - name: Run shinytest
+        timeout-minutes: 20
         run: >
           Rscript -e "shinycoreci::test_shinytest(dir = 'apps')"
 
