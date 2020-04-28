@@ -33,6 +33,7 @@ jobs:
         config:
         - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "master", shinycoreci_text: ""}
         - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "master", shinycoreci_text: ""}
+        - { os: ubuntu-18.04, r: '3.6', cran: "https://demo.rstudiopm.com/all/__linux__/bionic/latest", release: bionic }
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -96,6 +97,16 @@ jobs:
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
           -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', dependencies = TRUE, force = TRUE)"
 
+      # Install all deps as we are installing from rspm
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo -s apt-get update
+          sudo -s apt-get install -y libcurl4-openssl-dev
+          Rscript -e "install.packages('curl', repos = 'https://cloud.r-project.org')"
+          Rscript -e "system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))"
+
+
       - name: Install app deps
         run: >
           Rscript
@@ -138,6 +149,7 @@ jobs:
         run: Rscript -e "shinycoreci::write_sysinfo()"
 
       - name: Run shinytest
+        timeout-minutes: 30
         run: >
           Rscript -e "shinycoreci::test_shinytest(dir = 'apps')"
 
