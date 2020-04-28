@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - shinytest_linux
       - ghactions
   pull_request:
     branches:
