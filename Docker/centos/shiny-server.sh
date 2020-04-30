@@ -7,8 +7,9 @@ R --quiet -e "shinycoreci:::update_packages_installed('~/apps', update_pkgs = 'a
 
 # copy all apps to server location
 echo "Copying apps to /srv/shiny-server/"
-cp -R `Rscript -e "cat(shinycoreci:::apps_sso('~/apps'), sep = ' ')"` /srv/shiny-server/
+cp -R ~/apps/* /srv/shiny-server/
 chmod -R 777 /srv/shiny-server
+ls -lh /srv/shiny-server/
 
 # Make sure the directory for individual app logs exists
 mkdir -p /var/log/shiny-server
