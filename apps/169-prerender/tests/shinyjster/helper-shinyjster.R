@@ -1,8 +1,8 @@
+library(shinyjster)
 
+test_jster_169 <- function(browser_func) {
 
-function(app = ".", ..., type = "ignored") {
-
-  # run 169-prerender-a in same R session as 169-prerender-b
+  app <- "../"
 
   # delete cache file
   cache_file <- file.path(app, "169-prerender-a", "index.html")
@@ -15,12 +15,22 @@ function(app = ".", ..., type = "ignored") {
     }
   }, add = TRUE)
 
-  shinyjster::run_jster_apps(
+  ret <- shinyjster::test_jster(
     apps = c(
       file.path(app, "169-prerender-a", "index.Rmd"),
       file.path(app, "169-prerender-b")
     ),
-    ...,
-    type = "lapply"
+    type = "lapply",
+    browsers = browser_func,
+    assert = FALSE
   )
+
+  shinyjster::assert_jster(ret)
+  tibble::tibble(
+    appDir = normalizePath(app),
+    successful = TRUE,
+    # will be a "success"
+    returnValue = ret$returnValue[[1]]
+  )
+
 }

@@ -1,7 +1,1 @@
-library(shinytest)
-shinytest::expect_pass(
-  shinytest::testApp(
-    "../",
-    suffix = shinycoreci::platform()
-  )
-)
+shinycoreci::test_shinytest_app()
