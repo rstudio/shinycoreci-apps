@@ -1,4 +1,11 @@
-### Keep this line to NOT test this shiny application with shinycoreci::test_shinytest on Windows. Do not edit this line; shinycoreci::::not_shinytest_app_win
 
-library(shinytest)
-shinytest::testApp("../")
+# (default) windows has trouble with chinese characters. Better to test manually at a later time
+if (shinycoreci::platform() != "win") {
+  library(shinytest)
+  shinytest::expect_pass(
+    shinytest::testApp(
+      "../",
+      suffix = shinycoreci::platform()
+    )
+  )
+}
