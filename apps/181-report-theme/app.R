@@ -1,10 +1,15 @@
 ### Keep this line to manually test this shiny application. Do not edit this line; shinycoreci::::is_manual_app
 
-library(shiny)
-library(htmltools)
-
 # This test is primarily for testing that getCurrentOutputInfo() returns bg+fg+accent+font
 # info, but also makes sure that renderPlot() can render custom fonts via showtext and ragg
+
+library(shiny)
+library(htmltools)
+# Make sure Cairo and ragg are installed (but not attached)
+if (FALSE) {
+  library(Cairo)
+  library(ragg)
+}
 
 # Register font for use with showtext and ragg
 # NOTE: these were downloaded via `gfonts::download_font("pacifico", "www/fonts")`
@@ -62,10 +67,11 @@ shinyApp(
     tags$head(tags$link(href="pacifico.css", rel="stylesheet", type="text/css")),
     info2css(info1, "body"),
     info2css(info2, "#info2"),
-    tags$h5("You should see 3 'Test passed!' messages below"),
-    plotOutput("plot", height = 150),
-    plotOutput("plot_ragg", height = 150),
+    tags$h5("You should see 4 'Test passed!' messages below"),
     imageOutput("image", height = 150),
+    plotOutput("plot_default", height = 150),
+    plotOutput("plot_ragg", height = 150),
+    plotOutput("plot_cairo_base", height = 150),
     tags$h5("Ignore the output below (it's for a shinyjster test)"),
     tagAppendAttributes(
       textOutput("info1"),
@@ -98,15 +104,6 @@ shinyApp(
   function(input, output, session) {
     shinyjster::shinyjster_server(input, output, session)
 
-    do_plot <- function() {
-      info <- getCurrentOutputInfo()
-      par(bg = info$bg())
-      plot(1, type = "n")
-      text(1, "Test passed!", family = "Pacifico", col = info$fg())
-    }
-
-    output$plot <- renderPlot(do_plot())
-
     output$image <- renderImage({
       height <- session$clientData$output_image_height
       width <- session$clientData$output_image_width
@@ -117,11 +114,26 @@ shinyApp(
       list(src = "tmp.png", height = 150, width = "100%")
     })
 
+    do_plot <- function() {
+      info <- getCurrentOutputInfo()
+      par(bg = info$bg())
+      plot(1, type = "n")
+      text(1, "Test passed!", family = "Pacifico", col = info$fg())
+    }
+
+    output$plot_default <- renderPlot(do_plot())
+
     # Option must be set prior to plotting code for shiny to know
-    # which device to open..
+    # which device to open...
     withr::with_options(
       list(shiny.useragg = TRUE), {
         output$plot_ragg <- renderPlot(do_plot())
+      }
+    )
+
+    withr::with_options(
+      list(shiny.useragg = FALSE, shiny.usecairo = FALSE), {
+        output$plot_cairo_base <- renderPlot(do_plot())
       }
     )
 
