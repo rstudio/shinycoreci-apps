@@ -61,11 +61,6 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-testthat-
 
-      # remove this step once Rcpp (> 1.0.4) is uploaded
-      - name: Rcpp band-aid
-        run: >
-          Rscript
-          -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', '${{ matrix.config.cran }}'), type = 'source')"
       - name: Install shinycoreci
         # if non linux, install binaries
         # make sure to get the best version number possible

@@ -78,11 +78,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-runtests-
 
-      # remove this step once Rcpp (> 1.0.4) is uploaded
-      - name: Rcpp band-aid
-        run: >
-          Rscript
-          -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', '${{ matrix.config.cran }}'), type = 'source')"
+      - name: Install curl
+        if: runner.os == 'Linux'
+        run: |
+          sudo -s apt-get update
+          sudo -s apt-get install -y libcurl4-openssl-dev
+          Rscript -e "if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
       - name: Install Packages
         # if non linux, install binaries
         # make sure to get the best version number possible
@@ -101,9 +102,6 @@ jobs:
       - name: Install system dependencies
         if: runner.os == 'Linux'
         run: |
-          sudo -s apt-get update
-          sudo -s apt-get install -y libcurl4-openssl-dev
-          Rscript -e "install.packages('curl', repos = 'https://cloud.r-project.org')"
           Rscript -e "system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))"
 
 
