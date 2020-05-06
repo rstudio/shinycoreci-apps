@@ -4,7 +4,8 @@
 # Generate a png for renderImage
 image_file <- tempfile(fileext='.png')
 png(image_file, width=250, height=250)
-hist(rnorm(1000))
+hist(rnorm(1000), col = "white") # color is added to allow for <= Rv3.6 (white) to match >= Rv 4.0 (grey)
+
 dev.off()
 onStop(function() {
   unlink(image_file)
@@ -15,7 +16,7 @@ shinyApp(
   ui = fluidPage(
     p("The plot below doesn't have any interactions. It should be draggable."),
     plotOutput("plot_no_interact", height = 250, width = 250),
-    
+
     p("The plot below allows click interactions. It should NOT be draggable."),
     plotOutput("plot_click", height = 250, width = 250, click = "click"),
 
