@@ -67,7 +67,7 @@ shinyApp(
     tags$head(tags$link(href="pacifico.css", rel="stylesheet", type="text/css")),
     info2css(info1, "body"),
     info2css(info2, "#info2"),
-    tags$h5("You should see 4 'Test passed!' messages below"),
+    tags$h5("You should see 4 message below, in this same cursive font:"),
     imageOutput("image", height = 150),
     plotOutput("plot_default", height = 150),
     plotOutput("plot_ragg", height = 150),
@@ -118,7 +118,7 @@ shinyApp(
       info <- getCurrentOutputInfo()
       par(bg = info$bg())
       plot(1, type = "n")
-      text(1, "Test passed!", family = "Pacifico", col = info$fg())
+      text(1, "This message should appears in a cursive font (if it does, test has passed)", family = "Pacifico", col = info$fg())
     }
 
     output$plot_default <- renderPlot(do_plot())
