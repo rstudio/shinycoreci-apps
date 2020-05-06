@@ -160,7 +160,7 @@ jobs:
             git config --local --unset http.https://github.com/.extraheader && \
             git config --local --list
 
-          BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ runner.os }}"
+          BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ matrix.config.r }}-${{ runner.os }}"
           git checkout -B "$BRANCH"
 
           git add apps/sysinfo-* && \
