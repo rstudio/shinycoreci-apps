@@ -4,7 +4,7 @@
 # Generate a png for renderImage
 image_file <- tempfile(fileext='.png')
 png(image_file, width=250, height=250)
-hist(rnorm(1000), col = "white") # color is added to allow for <= Rv3.6 (white) to match >= Rv 4.0 (grey)
+hist(rnorm(1000), col = "white", border = "grey") # color,border is added to allow for <= Rv3.6 (white) to match >= Rv 4.0 (grey)
 
 dev.off()
 onStop(function() {
