@@ -144,7 +144,7 @@ jobs:
           -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
 
       - name: Run tests
-        timeout-minutes: 60
+        timeout-minutes: 120
         run: >
           Rscript -e "shinycoreci::test_runtests()"
 
