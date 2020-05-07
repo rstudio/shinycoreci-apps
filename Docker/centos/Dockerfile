@@ -68,10 +68,10 @@ RUN curl -O https://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz \
 ####
 
 # RUN mkdir -p /usr/local/lib64/R/etc
-RUN echo "options(repos = c('https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'),download.file.method = 'libcurl', Ncpus = parallel::detectCores(logical=FALSE))" >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
+RUN echo "options(repos = c('https://packagemanager.rstudio.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'),download.file.method = 'libcurl', Ncpus = parallel::detectCores(logical=FALSE))" >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
 RUN cat `Rscript -e "cat(R.home())"`/etc/Rprofile.site
 
-RUN R -e 'source("https://demo.rstudiopm.com/__docs__/admin/check-user-agent.R")'
+RUN R -e 'source("https://packagemanager.rstudio.com/__docs__/admin/check-user-agent.R")'
 
 
 ###
@@ -85,7 +85,7 @@ ARG GITHUB_PAT=NOTSUPPLIED
 ENV GITHUB_PAT=$GITHUB_PAT
 
 # remove this step once Rcpp (> 1.0.4) is uploaded
-RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'), type = 'source')"
+RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://packagemanager.rstudio.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'), type = 'source')"
 
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
