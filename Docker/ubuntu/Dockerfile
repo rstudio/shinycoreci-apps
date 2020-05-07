@@ -98,13 +98,13 @@ RUN apt-get update && apt-get install -y \
 
 # set up R to point to latest binary cran
 RUN echo "options(\n\
-  repos = c('https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'),\n\
+  repos = c('https://packagemanager.rstudio.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'),\n\
   download.file.method = 'libcurl',\n\
   # Detect number of physical cores\n\
   Ncpus = parallel::detectCores(logical=FALSE)\n\
   )" >> `Rscript -e "cat(R.home())"`/etc/Rprofile.site
 
-RUN R -e 'source("https://demo.rstudiopm.com/__docs__/admin/check-user-agent.R")'
+RUN R -e 'source("https://packagemanager.rstudio.com/__docs__/admin/check-user-agent.R")'
 
 ###
 # shinycoreci
@@ -115,7 +115,7 @@ ARG GITHUB_PAT=NOTSUPPLIED
 ENV GITHUB_PAT=$GITHUB_PAT
 
 # remove this step once Rcpp (> 1.0.4) is uploaded
-RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://demo.rstudiopm.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'), type = 'source')"
+RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://packagemanager.rstudio.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'), type = 'source')"
 
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
