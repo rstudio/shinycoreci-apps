@@ -143,10 +143,10 @@ jobs:
           Rscript
           -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
 
-      - name: Run tests
-        timeout-minutes: 120
-        run: >
-          Rscript -e "shinycoreci::test_runtests()"
+      # - name: Run tests
+      #   timeout-minutes: 120
+      #   run: >
+      #     Rscript -e "shinycoreci::test_runtests()"
 
       - name: Push updated files to rstudio/shinycoreci-apps
         if: always()
