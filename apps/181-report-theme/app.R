@@ -18,8 +18,7 @@ onStop(function() { showtext::showtext_auto(FALSE) })
 # Set up CSS styles using a structure that getCurrentOutputInfo() should return
 font <- list(
   families = c("Definitely not a font", "Pacifico"),
-  size = "10px",
-  renderedFamily = "Pacifico"
+  size = "10px"
 )
 
 info1 <- list(
