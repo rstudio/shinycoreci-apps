@@ -74,7 +74,7 @@
   },
   "output": {
     "parcoord": {
-      "src": "[image data sha1: 676c517b8803711e27a54d0b2f181e52a85001cc]",
+      "src": "[image data sha1: e5ea558093f7ca45eac76110b2f8836783cc6d32]",
       "width": 383,
       "height": 400,
       "coordmap": {
@@ -87,10 +87,10 @@
               "top": 350.448
             },
             "range": {
-              "left": 57.6000150391684,
-              "right": 381.559999624021,
-              "bottom": 370.199992799998,
-              "top": 27.8000072000017
+              "left": 57.6,
+              "right": 381.56,
+              "bottom": 370.2,
+              "top": 27.7999999999999
             },
             "log": {
               "x": null,
