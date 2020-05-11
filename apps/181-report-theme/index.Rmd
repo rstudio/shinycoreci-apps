@@ -1,0 +1,177 @@
+---
+title: "getCurrentOutputInfo() test"
+output: 
+  html_document:
+    theme: null
+runtime: shiny
+---
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(shiny)
+library(htmltools)
+source("global.R")
+info2css(info1)
+info2css(info2, "#info2")
+```
+
+#### This test is primarily for the `bg`+`fg`+`accent`+`font` information in `getCurrentOutputInfo()`, but also makes sure that `renderPlot()` and `renderImage()` can render custom fonts via **showtext** and **ragg**. When viewing this with a wide screen, messages on the left should be in cursive and message on the right should not be in cursive (repeated 4 times over). Also, the line-height should be consistent across the 4 rows of messages.
+
+
+```{r}
+shinyAppDir("image", options = list(height = 150))
+```
+
+```{r}
+shinyAppDir("png", options = list(height = 150))
+```
+
+```{r}
+shinyAppDir("ragg", options = list(height = 150))
+```
+
+```{r}
+# TODO: par(bg = ...) doesn't work
+shinyAppDir("cairo", options = list(height = 150))
+```
+
+#### And now, below you should see CSS styles displayed as JSON
+
+```{r}
+tagAppendAttributes(
+  class = "shiny-report-theme",
+  textOutput("info1")
+)
+```
+
+
+```{r}
+output$info1 <- renderText({
+  info <- getCurrentOutputInfo()
+  to_json(list(
+    bg = info$bg(),
+    fg = info$fg(),
+    accent = info$accent(),
+    font = info$font()
+  ))
+})
+```
+
+```{r}
+tagAppendAttributes(
+  class = "shiny-report-theme",
+  textOutput("info2")
+)
+```
+
+```{r}
+output$info2 <- renderText({
+  info <- getCurrentOutputInfo()
+  to_json(list(
+    bg = info$bg(),
+    fg = info$fg(),
+    accent = info$accent(),
+    font = info$font()
+  ))
+})
+```
+
+
+```{r}
+shinyjster::shinyjster_js(
+  sprintf(
+    "
+    var jst = jster();
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(function() {
+      Jster.assert.isEqual(
+        JSON.parse($('#info1').text()), JSON.parse('%s')
+      );
+      Jster.assert.isEqual(
+        JSON.parse($('#info2').text()), JSON.parse('%s')
+      );
+    });
+    
+    jst.add(function(done) {
+      var wait = function() {
+        var imgs = $($('iframe').get(0)).contents().find('img');
+        if (imgs.length == 0) {
+          setTimeout(wait, 100);
+        } else {
+         done();
+        }
+      }
+      wait();
+    });
+    
+    jst.add(function(done) {
+      var wait = function() {
+        var imgs = $($('iframe').get(1)).contents().find('img');
+        if (imgs.length == 0) {
+          setTimeout(wait, 100);
+        } else {
+         done();
+        }
+      }
+      wait();
+    });
+    
+    jst.add(function(done) {
+      var wait = function() {
+        var imgs = $($('iframe').get(2)).contents().find('img');
+        if (imgs.length == 0) {
+          setTimeout(wait, 100);
+        } else {
+         done();
+        }
+      }
+      wait();
+    });
+    
+    jst.add(function(done) {
+      var wait = function() {
+        var imgs = $($('iframe').get(3)).contents().find('img');
+        if (imgs.length == 0) {
+          setTimeout(wait, 100);
+        } else {
+         done();
+        }
+      }
+      wait();
+    });
+    
+    var assert_imgs_diff = function(imgs, msg) {
+      var is_diff = imgs[0].getAttribute('src') !== imgs[1].getAttribute('src');
+      Jster.assert.isTrue(is_diff, msg)
+    };
+    
+    jst.add(function() {
+      assert_imgs_diff(
+        $($('iframe').get(0)).contents().find('img'),
+        'image-difference'
+      );
+      assert_imgs_diff(
+        $($('iframe').get(1)).contents().find('img'),
+        'png-difference'
+      );
+      assert_imgs_diff(
+        $($('iframe').get(2)).contents().find('img'),
+        'ragg-difference'
+      );
+      assert_imgs_diff(
+        $($('iframe').get(3)).contents().find('img'),
+        'cairo-difference'
+      );
+    });
+    
+    jst.test();
+    ", to_json(info1), to_json(info2)
+  )
+)
+
+shinyjster::shinyjster_server(input, output)
+```
