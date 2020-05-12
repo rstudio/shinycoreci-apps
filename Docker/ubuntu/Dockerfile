@@ -114,9 +114,6 @@ ARG GITHUB_PAT=NOTSUPPLIED
 # make sure the variable persists
 ENV GITHUB_PAT=$GITHUB_PAT
 
-# remove this step once Rcpp (> 1.0.4) is uploaded
-RUN Rscript -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', 'https://packagemanager.rstudio.com/cran/__linux__/${RELEASE}/latest', 'https://cloud.r-project.org/'), type = 'source')"
-
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
@@ -145,6 +142,11 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 RUN rm -r ~/apps/141-radiant
 
 # install R pkg system requirements
+## Install manually until ragg / RSPM fixes it; https://github.com/r-lib/ragg/issues/41
+RUN apt-get update && apt-get install -y \
+  libfreetype6-dev \
+  libpng-dev \
+  libtiff5-dev
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 # install r pkgs

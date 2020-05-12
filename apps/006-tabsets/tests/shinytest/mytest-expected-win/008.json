@@ -5,7 +5,7 @@
   },
   "output": {
     "plot": {
-      "src": "[image data sha1: b9e47cf7464699c0740a447995b550f2461d7981]",
+      "src": "[image data sha1: 3bea157c9a24e5c7ab3bacbe46ba48537978c4d4]",
       "width": 631,
       "height": 400,
       "coordmap": {
@@ -18,10 +18,10 @@
               "top": 100.88
             },
             "range": {
-              "left": 59.0400093565783,
-              "right": 600.759995207606,
-              "bottom": 325.559981639995,
-              "top": 58.0400147600037
+              "left": 59.04,
+              "right": 600.76,
+              "bottom": 325.56,
+              "top": 58.04
             },
             "log": {
               "x": null,

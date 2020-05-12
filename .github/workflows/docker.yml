@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      max-parallel: 2
       fail-fast: false
       matrix:
 
@@ -33,29 +34,41 @@ jobs:
 
         config:
 
+        - name: Centos7
+          workdir: Docker/centos
+          type: centos7
+          r: "4.0"
         - name: Bionic
           workdir: Docker/ubuntu
           type: bionic
-          r: 3.5
-        - name: Bionic
-          workdir: Docker/ubuntu
-          type: bionic
-          r: 3.6
-
+          r: "4.0"
         - name: Xenial
           workdir: Docker/ubuntu
           type: xenial
-          r: 3.6
-          # Xenial has trouble installing R 3.5
+          r: "4.0"
 
         - name: Centos7
           workdir: Docker/centos
           type: centos7
-          r: 3.5
+          r: "3.6"
+        - name: Bionic
+          workdir: Docker/ubuntu
+          type: bionic
+          r: "3.6"
+        - name: Xenial
+          workdir: Docker/ubuntu
+          type: xenial
+          r: "3.6"
+
         - name: Centos7
           workdir: Docker/centos
           type: centos7
-          r: 3.6
+          r: "3.5"
+        - name: Bionic
+          workdir: Docker/ubuntu
+          type: bionic
+          r: "3.5"
+          # Xenial has trouble installing R 3.5
 
 
     steps:

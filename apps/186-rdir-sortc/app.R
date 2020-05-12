@@ -20,7 +20,7 @@ shinyApp(
     p('The order of the letters below should be, "C, b, á"'),
     verbatimTextOutput("text")
   ),
-  server = function(input, output) {
+  server = function(input, output, session) {
     shinyjster::shinyjster_server(input, output)
     output$text <- renderText({
       paste0("File load order: ", paste0(test_vector, collapse = ", "))

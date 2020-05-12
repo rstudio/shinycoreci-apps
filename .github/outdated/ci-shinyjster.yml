@@ -1,0 +1,139 @@
+on:
+  push:
+    branches:
+      - master
+      - jster
+      - shinyjster
+      - ghactions
+  pull_request:
+    branches:
+      - master
+  # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
+  schedule:
+    - cron:  '0 6 * * 0-4' # every work night at ~ midnight central time
+  repository_dispatch:
+    types:
+      - all
+      - shinyjster
+      - ci
+
+name: shinyjster
+
+jobs:
+
+  headless:
+    name: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org"}
+        - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org"}
+        - { os: ubuntu-18.04, r: '3.6', cran: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest"}
+    runs-on: ${{ matrix.config.os }}
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      CRAN: ${{ matrix.config.cran }}
+
+    steps:
+      - uses: actions/checkout@v2
+        name: GitHub Pull
+
+      - uses: r-lib/actions/setup-r@master
+        with:
+          r-version: ${{ matrix.config.r }}
+      - name: R Options
+        shell: bash
+        run: |
+          echo 'MAKEFLAGS=-j2' >> .Renviron
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - name: Create cache ID from time
+        id: cache_id
+        run: |
+          echo "::set-output name=value::$(Rscript -e 'cat(as.numeric(Sys.time()))')"
+      - name: Cache R packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinyjster2-${{ steps.cache_id.outputs.value }}
+          restore-keys: |
+            ${{ runner.os }}-r-${{ matrix.config.r }}-libs-shinyjster2-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-libs-testthat2-
+
+      - name: Install Packages
+        run: >
+          Rscript
+          -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
+          -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
+          -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
+          -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
+
+      - name: Install system dependencies
+        if: false
+        # if: runner.os == 'Linux'
+        env:
+          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+        run: |
+          Rscript -e "remotes::install_github('r-hub/sysreqs')"
+          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
+          sudo -s eval "$sysreqs"
+
+      - name: Install app deps
+        run: >
+          Rscript
+          -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
+          -e "shinycoreci::install_app_deps()"
+
+
+
+
+      - name: shinyjster - Internet Explorer
+        if: always() && runner.os == 'Windows'
+        timeout-minutes: 45
+        shell: bash
+        run: >
+          Rscript
+          -e "shinycoreci::test_shinyjster(browser = 'ie')"
+
+      - name: shinyjster - Microsoft Edge
+        # if: always() && (runner.os == 'Windows' || runner.os == 'macOS')
+        # if: always() && runner.os == 'Windows'
+        if: false # current selenium can't find v80 edge
+        timeout-minutes: 45
+        shell: bash
+        run: >
+          Rscript
+          -e "shinycoreci::test_shinyjster(browser = 'edge')"
+
+      - name: shinyjster - Google Chrome
+        if: always()
+        # if: false
+        timeout-minutes: 45
+        shell: bash
+        run: >
+          Rscript
+          -e "shinycoreci::test_shinyjster(browser = 'chrome')"
+
+      - name: shinyjster - Firefox
+        if: always()
+        # if: false
+        timeout-minutes: 45
+        shell: bash
+        run: >
+          Rscript
+          -e "shinyjster::run_jster_apps(apps = shinyjster:::apps_to_test(), browser = shinyjster::selenium_firefox(headless = TRUE), type = 'serial')"
+
+
+
+
+
+
+      - name: Fix path for Windows caching
+        if: runner.os == 'Windows'
+        # This is needed because if you use the default tar at this stage,
+        # C:/Rtools/bin/tar.exe, it will say that it can't find gzip.exe. So
+        # we'll just set the path so that the original tar that would be
+        # found, will be found.
+        run: echo "::add-path::C:/Program Files/Git/usr/bin"

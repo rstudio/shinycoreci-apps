@@ -24,9 +24,11 @@ jobs:
 
       matrix:
         config:
-        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5, retry: 3 }
+        - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5, retry: 3 }
+        # beta.rstudioconnect does not support v4 yet
         - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 2, retry: 3 }
-        # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 1, retry: 3, extra_app_text: ", apps = c('001-hello', '002-text')" }
+        # - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 1, retry: 3, extra_app_text: ", apps = c('001-hello', '002-text')" }
+        # beta.rstudioconnect does not support v4 yet
         # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3, extra_app_text: ", apps = c('001-hello', '002-text')" }
 
     env:
@@ -55,17 +57,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-${{ matrix.config.type }}-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-shinytest-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-testthat-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-${{ matrix.config.type }}-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-shinytest-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-testthat-
 
-      # remove this step once Rcpp (> 1.0.4) is uploaded
-      - name: Rcpp band-aid
-        run: >
-          Rscript
-          -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', '${{ matrix.config.cran }}'), type = 'source')"
       - name: Install shinycoreci
         # if non linux, install binaries
         # make sure to get the best version number possible
@@ -74,7 +71,7 @@ jobs:
         # install the specific branch of shinycoreci
         run: >
           Rscript
-          -e "options(pkgType = 'binary')"
+          -e "## options(pkgType = 'binary')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
