@@ -4,7 +4,7 @@
   },
   "output": {
     "plot": {
-      "src": "[image data sha1: bbc00816b9220f64883c472c2b86543d93be7250]",
+      "src": "[image data sha1: 0afb43be2d7b3b5b2ca1d2250ae4d006b266cb3a]",
       "width": 962,
       "height": 800,
       "coordmap": {
@@ -38,7 +38,7 @@
       }
     },
     "plot2": {
-      "src": "[image data sha1: d073d763a9d19c11e14e21f95d9261deab47462e]",
+      "src": "[image data sha1: 53f764b01d227133d270e35be2f753f7ffb08ef5]",
       "width": 260,
       "height": 200,
       "coordmap": {

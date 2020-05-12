@@ -1,2 +1,1 @@
-library(shinytest)
-shinytest::testApp("../")
+shinycoreci::test_shinytest_app()

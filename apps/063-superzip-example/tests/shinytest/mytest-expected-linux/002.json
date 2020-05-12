@@ -23,7 +23,7 @@
   },
   "output": {
     "histCentile": {
-      "src": "[image data sha1: 4d5c62a3fe4d619c1a24df406ad29bc34528ec93]",
+      "src": "[image data sha1: e729ee14f38da42c1febb8ee6cff711317b00a4e]",
       "width": 288,
       "height": 200,
       "coordmap": {
@@ -116,7 +116,7 @@
       ]
     },
     "scatterCollegeIncome": {
-      "src": "[image data sha1: 099f3a32330f856f082ada73579ff3df2064f95e]",
+      "src": "[image data sha1: ecbacaf4d349ed4c5901e7d2e8b4667aa4e46864]",
       "width": 288,
       "height": 250,
       "coordmap": {
