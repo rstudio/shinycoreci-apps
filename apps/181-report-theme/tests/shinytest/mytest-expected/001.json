@@ -1,0 +1,72 @@
+{
+  "input": {
+
+  },
+  "output": {
+    "__reactivedoc__": {
+      "html": "[html data sha1: 889ed98233347f9c24dab01ea4a5bc9e0e63e89e]",
+      "deps": [
+        {
+          "name": "header-attrs",
+          "version": "2.2.0",
+          "src": {
+            "href": "header-attrs-2.2.0"
+          },
+          "meta": null,
+          "script": "header-attrs.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "highlightjs",
+          "version": "9.12.0",
+          "src": {
+            "href": "highlightjs-9.12.0"
+          },
+          "meta": null,
+          "script": "highlight.js",
+          "stylesheet": "default.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyjster-assets",
+          "version": "0.0.0.9009",
+          "src": {
+            "href": "shinyjster-assets-0.0.0.9009"
+          },
+          "meta": null,
+          "script": "js/shinyjster.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "rmarkdown-performance",
+          "version": "0.1",
+          "src": {
+            "href": "rmarkdown-performance-0.1"
+          },
+          "meta": null,
+          "script": "rmd_perf.js",
+          "stylesheet": "rmd_perf.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "info1": "{\"bg\":\"#000000\",\"fg\":\"#FFFFFF\",\"accent\":\"#00FF00\",\"font\":{\"families\":[\"-apple-system\",\"BlinkMacSystemFont\",\"'Segoe UI'\",\"Roboto\",\"'Helvetica Neue'\",\"Arial\",\"'Noto Sans'\",\"sans-serif\",\"'Apple Color Emoji'\",\"'Segoe UI Emoji'\",\"'Segoe UI Symbol'\",\"'Noto Color Emoji'\"],\"size\":\"10px\"}}",
+    "info2": "{\"bg\":\"#008080\",\"fg\":\"#0000FF\",\"accent\":\"#000000\",\"font\":{\"families\":[\"-apple-system\",\"BlinkMacSystemFont\",\"'Segoe UI'\",\"Roboto\",\"'Helvetica Neue'\",\"Arial\",\"'Noto Sans'\",\"sans-serif\",\"'Apple Color Emoji'\",\"'Segoe UI Emoji'\",\"'Segoe UI Symbol'\",\"'Noto Color Emoji'\"],\"size\":\"10px\"}}"
+  },
+  "export": {
+
+  }
+}
