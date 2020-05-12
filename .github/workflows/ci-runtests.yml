@@ -103,6 +103,13 @@ jobs:
         run: |
           sudo -s apt-get update
           sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
+
+      # Install xquartz
+      - name: Mac systemdeps
+        if: runner.os == 'macOS'
+        run: |
+          brew cask install xquartz
+
       # Install all deps as we are installing from rspm
       - name: Install system dependencies
         if: runner.os == 'Linux'
