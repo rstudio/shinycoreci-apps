@@ -146,7 +146,7 @@ jobs:
       - name: Run tests
         timeout-minutes: 120
         run: >
-          Rscript -e "shinycoreci::test_runtests(retries = 0)"
+          Rscript -e "saveRDS(print(shinycoreci::test_runtests(retries = 0, assert = FALSE)), file = file.path('zzz_shinycoreci', 'runtests', paste0('test_runtests-', Sys.time(), '.Rds')))"
 
       - name: Push updated files to rstudio/shinycoreci-apps
         if: always()
@@ -162,6 +162,10 @@ jobs:
 
           BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ matrix.config.r }}-${{ runner.os }}"
           git checkout -B "$BRANCH"
+
+          git add zzz_shinycoreci && \
+            git commit -m '`test_runtests()` output - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
+            echo "No test_runtests() changes to commit"
 
           git add apps/sysinfo-* && \
             git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
