@@ -97,6 +97,12 @@ jobs:
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
           -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', dependencies = TRUE, force = TRUE)"
 
+      # Install ragg deps
+      - name: Ragg deps
+        if: runner.os == 'Linux'
+        run: |
+          sudo -s apt-get update
+          sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
       # Install all deps as we are installing from rspm
       - name: Install system dependencies
         if: runner.os == 'Linux'
