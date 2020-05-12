@@ -21,16 +21,6 @@ test_jster_169 <- function(browser_func) {
       file.path(app, "169-prerender-b")
     ),
     type = "lapply",
-    browsers = browser_func,
-    assert = FALSE
+    browsers = browser_func
   )
-
-  shinyjster::assert_jster(ret)
-  tibble::tibble(
-    appDir = normalizePath(app),
-    successful = TRUE,
-    # will be a "success"
-    returnValue = ret$returnValue[[1]]
-  )
-
 }
