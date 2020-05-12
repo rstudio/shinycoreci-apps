@@ -74,7 +74,7 @@
   },
   "output": {
     "parcoord": {
-      "src": "[image data sha1: cb8df436f8a0eeddb31f74b375e16cad54bd7e1f]",
+      "src": "[image data sha1: 26e61e3eaa9c25a7037322878f907b9d16a81001]",
       "width": 383,
       "height": 400,
       "coordmap": {
@@ -168,9 +168,9 @@
         },
         {
           "name": "jquery",
-          "version": "1.11.3",
+          "version": "3.5.0",
           "src": {
-            "href": "jquery-1.11.3"
+            "href": "jquery-3.5.0"
           },
           "meta": null,
           "script": "jquery.min.js",
