@@ -21,19 +21,24 @@ jobs:
   shinytest-apps:
     runs-on: ${{ matrix.config.os }}
 
-    name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.config.r }})
+    name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     strategy:
       fail-fast: false
-
+      max-parallel: 3
       matrix:
         shinycoreci:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
+        r:
+          - "4.0"
+          - "3.6"
+          - "3.5"
+          - "3.4"
         config:
-        - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org"}
-        - { os: windows-latest, r: '4.0', cran: "https://cloud.r-project.org"}
-        - { os: ubuntu-18.04, r: '4.0', cran: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
+        - { os: macOS-latest, cran: "https://cloud.r-project.org"}
+        - { os: windows-latest, cran: "https://cloud.r-project.org"}
+        - { os: ubuntu-18.04, cran: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -59,7 +64,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r@master
         with:
-          r-version: ${{ matrix.config.r }}
+          r-version: ${{ matrix.r }}
       - name: R Options
         shell: bash
         run: |
@@ -73,9 +78,9 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-runtests-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-runtests-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.config.r }}${{ matrix.shinycoreci.text }}-libs-runtests-
+            ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-runtests-
 
       - name: Install curl
         if: runner.os == 'Linux'
@@ -177,7 +182,7 @@ jobs:
             git config --local --unset http.https://github.com/.extraheader && \
             git config --local --list
 
-          BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ matrix.config.r }}-${{ runner.os }}"
+          BRANCH="gha-${{ steps.failed_branch.outputs.name }}-${{ matrix.r }}-${{ runner.os }}"
           git checkout -B "$BRANCH"
 
           git add zzz_shinycoreci && \
