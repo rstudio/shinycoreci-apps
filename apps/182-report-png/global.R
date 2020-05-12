@@ -71,7 +71,7 @@ do_plot <- function(family = "Pacifico") {
   msg <- if (identical(family, "Pacifico")) {
     "This text should appear in cursive"
   } else {
-    "This test shouldn't appear in cursive"
+    "This text should NOT appear in cursive"
   }
   text(1, msg, family = family, col = info$fg())
 }
@@ -97,7 +97,7 @@ render_image <- function(expr, session) {
 render_plot <- function(expr) {
   # bg arg is necessary because CairoPNG() doesn't respect par(bg=...)
   snapshotPreprocessOutput(
-    renderPlot(expr, bg = info1$bg),
+    if (isTRUE(getOption("shiny.usecairo"))) renderPlot(expr, bg = info1$bg) else renderPlot(expr),
     function(value) {}
   )
 }
@@ -125,7 +125,6 @@ plot_testing_app <- function() {
       plotOutput("default", height = 150)
     ),
     function(input, output) {
-
       output$pacifico <- render_plot(do_plot())
       output$default <- render_plot(do_plot(family = ""))
     }
