@@ -150,12 +150,13 @@ jobs:
 
       - name: Run tests
         timeout-minutes: 120
+        # -e "dir.create(file.path('zzz_shinycoreci', 'runtests'), recursive = TRUE, showWarnings = FALSE)"
+        # -e "saveRDS(run_tests_output, file = file.path('zzz_shinycoreci', 'runtests', paste0('test_runtests-', Sys.time(), '.Rds')))"
         run: >
           Rscript
           -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE)"
           -e "print(run_tests_output)"
-          -e "dir.create(file.path('zzz_shinycoreci', 'runtests'), recursive = TRUE, showWarnings = FALSE)"
-          -e "saveRDS(run_tests_output, file = file.path('zzz_shinycoreci', 'runtests', paste0('test_runtests-', Sys.time(), '.Rds')))"
+          -e "shinycoreci::assert_runtests(run_tests_output)"
 
       - name: Push updated files to rstudio/shinycoreci-apps
         if: always()
