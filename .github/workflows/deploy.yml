@@ -55,17 +55,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-${{ matrix.config.type }}-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-shinytest-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy-libs-testthat-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-${{ matrix.config.type }}-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-shinytest-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-testthat-
 
-      # remove this step once Rcpp (> 1.0.4) is uploaded
-      - name: Rcpp band-aid
-        run: >
-          Rscript
-          -e "install.packages('Rcpp', repos=c('https://RcppCore.github.io/drat', '${{ matrix.config.cran }}'), type = 'source')"
       - name: Install shinycoreci
         # if non linux, install binaries
         # make sure to get the best version number possible
