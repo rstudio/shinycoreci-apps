@@ -71,7 +71,7 @@ jobs:
         # install the specific branch of shinycoreci
         run: >
           Rscript
-          -e "options(pkgType = 'binary')"
+          -e "## options(pkgType = 'binary')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
