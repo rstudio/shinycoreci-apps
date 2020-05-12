@@ -154,6 +154,7 @@ jobs:
           Rscript
           -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE)"
           -e "print(run_tests_output)"
+          -e "dir.create(file.path('zzz_shinycoreci', 'runtests'), recursive = TRUE, showWarnings = FALSE)"
           -e "saveRDS(run_tests_output, file = file.path('zzz_shinycoreci', 'runtests', paste0('test_runtests-', Sys.time(), '.Rds')))"
 
       - name: Push updated files to rstudio/shinycoreci-apps
