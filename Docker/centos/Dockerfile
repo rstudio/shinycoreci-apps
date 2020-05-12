@@ -116,6 +116,8 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 RUN rm -r ~/apps/141-radiant
 
 # install R pkg system requirements
+## Install manually until ragg / RSPM fixes it; https://github.com/r-lib/ragg/issues/41
+RUN yuminstall -y freetype-devel libpng-devel libtiff-devel
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 
