@@ -1,22 +1,53 @@
 # shinycoreci-apps
 
 <!-- badges: start -->
-[![shinytest](https://github.com/rstudio/shinycoreci-apps/workflows/shinytest/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinytest)
-[![shinyjster](https://github.com/rstudio/shinycoreci-apps/workflows/shinyjster/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinyjster)
-[![testthat](https://github.com/rstudio/shinycoreci-apps/workflows/testthat/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Atestthat)
+[![Run Tests](https://github.com/rstudio/shinycoreci-apps/workflows/runTests/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ArunTests)
 [![Docker](https://github.com/rstudio/shinycoreci-apps/workflows/Docker/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
+[![Deploy](https://github.com/rstudio/shinycoreci-apps/workflows/Deploy/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADeploy)
+[![Trim Branches](https://github.com/rstudio/shinycoreci-apps/workflows/Trim%20Old%20Branches/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ATrim%20Old%20Branches)
 
 <!-- badges: end -->
 
 Test applications and workflows for Shiny R packages.
 
 There are three main workflows:
-* [**shinytest:**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinytest) Test applications using [`rstudio/shinytest`](https://github.com/rstudio/shinytest)
-* [**shinyjster:**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Ashinyjster) Test applications using [`schloerke/shinyjster`](https://github.com/schloerke/shinyjster)
-* [**testthat**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3Atestthat): Test applications using [`rstudio/testthat`](https://github.com/rstudio/testthat) via INTEGRATION_TESTING_LINK
+
+* [**runTests:**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ArunTests) Test applications using `shiny::runTests()`
+* [**Docker:**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker) Create all SSO and SSP docker images
+* [**Deploy**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADeploy): Deploy all testing apps to [shinyapps.io](shinyapps.io) and [beta.rstudioconnect.com](https://beta.rstudioconnect.com)
 
 
-## Testing Environments
+## Usage
+
+First, clone the shinycoreci-apps repo. Next, install [`remotes::install_github("rstudio/shinycoreci")`](https://github.com/rstudio/shinycoreci).  You may need to add your `GITHUB_PAT` to your R Environ file (See `?usethis::edit_r_environ` and `?usethis::browse_github_pat`)
+
+* [RStudio IDE](https://rstudio.com/products/rstudio/download/#download) - `shinycoreci::test_in_ide()`
+* [RStudio Cloud](http://rstudio.cloud) - `shinycoreci::test_in_ide()`
+* [RStudio Server Pro](https://colorado.rstudio.com) - `shinycoreci::test_in_ide()`
+* R Terminal / R GUI - `shinycoreci::test_in_browser()`
+* (Any) Web Browser - `shinycoreci::test_in_browser()`
+* [shinyapps.io](http://shinyapps.io) - `shinycoreci::test_in_shinyappsio()`
+* [RStudio Connect](http://beta.rstudioconnect.com) - `shinycoreci::test_in_connect()`
+* SSO - `shinycoreci::test_in_sso(release = "bionic")`
+  > will require docker login. Run `docker login` in the terminal
+* SSP - `shinycoreci::test_in_ssp(release = "centos7")`
+  > will require docker login. Run `docker login` in the terminal
+
+All testing functions may be run from within the IDE (except for R Terminal / R Gui).
+
+#### IDE Example
+```r
+# (Install `shinycoreci`)
+remotes::install_github("rstudio/shinycoreci")
+
+# Sitting at the root folder of the rstudio/shinycoreci-apps repo
+shinycoreci::test_in_ide()
+```
+
+
+## `shiny::runTests()` testing frameworks
+
+These different testing frameworks are used to automate the Continuous Integration Testing process of the shiny ecosystem.
 
 [**`shinytest`**](https://github.com/rstudio/shinytest)
 * Local App Driver testing (w/ headless Phantom.js browser)
@@ -32,45 +63,16 @@ There are three main workflows:
 [**`shinyjster`**](https://github.com/schloerke/shinyjster)
 * Primarily a JavaScript library
 * Test javascript code is added in `app.R`
-* `shinyjster` is currently intended for testing apps specifically created to test something in particular. It is not something we suggest be used to test most applications. This positions `shinyjster` differently than `shinytest` and the forthcoming _integration testing_ feature of Shiny.
+* `shinyjster` is currently intended for testing apps specifically created to test something in particular. It should only be used to test full stack integration or browser / platform specific behavior.  This positions `shinyjster` differently than `shinytest::testApp()` and `shiny::testServer()`.
 * Functions:
-  * Local Headless Browser
-    * Chrome: `shinycoreci::test_shinyjster(browser = "chrome")`
-    * Firefox: `shinycoreci::test_shinyjster(browser = "firefox")~
-    * Microsoft Edge: `shinycoreci::test_shinyjster(browser = "edge")
-    * Internet Exploreer: `shinycoreci::test_shinyjster(browser = "ie")
-    * ~~Safari: `shinycoreci::test_shinyjster(browser = "safari")~~
-  * Local RStudio IDE: `shinycoreci::test_shinyjster(browser = getOption('browser'))`
-  * ~~Connect~~
-  * ~~SSO/SSP~~
-  * [RStudio Cloud](http://rstudio.cloud)
-    * Log into a project R session, `shinycoreci::test_shinyjster(browser = getOption('browser'))`
+  * `shinycoreci::test_shinyjster()`
+  * This will run through all of the `shinyjster` selenium browsers that work with GitHub Actions
+    * `shinyjster::selenium_chrome()`
+    * `shinyjster::selenium_firefox()`
+    * `shinyjster::selenium_edge()`
+    * `shinyjster::selenium_ie()`
 
-**Docker**
-* Run SSO / SSP docker images locally
-* Images are [built nightly](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
-* Functions:
-  * SSO: `shinycoreci::docker_run_sso()`
-  * SSP: `shinycoreci::docker_run_ssp()`
-  * Clear up hard disk space: `shinycoreci::docker_clean(stopped_containers = TRUE, untagged_images = TRUE)`
-
-## Usage
-
-```r
-# (Install `shinycoreci` once per R session)
-remotes::install_github("rstudio/shinycoreci")
-
-# Sitting at the root folder of the rstudio/shinycoreci-apps repo
-shinycoreci::test_shinytest()
-shinycoreci::test_shinyjster()
-shinycoreci::test_testthat()
-```
-
-This GitHub repo works in concert with [`rstudio/shinycoreci`](https://github.com/rstudio/shinycoreci)
-
-Each of the major `test_*()` methods will (by default) ask a [Spreadsheet of Apps](https://docs.google.com/spreadsheets/d/1jPWPNmSQbbE8E6KS5tXnm5Jq7r01GaOCCE1Vvz5e9a8/edit#gid=0) to determine which apps to test.  `test_testthat()` will inspect all apps in the supplied directory inspecting for a `tests/testthat.R` file.
-
-New apps **must be added** to the [spreadsheet](https://docs.google.com/spreadsheets/d/1jPWPNmSQbbE8E6KS5tXnm5Jq7r01GaOCCE1Vvz5e9a8/edit#gid=0).  Check the appropriate boxes to trigger respective workflows.
+## Trouble Shooting
 
 
 ### Diagnosing `shinytest` problems posted by GitHub Actions
@@ -81,6 +83,7 @@ When `shinytest` fails, the workflow will capture the failed test artifacts and 
 
 * `SHA` - The git sha of the commit that triggered the workflow
 * `DATE` - The year, month, day, hour, and minute with the format `YEAR_MO_DY_HR_MN`
+* `RVERSION` (not shown) - Short R version. Ex: `4.0`
 * `OS` - One of `macOS`, `Windows`, or `Linux`.
 
 #### Steps fix broken `shinytest` apps
@@ -120,6 +123,16 @@ git branch -D BROKEN_BRANCH_NAME
 
 # FAQ
 
+### There are a lot of local branches
+
+To allow for `shinytest` to report the changes it found, new branches are created constantly.  These branches are automatically removed (with CI) after 1 week of no activity.
+
+To remove these dead remotes in your local machine, run:
+
+```bash
+git remote prune origin
+```
+
 ### Workflows and Actions
 
 [**GitHub Actions**](https://github.com/features/actions) is a GitHub service for initiating processes implemented as _workflows_. Workflows are YAML files that indicate a series of programmatic steps to perform.
@@ -140,9 +153,9 @@ If new screenshots differ from those created previously, the user is presented w
 
 ### Steps to initiate tests
 
-After cloning the repo, you can initiate a test run either by making a change to an application and pushing the commit, or by using the `shinycoreci::trigger()` function.
+After cloning the repo, you can initiate a test run either by making a change to an application and pushing the commit, or by using the `shinycoreci::trigger("DISPATCHTYPE", "rstudio/shinycoreci-apps")` function.
 
-> Note: It’s not currently possible to initiate a workflow and for that workflow to test a subset of the apps (as opposed to all of them, which is the current default). However, it’s not obvious what the advantage of this would be, considering most of the time spent in the workflow is setup.
+> Note: It’s **not** currently possible to initiate a workflow and for that workflow to test a subset of the apps (as opposed to all of them, which is the current default). However, it’s not obvious what the advantage of this would be, considering most of the time spent in the workflow is setup.
 
 
 ### Dependencies
