@@ -5,7 +5,7 @@
   },
   "output": {
     "plot1-scatterPlot": {
-      "src": "[image data sha1: f313ddddfc5bad796e8b5f00396abc5d31ca30c9]",
+      "src": "[image data sha1: 7b41d26f85a6d2661c219fced0fab4cf60943eab]",
       "width": 383,
       "height": 300,
       "coordmap": {
@@ -39,7 +39,7 @@
       }
     },
     "plot2-scatterPlot": {
-      "src": "[image data sha1: f7c76b9f43bcb513a42c9b9dfaa0d08520c58523]",
+      "src": "[image data sha1: 7c1408a6278de3dbbdeeca658aefd9a8fcb1da4f]",
       "width": 383,
       "height": 300,
       "coordmap": {
