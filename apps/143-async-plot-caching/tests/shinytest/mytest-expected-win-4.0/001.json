@@ -4,7 +4,7 @@
   },
   "output": {
     "ggplotNN": {
-      "src": "[image data sha1: 0e49b6a65021a32c720c3cb4c92a5159b4ff0bf7]",
+      "src": "[image data sha1: 87c693794b1ab3d61334df1a6b709f9b0b05b6a4]",
       "coordmap": {
         "panels": [
           {
@@ -29,9 +29,9 @@
               "y": "dist"
             },
             "range": {
-              "left": 36.1506849315069,
+              "left": 39.1506849315068,
               "right": 474.520547945206,
-              "bottom": 368.849315068493,
+              "bottom": 366.849315068493,
               "top": 5.47945205479452
             }
           }
@@ -44,7 +44,7 @@
       "class": "shiny-scalable"
     },
     "ggplotNY": {
-      "src": "[image data sha1: 0e49b6a65021a32c720c3cb4c92a5159b4ff0bf7]",
+      "src": "[image data sha1: 87c693794b1ab3d61334df1a6b709f9b0b05b6a4]",
       "coordmap": {
         "panels": [
           {
@@ -69,9 +69,9 @@
               "y": "dist"
             },
             "range": {
-              "left": 36.1506849315069,
+              "left": 39.1506849315068,
               "right": 474.520547945206,
-              "bottom": 368.849315068493,
+              "bottom": 366.849315068493,
               "top": 5.47945205479452
             }
           }
@@ -84,7 +84,7 @@
       "class": "shiny-scalable"
     },
     "ggplotYN": {
-      "src": "[image data sha1: 0e49b6a65021a32c720c3cb4c92a5159b4ff0bf7]",
+      "src": "[image data sha1: 87c693794b1ab3d61334df1a6b709f9b0b05b6a4]",
       "coordmap": {
         "panels": [
           {
@@ -109,9 +109,9 @@
               "y": "dist"
             },
             "range": {
-              "left": 36.1506849315069,
+              "left": 39.1506849315068,
               "right": 474.520547945206,
-              "bottom": 368.849315068493,
+              "bottom": 366.849315068493,
               "top": 5.47945205479452
             }
           }
@@ -124,7 +124,7 @@
       "class": "shiny-scalable"
     },
     "ggplotYY": {
-      "src": "[image data sha1: 0e49b6a65021a32c720c3cb4c92a5159b4ff0bf7]",
+      "src": "[image data sha1: 87c693794b1ab3d61334df1a6b709f9b0b05b6a4]",
       "coordmap": {
         "panels": [
           {
@@ -149,9 +149,9 @@
               "y": "dist"
             },
             "range": {
-              "left": 36.1506849315069,
+              "left": 39.1506849315068,
               "right": 474.520547945206,
-              "bottom": 368.849315068493,
+              "bottom": 366.849315068493,
               "top": 5.47945205479452
             }
           }
@@ -164,7 +164,7 @@
       "class": "shiny-scalable"
     },
     "plotNN": {
-      "src": "[image data sha1: bcc79e9d2d4a0402ac183fe3b05ac71a134aefa7]",
+      "src": "[image data sha1: 1a545b668cdf519d4bcaa24d3b79f869ea8882c7]",
       "coordmap": {
         "panels": [
           {
@@ -197,7 +197,7 @@
       "class": "shiny-scalable"
     },
     "plotNY": {
-      "src": "[image data sha1: bcc79e9d2d4a0402ac183fe3b05ac71a134aefa7]",
+      "src": "[image data sha1: 1a545b668cdf519d4bcaa24d3b79f869ea8882c7]",
       "coordmap": {
         "panels": [
           {
@@ -230,7 +230,7 @@
       "class": "shiny-scalable"
     },
     "plotYN": {
-      "src": "[image data sha1: bcc79e9d2d4a0402ac183fe3b05ac71a134aefa7]",
+      "src": "[image data sha1: 1a545b668cdf519d4bcaa24d3b79f869ea8882c7]",
       "coordmap": {
         "panels": [
           {
@@ -263,7 +263,7 @@
       "class": "shiny-scalable"
     },
     "plotYY": {
-      "src": "[image data sha1: bcc79e9d2d4a0402ac183fe3b05ac71a134aefa7]",
+      "src": "[image data sha1: 1a545b668cdf519d4bcaa24d3b79f869ea8882c7]",
       "coordmap": {
         "panels": [
           {
