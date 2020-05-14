@@ -15,7 +15,7 @@ test_jster_169 <- function(browser_func) {
     }
   }, add = TRUE)
 
-  ret <- shinyjster::test_jster(
+  shinyjster::test_jster(
     apps = c(
       file.path(app, "169-prerender-a", "index.Rmd"),
       file.path(app, "169-prerender-b")
