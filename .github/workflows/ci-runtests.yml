@@ -96,7 +96,6 @@ jobs:
         # install the specific branch of shinycoreci
         run: >
           Rscript
-          -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
@@ -125,7 +124,6 @@ jobs:
       - name: Install app deps
         run: >
           Rscript
-          -e "if (.Platform[['OS.type']] == 'windows' || Sys.info()[['sysname']] == 'Darwin') options(pkgType = 'binary')"
           -e "shinycoreci::install_app_deps()"
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
