@@ -82,7 +82,7 @@ server <- function(input, output, session) {
       height = height,
       alt = "This is alternate text"
     )
-  })
+  }, deleteFile = TRUE)
 
   output$click_info <- renderPrint({
     cat("input$image_click:\n")
