@@ -1,4 +1,4 @@
-# shinycoreci::::is_manual_app
+### Keep this line to manually test this shiny application. Do not edit this line; shinycoreci::::is_manual_app
 library(shiny)
 
 msg <- tags$h6(
