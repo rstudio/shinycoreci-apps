@@ -95,7 +95,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name != 'schedule' }}
+        cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}
         buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.flavor.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
         tags: "base-${{ matrix.config.r }}-${{ matrix.config.type }}${{ matrix.flavor.extra_base_tag }}"
@@ -108,7 +108,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name != 'schedule' }}
+        cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}_sso
         buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
         tags: "sso-${{ matrix.config.r }}-${{ matrix.config.type }}${{ matrix.flavor.extra_base_tag }}"
@@ -127,7 +127,7 @@ jobs:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        cache: ${{ github.event_name != 'schedule' }}
+        cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.config.workdir }}_ssp
         # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent within file
         buildargs: "R_VERSION=${{ matrix.config.r }},RELEASE=${{ matrix.config.type }},SSP_LICENSE_FILE=ssp.lic,EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
