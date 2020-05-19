@@ -11,14 +11,22 @@ jster <- shinyjster::shinyjster_js(
   "
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
+    var toggle;
+    var nav;
     jst.add(function() {
-       var toggle = $('.navbar-toggle:visible');
-       var nav    = $('.navbar-collapse:visible');
+       toggle = $('.navbar-toggle:visible');
+       nav    = $('.navbar-collapse:visible');
+       
        Jster.assert.isEqual(toggle.length, 1, 'Failed to find collapsible menu, does the window need to be resized?');
        Jster.assert.isEqual(nav.length, 0, 'The collapsible navbar should not be visible by default');
-       toggle.click(function() {
-         Jster.assert.isEqual(nav.length, 1, 'Clicking the navbar toggle should make the navbar appear.');
-       });
+    });
+
+    jst.add(function(done) {
+       toggle.click(done);
+    });
+
+    jst.add(function() {
+      Jster.assert.isEqual(nav.length, 1, 'Clicking the navbar toggle should make the navbar appear.');
     });
 
     jst.test();
