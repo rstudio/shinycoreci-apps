@@ -1,4 +1,3 @@
-### Keep this line to manually test this shiny application. Do not edit this line; shinycoreci::::is_manual_app
 library(shiny)
 
 msg <- tags$h6(
@@ -8,13 +7,33 @@ msg <- tags$h6(
   "'Summary' to view a data summary (and 'Plot' to see a plot)."
 )
 
+jster <- shinyjster::shinyjster_js(
+  "
+    var jst = jster();
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(function() {
+       var toggle = $('.navbar-toggle:visible');
+       var nav    = $('.navbar-collapse:visible');
+       Jster.assert.isEqual(toggle.length, 1, 'Failed to find collapsible menu, does the window need to be resized?');
+       Jster.assert.isEqual(nav.length, 0, 'The collapsible navbar should not be visible by default');
+       toggle.click(function() {
+         Jster.assert.isEqual(nav.length, 1, 'Clicking the navbar toggle should make the navbar appear.');
+       });
+    });
+
+    jst.test();
+    "
+)
+
 ui <- navbarPage(
   "", collapsible = TRUE,
   tabPanel("Plot", msg, plotOutput("plot")),
-  tabPanel("Summary", msg, verbatimTextOutput("summary"))
+  tabPanel("Summary", msg, verbatimTextOutput("summary"), jster)
 )
 
 server <- function(input, output, session) {
+  shinyjster::shinyjster_server(input, output, session)
+
   output$plot <- renderPlot(plot(cars))
   output$summary <- renderPrint(summary(cars))
 }
