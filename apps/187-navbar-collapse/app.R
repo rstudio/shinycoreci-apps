@@ -9,7 +9,7 @@ msg <- tags$h6(
 
 jster <- shinyjster::shinyjster_js(
   "
-    var jst = jster();
+    var jst = jster(0);
     jst.add(Jster.shiny.waitUntilStable);
     var toggle;
     var nav;
