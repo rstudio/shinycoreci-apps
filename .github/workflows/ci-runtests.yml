@@ -176,7 +176,7 @@ jobs:
           Rscript
           -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE)"
           -e "shinycoreci::assert_runtests(run_tests_output)"
-          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{steps.pull_request.outputs.id}}', username = '${GITHUB_ACTOR}')
+          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{steps.pull_request.outputs.id}}', username = '$GITHUB_ACTOR')
 
       - name: Git config
         if: always()
@@ -197,8 +197,7 @@ jobs:
         run: |
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
           git checkout _test_results
-          git checkout $CURRENT_BRANCH -- _test_results/
-          git add .
+          git add _test_results/
           git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
           git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git ${{steps.gha_branch.outputs.name}}
           git checkout $CURRENT_BRANCH
