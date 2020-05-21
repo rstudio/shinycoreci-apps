@@ -146,9 +146,7 @@ jobs:
           -e "cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
       - name: Create GHA branch name (i.e., test run identifier)
         id: gha_branch
-        run: >
-          Rscript
-          -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
+        run: Rscript -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
        - name: Create pull request number
          id: pull_request
          run: >
