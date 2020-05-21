@@ -175,8 +175,8 @@ jobs:
         run: >
           Rscript
           -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE)"
-          -e "shinycoreci::assert_runtests(run_tests_output)"
           -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{steps.pull_request.outputs.id}}', username = '${GITHUB_ACTOR}')"
+          -e "shinycoreci::assert_runtests(run_tests_output)"
 
       - name: Git config
         if: always()
