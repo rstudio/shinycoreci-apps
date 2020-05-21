@@ -150,7 +150,7 @@ RUN apt-get update && apt-get install -y \
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 # install r pkgs
-RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps', update_pkgs = 'all')"
+RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps')"
 
 
 COPY retail.c _retail.c
