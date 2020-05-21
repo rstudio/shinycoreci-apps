@@ -3,7 +3,7 @@
 set -x
 
 # Update pkgs
-R --quiet -e "shinycoreci:::update_packages_installed('~/apps', update_pkgs = 'all')"
+R --quiet -e "shinycoreci:::update_packages_installed('~/apps')"
 
 # copy all apps to server location
 echo "Copying apps to /srv/shiny-server/"
