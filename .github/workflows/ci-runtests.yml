@@ -146,7 +146,9 @@ jobs:
           -e "cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
       - name: Create GHA branch name (i.e., test run identifier)
         id: gha_branch
-        run: Rscript -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
+        run: >
+          Rscript
+          -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
       - name: Create pull request number
         id: pull_request
         run: >
@@ -174,7 +176,7 @@ jobs:
           Rscript
           -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE)"
           -e "shinycoreci::assert_runtests(run_tests_output)"
-          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = 'gha-${{ steps.failed_branch.outputs.name }}-${{ matrix.r }}-${{ runner.os }}', pr_number = '${{ steps.pull_request.outputs.id }}', username = '${GITHUB_ACTOR}')
+          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{steps.pull_request.outputs.id}}', username = '${GITHUB_ACTOR}')
 
       - name: Git config
         if: always()
