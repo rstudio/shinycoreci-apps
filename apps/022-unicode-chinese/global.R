@@ -1,8 +1,16 @@
+if (!file.exists('wqy-zenhei.ttc')) {
+  curl::curl_download(
+    'https://github.com/rstudio/shiny-examples/releases/download/v0.10.1/wqy-zenhei.ttc',
+    'wqy-zenhei.ttc'
+  )
+}
+
 # On Windows, set locale to Chinese while this app is running
 if (.Platform[['OS.type']] == 'windows') {
   old_locale <- Sys.getlocale()
   Sys.setlocale(category = "LC_ALL", locale = "chs")
-  # Cairo+showtext doesn't appear to work on Windows
+  # showtext doesn't appear to support CairoPNG on Windows, so use ragg instead
+  systemfonts::register_font("WenQuanYI Zen Hei", "wqy-zenhei.ttc")
   opts <- options(shiny.useragg = TRUE)
   onStop(function() {
     cats <- strsplit(old_locale, ';')[[1]]
@@ -12,20 +20,14 @@ if (.Platform[['OS.type']] == 'windows') {
     })
     options(opts)
   })
+} else {
+  sysfonts::font_add("WenQuanYI Zen Hei", "wqy-zenhei.ttc")
+  showtext::showtext_auto()
+  onStop(function() { showtext::showtext_auto(FALSE) })
 }
 
 library(datasets)
 rock2 <- rock
 names(rock2) <- c("面积", "周长", "形状", "渗透性")
 
-if (!file.exists('wqy-zenhei.ttc')) {
-  curl::curl_download(
-    'https://github.com/rstudio/shiny-examples/releases/download/v0.10.1/wqy-zenhei.ttc',
-    'wqy-zenhei.ttc'
-  )
-}
 
-sysfonts::font_add("WenQuanYI Zen Hei", "wqy-zenhei.ttc")
-systemfonts::register_font("WenQuanYI Zen Hei", "wqy-zenhei.ttc")
-showtext::showtext_auto()
-onStop(function() { showtext::showtext_auto(FALSE) })
