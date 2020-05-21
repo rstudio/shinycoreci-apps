@@ -132,8 +132,6 @@ jobs:
       #  Either way, take the first 7 characters.
       # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
       # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
-      # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
-       # https://github.com/actions/checkout/issues/58#issuecomment-545769838
       - name: Create short sha
         id: short_sha
         run: >
@@ -149,6 +147,8 @@ jobs:
         run: >
           Rscript
           -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
+      # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
+      # https://github.com/actions/checkout/issues/58#issuecomment-545769838
       - name: Create pull request number
         id: pull_request
         run: >
