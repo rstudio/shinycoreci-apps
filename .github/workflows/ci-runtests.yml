@@ -143,9 +143,9 @@ jobs:
           Rscript
           -e "cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
       - name: Create GHA branch name (i.e., test run identifier)
-         id: gha_branch
-         run: |
-           echo "::set-output name=name::gha-${{ steps.failed_branch.outputs.name }}-${{ matrix.r }}-${{ runner.os }}"
+        id: gha_branch
+        run: |
+          echo "::set-output name=name::gha-${{ steps.failed_branch.outputs.name }}-${{ matrix.r }}-${{ runner.os }}"
        # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
        # https://github.com/actions/checkout/issues/58#issuecomment-545769838
        - name: Create pull request number
