@@ -147,11 +147,11 @@ jobs:
       - name: Create GHA branch name (i.e., test run identifier)
         id: gha_branch
         run: Rscript -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
-       - name: Create pull request number
-         id: pull_request
-         run: >
-           Rscript
-           -e "cat('::set-output name=id::', jsonlite::fromJSON('${GITHUB_EVENT_PATH}')[['pull_request']][['number']], sep = '')"
+      - name: Create pull request number
+        id: pull_request
+        run: >
+          Rscript
+          -e "cat('::set-output name=id::', jsonlite::fromJSON('${GITHUB_EVENT_PATH}')[['pull_request']][['number']], sep = '')"
 
       - name: Find PhantomJS path
         id: phantomjs
