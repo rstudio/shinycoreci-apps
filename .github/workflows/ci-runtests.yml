@@ -9,8 +9,8 @@ on:
     branches:
       - master
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
-  #schedule:
-  #  - cron:  '0 8 * * 0-4' # every work night (delayed 2 hrs)
+  schedule:
+    - cron:  '0 8 * * 0-4' # every work night (delayed 2 hrs)
   repository_dispatch:
     types:
       - all
