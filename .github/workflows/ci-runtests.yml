@@ -91,12 +91,12 @@ jobs:
           Rscript -e "options(install.packages.check.source = 'no'); if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
 
       # make sure this is the latest
-      - name: Install Packages
+      - name: Install Rcpp
         if: runner.os == 'macOS'
         run: >
           Rscript
           -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')"
-      - name: Install Packages
+      - name: Install remotes and shinycoreci (no suggests)
         # if non linux, install binaries
         # make sure to get the best version number possible
         # If remotes isn't installed, install it
@@ -137,7 +137,7 @@ jobs:
       - name: Install CRAN Versions
         run: >
           Rscript
-          -e "if (system.file(package = 'shiny') == '') remotes::install_cran(c('shinytest', 'plotly', 'shiny', 'httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers'))"
+          -e "if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers'))"
       # - name: Install core packages
       #   run: >
       #     Rscript
