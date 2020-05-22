@@ -4,6 +4,7 @@
 apps/renv.txt
 apps/r_version.txt
 .Renviron
+.Rprofile
 rsconnect
 *.lic
 .DS_Store

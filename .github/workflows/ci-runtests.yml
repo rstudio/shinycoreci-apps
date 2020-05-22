@@ -70,6 +70,7 @@ jobs:
         shell: bash
         run: |
           echo 'MAKEFLAGS=-j2' >> .Renviron
+          echo 'options(install.packages.check.source = "no")' >> .Rprofile
 
       - name: Create cache ID from time
         id: cache_id
@@ -122,6 +123,10 @@ jobs:
 
 
       # do not install apps deps, this will happen at run time
+      - name: Install troublesome pkgs
+        run: >
+          Rscript
+          -e "if (system.file(package = 'ps') == '') remotes::install_cran('ps')"
       - name: Install core packages
         run: >
           Rscript
