@@ -25,7 +25,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 3
+      # max-parallel: 3
       matrix:
         shinycoreci:
         - { branch: "master", text: ""}
@@ -89,6 +89,13 @@ jobs:
           sudo -s apt-get update
           sudo -s apt-get install -y libcurl4-openssl-dev
           Rscript -e "options(install.packages.check.source = 'no'); if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
+
+      # make sure this is the latest
+      - name: Install Packages
+        if: runner.os == 'macOS'
+        run: >
+          Rscript
+          -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = "source")"
       - name: Install Packages
         # if non linux, install binaries
         # make sure to get the best version number possible
@@ -99,7 +106,6 @@ jobs:
           Rscript
           -e "options(install.packages.check.source = 'no')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
-          -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', force = TRUE)"
 
       # Install ragg deps
@@ -121,18 +127,21 @@ jobs:
         run: |
           Rscript -e "system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))"
 
-
       # do not install apps deps, this will happen at run time
       - name: Install troublesome pkgs
         run: >
           Rscript
           -e "options(install.packages.check.source = 'no')"
           -e "if (system.file(package = 'ps') == '') remotes::install_cran('ps')"
-      - name: Install core packages
+      - name: Install CRAN Versions
         run: >
           Rscript
-          -e "options(install.packages.check.source = 'no')"
-          -e "shinycoreci::install_exact_shinycoreci_deps(apps = c())"
+          -e "if (system.file(package = 'shiny') == '') install.packages(c('remotes', 'shinytest', 'plotly', 'shiny', 'httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers'))"
+      # - name: Install core packages
+      #   run: >
+      #     Rscript
+      #     -e "options(install.packages.check.source = 'no')"
+      #     -e "shinycoreci::install_exact_shinycoreci_deps(apps = c())"
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
