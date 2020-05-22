@@ -155,7 +155,7 @@ jobs:
         shell: bash
         run: >
           Rscript
-          -e "cat('::set-output name=id::', jsonlite::fromJSON('${GITHUB_EVENT_PATH}')[['pull_request']][['number']], sep = '')"
+          -e "cat('::set-output name=id::', '${{ github.event.pull_request.number }}', sep = '')"
 
       - name: Find PhantomJS path
         id: phantomjs
