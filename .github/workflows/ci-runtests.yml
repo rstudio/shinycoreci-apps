@@ -151,6 +151,7 @@ jobs:
       # https://github.com/actions/checkout/issues/58#issuecomment-545769838
       - name: Create pull request number
         id: pull_request
+        shell: bash
         run: >
           Rscript
           -e "cat('::set-output name=id::', jsonlite::fromJSON('${GITHUB_EVENT_PATH}')[['pull_request']][['number']], sep = '')"
