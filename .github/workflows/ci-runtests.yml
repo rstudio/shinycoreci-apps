@@ -197,9 +197,9 @@ jobs:
         run: |
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
           git checkout _test_results
-          git add _test_results/
+          git add _test_results/*
           git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
-          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git ${{steps.gha_branch.outputs.name}}
+          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
           git checkout $CURRENT_BRANCH
 
       - name: Push test files to rstudio/shinycoreci-apps
