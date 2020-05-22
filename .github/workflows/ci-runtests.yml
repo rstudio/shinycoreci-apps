@@ -136,7 +136,7 @@ jobs:
       - name: Install CRAN Versions
         run: >
           Rscript
-          -e "if (system.file(package = 'shiny') == '') install.packages(c('remotes', 'shinytest', 'plotly', 'shiny', 'httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers'))"
+          -e "if (system.file(package = 'shiny') == '') remotes::install_cran(c('shinytest', 'plotly', 'shiny', 'httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers'))"
       # - name: Install core packages
       #   run: >
       #     Rscript
