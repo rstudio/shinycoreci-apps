@@ -6,12 +6,12 @@ library(htmltools)
 
 # Register font for use with showtext and ragg
 # NOTE: these were downloaded via `gfonts::download_font("pacifico", "www/fonts")`
-sysfonts::font_add("Pacifico", "fonts/pacifico-v16-latin-regular.ttf")
-systemfonts::register_font("Pacifico", "fonts/pacifico-v16-latin-regular.ttf")
+#sysfonts::font_add("Pacifico", "fonts/pacifico-v16-latin-regular.ttf")
+#systemfonts::register_font("Pacifico", "fonts/pacifico-v16-latin-regular.ttf")
 
 # Now enable showtext so that font can render with a non-ragg renderPlot()
-showtext::showtext_auto()
-onStop(function() { showtext::showtext_auto(FALSE) })
+#showtext::showtext_auto()
+#onStop(function() { showtext::showtext_auto(FALSE) })
 
 # Set up CSS styles using a structure that getCurrentOutputInfo() should return
 font <- list(
