@@ -25,16 +25,16 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 6
+      max-parallel: 3
       matrix:
         shinycoreci:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
-          - "4.0"
-          - "3.6"
-          - "3.5"
           - "3.4"
+          - "3.5"
+          - "3.6"
+          - "4.0"
         config:
         - { os: macOS-latest, cran: "https://cloud.r-project.org"}
         - { os: windows-latest, cran: "https://cloud.r-project.org"}
@@ -148,14 +148,6 @@ jobs:
         run: >
           Rscript
           -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
-      # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
-      # https://github.com/actions/checkout/issues/58#issuecomment-545769838
-      - name: Create pull request number
-        id: pull_request
-        shell: bash
-        run: >
-          Rscript
-          -e "cat('::set-output name=id::', '${{ github.event.pull_request.number }}', sep = '')"
 
       - name: Find PhantomJS path
         id: phantomjs
@@ -179,7 +171,7 @@ jobs:
         run: >
           Rscript
           -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)"
-          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{steps.pull_request.outputs.id}}', username = '${GITHUB_ACTOR}')"
+          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')"
           -e "shinycoreci::assert_runtests(run_tests_output)"
 
       - name: Git config
