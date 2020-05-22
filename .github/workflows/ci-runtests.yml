@@ -192,21 +192,6 @@ jobs:
             git config --local --unset http.https://github.com/.extraheader && \
             git config --local --list
 
-      - name: Push test results to rstudio/shinycoreci-apps
-        if: always()
-        shell: bash
-        # Add saved test results (in _test_results/) to _test_results branch
-        # (this assumes the _test_results branch already exists, which was setup manually like this
-        # https://stackoverflow.com/questions/34100048/github-create-empty-branch)
-        run: |
-          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          git fetch origin _test_results
-          git checkout _test_results
-          git add _test_results/*
-          git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
-          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
-          git checkout $CURRENT_BRANCH
-
       - name: Push test files to rstudio/shinycoreci-apps
         if: always()
         shell: bash
@@ -223,7 +208,7 @@ jobs:
             git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
             echo "No apps/sysinfo-* changes to commit"
 
-          git add . && \
+          git add apps && \
             git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}'|| \
             echo "No shinytest changes to commit"
 
@@ -234,6 +219,21 @@ jobs:
           if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
             git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
           fi
+
+      - name: Push test results to rstudio/shinycoreci-apps
+        if: always()
+        shell: bash
+        # Add saved test results (in _test_results/) to _test_results branch
+        # (this assumes the _test_results branch already exists, which was setup manually like this
+        # https://stackoverflow.com/questions/34100048/github-create-empty-branch)
+        run: |
+          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          git fetch origin _test_results
+          git checkout _test_results
+          git add _test_results/*
+          git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
+          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+          git checkout $CURRENT_BRANCH
 
 
       - name: Fix path for Windows caching
