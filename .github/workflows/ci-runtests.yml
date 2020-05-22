@@ -78,9 +78,9 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-runtests-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-runtests-
+            ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-
 
       - name: Install curl
         if: runner.os == 'Linux'
@@ -98,7 +98,6 @@ jobs:
           Rscript
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
-          -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
           -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', dependencies = TRUE, force = TRUE)"
 
       # Install ragg deps
@@ -121,10 +120,11 @@ jobs:
           Rscript -e "system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))"
 
 
-      - name: Install app deps
+      # do not install apps deps, this will happen at run time
+      - name: Install core packages
         run: >
           Rscript
-          -e "shinycoreci::install_app_deps()"
+          -e "shinycoreci::install_exact_shinycoreci_deps(apps = c())"
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
@@ -158,13 +158,15 @@ jobs:
           Rscript
           -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
 
+      # do not update pkgs, as they were installed above
+      # do update app pkgs, as they have NOT been installed
       - name: Run tests
         timeout-minutes: 120
         # -e "dir.create(file.path('zzz_shinycoreci', 'runtests'), recursive = TRUE, showWarnings = FALSE)"
         # -e "saveRDS(run_tests_output, file = file.path('zzz_shinycoreci', 'runtests', paste0('test_runtests-', Sys.time(), '.Rds')))"
         run: >
           Rscript
-          -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE)"
+          -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)"
           -e "print(run_tests_output)"
           -e "shinycoreci::assert_runtests(run_tests_output)"
 
