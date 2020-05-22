@@ -70,7 +70,6 @@ jobs:
         shell: bash
         run: |
           echo 'MAKEFLAGS=-j2' >> .Renviron
-          echo 'options(install.packages.check.source = "no")' >> .Rprofile
 
       - name: Create cache ID from time
         id: cache_id
@@ -89,7 +88,7 @@ jobs:
         run: |
           sudo -s apt-get update
           sudo -s apt-get install -y libcurl4-openssl-dev
-          Rscript -e "if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
+          Rscript -e "options(install.packages.check.source = 'no'); if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
       - name: Install Packages
         # if non linux, install binaries
         # make sure to get the best version number possible
@@ -98,6 +97,7 @@ jobs:
         # install the specific branch of shinycoreci
         run: >
           Rscript
+          -e "options(install.packages.check.source = 'no')"
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', force = TRUE)"
@@ -126,10 +126,12 @@ jobs:
       - name: Install troublesome pkgs
         run: >
           Rscript
+          -e "options(install.packages.check.source = 'no')"
           -e "if (system.file(package = 'ps') == '') remotes::install_cran('ps')"
       - name: Install core packages
         run: >
           Rscript
+          -e "options(install.packages.check.source = 'no')"
           -e "shinycoreci::install_exact_shinycoreci_deps(apps = c())"
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
@@ -167,6 +169,7 @@ jobs:
       - name: Install PhantomJS
         run: >
           Rscript
+          -e "options(install.packages.check.source = 'no')"
           -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
 
       ## do not update pkgs, as they were installed above
@@ -175,6 +178,7 @@ jobs:
       #  timeout-minutes: 120
       #  run: >
       #    Rscript
+      #    -e "options(install.packages.check.source = 'no')"
       #    -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)"
       #    -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')"
       #    -e "shinycoreci::assert_runtests(run_tests_output)"
