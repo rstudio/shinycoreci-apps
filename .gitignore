@@ -8,3 +8,5 @@ rsconnect
 *.lic
 .DS_Store
 test_status
+
+_test_results
