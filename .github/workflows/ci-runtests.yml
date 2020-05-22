@@ -25,16 +25,16 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 6
+      max-parallel: 3
       matrix:
         shinycoreci:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
-          - "4.0"
-          - "3.6"
-          - "3.5"
           - "3.4"
+          - "3.5"
+          - "3.6"
+          - "4.0"
         config:
         - { os: macOS-latest, cran: "https://cloud.r-project.org"}
         - { os: windows-latest, cran: "https://cloud.r-project.org"}
@@ -153,14 +153,6 @@ jobs:
         run: >
           Rscript
           -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
-      # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
-      # https://github.com/actions/checkout/issues/58#issuecomment-545769838
-      - name: Create pull request number
-        id: pull_request
-        shell: bash
-        run: >
-          Rscript
-          -e "cat('::set-output name=id::', jsonlite::fromJSON('${GITHUB_EVENT_PATH}')[['pull_request']][['number']], sep = '')"
 
       - name: Find PhantomJS path
         id: phantomjs
@@ -177,68 +169,68 @@ jobs:
           Rscript
           -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
 
-      # do not update pkgs, as they were installed above
-      # do update app pkgs, as they have NOT been installed
-      - name: Run tests
-        timeout-minutes: 120
-        run: >
-          Rscript
-          -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)"
-          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{steps.pull_request.outputs.id}}', username = '${GITHUB_ACTOR}')"
-          -e "shinycoreci::assert_runtests(run_tests_output)"
+      ## do not update pkgs, as they were installed above
+      ## do update app pkgs, as they have NOT been installed
+      #- name: Run tests
+      #  timeout-minutes: 120
+      #  run: >
+      #    Rscript
+      #    -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)"
+      #    -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')"
+      #    -e "shinycoreci::assert_runtests(run_tests_output)"
+      #
+      #- name: Git config
+      #  if: always()
+      #  shell: bash
+      #  # need to unset the extra header to allow for regular https push
+      #  run: |
+      #    git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
+      #      git config --local user.name "${GITHUB_ACTOR}" && \
+      #      git config --local --unset http.https://github.com/.extraheader && \
+      #      git config --local --list
+      #
+      #- name: Push test files to rstudio/shinycoreci-apps
+      #  if: always()
+      #  shell: bash
+      #  # git checkout -B -- Creates the branch <new_branch> and start it at <start_point>; if it already exists, then reset it to <start_point>.
+      #  # git push --force -- JUST in case the prior branch existed
+      #  run: |
+      #    git checkout -B ${{ steps.gha_branch.outputs.name }}
+      #
+      #    git add zzz_shinycoreci && \
+      #      git commit -m '`test_runtests()` output - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
+      #      echo "No test_runtests() changes to commit"
+      #
+      #    git add apps/sysinfo-* && \
+      #      git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
+      #      echo "No apps/sysinfo-* changes to commit"
+      #
+      #    git add apps && \
+      #      git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}'|| \
+      #      echo "No shinytest changes to commit"
+      #
+      #    git log -n 4 --pretty=oneline --simplify-by-decoration
+      #
+      #    # if any commits occured, then push to repo (compare to sha of current execution)
+      #    echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}`"
+      #    if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
+      #      git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
+      #    fi
 
-      - name: Git config
-        if: always()
-        shell: bash
-        # need to unset the extra header to allow for regular https push
-        run: |
-          git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
-            git config --local user.name "${GITHUB_ACTOR}" && \
-            git config --local --unset http.https://github.com/.extraheader && \
-            git config --local --list
-
-      - name: Push test files to rstudio/shinycoreci-apps
-        if: always()
-        shell: bash
-        # git checkout -B -- Creates the branch <new_branch> and start it at <start_point>; if it already exists, then reset it to <start_point>.
-        # git push --force -- JUST in case the prior branch existed
-        run: |
-          git checkout -B ${{ steps.gha_branch.outputs.name }}
-
-          git add zzz_shinycoreci && \
-            git commit -m '`test_runtests()` output - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
-            echo "No test_runtests() changes to commit"
-
-          git add apps/sysinfo-* && \
-            git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
-            echo "No apps/sysinfo-* changes to commit"
-
-          git add apps && \
-            git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}'|| \
-            echo "No shinytest changes to commit"
-
-          git log -n 4 --pretty=oneline --simplify-by-decoration
-
-          # if any commits occured, then push to repo (compare to sha of current execution)
-          echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}`"
-          if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
-            git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
-          fi
-
-      - name: Push test results to rstudio/shinycoreci-apps
-        if: always()
-        shell: bash
-        # Add saved test results (in _test_results/) to _test_results branch
-        # (this assumes the _test_results branch already exists, which was setup manually like this
-        # https://stackoverflow.com/questions/34100048/github-create-empty-branch)
-        run: |
-          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          git fetch origin _test_results
-          git checkout _test_results
-          git add _test_results/*
-          git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
-          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
-          git checkout $CURRENT_BRANCH
+      #- name: Push test results to rstudio/shinycoreci-apps
+      #  if: always()
+      #  shell: bash
+      #  # Add saved test results (in _test_results/) to _test_results branch
+      #  # (this assumes the _test_results branch already exists, which was setup manually like this
+      #  # https://stackoverflow.com/questions/34100048/github-create-empty-branch)
+      #  run: |
+      #    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+      #    git fetch origin _test_results
+      #    git checkout _test_results --
+      #    git add _test_results/*
+      #    git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
+      #    git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+      #    git checkout $CURRENT_BRANCH
 
 
       - name: Fix path for Windows caching
