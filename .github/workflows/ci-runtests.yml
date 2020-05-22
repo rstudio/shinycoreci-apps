@@ -95,7 +95,7 @@ jobs:
         if: runner.os == 'macOS'
         run: >
           Rscript
-          -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = "source")"
+          -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')"
       - name: Install Packages
         # if non linux, install binaries
         # make sure to get the best version number possible
