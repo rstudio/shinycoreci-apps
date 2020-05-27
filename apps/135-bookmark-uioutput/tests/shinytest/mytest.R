@@ -1,6 +1,7 @@
 app <- ShinyDriver$new("../../")
 app$snapshotInit("mytest")
 
+app$waitForValue("ui", ioType = "output", ignore = list(NULL))
 Sys.sleep(1)
 app$snapshot()
 app$setInputs(`._bookmark_` = "click")
