@@ -90,6 +90,11 @@ jobs:
           sudo -s apt-get install -y libcurl4-openssl-dev
           Rscript -e "options(install.packages.check.source = 'no'); if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
 
+      - name: Install openssl
+        if: runner.os == 'Windows'
+        run: |
+          Rscript -e 'install.packages("openssl", type = "binary")'
+
       # make sure this is the latest
       - name: Install Rcpp
         if: runner.os == 'macOS'
