@@ -247,7 +247,7 @@ jobs:
         # https://stackoverflow.com/questions/34100048/github-create-empty-branch)
         run: |
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          git fetch origin _test_results
+          git fetch --unshallow origin _test_results
           git checkout _test_results --
           git add _test_results/*
           git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
