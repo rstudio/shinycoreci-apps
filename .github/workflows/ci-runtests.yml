@@ -25,7 +25,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 3
+      # max-parallel: 3
       matrix:
         shinycoreci:
         - { branch: "master", text: ""}
@@ -138,11 +138,11 @@ jobs:
         run: >
           Rscript
           -e "if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers'))"
-      # - name: Install core packages
-      #   run: >
-      #     Rscript
-      #     -e "options(install.packages.check.source = 'no')"
-      #     -e "shinycoreci::install_exact_shinycoreci_deps(apps = c())"
+      - name: Install core packages
+        run: >
+          Rscript
+          -e "options(install.packages.check.source = 'no')"
+          -e "shinycoreci:::install_remotes()"
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
