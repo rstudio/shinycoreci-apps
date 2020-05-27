@@ -21,7 +21,7 @@
   },
   "output": {
     "a_distPlot": {
-      "src": "[image data sha1: 10a8aa7f2ec83527bfe07cd822121cce970c57e4]",
+      "src": "[image data sha1: 862035c155efbd84cd5b15cf4fb5af023b40b604]",
       "width": 466,
       "height": 600,
       "coordmap": {
@@ -55,7 +55,7 @@
       }
     },
     "b_distPlot": {
-      "src": "[image data sha1: 371fe1f4c448bae9cd492f7e2dc9d19df4899e1b]",
+      "src": "[image data sha1: 0bab7f80bd30a2ce204a1f20849e4cdc566fa196]",
       "width": 466,
       "height": 600,
       "coordmap": {
