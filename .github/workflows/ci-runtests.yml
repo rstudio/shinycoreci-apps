@@ -92,8 +92,11 @@ jobs:
 
       - name: Install openssl
         if: runner.os == 'Windows'
-        run: |
-          Rscript -e 'install.packages("openssl", type = "binary")'
+        shell: bash
+        run: >
+          Rscript
+          -e "options(install.packages.check.source = 'no')"
+          -e "install.packages("openssl", type = 'binary')"
 
       # make sure this is the latest
       - name: Install Rcpp
