@@ -146,7 +146,7 @@ jobs:
         run: >
           Rscript
           -e "options(install.packages.check.source = 'no')"
-          -e "if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers'))"
+          -e "if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers', 'english', 'dplyr', 'tidyr', 'gt'))"
       - name: Install core packages
         run: >
           Rscript
