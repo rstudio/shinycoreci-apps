@@ -61,6 +61,8 @@ ui <- fluidPage(
     jst.add(function() { Jster.button.click('inc'); });
 
     jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() {
       validate('table', 4);
       validate('one-table', 0);
@@ -75,6 +77,8 @@ ui <- fluidPage(
     jst.add(function() { Jster.button.click('one-inc'); });
 
     jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() {
       validate('table', 4);
       validate('one-table', 7);
@@ -82,6 +86,8 @@ ui <- fluidPage(
     jst.add(function() { Jster.button.click('inc'); });
     jst.add(function() { Jster.button.click('inc'); });
 
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
     jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() {
       validate('table', 6);
