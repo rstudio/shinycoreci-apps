@@ -6,6 +6,9 @@ library(shiny)
 
 ui <- function(req) {
   fluidPage(
+    # This is here just to make sure the slider's HTML dependencies are populated
+    # in the documents <head>.
+    htmltools::htmlDependencies(sliderInput("ignore_me", "Isn't used", 0, 1, 0.5)),
     h2("Bookmarking of dynamic inputs"),
     p("(For ",
       a(href = "https://github.com/rstudio/shiny/pull/2139", "#2139"), ", ",
@@ -47,7 +50,6 @@ server <- function(input, output, session) {
   # snapshots. (This URL won't actually work for restoring a bookmark.)
   if (isTRUE(getOption("shiny.testmode"))) {
     onBookmarked(function(url) {
-      browser()
       url <- sub(":\\d+/", ":9999/", url)
       showBookmarkUrlModal(url)
     })
