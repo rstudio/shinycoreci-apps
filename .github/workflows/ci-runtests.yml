@@ -151,7 +151,7 @@ jobs:
         run: >
           Rscript
           -e "options(install.packages.check.source = 'no')"
-          -e "shinycoreci:::install_remotes()"
+          -e "shinycoreci:::install_ci()"
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
