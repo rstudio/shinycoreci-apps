@@ -60,9 +60,9 @@
       "deps": [
         {
           "name": "dt-core",
-          "version": "1.10.20",
+          "version": "1.10.16",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-1.10.16"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
@@ -143,9 +143,9 @@
       "deps": [
         {
           "name": "dt-core",
-          "version": "1.10.20",
+          "version": "1.10.16",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-1.10.16"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
