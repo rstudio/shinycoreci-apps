@@ -1,0 +1,45 @@
+{
+  "input": {
+    "dataset": "cars",
+    "obs": 8,
+    "summary": false,
+    "vars": "<U+5468><U+957F>"
+  },
+  "output": {
+    "rockplot": {
+      "src": "[image data sha1: 004bb2eeb6f1550d9acd5fe3b42a36587c2d1720]",
+      "width": 631,
+      "height": 400,
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 126.41888,
+              "right": 5046.44312,
+              "bottom": 568.16,
+              "top": 12659.84
+            },
+            "range": {
+              "left": 57.6000091283691,
+              "right": 629.559999771791,
+              "bottom": 341.399985599996,
+              "top": 0.440000360000093
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 631,
+          "height": 400
+        }
+      }
+    },
+    "rockvars": null,
+    "summary<U+8FD9><U+91CC><U+4E5F><U+53EF><U+4EE5><U+7528><U+4E2D><U+6587>": "<U+6570><U+636E><U+6982><U+8981><U+4FE1><U+606F><U+88AB><U+9690><U+85CF><U+4E86>!",
+    "view": "<table  class = 'table shiny-table table- spacing-s' style = 'width:auto;'>\n<thead> <tr> <th style='text-align: right;'> speed <\/th> <th style='text-align: right;'> dist <\/th> <th style='text-align: left;'> random <\/th>  <\/tr> <\/thead> <tbody>\n  <tr> <td align=\"right\"> 4.00 <\/td> <td align=\"right\"> 2.00 <\/td> <td> <U+6587> <\/td> <\/tr>\n  <tr> <td align=\"right\"> 4.00 <\/td> <td align=\"right\"> 10.00 <\/td> <td> <U+4E2D> <\/td> <\/tr>\n  <tr> <td align=\"right\"> 7.00 <\/td> <td align=\"right\"> 4.00 <\/td> <td> <U+653E> <\/td> <\/tr>\n  <tr> <td align=\"right\"> 7.00 <\/td> <td align=\"right\"> 22.00 <\/td> <td> <U+7B26> <\/td> <\/tr>\n  <tr> <td align=\"right\"> 8.00 <\/td> <td align=\"right\"> 16.00 <\/td> <td> <U+6587> <\/td> <\/tr>\n  <tr> <td align=\"right\"> 9.00 <\/td> <td align=\"right\"> 10.00 <\/td> <td> <U+4E2D> <\/td> <\/tr>\n  <tr> <td align=\"right\"> 10.00 <\/td> <td align=\"right\"> 
