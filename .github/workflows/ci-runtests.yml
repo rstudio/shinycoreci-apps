@@ -36,13 +36,14 @@ jobs:
           - "3.6"
           - "4.0"
         config:
-        - { os: macOS-latest, cran: "https://cloud.r-project.org"}
-        - { os: windows-latest, cran: "https://cloud.r-project.org"}
-        - { os: ubuntu-18.04, cran: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
+        - { os: macOS-latest }
+        - { os: windows-latest }
+        - { os: ubuntu-18.04, rspm: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       CRAN: ${{ matrix.config.cran }}
+      RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
     steps:
