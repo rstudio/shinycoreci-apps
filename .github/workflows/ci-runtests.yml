@@ -25,7 +25,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 6
+      #max-parallel: 6
       matrix:
         shinycoreci:
         - { branch: "master", text: ""}
