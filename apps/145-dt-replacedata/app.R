@@ -49,7 +49,6 @@ ui <- fluidPage(
         val
       )
     }
-
     function waitForVal(id, val) {
       return function(done) {
         var end = (new Date() - 0) + (10 * 1000);
@@ -66,7 +65,6 @@ ui <- fluidPage(
         wait();
       }
     }
-
 
     jst.add(function() {
       validate('table', 0);
@@ -92,7 +90,6 @@ ui <- fluidPage(
     jst.add(function() { Jster.button.click('one-inc'); });
     jst.add(function() { Jster.button.click('one-inc'); });
     jst.add(function() { Jster.button.click('one-inc'); });
-
 
     jst.add(waitForVal('one-table', 7));
 
