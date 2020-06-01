@@ -45,10 +45,28 @@ ui <- fluidPage(
     jst.add(Jster.shiny.waitUntilStable);
     function validate(id, val) {
       Jster.assert.isEqual(
-        $('#' + id + ' td').text() - 0,
+        $('#' + id + ' tbody').text() - 0,
         val
       )
     }
+
+    function waitForVal(id, val) {
+      return function(done) {
+        var end = (new Date() - 0) + (10 * 1000);
+        var wait = function() {
+          var current = (new Date() - 0);
+          if (current > end) {
+            done();
+          } else if (val == ($('#' + id + ' tbody').text() - 0)) {
+            done();
+          } else {
+            setTimeout(wait, 100);
+          }
+        }
+        wait();
+      }
+    }
+
 
     jst.add(function() {
       validate('table', 0);
@@ -60,16 +78,7 @@ ui <- fluidPage(
     jst.add(function() { Jster.button.click('inc'); });
     jst.add(function() { Jster.button.click('inc'); });
 
-    jst.add(function(done) {
-      var wait = function() {
-        if (4 == ($('#table td').text() - 0)) {
-          done();
-        } else {
-          setTimeout(wait, 5);
-        }
-      }
-      wait();
-    });
+    jst.add(waitForVal('table', 4));
 
     jst.add(function() {
       validate('table', 4);
@@ -84,16 +93,8 @@ ui <- fluidPage(
     jst.add(function() { Jster.button.click('one-inc'); });
     jst.add(function() { Jster.button.click('one-inc'); });
 
-    jst.add(function(done) {
-      var wait = function() {
-        if (7 == ($('#one-table td').text() - 0)) {
-          done();
-        } else {
-          setTimeout(wait, 5);
-        }
-      }
-      wait();
-    });
+
+    jst.add(waitForVal('one-table', 7));
 
     jst.add(function() {
       validate('table', 4);
@@ -103,16 +104,7 @@ ui <- fluidPage(
     jst.add(function() { Jster.button.click('inc'); });
     jst.add(function() { Jster.button.click('inc'); });
 
-    jst.add(function(done) {
-      var wait = function() {
-        if (6 == ($('#table td').text() - 0)) {
-          done();
-        } else {
-          setTimeout(wait, 5);
-        }
-      }
-      wait();
-    });
+    jst.add(waitForVal('table', 6));
 
     jst.add(function() {
       validate('table', 6);
