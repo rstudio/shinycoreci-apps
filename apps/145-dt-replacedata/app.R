@@ -60,35 +60,60 @@ ui <- fluidPage(
     jst.add(function() { Jster.button.click('inc'); });
     jst.add(function() { Jster.button.click('inc'); });
 
-    jst.add(Jster.shiny.waitUntilStable);
-    jst.add(Jster.shiny.waitUntilStable);
-    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(function(done) {
+      var wait = function() {
+        if (4 == ($('#table td').text() - 0)) {
+          done();
+        } else {
+          setTimeout(wait, 5);
+        }
+      }
+      wait();
+    });
+
     jst.add(function() {
       validate('table', 4);
       validate('one-table', 0);
+    })
+
+    jst.add(function() { Jster.button.click('one-inc'); });
+    jst.add(function() { Jster.button.click('one-inc'); });
+    jst.add(function() { Jster.button.click('one-inc'); });
+    jst.add(function() { Jster.button.click('one-inc'); });
+    jst.add(function() { Jster.button.click('one-inc'); });
+    jst.add(function() { Jster.button.click('one-inc'); });
+    jst.add(function() { Jster.button.click('one-inc'); });
+
+    jst.add(function(done) {
+      var wait = function() {
+        if (7 == ($('#one-table td').text() - 0)) {
+          done();
+        } else {
+          setTimeout(wait, 5);
+        }
+      }
+      wait();
     });
 
-    jst.add(function() { Jster.button.click('one-inc'); });
-    jst.add(function() { Jster.button.click('one-inc'); });
-    jst.add(function() { Jster.button.click('one-inc'); });
-    jst.add(function() { Jster.button.click('one-inc'); });
-    jst.add(function() { Jster.button.click('one-inc'); });
-    jst.add(function() { Jster.button.click('one-inc'); });
-    jst.add(function() { Jster.button.click('one-inc'); });
-
-    jst.add(Jster.shiny.waitUntilStable);
-    jst.add(Jster.shiny.waitUntilStable);
-    jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() {
       validate('table', 4);
       validate('one-table', 7);
     });
+
     jst.add(function() { Jster.button.click('inc'); });
     jst.add(function() { Jster.button.click('inc'); });
 
-    jst.add(Jster.shiny.waitUntilStable);
-    jst.add(Jster.shiny.waitUntilStable);
-    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(function(done) {
+      var wait = function() {
+        if (6 == ($('#table td').text() - 0)) {
+          done();
+        } else {
+          setTimeout(wait, 5);
+        }
+      }
+      wait();
+    });
+
     jst.add(function() {
       validate('table', 6);
       validate('one-table', 7);
