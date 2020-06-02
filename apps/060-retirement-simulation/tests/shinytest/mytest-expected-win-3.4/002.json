@@ -21,7 +21,7 @@
   },
   "output": {
     "a_distPlot": {
-      "src": "[image data sha1: c60c15bd04606f68dc1d64b49f77f5cc41cbdf76]",
+      "src": "[image data sha1: c3371377c0c66d303cd3080a74e646e3c350b5d7]",
       "width": 466,
       "height": 600,
       "coordmap": {
@@ -34,10 +34,10 @@
               "top": 104
             },
             "range": {
-              "left": 49.0032105157104,
-              "right": 207.900794613904,
-              "bottom": 538.044789840798,
-              "top": 348.003208167201
+              "left": 49.0032,
+              "right": 207.9008,
+              "bottom": 538.0448,
+              "top": 348.0032
             },
             "log": {
               "x": null,
@@ -55,7 +55,7 @@
       }
     },
     "b_distPlot": {
-      "src": "[image data sha1: 47e0960fdde86c37bbc9daa99fc1b62e8f92fc23]",
+      "src": "[image data sha1: bb5f04fde0db4550d62f229bc2d2e0e94d9bc858]",
       "width": 466,
       "height": 600,
       "coordmap": {
@@ -68,10 +68,10 @@
               "top": 0.502504849325581
             },
             "range": {
-              "left": 282.00321051571,
-              "right": 440.900794613904,
-              "bottom": 538.044789840798,
-              "top": 348.003208167201
+              "left": 282.0032,
+              "right": 440.9008,
+              "bottom": 538.0448,
+              "top": 348.0032
             },
             "log": {
               "x": null,
