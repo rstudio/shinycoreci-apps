@@ -1078,9 +1078,9 @@
         },
         {
           "name": "jquery",
-          "version": "3.5.0",
+          "version": "3.5.1",
           "src": {
-            "href": "jquery-3.5.0"
+            "href": "jquery-3.5.1"
           },
           "meta": null,
           "script": "jquery.min.js",
@@ -1181,9 +1181,9 @@
         },
         {
           "name": "jquery",
-          "version": "3.5.0",
+          "version": "3.5.1",
           "src": {
-            "href": "jquery-3.5.0"
+            "href": "jquery-3.5.1"
           },
           "meta": null,
           "script": "jquery.min.js",
@@ -1272,9 +1272,9 @@
         },
         {
           "name": "jquery",
-          "version": "3.5.0",
+          "version": "3.5.1",
           "src": {
-            "href": "jquery-3.5.0"
+            "href": "jquery-3.5.1"
           },
           "meta": null,
           "script": "jquery.min.js",
@@ -1363,9 +1363,9 @@
         },
         {
           "name": "jquery",
-          "version": "3.5.0",
+          "version": "3.5.1",
           "src": {
-            "href": "jquery-3.5.0"
+            "href": "jquery-3.5.1"
           },
           "meta": null,
           "script": "jquery.min.js",
@@ -1455,9 +1455,9 @@
         },
         {
           "name": "jquery",
-          "version": "3.5.0",
+          "version": "3.5.1",
           "src": {
-            "href": "jquery-3.5.0"
+            "href": "jquery-3.5.1"
           },
           "meta": null,
           "script": "jquery.min.js",

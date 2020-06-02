@@ -8,18 +8,21 @@ if (verbose) {
 }
 app$snapshotInit("mytest")
 
-Sys.sleep(4)
+app$waitForValue("map", iotype = "output")
+Sys.sleep(4) # let map fill in
 
 if (verbose) {
   print(2)
   print(app$getDebugLog())
   cat('\n\n')
 }
+
 app$snapshot()
 app$setInputs(threshold = 3)
 app$setInputs(color = "college")
 
-Sys.sleep(2)
+Sys.sleep(4) # let map fill in
+
 if (verbose) {
   print(3)
   print(app$getDebugLog())
@@ -29,7 +32,7 @@ app$snapshot()
 
 app$setInputs(nav = "Data explorer")
 
-Sys.sleep(2)
+ziptable_rows_all_init <- app$waitForValue("ziptable_rows_all")
 if (verbose) {
   print(4)
   print(app$getDebugLog())
@@ -42,8 +45,8 @@ app$snapshot()
 app$setInputs(states = "MA")
 # Input 'ziptable_rows_current' was set, but doesn't have an input binding.
 # Input 'ziptable_rows_all' was set, but doesn't have an input binding.
+app$waitForValue("ziptable_rows_all", ignore = list(ziptable_rows_all_init, NULL))
 
-Sys.sleep(1)
 if (verbose) {
   print(5)
   print(app$getDebugLog())

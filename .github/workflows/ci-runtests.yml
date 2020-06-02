@@ -31,18 +31,20 @@ jobs:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
-          - "4.0"
-          - "3.6"
-          - "3.5"
           - "3.4"
+          - "3.5"
+          - "3.6"
+          - "4.0"
         config:
-        - { os: macOS-latest, cran: "https://cloud.r-project.org"}
-        - { os: windows-latest, cran: "https://cloud.r-project.org"}
-        - { os: ubuntu-18.04, cran: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
+        - { os: macOS-latest }
+        - { os: windows-latest }
+        - { os: ubuntu-18.04, rspm: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       CRAN: ${{ matrix.config.cran }}
+      RSPM: ${{ matrix.config.rspm }}
+      GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
     steps:
       - name: Windows git setup
@@ -56,9 +58,12 @@ jobs:
         with:
           # check out the commit sha, not the merged sha. Avoids the "Merge SHA_A into SHA_B" into commits
           ref: ${{ github.event.pull_request.head.sha }}      # # Ref: https://github.com/actions/checkout/pull/115/files#diff-04c6e90faac2675aa89e2176d2eec7d8R203-R209
+          fetch-depth: 0
       - name: GitHub Pull (Branch)
         if: github.event_name != 'pull_request'
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - uses: r-lib/actions/setup-pandoc@master
 
@@ -78,17 +83,32 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-runtests-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-runtests-
+            ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-
 
       - name: Install curl
         if: runner.os == 'Linux'
         run: |
           sudo -s apt-get update
           sudo -s apt-get install -y libcurl4-openssl-dev
-          Rscript -e "if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
-      - name: Install Packages
+          Rscript -e "options(install.packages.check.source = 'no'); if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
+
+      - name: Install openssl/curl on Windows
+        if: runner.os == 'Windows'
+        shell: bash
+        run: >
+          Rscript
+          -e "options(install.packages.check.source = 'no')"
+          -e "install.packages(c('openssl', 'curl'), type = 'binary', repos = 'https://cloud.r-project.org')"
+
+      # make sure this is the latest
+      - name: Install Rcpp
+        if: runner.os == 'macOS'
+        run: >
+          Rscript
+          -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')"
+      - name: Install remotes and shinycoreci (no suggests)
         # if non linux, install binaries
         # make sure to get the best version number possible
         # If remotes isn't installed, install it
@@ -96,10 +116,9 @@ jobs:
         # install the specific branch of shinycoreci
         run: >
           Rscript
-          -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
+          -e "options(install.packages.check.source = 'no')"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
-          -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
-          -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', dependencies = TRUE, force = TRUE)"
+          -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', force = TRUE)"
 
       # Install ragg deps
       - name: Ragg deps
@@ -108,11 +127,12 @@ jobs:
           sudo -s apt-get update
           sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
 
-      # Install xquartz
+      # Install Cairo system dependencies
       - name: Mac systemdeps
         if: runner.os == 'macOS'
         run: |
           brew cask install xquartz
+          brew install cairo
 
       # Install all deps as we are installing from rspm
       - name: Install system dependencies
@@ -120,11 +140,22 @@ jobs:
         run: |
           Rscript -e "system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))"
 
-
-      - name: Install app deps
+      # do not install apps deps, this will happen at run time
+      - name: Install troublesome pkgs
         run: >
           Rscript
-          -e "shinycoreci::install_app_deps()"
+          -e "options(install.packages.check.source = 'no')"
+          -e "if (system.file(package = 'ps') == '') remotes::install_cran('ps')"
+      - name: Install CRAN Versions
+        run: >
+          Rscript
+          -e "options(install.packages.check.source = 'no')"
+          -e "if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers', 'english', 'dplyr', 'tidyr', 'gt'))"
+      - name: Install core packages
+        run: >
+          Rscript
+          -e "options(install.packages.check.source = 'no')"
+          -e "shinycoreci:::install_ci()"
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
@@ -147,14 +178,6 @@ jobs:
         run: >
           Rscript
           -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
-      # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
-      # https://github.com/actions/checkout/issues/58#issuecomment-545769838
-      - name: Create pull request number
-        id: pull_request
-        shell: bash
-        run: >
-          Rscript
-          -e "cat('::set-output name=id::', jsonlite::fromJSON('${GITHUB_EVENT_PATH}')[['pull_request']][['number']], sep = '')"
 
       - name: Find PhantomJS path
         id: phantomjs
@@ -169,14 +192,18 @@ jobs:
       - name: Install PhantomJS
         run: >
           Rscript
+          -e "options(install.packages.check.source = 'no')"
           -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
 
+      # do not update pkgs, as they were installed above
+      # do update app pkgs, as they have NOT been installed
       - name: Run tests
         timeout-minutes: 120
         run: >
           Rscript
-          -e "run_tests_output <- shinycoreci::test_runtests(retries = 0, assert = FALSE)"
-          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{steps.pull_request.outputs.id}}', username = '${GITHUB_ACTOR}')"
+          -e "options(install.packages.check.source = 'no')"
+          -e "run_tests_output <- shinycoreci::test_runtests(retries = 2, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)"
+          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')"
           -e "shinycoreci::assert_runtests(run_tests_output)"
 
       - name: Git config
@@ -188,21 +215,6 @@ jobs:
             git config --local user.name "${GITHUB_ACTOR}" && \
             git config --local --unset http.https://github.com/.extraheader && \
             git config --local --list
-
-      - name: Push test results to rstudio/shinycoreci-apps
-        if: always()
-        shell: bash
-        # Add saved test results (in _test_results/) to _test_results branch
-        # (this assumes the _test_results branch already exists, which was setup manually like this
-        # https://stackoverflow.com/questions/34100048/github-create-empty-branch)
-        run: |
-          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          git fetch origin _test_results
-          git checkout _test_results
-          git add _test_results/*
-          git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
-          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
-          git checkout $CURRENT_BRANCH
 
       - name: Push test files to rstudio/shinycoreci-apps
         if: always()
@@ -220,7 +232,7 @@ jobs:
             git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
             echo "No apps/sysinfo-* changes to commit"
 
-          git add . && \
+          git add apps && \
             git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}'|| \
             echo "No shinytest changes to commit"
 
@@ -232,6 +244,20 @@ jobs:
             git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
           fi
 
+      - name: Push test results to rstudio/shinycoreci-apps
+        if: always()
+        shell: bash
+        # Add saved test results (in _test_results/) to _test_results branch
+        # (this assumes the _test_results branch already exists, which was setup manually like this
+        # https://stackoverflow.com/questions/34100048/github-create-empty-branch)
+        run: |
+          CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          git fetch origin _test_results
+          git checkout _test_results --
+          git add _test_results/*
+          git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
+          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+          git checkout $CURRENT_BRANCH
 
       - name: Fix path for Windows caching
         if: runner.os == 'Windows'
