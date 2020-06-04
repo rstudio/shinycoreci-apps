@@ -31,10 +31,10 @@ jobs:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
-          - "3.4"
-          - "3.5"
-          - "3.6"
           - "4.0"
+          - "3.6"
+          - "3.5"
+          - "3.4"
         config:
         - { os: macOS-latest }
         - { os: windows-latest }

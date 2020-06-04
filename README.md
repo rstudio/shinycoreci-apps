@@ -8,16 +8,9 @@
 
 <!-- badges: end -->
 
-Test applications and workflows for Shiny R packages.
+Tools for manual and automated testing of shiny apps.
 
-There are three main workflows:
-
-* [**runTests:**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ArunTests) Test applications using `shiny::runTests()`
-* [**Docker:**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker) Create all SSO and SSP docker images
-* [**Deploy**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADeploy): Deploy all testing apps to [shinyapps.io](shinyapps.io) and [beta.rstudioconnect.com](https://beta.rstudioconnect.com)
-
-
-## Usage
+## Running manual tests
 
 First, clone the shinycoreci-apps repo. Next, install [`remotes::install_github("rstudio/shinycoreci")`](https://github.com/rstudio/shinycoreci).  You may need to add your `GITHUB_PAT` to your R Environ file (See `?usethis::edit_r_environ` and `?usethis::browse_github_pat`)
 
@@ -36,132 +29,103 @@ First, clone the shinycoreci-apps repo. Next, install [`remotes::install_github(
 All testing functions may be run from within the IDE (except for R Terminal / R Gui).
 
 #### IDE Example
-```r
-# (Install `shinycoreci`)
-remotes::install_github("rstudio/shinycoreci")
 
+```r
+remotes::install_github("rstudio/shinycoreci")
 # Sitting at the root folder of the rstudio/shinycoreci-apps repo
 shinycoreci::test_in_ide()
 ```
 
 
-## `shiny::runTests()` testing frameworks
+## View and manage automated test results
 
-These different testing frameworks are used to automate the Continuous Integration Testing process of the shiny ecosystem.
+To view and manage test results, first make sure your working directory is the `shinycoreci-apps` repo.
 
-[**`shinytest`**](https://github.com/rstudio/shinytest)
-* Local App Driver testing (w/ headless Phantom.js browser)
-* Apps have tests in `./APP/tests/shinytest` directory
-* Functions:
-  * `shinycoreci::test_shinytest()`
+Use `shinycoreci::view_test_results()` to obtain an overview of the most recent test runs (it should prompt a **shiny** app that looks similar to this):
 
-**`testthat`**
-* Local R testing (R environment)
-* Functions:
-  * `shinycoreci::test_testthat()`
+<div align="center">
+  <img src="README_files/view-test-results.png" />
+</div>
 
-[**`shinyjster`**](https://github.com/schloerke/shinyjster)
-* Primarily a JavaScript library
-* Test javascript code is added in `app.R`
-* `shinyjster` is currently intended for testing apps specifically created to test something in particular. It should only be used to test full stack integration or browser / platform specific behavior.  This positions `shinyjster` differently than `shinytest::testApp()` and `shiny::testServer()`.
-* Functions:
-  * `shinycoreci::test_shinyjster()`
-  * This will run through all of the `shinyjster` selenium browsers that work with GitHub Actions
-    * `shinyjster::selenium_chrome()`
-    * `shinyjster::selenium_firefox()`
-    * `shinyjster::selenium_edge()`
-    * `shinyjster::selenium_ie()`
+If you see failures that indicate a difference in **shinytest** baselines (as above), you may need to just view and approve the differences. To obtain and view the differences, open a terminal and do the following:
 
-## Trouble Shooting
+```shell
+cd /path/to/shinycoreci-apps
+git fetch
+# You can copy/paste the actual GHA_BRANCH_NAME from the shiny app
+git checkout GHA_BRANCH_NAME
+R -e 'shinycoreci::view_test_diff()'
+```
 
+To approve the differences, click on the "Update & click" button that appears. Then, to incorporate the differences, return to the terminal and commit the file changes:
 
-### Diagnosing `shinytest` problems posted by GitHub Actions
-
-![shinytest broken branch name](README_files/broken_tests_action.png)
-
-When `shinytest` fails, the workflow will capture the failed test artifacts and push them to a new branch of `rstudio/shinycoreci-apps`.  This branch will be in the form of `gha-SHA-DATE-OS`.
-
-* `SHA` - The git sha of the commit that triggered the workflow
-* `DATE` - The year, month, day, hour, and minute with the format `YEAR_MO_DY_HR_MN`
-* `RVERSION` (not shown) - Short R version. Ex: `4.0`
-* `OS` - One of `macOS`, `Windows`, or `Linux`.
-
-#### Steps fix broken `shinytest` apps
-
-The following manual bash steps might be useful in resolving `shinytest` problems.
-
-```bash
-#!/usr/bin/bash
-# Sitting at the root folder of the rstudio/shinycoreci-apps repo
-
-git checkout master
-git pull
-git checkout BROKEN_BRANCH_NAME
-
-# Accept or reject results
-Rscript -e "shinycoreci::view_test_diff()"
-
-# If any apps need to be fixed, fix them and re-run tests for those apps.
-
-# At this point, need to delete any *-current directories that remain.
-find . -name "*-current"
-# If any are found, delete them
-rm -rf XXXXXX-current
-
-# Add deleted files to git
+```shell
 git add -u .
-# Make sure that the right files are staged. No *-current directories!
-git status
-git commit -m "MESSAGE"
-
-# Merge the branch into master
-git checkout master
-git merge BROKEN_BRANCH_NAME
-git push
-git branch -D BROKEN_BRANCH_NAME
+git commit -m "Approve shinytest baselines"
 ```
 
-# FAQ
+Now, bring those changes into the branch you're working on (say, `my_branch`), and push them:
 
-### There are a lot of local branches
+```shell
+git checkout my_branch
+git merge BRANCH_NAME
+git push origin my_branch
+```
 
-To allow for `shinytest` to report the changes it found, new branches are created constantly.  These branches are automatically removed (with CI) after 1 week of no activity.
+In the event that all testing failures can not be addressed by updating shinytest baselines, have a look at the [GHA actions](https://github.com/rstudio/shinycoreci-apps/actions) build log and keep the following troubleshooting tips in mind:
 
-To remove these dead remotes in your local machine, run:
+### Troubleshooting test failures
+
+1. Failures on old versions of R
+
+If a testing app passes on recent version(s) of R, but fails in a suprising way on old R version(s), it may be due to an old R package version. In that case, modify the tests to run only if a sufficient version of the relevant package is available ([for example](https://github.com/rstudio/shinycoreci-apps/blob/5691d1f4/apps/145-dt-replacedata/tests/shinytest.R)).
+
+2. Other failures that can't replicated locally
+
+Other surprising failures are often the result of timing issues (which can be difficult, if not impossible, to replicate locally). If your testing app uses dynamic UI and/or doesn't have proper input/output bindings, **shinytest** probably needs to know how long to wait for value(s) to update (in this case, use `waitForValue()`, [for example](https://github.com/rstudio/shinycoreci-apps/blob/5691d1f4/apps/021-selectize-plot/tests/shinytest/mytest.R#L10-L11)). Somewhat similarly, when checking DOM values with **shinyjster**, you may need to wait for an update to DOM element(s) before checking value(s), in which case you can write a recursive function that keeps calling itself until the DOM is ready ([for example](https://github.com/rstudio/shinycoreci-apps/blob/5691d1f4/apps/187-navbar-collapse/app.R#L24-L34)).
+
+## Contribute a testing app
+
+When contributing a testing app, try to do the following:
+
+* Capture all the functionality with automated tests.
+  * Also, where possible, write "light-weight" tests (that is, try and avoid **shinytest** where possible since they are prone to false positive differences and thus have a maintenance cost).
+  * If the app does need manual testing, flag the testing app for manual testing with `shinycoreci::use_manual_app()`.
+* Add a description to the app's UI that makes it clear what the app is testing for.
+
+Note that **shinycoreci** supports 3 different testing frameworks, and provides helper functions to provide the file scaffolding for each case (that is, `use_tests_shinytest()`, `use_tests_shinyjster()`, `use_tests_testthat()`)
+
+1. **shinytest**: primarily useful for taking screenshots of shiny output binding(s) (before or after interacting with **shiny** input bindings). [See here](https://github.com/rstudio/shinycoreci-apps/blob/5691d1f/apps/001-hello/tests/shinytest/mytest.R) for an example (note that `shinytest::recordTest()` can be used to generate shinytest testing scripts).
+
+2. **shinyjster**: primarily useful for asserting certain expectations about the DOM (in JavaScript). [See here](https://github.com/rstudio/shinycoreci-apps/blob/5691d1f/apps/001-hello/app.R#L37-L61) for an example (note that `shinyjster::shinyjster_js()` needs to be placed in the UI and `shinyjster::shinyjster_server(input, output)` needs to be placed in the server).
+
+3. **testthat**: primarily useful in combination with `shiny::testServer()` to test server-side reactive logic of the application. 
+  * [See here](https://github.com/rstudio/shinycoreci-apps/blob/5691d1f4/apps/001-hello/tests/testthat/tests.R#L4) for an example.
+  * Call `shinycoreci::use_tests_testthat(app_dir)` to provide the file scaffolding necessary to run the **testthat** tests
+  
+
+## Pruning old git branches
+
+To help us store and manage the test results, git branches are automatically created for each test run. These branches are automatically removed on GitHub after 1 week of no activity, but you may want to periodically remove them on your local machine as well:
 
 ```bash
-git remote prune origin
+git fetch --prune
 ```
 
-### Workflows and Actions
+## What workflows are available?
 
-[**GitHub Actions**](https://github.com/features/actions) is a GitHub service for initiating processes implemented as _workflows_. Workflows are YAML files that indicate a series of programmatic steps to perform.
+This repo contains several [GitHub Actions](https://github.com/features/actions) workflows:
 
-The workflows that test the Shiny ecosystem are stored in the [`shinycoreci-apps` repo in the .github directory](https://github.com/rstudio/shinycoreci-apps/tree/master/.github/workflows), and their status can be viewed on the [**Actions**](https://github.com/rstudio/shinycoreci-apps/actions) tab of the GitHub website.
+* [**runTests:**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ArunTests) Run the automated tests (via `shiny::runTests()`).
+* [**Docker:**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker) Create all SSO and SSP docker images
+* [**Deploy**](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADeploy): Deploy all testing apps to [shinyapps.io](shinyapps.io) and [beta.rstudioconnect.com](https://beta.rstudioconnect.com)
 
-Each workflow corresponds to a particular set of tests that apply one particular type of test. `shinytest`, `shinyjstr`, and `testthat` testing strategies each have a corresponding workflow, stored in the `shinycoreci-apps` repo.
+The **runTests** workflow runs automatically on every code change to `shinycoreci-apps` as well as every night (around midnight UTC). The other workflows may be triggered via `shinycoreci::trigger_docker()` and `shinycoreci::trigger_deploy()`
 
-All workflows do the following
-* Prepare a virtual machine by installing R and required package dependencies
-* Eventually gets to a point where it executes shinytest or some other type of test on each example app.
-* After tests for all apps have been run, the workflow completes. If the workflow completes successfully, the workflow as a whole is considered "successful" and GitHub displays its run status with a green checkmark.
-* If any errors are encountered, the workflow will be considered to have failed, as indicated by a red `X` in the GitHub UI.
+### Managing R package dependencies
 
-When `shinytest` runs a test, it creates png screenshots of what the app currently looks like.
+"Core" `shinycoreci-apps` R package dependencies come from **shinycoreci**'s [DESCRIPTION file](https://github.com/rstudio/shinycoreci/blob/master/DESCRIPTION); and so, that file may be modified to test different versions of different packages in the shinyverse.
 
-If new screenshots differ from those created previously, the user is presented with the option to accept new screenshots as the correct ones.
-
-### Steps to initiate tests
-
-After cloning the repo, you can initiate a test run either by making a change to an application and pushing the commit, or by using the `shinycoreci::trigger("DISPATCHTYPE", "rstudio/shinycoreci-apps")` function.
-
-> Note: It’s **not** currently possible to initiate a workflow and for that workflow to test a subset of the apps (as opposed to all of them, which is the current default). However, it’s not obvious what the advantage of this would be, considering most of the time spent in the workflow is setup.
-
-
-### Dependencies
-
-The [`shinycoreci` dependencies](https://github.com/rstudio/shinycoreci/tree/readme#installation) are listed in the DESCRIPTION file. Many of the dependencies are on latest packages from GitHub, and so its set of dependencies is constantly moving forward. This is intentional; it is an attempt to be notified as early as possibly by failures or incompatibilities that might be introduced by new dependencies.
-
-The `shinycoreci-apps` dependencies are automatically inferred using `renv::dependencies()` every time a workflow runs. This step runs after the `shinycoreci` package is installed.
+Application-specific R package dependencies are automatically inferred (and installed at run-time) using `renv::dependencies()`.
 
 > Note: `renv::dependencies()` are taken from CRAN, not GitHub Remotes.
