@@ -51,11 +51,6 @@ testWhitespace('second', 'secondOutcome', true);
 # Define server logic required to draw a histogram ----
 server <- function(input, output, session) {
   shinyjster::shinyjster_server(input, output, session)
-
-  output$package <- renderText({
-    paste0("Testing on htmltools version '", packageVersion("htmltools"), "'")
-  })
-
 }
 
 # Create Shiny app ----
