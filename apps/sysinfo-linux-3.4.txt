@@ -7,13 +7,13 @@
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2020-05-28                  
+ date     2020-06-18                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.12.2-1   RSPM                       
 2             askpass         1.1   RSPM                       
 3          assertthat       0.2.1   RSPM                       
-4           backports       1.1.7   RSPM                       
+4           backports       1.1.8   CRAN                       
 5           base64enc       0.1-3   RSPM                       
 6                  BH    1.72.0-3   RSPM                       
 7                 bit    1.1-15.2   RSPM                       
@@ -31,11 +31,11 @@
 19               curl         4.3   CRAN                       
 20         data.table      1.12.8   RSPM                       
 21                DBI       1.1.0   RSPM                       
-22             dbplyr       1.4.3   RSPM                       
+22             dbplyr       1.4.4   RSPM                       
 23            debugme       1.1.0   RSPM                       
 24               desc       1.2.0   RSPM                       
 25             digest      0.6.25   RSPM                       
-26              dplyr       0.8.5   RSPM                       
+26              dplyr       1.0.0   RSPM                       
 27                 DT        0.13   RSPM                       
 28           ellipsis       0.3.1   RSPM                       
 29            english       1.2-5   RSPM                       
@@ -47,7 +47,7 @@
 35                 fs       1.4.1   RSPM                       
 36             future      1.17.0   RSPM                       
 37           generics       0.0.2   RSPM                       
-38            ggplot2       3.3.0   RSPM                       
+38            ggplot2       3.3.1   RSPM                       
 39              ggvis       0.4.5   RSPM                       
 40            globals      0.12.5   RSPM                       
 41               glue       1.4.1   RSPM                       
@@ -58,16 +58,16 @@
 46        highcharter       0.7.0   RSPM                       
 47              highr         0.8   RSPM                       
 48                hms       0.5.3   RSPM                       
-49          htmltools       0.5.0    Git b9d7abc     /rc-v0.5.0
+49          htmltools  0.5.0.9000    Git a8025f3        /master
 50        htmlwidgets  1.5.1.9001    Git 6fcc4b0        /master
-51             httpuv  1.5.3.9000    Git 7fbfd5e        /master
+51             httpuv  1.5.4.9000    Git ea801f8        /master
 52               httr       1.4.1   RSPM                       
 53             igraph       1.2.5   RSPM                       
 54            isoband       0.2.1   RSPM                       
 55           jsonlite       1.6.1   RSPM                       
 56              knitr        1.28   RSPM                       
 57           labeling         0.3   RSPM                       
-58              later       1.1.0    Git e68cadb     /rc-v1.1.0
+58              later  1.1.0.9000    Git a83bb48        /master
 59            lattice     0.20-41   RSPM                       
 60           lazyeval       0.2.2   RSPM                       
 61            leaflet  2.0.3.9000    Git 8db80b6        /master
@@ -90,9 +90,9 @@
 78              pingr       2.0.0   RSPM                       
 79           pkgbuild       1.0.8   RSPM                       
 80          pkgconfig       2.0.3   RSPM                       
-81            pkgload       1.0.2   RSPM                       
+81            pkgload       1.1.0   RSPM                       
 82              plogr       0.2.0   RSPM                       
-83             plotly  4.9.2.9000    Git c19594b        /master
+83             plotly  4.9.2.9000    Git 8d376d1        /master
 84               plyr       1.8.6   RSPM                       
 85                png       0.1-7   RSPM                       
 86               pool  0.1.4.9000    Git 0b03680        /master
@@ -100,7 +100,7 @@
 88        prettyunits       1.1.1   RSPM                       
 89           processx       3.4.2   RSPM                       
 90           progress       1.2.2   RSPM                       
-91           promises       1.1.1    Git cd3530d     /rc-v1.1.1
+91           promises  1.1.1.9000    Git 3d54b42        /master
 92               pryr       0.1.4   RSPM                       
 93                 ps       1.3.3   RSPM                       
 94              purrr       0.3.4   RSPM                       
@@ -114,7 +114,7 @@
 102            raster       3.1-5   RSPM                       
 103      RColorBrewer       1.1-2   RSPM                       
 104              Rcpp     1.0.4.6   RSPM                       
-105          reactlog  1.0.0.9000    Git 1727327        /master
+105          reactlog  1.0.0.9000    Git 9270882        /master
 106            reactR       0.4.2   RSPM                       
 107           rematch       1.0.1   RSPM                       
 108          rematch2       2.1.2   RSPM                       
@@ -123,7 +123,7 @@
 111          reshape2       1.4.4   RSPM                       
 112             rlang       0.4.6   RSPM                       
 113             rlist     0.4.6.1   RSPM                       
-114         rmarkdown       2.1.7 GitHub 79ff649 rstudio/master
+114         rmarkdown         2.3 GitHub 66d27e0 rstudio/master
 115         rprojroot       1.3-2   RSPM                       
 116         rsconnect 0.8.16-9001    Git 40c162b        /master
 117           RSQLite       2.2.0   RSPM                       
@@ -131,13 +131,13 @@
 119              sass       0.2.0   RSPM                       
 120            scales       1.1.1   RSPM                       
 121       sessioninfo       1.1.1   RSPM                       
-122             shiny       1.5.0    Git 192c4f2     /rc-v1.5.0
-123       shinycoreci  0.0.0.9004 GitHub bad7faa rstudio/master
+122             shiny       1.5.0    Git 000406e     /rc-v1.5.0
+123       shinycoreci  0.0.0.9004 GitHub 4905367 rstudio/master
 124    shinydashboard       0.7.1   RSPM                       
 125           shinyjs         1.1   RSPM                       
-126        shinyjster  0.0.0.9009    Git a8087a4        /master
-127         shinymeta       0.2.0    Git b0ac455        /master
-128         shinytest  1.3.1.9003    Git e95865c     /rc-v1.4.0
+126        shinyjster  0.0.0.9009    Git 36b5bb3        /master
+127         shinymeta       0.2.0    Git b78a1cf        /master
+128         shinytest  1.4.0.9000    Git d76f27a        /master
 129       shinythemes       1.1.2   RSPM                       
 130         showimage       1.0.0   RSPM                       
 131          showtext       0.8-1   RSPM                       
@@ -150,7 +150,7 @@
 138            styler       1.3.2   RSPM                       
 139               sys         3.3   RSPM                       
 140          sysfonts       0.8.1   RSPM                       
-141       systemfonts       0.2.2   RSPM                       
+141       systemfonts       0.2.3   CRAN                       
 142          testthat       2.3.2   RSPM                       
 143            tibble       3.0.1   RSPM                       
 144             tidyr       1.1.0   RSPM                       
@@ -159,11 +159,11 @@
 147                tm       0.7-7   RSPM                       
 148               TTR      0.23-6   RSPM                       
 149              utf8       1.1.4   RSPM                       
-150             vctrs       0.3.0   RSPM                       
+150             vctrs       0.3.1   RSPM                       
 151           viridis       0.5.1   RSPM                       
 152       viridisLite       0.3.0   RSPM                       
 153         webdriver       1.0.5   RSPM                       
-154         websocket       1.2.0    Git b49823d     /rc-v1.2.0
+154         websocket  1.2.0.9000    Git c4f6cef        /master
 155           whisker         0.4   RSPM                       
 156             withr       2.2.0   RSPM                       
 157         wordcloud         2.6   RSPM                       
