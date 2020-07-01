@@ -96,29 +96,28 @@ jobs:
 
       - name: Install openssl/curl on Windows
         if: runner.os == 'Windows'
-        shell: bash
-        run: >
-          Rscript
-          -e "options(install.packages.check.source = 'no')"
-          -e "install.packages(c('openssl', 'curl'), type = 'binary', repos = 'https://cloud.r-project.org')"
+        shell: Rscript {0}
+        run: |
+          options(install.packages.check.source = 'no')
+          install.packages(c('openssl', 'curl'), type = 'binary', repos = 'https://cloud.r-project.org')
 
       # make sure this is the latest
       - name: Install Rcpp
         if: runner.os == 'macOS'
-        run: >
-          Rscript
-          -e "if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')"
+        shell: Rscript {0}
+        run: |
+          if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')
       - name: Install remotes and shinycoreci (no suggests)
         # if non linux, install binaries
         # make sure to get the best version number possible
         # If remotes isn't installed, install it
         # If shinytest isn't available, install the cran version to init the R library
         # install the specific branch of shinycoreci
-        run: >
-          Rscript
-          -e "options(install.packages.check.source = 'no')"
-          -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
-          -e "remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', force = TRUE)"
+        shell: Rscript {0}
+        run: |
+          options(install.packages.check.source = 'no')
+          if (system.file(package = 'remotes') == '') install.packages('remotes')
+          remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', force = TRUE)
 
       # Install ragg deps
       - name: Ragg deps
@@ -137,25 +136,26 @@ jobs:
       # Install all deps as we are installing from rspm
       - name: Install system dependencies
         if: runner.os == 'Linux'
+        shell: Rscript {0}
         run: |
-          Rscript -e "system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))"
+          system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))
 
       # do not install apps deps, this will happen at run time
       - name: Install troublesome pkgs
-        run: >
-          Rscript
-          -e "options(install.packages.check.source = 'no')"
-          -e "if (system.file(package = 'ps') == '') remotes::install_cran('ps')"
+        shell: Rscript {0}
+        run: |
+          options(install.packages.check.source = 'no')
+          if (system.file(package = 'ps') == '') remotes::install_cran('ps')
       - name: Install CRAN Versions
-        run: >
-          Rscript
-          -e "options(install.packages.check.source = 'no')"
-          -e "if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers', 'english', 'dplyr', 'tidyr', 'gt'))"
+        shell: Rscript {0}
+        run: |
+          options(install.packages.check.source = 'no')
+          if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers', 'english', 'dplyr', 'tidyr', 'gt'))
       - name: Install core packages
-        run: >
-          Rscript
-          -e "options(install.packages.check.source = 'no')"
-          -e "shinycoreci:::install_ci()"
+        shell: Rscript {0}
+        run: |
+          options(install.packages.check.source = 'no')
+          shinycoreci:::install_ci()
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
@@ -165,19 +165,19 @@ jobs:
       # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
       - name: Create short sha
         id: short_sha
-        run: >
-          Rscript
-          -e "cat('::set-output name=sha::', substr(paste0('${{ github.event.pull_request.head.sha }}', '${{ github.sha }}'), 1, 7), sep = '')"
+        shell: Rscript {0}
+        run: |
+          cat('::set-output name=sha::', substr(paste0('${{ github.event.pull_request.head.sha }}', '${{ github.sha }}'), 1, 7), sep = '')
       - name: Create failure branch name
         id: failed_branch
-        run: >
-          Rscript
-          -e "cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')"
+        shell: Rscript {0}
+        run: |
+          cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')
       - name: Create GHA branch name (i.e., test run identifier)
         id: gha_branch
-        run: >
-          Rscript
-          -e "cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')"
+        shell: Rscript {0}
+        run: |
+          cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')
 
       - name: Find PhantomJS path
         id: phantomjs
@@ -190,21 +190,21 @@ jobs:
           key: ${{ runner.os }}-phantomjs
           restore-keys: ${{ runner.os }}-phantomjs
       - name: Install PhantomJS
-        run: >
-          Rscript
-          -e "options(install.packages.check.source = 'no')"
-          -e "if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()"
+        shell: Rscript {0}
+        run: |
+          options(install.packages.check.source = 'no')
+          if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()
 
       # do not update pkgs, as they were installed above
       # do update app pkgs, as they have NOT been installed
       - name: Run tests
         timeout-minutes: 120
-        run: >
-          Rscript
-          -e "options(install.packages.check.source = 'no')"
-          -e "run_tests_output <- shinycoreci::test_runtests(retries = 2, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)"
-          -e "shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')"
-          -e "shinycoreci::assert_runtests(run_tests_output)"
+        shell: Rscript {0}
+        run: |
+          options(install.packages.check.source = 'no')
+          run_tests_output <- shinycoreci::test_runtests(retries = 2, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)
+          shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')
+          shinycoreci::assert_runtests(run_tests_output)
 
       - name: Git config
         if: always()
