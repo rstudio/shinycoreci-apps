@@ -18,10 +18,28 @@ on:
       - ci
 
 jobs:
+
+  validate_no_current_shinytest_folders:
+    runs-on: ubuntu-18.04
+    name: Check for *-current shinytest folders
+    steps:
+      - name: GitHub Pull
+        uses: actions/checkout@v2
+      - name: Validate no shinytest *-current folders exist
+        shell: bash
+        run: |
+          if [ -n `find . -name "*-current"` ]
+          then
+            exit 1;
+          fi
+
   shinytest-apps:
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
+
+    needs:
+      - validate_no_current_shinytest_folders
 
     strategy:
       fail-fast: false
