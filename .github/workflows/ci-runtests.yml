@@ -21,24 +21,25 @@ jobs:
 
   validate_no_current_shinytest_folders:
     runs-on: ubuntu-18.04
-    name: Check for unexpected shinytest folders
+    name: Check for ${{ matrix.folder }} shinytest folders
+    strategy:
+      fail-fast: false
+      matrix:
+        folder:
+          - "*-current"
+          - "*-expected"
 
     steps:
       - name: GitHub Pull
         uses: actions/checkout@v2
 
-      - name: Validate no shinytest *-current folders exist
+      - name: Validate no shinytest ${{ matrix.folder }} folders exist
         shell: bash
         run: |
-          if [ -n `find . -name "*-current"` ]
+          find . -name "${{ matrix.folder }}" > _folders_found.txt
+          if [ -s _folders_found.txt ]
           then
-            exit 1;
-          fi
-      - name: Validate no shinytest *-expected folders exist
-        shell: bash
-        run: |
-          if [ -n `find . -name "*-expected"` ]
-          then
+            cat folders_found.txt
             exit 1;
           fi
 
