@@ -21,14 +21,23 @@ jobs:
 
   validate_no_current_shinytest_folders:
     runs-on: ubuntu-18.04
-    name: Check for *-current shinytest folders
+    name: Check for unexpected shinytest folders
+
     steps:
       - name: GitHub Pull
         uses: actions/checkout@v2
+
       - name: Validate no shinytest *-current folders exist
         shell: bash
         run: |
           if [ -n `find . -name "*-current"` ]
+          then
+            exit 1;
+          fi
+      - name: Validate no shinytest *-expected folders exist
+        shell: bash
+        run: |
+          if [ -n `find . -name "*-expected"` ]
           then
             exit 1;
           fi
