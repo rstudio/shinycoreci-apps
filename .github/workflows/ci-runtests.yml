@@ -235,9 +235,10 @@ jobs:
           shinycoreci::assert_runtests(run_tests_output)
 
       - name: Remove R options file
+        if: always()
         shell: bash
         run: |
-          rm .Renviron
+          rm .Renviron || echo "No .Renviron file to remove"
 
       - name: Git config
         if: always()
