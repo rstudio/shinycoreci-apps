@@ -1,13 +1,13 @@
  setting  value                       
  version  R version 3.6.3 (2020-02-29)
- os       macOS Catalina 10.15.5      
+ os       macOS Catalina 10.15.6      
  system   x86_64, darwin15.6.0        
  ui       X11                         
  language (EN)                        
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2020-07-17                  
+ date     2020-07-22                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -52,7 +52,7 @@
 40          htmltools  0.5.0.9000    Git a8025f3        /master
 41        htmlwidgets  1.5.1.9001    Git 6fcc4b0        /master
 42             httpuv  1.5.4.9000    Git da93fbc        /master
-43               httr       1.4.1   CRAN                       
+43               httr       1.4.2   CRAN                       
 44            isoband       0.2.2   CRAN                       
 45           jsonlite       1.7.0   CRAN                       
 46              knitr        1.29   CRAN                       
@@ -95,10 +95,10 @@
 83           reactlog  1.0.0.9000    Git 9270882        /master
 84            rematch       1.0.1   CRAN                       
 85           rematch2       2.1.2   CRAN                       
-86            remotes       2.1.1   CRAN                       
+86            remotes       2.2.0   CRAN                       
 87               renv      0.11.0   CRAN                       
 88              rlang       0.4.7   CRAN                       
-89          rmarkdown       2.3.2 GitHub ff1b279 rstudio/master
+89          rmarkdown       2.3.2 GitHub ff1b279   rstudio/HEAD
 90          rprojroot       1.3-2   CRAN                       
 91          rsconnect 0.8.16-9001    Git 40c162b        /master
 92         rstudioapi        0.11   CRAN                       
