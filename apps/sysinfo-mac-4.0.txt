@@ -106,7 +106,7 @@
 94             scales       1.1.1   CRAN                       
 95        sessioninfo       1.1.1   CRAN                       
 96              shiny  1.5.0.9001    Git abc6a98        /master
-97        shinycoreci  0.0.0.9005 GitHub e42e1fd rstudio/master
+97        shinycoreci  0.0.0.9005 GitHub 8bbb31c rstudio/master
 98         shinyjster  0.0.0.9009    Git 36b5bb3        /master
 99          shinymeta       0.2.0    Git b78a1cf        /master
 100         shinytest  1.4.0.9001    Git f8ee85e        /master
