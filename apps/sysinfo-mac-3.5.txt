@@ -131,7 +131,7 @@
 119            scales       1.1.1   CRAN                       
 120       sessioninfo       1.1.1   CRAN                       
 121             shiny  1.5.0.9001    Git abc6a98        /master
-122       shinycoreci  0.0.0.9005 GitHub e42e1fd rstudio/master
+122       shinycoreci  0.0.0.9005 GitHub 8bbb31c rstudio/master
 123    shinydashboard       0.7.1   CRAN                       
 124           shinyjs         1.1   CRAN                       
 125        shinyjster  0.0.0.9009    Git 36b5bb3        /master
