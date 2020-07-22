@@ -234,6 +234,11 @@ jobs:
           shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')
           shinycoreci::assert_runtests(run_tests_output)
 
+      - name: Remove R options file
+        shell: bash
+        run: |
+          rm .Renviron
+
       - name: Git config
         if: always()
         shell: bash
@@ -282,7 +287,8 @@ jobs:
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
           git fetch origin _test_results
           git checkout _test_results --
-          git add _test_results/*
+          git status
+          git add _test_results/
           git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
           git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
           git checkout $CURRENT_BRANCH

@@ -47,30 +47,10 @@ Use `shinycoreci::view_test_results()` to obtain an overview of the most recent 
   <img src="README_files/view-test-results.png" />
 </div>
 
-If you see failures that indicate a difference in **shinytest** baselines (as above), you may need to just view and approve the differences. To obtain and view the differences, open a terminal and do the following:
+If you see failures that indicate a difference in **shinytest** baselines (as above), you may need to just view and approve the differences.
 
-```shell
-cd /path/to/shinycoreci-apps
-git fetch
-# You can copy/paste the actual GHA_BRANCH_NAME from the shiny app
-git checkout GHA_BRANCH_NAME
-R -e 'shinycoreci::view_test_diff()'
-```
+To obtain and correct the shinytest differences, use `shinycoreci::fix_all_gha_branches()`. This function will walk you through the steps needed to update all `shinytest` failures and merge in the latest information from each `gha-` branch.  To approve the differences, click on the "Update & click" button. To reject the differences, click on "Quit" button.
 
-To approve the differences, click on the "Update & click" button that appears. Then, to incorporate the differences, return to the terminal and commit the file changes:
-
-```shell
-git add -u .
-git commit -m "Approve shinytest baselines"
-```
-
-Now, bring those changes into the branch you're working on (say, `my_branch`), and push them:
-
-```shell
-git checkout my_branch
-git merge BRANCH_NAME
-git push origin my_branch
-```
 
 In the event that all testing failures can not be addressed by updating shinytest baselines, have a look at the [GHA actions](https://github.com/rstudio/shinycoreci-apps/actions) build log and keep the following troubleshooting tips in mind:
 
@@ -99,10 +79,10 @@ Note that **shinycoreci** supports 3 different testing frameworks, and provides 
 
 2. **shinyjster**: primarily useful for asserting certain expectations about the DOM (in JavaScript). [See here](https://github.com/rstudio/shinycoreci-apps/blob/5691d1f/apps/001-hello/app.R#L37-L61) for an example (note that `shinyjster::shinyjster_js()` needs to be placed in the UI and `shinyjster::shinyjster_server(input, output)` needs to be placed in the server).
 
-3. **testthat**: primarily useful in combination with `shiny::testServer()` to test server-side reactive logic of the application. 
+3. **testthat**: primarily useful in combination with `shiny::testServer()` to test server-side reactive logic of the application.
   * [See here](https://github.com/rstudio/shinycoreci-apps/blob/5691d1f4/apps/001-hello/tests/testthat/tests.R#L4) for an example.
   * Call `shinycoreci::use_tests_testthat(app_dir)` to provide the file scaffolding necessary to run the **testthat** tests
-  
+
 
 ## Pruning old git branches
 
