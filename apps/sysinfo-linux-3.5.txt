@@ -7,7 +7,7 @@
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2020-07-17                  
+ date     2020-07-22                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -52,7 +52,7 @@
 40          htmltools  0.5.0.9000    Git a8025f3        /master
 41        htmlwidgets  1.5.1.9001    Git 6fcc4b0        /master
 42             httpuv  1.5.4.9000    Git da93fbc        /master
-43               httr       1.4.1   RSPM                       
+43               httr       1.4.2   CRAN                       
 44            isoband       0.2.2   RSPM                       
 45           jsonlite       1.7.0   RSPM                       
 46              knitr        1.29   RSPM                       
@@ -89,16 +89,16 @@
 77               R.oo      1.23.0   RSPM                       
 78            R.utils       2.9.2   RSPM                       
 79                 R6       2.4.1   RSPM                       
-80             raster      3.3-13   CRAN                       
+80             raster      3.3-13   RSPM                       
 81       RColorBrewer       1.1-2   RSPM                       
 82               Rcpp       1.0.5   RSPM                       
 83           reactlog  1.0.0.9000    Git 9270882        /master
 84            rematch       1.0.1   RSPM                       
 85           rematch2       2.1.2   RSPM                       
-86            remotes       2.1.1   RSPM                       
+86            remotes       2.2.0   CRAN                       
 87               renv      0.11.0   RSPM                       
 88              rlang       0.4.7   RSPM                       
-89          rmarkdown       2.3.2 GitHub ff1b279 rstudio/master
+89          rmarkdown       2.3.2 GitHub ff1b279   rstudio/HEAD
 90          rprojroot       1.3-2   RSPM                       
 91          rsconnect 0.8.16-9001    Git 40c162b        /master
 92         rstudioapi        0.11   RSPM                       
@@ -106,7 +106,7 @@
 94             scales       1.1.1   RSPM                       
 95        sessioninfo       1.1.1   RSPM                       
 96              shiny  1.5.0.9001    Git abc6a98        /master
-97        shinycoreci  0.0.0.9005 GitHub e42e1fd rstudio/master
+97        shinycoreci  0.0.0.9005 GitHub 8bbb31c rstudio/master
 98         shinyjster  0.0.0.9009    Git 36b5bb3        /master
 99          shinymeta       0.2.0    Git b78a1cf        /master
 100         shinytest  1.4.0.9001    Git f8ee85e        /master
