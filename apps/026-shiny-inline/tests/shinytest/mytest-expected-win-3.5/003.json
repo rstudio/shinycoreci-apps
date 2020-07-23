@@ -133,7 +133,7 @@
     },
     "out4f461eb96152fad3": "A",
     "out588bc784570505a1": {
-      "src": "[image data sha1: c70d5d870e7c584ba610c29156f4d1516f85048b]",
+      "src": "[image data sha1: 413d13d902421a57aff5712e717aeb0663bd84d5]",
       "width": 300,
       "height": 40,
       "coordmap": {
@@ -142,14 +142,14 @@
             "domain": {
               "left": 1739.6033333332,
               "right": 1993.3133333368,
-              "bottom": -718.798167661389,
-              "top": 972.598167661389
+              "bottom": -718.800000012001,
+              "top": 972.600000012
             },
             "range": {
               "left": 0,
               "right": 300,
               "bottom": 39,
-              "top": -1
+              "top": -0.999999999999991
             },
             "log": {
               "x": null,
@@ -168,7 +168,7 @@
     },
     "outd713b92a568d73cd": "3.25",
     "outf944471fabb10bd8": {
-      "src": "[image data sha1: 66bfc3632c5e6ca51419c584654e6d8f13b4e410]",
+      "src": "[image data sha1: 5038aeb2a38c9fd8b454bf0e3d093f0dde6c59c3]",
       "width": 600,
       "height": 400,
       "coordmap": {
@@ -181,10 +181,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.0400098400016,
-              "right": 569.759994959999,
-              "bottom": 325.559981639995,
-              "top": 58.0400147600037
+              "left": 59.04,
+              "right": 569.76,
+              "bottom": 325.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
