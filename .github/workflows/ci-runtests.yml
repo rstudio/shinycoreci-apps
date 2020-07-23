@@ -135,6 +135,13 @@ jobs:
         shell: Rscript {0}
         run: |
           if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')
+      # Install raster on R 3.4
+      - name: Install raster
+        if: matrix.r == '3.4'
+        shell: Rscript {0}
+        run: |
+          if (system.file(package = 'raster') == '') install.packages('raster', type = 'source')
+
       - name: Install remotes and shinycoreci (no suggests)
         # if non linux, install binaries
         # make sure to get the best version number possible
