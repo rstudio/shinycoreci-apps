@@ -140,7 +140,9 @@ jobs:
         if: matrix.r == '3.4'
         shell: Rscript {0}
         run: |
-          if (system.file(package = 'raster') == '') install.packages('raster', type = 'source')
+          options(install.packages.check.source = 'no')
+          if (system.file(package = 'remotes') == '') install.packages('remotes')
+          if (system.file(package = 'raster') == '') remotes::install_version("raster", "3.2-1")
 
       - name: Install remotes and shinycoreci (no suggests)
         # if non linux, install binaries
