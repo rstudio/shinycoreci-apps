@@ -59,10 +59,10 @@ jobs:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
+          - "3.4"
           - "4.0"
           - "3.6"
           - "3.5"
-          - "3.4"
         config:
         - { os: macOS-latest }
         - { os: windows-latest }
@@ -142,7 +142,7 @@ jobs:
         run: |
           options(install.packages.check.source = 'no')
           if (system.file(package = 'remotes') == '') install.packages('remotes')
-          if (system.file(package = 'raster') == '') remotes::install_version("raster", "3.2-1")
+          if (system.file(package = 'raster') == '') remotes::install_version("raster", "3.1-5")
 
       - name: Install remotes and shinycoreci (no suggests)
         # if non linux, install binaries
