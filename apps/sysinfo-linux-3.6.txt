@@ -7,7 +7,7 @@
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2020-07-23                  
+ date     2020-07-24                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -28,7 +28,7 @@
 16             crayon       1.3.4   RSPM                       
 17          crosstalk  1.1.0.9000    Git efa729c        /master
 18               curl         4.3   CRAN                       
-19         data.table      1.12.8   RSPM                       
+19         data.table      1.13.0   CRAN                       
 20                DBI       1.1.0   RSPM                       
 21             dbplyr       1.4.4   RSPM                       
 22            debugme       1.1.0   RSPM                       
@@ -118,7 +118,7 @@
 106             rlang       0.4.7   RSPM                       
 107         rmarkdown       2.3.2 GitHub ff1b279   rstudio/HEAD
 108         rprojroot       1.3-2   RSPM                       
-109         rsconnect 0.8.16-9001    Git 35dde7d        /master
+109         rsconnect 0.8.16-9001    Git 6d3afda        /master
 110           RSQLite       2.2.0   RSPM                       
 111        rstudioapi        0.11   RSPM                       
 112              sass       0.2.0   RSPM                       
@@ -148,7 +148,7 @@
 136            tibble       3.0.3   RSPM                       
 137             tidyr       1.1.0   RSPM                       
 138        tidyselect       1.1.0   RSPM                       
-139           tinytex        0.24   RSPM                       
+139           tinytex        0.25   CRAN                       
 140                tm       0.7-7   RSPM                       
 141              utf8       1.1.4   RSPM                       
 142             vctrs       0.3.2   RSPM                       
@@ -158,7 +158,7 @@
 146         websocket  1.3.1.9000    Git 441b9d3        /master
 147             withr       2.2.0   RSPM                       
 148         wordcloud         2.6   RSPM                       
-149              xfun        0.15   RSPM                       
+149              xfun        0.16   CRAN                       
 150              xml2       1.3.2   RSPM                       
 151            xtable       1.8-4   RSPM                       
 152              yaml       2.2.1   RSPM                       
