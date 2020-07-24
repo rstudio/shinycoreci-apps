@@ -7,7 +7,7 @@
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2020-07-22                  
+ date     2020-07-23                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -124,7 +124,7 @@
 112             rlist     0.4.6.1   CRAN                       
 113         rmarkdown       2.3.2 GitHub ff1b279   rstudio/HEAD
 114         rprojroot       1.3-2   CRAN                       
-115         rsconnect 0.8.16-9001    Git 40c162b        /master
+115         rsconnect 0.8.16-9001    Git 35dde7d        /master
 116           RSQLite       2.2.0   CRAN                       
 117        rstudioapi        0.11   CRAN                       
 118              sass       0.2.0   CRAN                       
@@ -147,7 +147,7 @@
 135           stringi       1.4.6   CRAN                       
 136           stringr       1.4.0   CRAN                       
 137            styler       1.3.2   CRAN                       
-138               sys         3.3   CRAN                       
+138               sys         3.4   CRAN                       
 139          sysfonts         0.8   CRAN                       
 140       systemfonts       0.1.1   CRAN                       
 141          testthat       2.3.2   CRAN                       
