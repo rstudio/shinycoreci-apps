@@ -1,16 +1,9 @@
 {
   "input": {
-    "group": null
+    "group": "17"
   },
   "output": {
-    "row": {
-      "message": "Please type and search (e.g. Female)",
-      "call": "NULL",
-      "type": [
-        "shiny.silent.error",
-        "validation"
-      ]
-    }
+    "row": "   Class  Sex   Age Survived Freq\n17   1st Male Child      Yes    5"
   },
   "export": {
 
