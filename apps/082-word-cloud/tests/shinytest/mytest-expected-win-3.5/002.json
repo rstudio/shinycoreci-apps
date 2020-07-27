@@ -7,15 +7,15 @@
   },
   "output": {
     "plot": {
-      "src": "[image data sha1: 346ed74eceb1e5d6bf5a38f51a0a75ec99b99c47]",
+      "src": "[image data sha1: ede8709b294a0f9eacb17cd4928499b64e53aaa8]",
       "width": 631,
       "height": 400,
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": -0.35185,
-              "right": 1.35185,
+              "left": -0.351850077962519,
+              "right": 1.35185007796252,
               "bottom": -0.04,
               "top": 1.04
             },
