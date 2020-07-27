@@ -7,7 +7,7 @@
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2020-07-24                  
+ date     2020-07-27                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -74,7 +74,7 @@
 62           pkgbuild       1.1.0   CRAN                       
 63          pkgconfig       2.0.3   CRAN                       
 64            pkgload       1.1.0   CRAN                       
-65             plotly  4.9.2.9000    Git 1d1eddd        /master
+65             plotly  4.9.2.9000    Git 9bc585a        /master
 66                png       0.1-7   CRAN                       
 67               pool  0.1.4.9000    Git 0b03680        /master
 68             praise       1.0.0   CRAN                       
@@ -98,7 +98,7 @@
 86            remotes       2.2.0   CRAN                       
 87               renv      0.11.0   CRAN                       
 88              rlang       0.4.7   CRAN                       
-89          rmarkdown       2.3.2 GitHub ff1b279   rstudio/HEAD
+89          rmarkdown       2.3.3 GitHub 204aa41   rstudio/HEAD
 90          rprojroot       1.3-2   CRAN                       
 91          rsconnect 0.8.16-9001    Git 6d3afda        /master
 92         rstudioapi        0.11   CRAN                       
