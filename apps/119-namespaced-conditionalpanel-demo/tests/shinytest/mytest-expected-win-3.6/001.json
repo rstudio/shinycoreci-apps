@@ -5,7 +5,7 @@
   },
   "output": {
     "plot1-scatterPlot": {
-      "src": "[image data sha1: 28f61ed03469411c8dcce74c7c6ee58770b5e795]",
+      "src": "[image data sha1: 021fe64f3f4aebf483c784ccb64a58ee4d000dd8]",
       "width": 383,
       "height": 300,
       "coordmap": {
@@ -18,10 +18,10 @@
               "top": 2.77611430427408
             },
             "range": {
-              "left": 59.04,
-              "right": 352.76,
-              "bottom": 225.56,
-              "top": 58.04
+              "left": 59.0400154151476,
+              "right": 352.759992104437,
+              "bottom": 225.559975519992,
+              "top": 58.0400196800066
             },
             "log": {
               "x": null,
@@ -39,7 +39,7 @@
       }
     },
     "plot2-scatterPlot": {
-      "src": "[image data sha1: 05ecba4339d444218f6ea21ea294530ee8803e24]",
+      "src": "[image data sha1: dae881901c5fdceb9664d766eb3c1bef779ae380]",
       "width": 383,
       "height": 300,
       "coordmap": {
@@ -52,10 +52,10 @@
               "top": 2.33701832399766
             },
             "range": {
-              "left": 59.04,
-              "right": 352.76,
-              "bottom": 225.56,
-              "top": 58.04
+              "left": 59.0400154151476,
+              "right": 352.759992104437,
+              "bottom": 225.559975519992,
+              "top": 58.0400196800066
             },
             "log": {
               "x": null,
