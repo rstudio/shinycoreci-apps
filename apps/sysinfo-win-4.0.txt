@@ -1,3 +1,6 @@
+Image Version:  20200720.1 
+osVersion: Windows Server x64 (build 17763)
+--------------------------------------------------------------------------------
  setting  value                       
  version  R version 4.0.2 (2020-06-22)
  os       Windows Server x64          
@@ -7,7 +10,7 @@
  collate  English_United States.1252  
  ctype    English_United States.1252  
  tz       UTC                         
- date     2020-07-27                  
+ date     2020-07-28                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -100,13 +103,13 @@
 88              rlang       0.4.7   CRAN                       
 89          rmarkdown       2.3.3 GitHub 204aa41   rstudio/HEAD
 90          rprojroot       1.3-2   CRAN                       
-91          rsconnect 0.8.16-9001    Git 6d3afda        /master
+91          rsconnect 0.8.16-9001    Git 68bf6a7        /master
 92         rstudioapi        0.11   CRAN                       
 93               sass       0.2.0   CRAN                       
 94             scales       1.1.1   CRAN                       
 95        sessioninfo       1.1.1   CRAN                       
-96              shiny  1.5.0.9001    Git abc6a98        /master
-97        shinycoreci  0.0.0.9005 GitHub 8bbb31c rstudio/master
+96              shiny  1.5.0.9001    Git 78fb253        /master
+97        shinycoreci  0.0.0.9005 GitHub 7f47c74 rstudio/master
 98         shinyjster  0.0.0.9009    Git 36b5bb3        /master
 99          shinymeta       0.2.0    Git b78a1cf        /master
 100         shinytest  1.4.0.9001    Git f8ee85e        /master
