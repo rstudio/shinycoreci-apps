@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.4 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2020-07-28                  
+ date     2020-07-29                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -28,7 +28,7 @@ osVersion: Ubuntu 18.04.4 LTS
 13             crayon       1.3.4   RSPM                       
 14          crosstalk  1.1.0.9000    Git efa729c        /master
 15               curl         4.3   CRAN                       
-16         data.table      1.13.0   CRAN                       
+16         data.table      1.13.0   RSPM                       
 17                DBI       1.1.0   RSPM                       
 18             dbplyr       1.4.4   RSPM                       
 19            debugme       1.1.0   RSPM                       
@@ -108,8 +108,8 @@ osVersion: Ubuntu 18.04.4 LTS
 93               sass       0.2.0   RSPM                       
 94             scales       1.1.1   RSPM                       
 95        sessioninfo       1.1.1   RSPM                       
-96              shiny  1.5.0.9001    Git 78fb253        /master
-97        shinycoreci  0.0.0.9005 GitHub 7f47c74 rstudio/master
+96              shiny  1.5.0.9001    Git 766b910        /master
+97        shinycoreci  0.0.0.9005 GitHub c53a6c9 rstudio/master
 98         shinyjster  0.0.0.9009    Git 36b5bb3        /master
 99          shinymeta       0.2.0    Git b78a1cf        /master
 100         shinytest  1.4.0.9001    Git f8ee85e        /master
@@ -119,12 +119,12 @@ osVersion: Ubuntu 18.04.4 LTS
 104           stringi       1.4.6   RSPM                       
 105           stringr       1.4.0   RSPM                       
 106            styler       1.3.2   RSPM                       
-107               sys         3.4   CRAN                       
+107               sys         3.4   RSPM                       
 108          testthat       2.3.2   RSPM                       
 109            tibble       3.0.3   RSPM                       
 110             tidyr       1.1.0   RSPM                       
 111        tidyselect       1.1.0   RSPM                       
-112           tinytex        0.25   CRAN                       
+112           tinytex        0.25   RSPM                       
 113              utf8       1.1.4   RSPM                       
 114             vctrs       0.3.2   RSPM                       
 115           viridis       0.5.1   RSPM                       
@@ -132,7 +132,7 @@ osVersion: Ubuntu 18.04.4 LTS
 117         webdriver       1.0.5   RSPM                       
 118         websocket  1.3.1.9000    Git 441b9d3        /master
 119             withr       2.2.0   RSPM                       
-120              xfun        0.16   CRAN                       
+120              xfun        0.16   RSPM                       
 121            xtable       1.8-4   RSPM                       
 122              yaml       2.2.1   RSPM                       
 123              boot      1.3-24   CRAN                       
