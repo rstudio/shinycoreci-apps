@@ -10,7 +10,7 @@ osVersion: Windows Server x64 (build 17763)
  collate  English_United States.1252  
  ctype    English_United States.1252  
  tz       UTC                         
- date     2020-07-28                  
+ date     2020-07-29                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -108,8 +108,8 @@ osVersion: Windows Server x64 (build 17763)
 93               sass       0.2.0   CRAN                       
 94             scales       1.1.1   CRAN                       
 95        sessioninfo       1.1.1   CRAN                       
-96              shiny  1.5.0.9001    Git 78fb253        /master
-97        shinycoreci  0.0.0.9005 GitHub 7f47c74 rstudio/master
+96              shiny  1.5.0.9001    Git 766b910        /master
+97        shinycoreci  0.0.0.9005 GitHub c53a6c9 rstudio/master
 98         shinyjster  0.0.0.9009    Git 36b5bb3        /master
 99          shinymeta       0.2.0    Git b78a1cf        /master
 100         shinytest  1.4.0.9001    Git f8ee85e        /master
