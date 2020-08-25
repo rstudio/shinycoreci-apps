@@ -23,6 +23,10 @@
     "ziptable_cell_clicked": {
 
     },
+    "ziptable_cells_selected": [
+
+    ],
+    "ziptable_columns_selected": null,
     "ziptable_rows_all": [
       1,
       2,
