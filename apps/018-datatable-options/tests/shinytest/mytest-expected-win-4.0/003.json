@@ -3,6 +3,10 @@
     "ex1_cell_clicked": {
 
     },
+    "ex1_cells_selected": [
+
+    ],
+    "ex1_columns_selected": null,
     "ex1_rows_all": [
       1,
       2,
@@ -188,6 +192,10 @@
     "ex2_cell_clicked": {
 
     },
+    "ex2_cells_selected": [
+
+    ],
+    "ex2_columns_selected": null,
     "ex2_rows_all": [
       1,
       2,
@@ -363,6 +371,10 @@
     "ex3_cell_clicked": {
 
     },
+    "ex3_cells_selected": [
+
+    ],
+    "ex3_columns_selected": null,
     "ex3_rows_all": [
       1,
       2,
