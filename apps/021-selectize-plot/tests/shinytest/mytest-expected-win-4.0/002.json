@@ -3,6 +3,10 @@
     "rawdata_cell_clicked": {
 
     },
+    "rawdata_cells_selected": [
+
+    ],
+    "rawdata_columns_selected": null,
     "rawdata_rows_all": [
       1,
       2,
@@ -74,7 +78,7 @@
   },
   "output": {
     "parcoord": {
-      "src": "[image data sha1: 036f7fbebb8fc40b66c2ec90bf0912f9136388e1]",
+      "src": "[image data sha1: abc6f3c1bba138bac94830a97446640759bbdbf7]",
       "width": 383,
       "height": 400,
       "coordmap": {
@@ -87,10 +91,10 @@
               "top": 350.448
             },
             "range": {
-              "left": 57.6000150391684,
-              "right": 381.559999624021,
-              "bottom": 370.199992799998,
-              "top": 27.8000072000017
+              "left": 57.6,
+              "right": 381.56,
+              "bottom": 370.2,
+              "top": 27.7999999999999
             },
             "log": {
               "x": null,
