@@ -3,6 +3,10 @@
     "rawdata_cell_clicked": {
 
     },
+    "rawdata_cells_selected": [
+
+    ],
+    "rawdata_columns_selected": null,
     "rawdata_rows_all": [
       1,
       2,
