@@ -5,6 +5,10 @@
     "one-table_cell_clicked": {
 
     },
+    "one-table_cells_selected": [
+
+    ],
+    "one-table_columns_selected": null,
     "one-table_rows_all": 1,
     "one-table_rows_current": 1,
     "one-table_rows_selected": null,
@@ -13,6 +17,10 @@
     "table_cell_clicked": {
 
     },
+    "table_cells_selected": [
+
+    ],
+    "table_columns_selected": null,
     "table_rows_all": 1,
     "table_rows_current": 1,
     "table_rows_selected": null,
