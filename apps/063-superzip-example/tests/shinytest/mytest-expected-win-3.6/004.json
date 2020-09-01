@@ -23,6 +23,10 @@
     "ziptable_cell_clicked": {
 
     },
+    "ziptable_cells_selected": [
+
+    ],
+    "ziptable_columns_selected": null,
     "ziptable_rows_all": [
       1,
       2,
@@ -543,6 +547,7 @@
       "src": "[image data sha1: 28bf4f9bae8fb33e277a4c6597080d24dafab384]",
       "width": 288,
       "height": 200,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -636,6 +641,7 @@
       "src": "[image data sha1: 1d0d2f30458fc95c18647f6954e454f097ebc54f]",
       "width": 288,
       "height": 250,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {

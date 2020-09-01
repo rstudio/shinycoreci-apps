@@ -136,6 +136,7 @@
       "src": "[image data sha1: d1b9678b9e92e701883e56e1338a238c67900ce3]",
       "width": 600,
       "height": 400,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -171,6 +172,7 @@
       "src": "[image data sha1: 39af662ca823363b9858943a4f770c1e4146d6f3]",
       "width": 100,
       "height": 40,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
