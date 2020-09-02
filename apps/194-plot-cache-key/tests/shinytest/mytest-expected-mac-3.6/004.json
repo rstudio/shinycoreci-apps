@@ -2,20 +2,20 @@
   "input": {
     "n": 100,
     "newdata": 1,
-    "reactlog_module-refresh": 0
+    "reactlog_module-refresh": 4
   },
   "output": {
     "plot": {
-      "src": "[image data sha1: 2812381ba020dba28b098b45618723bfb44148f6]",
+      "src": "[image data sha1: 8e06dfc12a412d6703b5efc7b32d5405213d8a65]",
       "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": -3.28546014282691,
-              "right": 2.74110519704992,
-              "bottom": -2.80452210631763,
-              "top": 3.53797859909968
+              "left": -3.23980371691125,
+              "right": 3.33579037469539,
+              "bottom": -2.73592099752419,
+              "top": 2.89417409441279
             },
             "range": {
               "left": 59.04,
@@ -40,7 +40,7 @@
       "class": "shiny-scalable"
     },
     "reactlog_module-iframe": {
-      "html": "<iframe id=\"reactlog_module-reactlog_iframe_604d9b3\" width=\"100%\" height=\"600\"><\/iframe>\n<script>\n            (function() {\n              var src =\n                'reactlog?w=' + window.escape(window.Shiny.shinyapp.config.workerId) +\n                '&s=' + window.escape(window.Shiny.shinyapp.config.sessionId) + '&test=1';\n              $('#reactlog_module-reactlog_iframe_604d9b3').attr('src', src);\n            })()\n          <\/script>",
+      "html": "<iframe id=\"reactlog_module-reactlog_iframe_6f992d9\" width=\"100%\" height=\"600\"><\/iframe>\n<script>\n            (function() {\n              var src =\n                'reactlog?w=' + window.escape(window.Shiny.shinyapp.config.workerId) +\n                '&s=' + window.escape(window.Shiny.shinyapp.config.sessionId) + '&test=1';\n              $('#reactlog_module-reactlog_iframe_6f992d9').attr('src', src);\n            })()\n          <\/script>",
       "deps": [
 
       ]
