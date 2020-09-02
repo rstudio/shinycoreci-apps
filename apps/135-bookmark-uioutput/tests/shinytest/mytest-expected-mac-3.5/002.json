@@ -6,7 +6,7 @@
   },
   "output": {
     "ui": {
-      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"x\">x<\/label>\n  <input class=\"js-range-slider\" id=\"x\" data-min=\"1\" data-max=\"10\" data-from=\"5\" data-step=\"1\" data-grid=\"true\" data-grid-num=\"9\" data-grid-snap=\"false\" data-prettify-separator=\",\" data-prettify-enabled=\"true\" data-keyboard=\"true\" data-data-type=\"number\"/>\n<\/div>",
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" id=\"x-label\" for=\"x\">x<\/label>\n  <input class=\"js-range-slider\" id=\"x\" data-min=\"1\" data-max=\"10\" data-from=\"5\" data-step=\"1\" data-grid=\"true\" data-grid-num=\"9\" data-grid-snap=\"false\" data-prettify-separator=\",\" data-prettify-enabled=\"true\" data-keyboard=\"true\" data-data-type=\"number\"/>\n<\/div>",
       "deps": [
         {
           "name": "ionrangeslider",

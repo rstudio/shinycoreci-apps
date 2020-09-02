@@ -10,6 +10,7 @@
       "src": "[image data sha1: 595fc0b6be6276ebb77d2220f3d5c047d4b5672d]",
       "width": 631,
       "height": 400,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -41,18 +42,18 @@
       }
     },
     "rockvars": {
-      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"vars\">从岩石数据中选择一列作为自变量<\/label>\n  <div>\n    <select id=\"vars\"><option value=\"周长\" selected>周长<\/option>\n<option value=\"形状\">形状<\/option>\n<option value=\"渗透性\">渗透性<\/option><\/select>\n    <script type=\"application/json\" data-for=\"vars\" data-nonempty=\"\">{}<\/script>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" id=\"vars-label\" for=\"vars\">从岩石数据中选择一列作为自变量<\/label>\n  <div>\n    <select id=\"vars\"><option value=\"周长\" selected>周长<\/option>\n<option value=\"形状\">形状<\/option>\n<option value=\"渗透性\">渗透性<\/option><\/select>\n    <script type=\"application/json\" data-for=\"vars\" data-nonempty=\"\">{\"plugins\":[\"selectize-plugin-a11y\"]}<\/script>\n  <\/div>\n<\/div>",
       "deps": [
         {
           "name": "selectize",
-          "version": "0.11.2",
+          "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
           },
           "meta": null,
           "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
-          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
           "attachment": null,
           "package": null,
           "all_files": true

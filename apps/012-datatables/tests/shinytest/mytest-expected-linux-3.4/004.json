@@ -4,6 +4,10 @@
     "mytable1_cell_clicked": {
 
     },
+    "mytable1_cells_selected": [
+
+    ],
+    "mytable1_columns_selected": null,
     "mytable1_rows_all": [
       1,
       2,
@@ -1024,6 +1028,10 @@
     "mytable2_cell_clicked": {
 
     },
+    "mytable2_cells_selected": [
+
+    ],
+    "mytable2_columns_selected": null,
     "mytable2_rows_all": [
       1,
       2,

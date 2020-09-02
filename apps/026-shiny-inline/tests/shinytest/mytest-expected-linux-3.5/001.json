@@ -6,7 +6,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: dfc19ab1b325a0e27121357ceca774a767f59dba]",
+      "html": "[html data sha1: 75af7bfb81a1eba71125bfc7055b1e290dc87ecb]",
       "deps": [
         {
           "name": "jquery",
@@ -72,14 +72,14 @@
         },
         {
           "name": "selectize",
-          "version": "0.11.2",
+          "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
           },
           "meta": null,
           "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
-          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
           "attachment": null,
           "package": null,
           "all_files": true
@@ -136,6 +136,7 @@
       "src": "[image data sha1: b486d465cd31c12ee2273b26515287f0bbf3097c]",
       "width": 150,
       "height": 40,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -171,6 +172,7 @@
       "src": "[image data sha1: d1b9678b9e92e701883e56e1338a238c67900ce3]",
       "width": 600,
       "height": 400,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {

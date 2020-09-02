@@ -10,18 +10,18 @@
     "dynamic_value": " chr [1:2] \"option1\" \"option2\"",
     "input_type_text": "selectInput (multi)",
     "ui": {
-      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" for=\"dynamic\">Dynamic<\/label>\n  <div>\n    <select id=\"dynamic\" multiple=\"multiple\"><option value=\"option1\" selected>Option 1<\/option>\n<option value=\"option2\" selected>Option 2<\/option><\/select>\n    <script type=\"application/json\" data-for=\"dynamic\">{}<\/script>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" id=\"dynamic-label\" for=\"dynamic\">Dynamic<\/label>\n  <div>\n    <select id=\"dynamic\" multiple=\"multiple\"><option value=\"option1\" selected>Option 1<\/option>\n<option value=\"option2\" selected>Option 2<\/option><\/select>\n    <script type=\"application/json\" data-for=\"dynamic\">{\"plugins\":[\"selectize-plugin-a11y\"]}<\/script>\n  <\/div>\n<\/div>",
       "deps": [
         {
           "name": "selectize",
-          "version": "0.11.2",
+          "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
           },
           "meta": null,
           "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
-          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
           "attachment": null,
           "package": null,
           "all_files": true
