@@ -10,7 +10,7 @@ osVersion: Windows Server x64 (build 17763)
  collate  English_United States.1252  
  ctype    English_United States.1252  
  tz       UTC                         
- date     2020-09-02                  
+ date     2020-09-03                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -70,7 +70,7 @@ osVersion: Windows Server x64 (build 17763)
 55           markdown         1.1   CRAN                       
 56               mime         0.9   CRAN                       
 57            munsell       0.5.0   CRAN                       
-58            openssl       1.4.1   CRAN                       
+58            openssl       1.4.2   CRAN                       
 59            packrat       0.5.0   CRAN                       
 60          parsedate       1.2.0   CRAN                       
 61             pillar       1.4.6   CRAN                       
