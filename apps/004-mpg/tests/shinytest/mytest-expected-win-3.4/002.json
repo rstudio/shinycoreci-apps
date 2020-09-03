@@ -6,9 +6,10 @@
   "output": {
     "caption": "mpg ~ am",
     "mpgPlot": {
-      "src": "[image data sha1: 62b33b3ddcfea4f182cec7ee1fbed105503cba6d]",
+      "src": "[image data sha1: 6c27b0e3527dbab0a860caf24d6353551fe0b4af]",
       "width": 631,
       "height": 400,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -19,10 +20,10 @@
               "top": 34.84
             },
             "range": {
-              "left": 59.0400093565783,
-              "right": 600.759995207606,
-              "bottom": 325.559981639995,
-              "top": 58.0400147600037
+              "left": 59.04,
+              "right": 600.76,
+              "bottom": 325.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
