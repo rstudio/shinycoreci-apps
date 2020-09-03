@@ -5,6 +5,7 @@
   "output": {
     "ggplotNN": {
       "src": "[image data sha1: dc263419671c93df8c6c72cb1bdc925fce2445a7]",
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -45,6 +46,7 @@
     },
     "ggplotNY": {
       "src": "[image data sha1: dc263419671c93df8c6c72cb1bdc925fce2445a7]",
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -85,6 +87,7 @@
     },
     "ggplotYN": {
       "src": "[image data sha1: dc263419671c93df8c6c72cb1bdc925fce2445a7]",
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -125,6 +128,7 @@
     },
     "ggplotYY": {
       "src": "[image data sha1: dc263419671c93df8c6c72cb1bdc925fce2445a7]",
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -165,6 +169,7 @@
     },
     "plotNN": {
       "src": "[image data sha1: 1a545b668cdf519d4bcaa24d3b79f869ea8882c7]",
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -198,6 +203,7 @@
     },
     "plotNY": {
       "src": "[image data sha1: 1a545b668cdf519d4bcaa24d3b79f869ea8882c7]",
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -231,6 +237,7 @@
     },
     "plotYN": {
       "src": "[image data sha1: 1a545b668cdf519d4bcaa24d3b79f869ea8882c7]",
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -264,6 +271,7 @@
     },
     "plotYY": {
       "src": "[image data sha1: 1a545b668cdf519d4bcaa24d3b79f869ea8882c7]",
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
