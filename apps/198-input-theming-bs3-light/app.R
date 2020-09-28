@@ -1,9 +1,10 @@
 # IF YOU CHANGE THIS APP, YOU LIKELY WANT TO COPY THOSE CHANGES OVER TO APPS 195-198
 library(shiny)
+library(bootstraplib)
 shinyApp(
   navbarPage(
-    title = paste("Bootstrap", theme_version()),
-    id = "navbar",
+    theme = bs_theme(3, base_font = "Grandstander"),
+    title = "Bootstrap 3 Light Mode", id = "navbar",
     tabPanel(
       "Inputs",
       tabsetPanel(

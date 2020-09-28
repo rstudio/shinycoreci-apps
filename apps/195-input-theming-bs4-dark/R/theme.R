@@ -1,5 +1,0 @@
-library(bootstraplib)
-bs_theme_new()
-bs_theme_base_colors(bg = "#202123", fg = "#B8BCC2")
-bs_theme_accent_colors(primary = "#EA80FC")
-bs_theme_fonts("Grandstander")
