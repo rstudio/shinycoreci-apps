@@ -1,0 +1,182 @@
+{
+  "input": {
+    "clusters": 3,
+    "xcol": "Petal.Length",
+    "ycol": "Sepal.Width"
+  },
+  "output": {
+    "__reactivedoc__": {
+      "html": "[html data sha1: 29cbbe5591b251cba9c0d4e80b6c967aaa7ed325]",
+      "deps": [
+        {
+          "name": "header-attrs",
+          "version": "2.4.0",
+          "src": {
+            "href": "header-attrs-2.4.0"
+          },
+          "meta": null,
+          "script": "header-attrs.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "jquery",
+          "version": "3.5.1",
+          "src": {
+            "href": "https://code.jquery.com"
+          },
+          "meta": null,
+          "script": "jquery-3.5.1.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "bootstrap",
+          "version": "3.4.1",
+          "src": {
+            "href": "bootstrap-3.4.1"
+          },
+          "meta": {
+            "name": "viewport",
+            "content": "width=device-width, initial-scale=1, shrink-to-fit=no"
+          },
+          "script": "bootstrap.min.js",
+          "stylesheet": "bootstrap-custom.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "stickytableheaders",
+          "version": "0.1.19",
+          "src": {
+            "href": "stickytableheaders-0.1.19"
+          },
+          "meta": null,
+          "script": "jquery.stickytableheaders.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "font-awesome",
+          "version": "5.1.0",
+          "src": {
+            "href": "font-awesome-5.1.0"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "css/all.css",
+            "css/v4-shims.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "featherlight",
+          "version": "1.3.5",
+          "src": {
+            "href": "featherlight-1.3.5"
+          },
+          "meta": null,
+          "script": "featherlight.min.js",
+          "stylesheet": "featherlight.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "prism",
+          "version": "1.4.1",
+          "src": {
+            "href": "prism-1.4.1"
+          },
+          "meta": null,
+          "script": "prism.js",
+          "stylesheet": "prism.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "selectize",
+          "version": "0.11.2",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "rmarkdown-performance",
+          "version": "0.1",
+          "src": {
+            "href": "rmarkdown-performance-0.1"
+          },
+          "meta": null,
+          "script": "rmd_perf.js",
+          "stylesheet": "rmd_perf.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "out14b5704808d36246": {
+      "src": "[image data sha1: 52730c0a3673bd2b392c334b047d05690641e7f2]",
+      "width": 738,
+      "height": 627,
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 0.764,
+              "right": 7.136,
+              "bottom": 1.904,
+              "top": 4.496
+            },
+            "range": {
+              "left": 59.04,
+              "right": 723.6,
+              "bottom": 552.56,
+              "top": -1
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 738,
+          "height": 627
+        }
+      }
+    }
+  },
+  "export": {
+
+  }
+}
