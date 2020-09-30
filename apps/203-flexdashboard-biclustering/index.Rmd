@@ -1,7 +1,7 @@
 ---
 title: "Gene Expression Biclustering"
 author: "Bryan Lewis"
-output: 
+output:
   flexdashboard::flex_dashboard:
     orientation: rows
     social: menu
@@ -21,8 +21,12 @@ Inputs {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r}
- selectInput("clusterNum", label = h3("Cluster number"), 
-    choices = list("1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5), 
+ selectInput("clusterNum", label = h3("Cluster number"),
+    choices = list(
+      "1" = 1, "2" = 2
+      # only two cluster found!
+      # "3" = 3, "4" = 4, "5" = 5
+    ),
     selected = 1)
 ```
 
@@ -38,7 +42,7 @@ Row
 -----------------------------------------------------------------------
 
 ### Heatmap
-    
+
 ```{r}
 
 num <- reactive(as.integer(input$clusterNum))
@@ -57,13 +61,13 @@ Row {.tabset}
 -----------------------------------------------------------------------
 
 ### Parallel Coordinates
-    
+
 ```{r}
 renderPlot(
   parallelCoordinates(BicatYeast, res, number=num())
 )
 ```
-   
+
 ### Data for Selected Cluster
 
 ```{r}
