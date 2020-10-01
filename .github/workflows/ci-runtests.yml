@@ -39,7 +39,7 @@ jobs:
           find . -name "${{ matrix.folder }}" > _folders_found.txt
           if [ -s _folders_found.txt ]
           then
-            cat folders_found.txt
+            cat _folders_found.txt
             exit 1;
           fi
 
