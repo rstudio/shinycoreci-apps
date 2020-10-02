@@ -18,6 +18,7 @@ library(viridisLite)
 library(forecast)
 library(treemap)
 library(flexdashboard)
+library(arules)
 
 thm <-
   hc_theme(
