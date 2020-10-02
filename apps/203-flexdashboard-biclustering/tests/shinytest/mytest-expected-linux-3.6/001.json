@@ -1,12 +1,10 @@
 {
   "input": {
-    "asp": 0.02,
-    "main": "A",
-    "size": 3.25
+    "clusterNum": "1"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 566d563998dee1240cb8849c76df9df0613a69bf]",
+      "html": "[html data sha1: 550e462a11c915f513462c769adb7dda61cf6a26]",
       "deps": [
         {
           "name": "jquery",
@@ -36,20 +34,20 @@
             "shim/html5shiv.min.js",
             "shim/respond.min.js"
           ],
-          "stylesheet": "css/bootstrap.min.css",
+          "stylesheet": "css/cosmo.min.css",
           "head": null,
           "attachment": null,
           "package": null,
           "all_files": true
         },
         {
-          "name": "navigation",
-          "version": "1.1",
+          "name": "stickytableheaders",
+          "version": "0.1.19",
           "src": {
-            "href": "navigation-1.1"
+            "href": "stickytableheaders-0.1.19"
           },
           "meta": null,
-          "script": "tabsets.js",
+          "script": "jquery.stickytableheaders.min.js",
           "stylesheet": null,
           "head": null,
           "attachment": null,
@@ -57,14 +55,45 @@
           "all_files": true
         },
         {
-          "name": "highlightjs",
-          "version": "9.12.0",
+          "name": "font-awesome",
+          "version": "5.1.0",
           "src": {
-            "href": "highlightjs-9.12.0"
+            "href": "font-awesome-5.1.0"
           },
           "meta": null,
-          "script": "highlight.js",
-          "stylesheet": "default.css",
+          "script": null,
+          "stylesheet": [
+            "css/all.css",
+            "css/v4-shims.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "featherlight",
+          "version": "1.3.5",
+          "src": {
+            "href": "featherlight-1.3.5"
+          },
+          "meta": null,
+          "script": "featherlight.min.js",
+          "stylesheet": "featherlight.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "prism",
+          "version": "1.4.1",
+          "src": {
+            "href": "prism-1.4.1"
+          },
+          "meta": null,
+          "script": "prism.js",
+          "stylesheet": "prism.css",
           "head": null,
           "attachment": null,
           "package": null,
@@ -85,48 +114,6 @@
           "all_files": true
         },
         {
-          "name": "ionrangeslider-css",
-          "version": "2.3.1",
-          "src": {
-            "href": "shared/ionrangeslider"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "css/ion.rangeSlider.css",
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "ionrangeslider-javascript",
-          "version": "2.3.1",
-          "src": {
-            "href": "shared/ionrangeslider"
-          },
-          "meta": null,
-          "script": "js/ion.rangeSlider.min.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "strftime",
-          "version": "0.9.2",
-          "src": {
-            "href": "shared/strftime"
-          },
-          "meta": null,
-          "script": "strftime-min.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
           "name": "rmarkdown-performance",
           "version": "0.1",
           "src": {
@@ -142,62 +129,25 @@
         }
       ]
     },
-    "out092bb89e9393fda8": "3.25",
-    "out1ba546fb6de0170a": {
-      "src": "[image data sha1: 9c276029578402f7201072d4371700e3010ceeb8]",
-      "width": 600,
-      "height": 400,
+    "out29af5182d8abd845": {
+      "src": "[image data sha1: bc807d1ad2f04a3d97735315b9e7604cc10c63a8]",
+      "width": 738,
+      "height": 286,
       "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": 3.16,
-              "right": 25.84,
-              "bottom": -2.72,
-              "top": 124.72
-            },
-            "range": {
-              "left": 59.04,
-              "right": 569.76,
-              "bottom": 325.56,
-              "top": 58.04
-            },
-            "log": {
-              "x": null,
-              "y": null
-            },
-            "mapping": {
-
-            }
-          }
-        ],
-        "dims": {
-          "width": 600,
-          "height": 400
-        }
-      }
-    },
-    "out4534806ab07416dc": "A",
-    "out59f0ffc8c7802ff4": {
-      "src": "[image data sha1: 8f037b8a36a4a6eb2b7977fb36b77773c6b6dcfb]",
-      "width": 300,
-      "height": 40,
-      "alt": "Plot object",
-      "coordmap": {
-        "panels": [
-          {
-            "domain": {
-              "left": 1739.6033333332,
-              "right": 1993.3133333368,
-              "bottom": -718.800000012001,
-              "top": 972.600000012
+              "left": 0.5,
+              "right": 70.5,
+              "bottom": 0.5,
+              "top": 419.5
             },
             "range": {
               "left": 0,
-              "right": 300,
-              "bottom": 39,
-              "top": -0.999999999999991
+              "right": 738,
+              "bottom": 285,
+              "top": -1
             },
             "log": {
               "x": null,
@@ -209,8 +159,43 @@
           }
         ],
         "dims": {
-          "width": 300,
-          "height": 40
+          "width": 738,
+          "height": 286
+        }
+      }
+    },
+    "out7bb48427180e2c3a": {
+      "src": "[image data sha1: 5bd07510a944554a401cc0a5312f01aa48e227d6]",
+      "width": 738,
+      "height": 281,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 0.12,
+              "right": 23.88,
+              "bottom": -5.096770144,
+              "top": 4.933558244
+            },
+            "range": {
+              "left": 59.04,
+              "right": 707.76,
+              "bottom": 206.56,
+              "top": 58.0400000000001
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 738,
+          "height": 281
         }
       }
     }
