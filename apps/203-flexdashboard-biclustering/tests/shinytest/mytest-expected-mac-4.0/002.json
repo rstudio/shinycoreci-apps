@@ -1,19 +1,19 @@
 {
   "input": {
-    "clusterNum": "1"
+    "clusterNum": "2"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 0834d4bca655456eed6570c4faaa39738b300bb7]",
+      "html": "[html data sha1: 550e462a11c915f513462c769adb7dda61cf6a26]",
       "deps": [
         {
-          "name": "header-attrs",
-          "version": "2.4.0",
+          "name": "jquery",
+          "version": "1.11.3",
           "src": {
-            "href": "header-attrs-2.4.0"
+            "href": "jquery-1.11.3"
           },
           "meta": null,
-          "script": "header-attrs.js",
+          "script": "jquery.min.js",
           "stylesheet": null,
           "head": null,
           "attachment": null,
@@ -21,30 +21,20 @@
           "all_files": true
         },
         {
-          "name": "jquery",
-          "version": "3.5.1",
-          "src": {
-            "href": "https://code.jquery.com"
-          },
-          "meta": null,
-          "script": "jquery-3.5.1.min.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
           "name": "bootstrap",
-          "version": "3.4.1",
+          "version": "3.3.5",
           "src": {
-            "href": "bootstrap-3.4.1"
+            "href": "bootstrap-3.3.5"
           },
           "meta": {
-            "name": "viewport",
-            "content": "width=device-width, initial-scale=1, shrink-to-fit=no"
+            "viewport": "width=device-width, initial-scale=1"
           },
-          "script": "bootstrap.min.js",
-          "stylesheet": "bootstrap-custom.min.css",
+          "script": [
+            "js/bootstrap.min.js",
+            "shim/html5shiv.min.js",
+            "shim/respond.min.js"
+          ],
+          "stylesheet": "css/cosmo.min.css",
           "head": null,
           "attachment": null,
           "package": null,
@@ -111,14 +101,14 @@
         },
         {
           "name": "selectize",
-          "version": "0.11.2",
+          "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
           },
           "meta": null,
           "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
-          "head": "<!--[if lt IE 9]>\n<script src=\"shared/selectize/js/es5-shim.min.js\"><\/script>\n<![endif]-->\n<script src=\"shared/selectize/js/selectize.min.js\"><\/script>",
+          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
           "attachment": null,
           "package": null,
           "all_files": true
@@ -140,9 +130,10 @@
       ]
     },
     "out29af5182d8abd845": {
-      "src": "[image data sha1: 31cc1d38ad00e0cbaddbecd434abc3e8e1e70fe2]",
+      "src": "[image data sha1: 9b30754447fc4798098d13a367d67e0c9e8601a8]",
       "width": 738,
-      "height": 286,
+      "height": 285,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
@@ -155,7 +146,7 @@
             "range": {
               "left": 0,
               "right": 738,
-              "bottom": 285,
+              "bottom": 284,
               "top": -1
             },
             "log": {
@@ -169,28 +160,28 @@
         ],
         "dims": {
           "width": 738,
-          "height": 286
+          "height": 285
         }
-      },
-      "error": null
+      }
     },
     "out7bb48427180e2c3a": {
-      "src": "[image data sha1: 7b8f1675dad0146c896297f26918aa5e19b21226]",
+      "src": "[image data sha1: 7b2f895d9b67f8a032b4e2b84933ccb3e4849948]",
       "width": 738,
-      "height": 283,
+      "height": 282,
+      "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": 0.12,
-              "right": 23.88,
-              "bottom": -5.096770144,
-              "top": 4.933558244
+              "left": -0.12,
+              "right": 30.12,
+              "bottom": -4.804595336,
+              "top": 4.411015936
             },
             "range": {
               "left": 59.04,
               "right": 707.76,
-              "bottom": 208.56,
+              "bottom": 207.56,
               "top": 58.04
             },
             "log": {
@@ -204,10 +195,9 @@
         ],
         "dims": {
           "width": 738,
-          "height": 283
+          "height": 282
         }
-      },
-      "error": null
+      }
     },
     "out9f203271b74fca94": "<table  class = 'table shiny-table table- spacing-s' style = 'width:auto;'>\n<thead> <tr> <th style='text-align: right;'> cold_green_24h <\/th> <th style='text-align: right;'> osmotic_green_6h <\/th> <th style='text-align: right;'> osmotic_green_24h <\/th> <th style='text-align: right;'> salt_green_6h <\/th> <th style='text-align: right;'> salt_green_24h <\/th> <th style='text-align: right;'> UV-B_green_6h <\/th> <th style='text-align: right;'> DC3000_24h <\/th>  <\/tr> <\/thead> <tbody>\n  <tr> <td align=\"right\"> -0.31 <\/td> <td align=\"right\"> -0.22 <\/td> <td align=\"right\"> -2.42 <\/td> <td align=\"right\"> 0.22 <\/td> <td align=\"right\"> -2.18 <\/td> <td align=\"right\"> -0.94 <\/td> <td align=\"right\"> -2.98 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.98 <\/td> <td align=\"right\"> -2.82 <\/td> <td align=\"right\"> -4.22 <\/td> <td align=\"right\"> -0.48 <\/td> <td align=\"right\"> -2.04 <\/td> <td align=\"right\"> -1.85 <\/td> <td align=\"right\"> -0.17 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -1.61 <\/td> <td align=\"right\"> -1.92 <\/td> <td align=\"right\"> -4.12 <\/td> <td align=\"right\"> -0.86 <\/td> <td align=\"right\"> -1.77 <\/td> <td align=\"right\"> -0.75 <\/td> <td align=\"right\"> -3.37 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.52 <\/td> <td align=\"right\"> -1.31 <\/td> <td align=\"right\"> -3.32 <\/td> <td align=\"right\"> -0.20 <\/td> <td align=\"right\"> -2.36 <\/td> <td align=\"right\"> -1.67 <\/td> <td align=\"right\"> -3.14 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.21 <\/td> <td align=\"right\"> -1.57 <\/td> <td align=\"right\"> -2.32 <\/td> <td align=\"right\"> -1.27 <\/td> <td align=\"right\"> -2.57 <\/td> <td align=\"right\"> -1.51 <\/td> <td align=\"right\"> -1.76 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.60 <\/td> <td align=\"right\"> -2.98 <\/td> <td align=\"right\"> -3.12 <\/td> <td align=\"right\"> -1.73 <\/td> <td align=\"right\"> -3.20 <\/td> <td align=\"right\"> -1.35 <\/td> <td align=\"right\"> -2.69 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -1.75 <\/td> <td align=\"right\"> -3.14 <\/td> <td align=\"right\"> -3.53 <\/td> <td align=\"right\"> -1.31 <\/td> <td align=\"right\"> -2.51 <\/td> <td align=\"right\"> -1.59 <\/td> <td align=\"right\"> -3.16 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.18 <\/td> <td align=\"right\"> -3.09 <\/td> <td align=\"right\"> -3.53 <\/td> <td align=\"right\"> -0.92 <\/td> <td align=\"right\"> -1.53 <\/td> <td align=\"right\"> -1.41 <\/td> <td align=\"right\"> -2.65 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.06 <\/td> <td align=\"right\"> -2.68 <\/td> <td align=\"right\"> -4.15 <\/td> <td align=\"right\"> -0.65 <\/td> <td align=\"right\"> -1.84 <\/td> <td align=\"right\"> -1.77 <\/td> <td align=\"right\"> -2.82 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -1.54 <\/td> <td align=\"right\"> -2.49 <\/td> <td align=\"right\"> -4.04 <\/td> <td align=\"right\"> -0.34 <\/td> <td align=\"right\"> -2.17 <\/td> <td align=\"right\"> -1.56 <\/td> <td align=\"right\"> -2.30 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -1.42 <\/td> <td align=\"right\"> -3.17 <\/td> <td align=\"right\"> -3.96 <\/td> <td align=\"right\"> -0.50 <\/td> <td align=\"right\"> -2.39 <\/td> <td align=\"right\"> -2.08 <\/td> <td align=\"right\"> -2.95 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.92 <\/td> <td align=\"right\"> -2.16 <\/td> <td align=\"right\"> -3.67 <\/td> <td align=\"right\"> -1.15 <\/td> <td align=\"right\"> -3.07 <\/td> <td align=\"right\"> -1.82 <\/td> <td align=\"right\"> -1.83 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.64 <\/td> <td align=\"right\"> -1.84 <\/td> <td align=\"right\"> -3.33 <\/td> <td align=\"right\"> -1.20 <\/td> <td align=\"right\"> -3.09 <\/td> <td align=\"right\"> -1.40 <\/td> <td align=\"right\"> -1.69 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.60 <\/td> <td align=\"right\"> -0.92 <\/td> <td align=\"right\"> -2.71 <\/td> <td align=\"right\"> -0.10 <\/td> <td align=\"right\"> -2.81 <\/td> <td align=\"right\"> -0.91 <\/td> <td align=\"right\"> -1.45 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -0.30 <\/td> <td align=\"right\"> -1.56 <\/td> <td align=\"right\"> -3.32 <\/td> <td align=\"right\"> -0.42 <\/td> <td align=\"right\"> -1.51 <\/td> <td align=\"right\"> -0.56 <\/td> <td align=\"right\"> -0.41 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -1.77 <\/td> <td align=\"right\"> -3.17 <\/td> <td align=\"right\"> -3.02 <\/td> <td align=\"right\"> -0.97 <\/td> <td align=\"right\"> -2.28 <\/td> <td align=\"right\"> -1.28 <\/td> <td align=\"right\"> -1.67 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -1.25 <\/td> <td align=\"right\"> -1.20 <\/td> <td align=\"right\"> -3.24 <\/td> <td align=\"right\"> -1.23 <\/td> <td align=\"right\"> -3.13 <\/td> <td align=\"right\"> -0.52 <\/td> <td align=\"right\"> -1.54 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -0.65 <\/td> <td align=\"right\"> -1.22 <\/td> <td align=\"right\"> -3.57 <\/td> <td align=\"right\"> -1.13 <\/td> <td align=\"right\"> -3.77 <\/td> <td align=\"right\"> 0.18 <\/td> <td align=\"right\"> -1.05 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -0.42 <\/td> <td align=\"right\"> -2.03 <\/td> <td align=\"right\"> -3.30 <\/td> <td align=\"right\"> -1.35 <\/td> <td align=\"right\"> -3.47 <\/td> <td align=\"right\"> -1.62 <\/td> <td align=\"right\"> -0.78 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -1.62 <\/td> <td align=\"right\"> -0.64 <\/td> <td align=\"right\"> -4.73 <\/td> <td align=\"right\"> -0.01 <\/td> <td align=\"right\"> -2.39 <\/td> <td align=\"right\"> -0.53 <\/td> <td align=\"right\"> -0.65 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -2.52 <\/td> <td align=\"right\"> -1.03 <\/td> <td align=\"right\"> -4.41 <\/td> <td align=\"right\"> -0.66 <\/td> <td align=\"right\"> -2.69 <\/td> <td align=\"right\"> -1.62 <\/td> <td align=\"right\"> -2.12 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -1.52 <\/td> <td align=\"right\"> -0.91 <\/td> <td align=\"right\"> -3.78 <\/td> <td align=\"right\"> 0.37 <\/td> <td align=\"right\"> -1.09 <\/td> <td align=\"right\"> -0.07 <\/td> <td align=\"right\"> -1.78 <\/td> <\/tr>\n  <tr> <td align=\"right\"> -4.09 <\/td> <td align=\"right\"> -0.58 <\/td> <td align=\"right\"> -2.86 <\/td> <td align=\"right\"> -0.01 <\/td> <td align=\"right\"> -2.26 <\/td> <td align=\"right\"> -0.69 <\/td> <td align=\"right\"> -1.94 <\/td> <\/tr>\n   <\/tbody> <\/table>"
   },
