@@ -1,12 +1,10 @@
 {
   "input": {
-    "asp": 0.3,
-    "main": "A",
-    "size": 1
+    "clusterNum": "1"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 5d87747d84ee53e0c251b6e0d439e630386c51f4]",
+      "html": "[html data sha1: c698c119e686f0ca06573b856b323f9828225461]",
       "deps": [
         {
           "name": "jquery",
@@ -36,20 +34,20 @@
             "shim/html5shiv.min.js",
             "shim/respond.min.js"
           ],
-          "stylesheet": "css/bootstrap.min.css",
+          "stylesheet": "css/cosmo.min.css",
           "head": null,
           "attachment": null,
           "package": null,
           "all_files": true
         },
         {
-          "name": "navigation",
-          "version": "1.1",
+          "name": "stickytableheaders",
+          "version": "0.1.19",
           "src": {
-            "href": "navigation-1.1"
+            "href": "stickytableheaders-0.1.19"
           },
           "meta": null,
-          "script": "tabsets.js",
+          "script": "jquery.stickytableheaders.min.js",
           "stylesheet": null,
           "head": null,
           "attachment": null,
@@ -57,14 +55,45 @@
           "all_files": true
         },
         {
-          "name": "highlightjs",
-          "version": "9.12.0",
+          "name": "font-awesome",
+          "version": "5.1.0",
           "src": {
-            "href": "highlightjs-9.12.0"
+            "href": "font-awesome-5.1.0"
           },
           "meta": null,
-          "script": "highlight.js",
-          "stylesheet": "default.css",
+          "script": null,
+          "stylesheet": [
+            "css/all.css",
+            "css/v4-shims.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "featherlight",
+          "version": "1.3.5",
+          "src": {
+            "href": "featherlight-1.3.5"
+          },
+          "meta": null,
+          "script": "featherlight.min.js",
+          "stylesheet": "featherlight.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "prism",
+          "version": "1.4.1",
+          "src": {
+            "href": "prism-1.4.1"
+          },
+          "meta": null,
+          "script": "prism.js",
+          "stylesheet": "prism.css",
           "head": null,
           "attachment": null,
           "package": null,
@@ -85,48 +114,6 @@
           "all_files": true
         },
         {
-          "name": "ionrangeslider-css",
-          "version": "2.3.1",
-          "src": {
-            "href": "shared/ionrangeslider"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "css/ion.rangeSlider.css",
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "ionrangeslider-javascript",
-          "version": "2.3.1",
-          "src": {
-            "href": "shared/ionrangeslider"
-          },
-          "meta": null,
-          "script": "js/ion.rangeSlider.min.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "strftime",
-          "version": "0.9.2",
-          "src": {
-            "href": "shared/strftime"
-          },
-          "meta": null,
-          "script": "strftime-min.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
           "name": "rmarkdown-performance",
           "version": "0.1",
           "src": {
@@ -142,25 +129,24 @@
         }
       ]
     },
-    "out4f461eb96152fad3": "A",
-    "out588bc784570505a1": {
-      "src": "[image data sha1: 39af662ca823363b9858943a4f770c1e4146d6f3]",
-      "width": 100,
-      "height": 40,
+    "out000ad4b3a33bc7bc": {
+      "src": "[image data sha1: 1dcdcd80539cf0b5f5c9b7a9327e81502665ea45]",
+      "width": 738,
+      "height": 286,
       "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": 1739.6033333332,
-              "right": 1993.3133333368,
-              "bottom": -42.2400000024,
-              "top": 296.0400000024
+              "left": 0.5,
+              "right": 70.5,
+              "bottom": 0.5,
+              "top": 419.5
             },
             "range": {
               "left": 0,
-              "right": 100,
-              "bottom": 39,
+              "right": 738,
+              "bottom": 285,
               "top": -1
             },
             "log": {
@@ -173,30 +159,29 @@
           }
         ],
         "dims": {
-          "width": 100,
-          "height": 40
+          "width": 738,
+          "height": 286
         }
       }
     },
-    "outd713b92a568d73cd": "1",
-    "outf944471fabb10bd8": {
-      "src": "[image data sha1: d1b9678b9e92e701883e56e1338a238c67900ce3]",
-      "width": 600,
-      "height": 400,
+    "outae6f9ef61bd253ae": {
+      "src": "[image data sha1: f07c24663bdbf0ff4c5fa2829582b1c8248f2351]",
+      "width": 738,
+      "height": 281,
       "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": 3.16,
-              "right": 25.84,
-              "bottom": -2.72,
-              "top": 124.72
+              "left": -1.52,
+              "right": 66.52,
+              "bottom": -5.471139248,
+              "top": 5.075021548
             },
             "range": {
               "left": 59.04,
-              "right": 569.76,
-              "bottom": 325.56,
+              "right": 707.76,
+              "bottom": 206.56,
               "top": 58.04
             },
             "log": {
@@ -209,8 +194,8 @@
           }
         ],
         "dims": {
-          "width": 600,
-          "height": 400
+          "width": 738,
+          "height": 281
         }
       }
     }
