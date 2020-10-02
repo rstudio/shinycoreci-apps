@@ -1,10 +1,10 @@
 {
   "input": {
-
+    "month": "Feb"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 0c33c4a2dcde6f5c072a4abd56b7540a496860cf]",
+      "html": "[html data sha1: 428a8c57b05f5ad5c21edb4c1390f24d3893f00b]",
       "deps": [
         {
           "name": "jquery",
@@ -34,20 +34,20 @@
             "shim/html5shiv.min.js",
             "shim/respond.min.js"
           ],
-          "stylesheet": "css/bootstrap.min.css",
+          "stylesheet": "css/cosmo.min.css",
           "head": null,
           "attachment": null,
           "package": null,
           "all_files": true
         },
         {
-          "name": "navigation",
-          "version": "1.1",
+          "name": "stickytableheaders",
+          "version": "0.1.19",
           "src": {
-            "href": "navigation-1.1"
+            "href": "stickytableheaders-0.1.19"
           },
           "meta": null,
-          "script": "tabsets.js",
+          "script": "jquery.stickytableheaders.min.js",
           "stylesheet": null,
           "head": null,
           "attachment": null,
@@ -55,15 +55,15 @@
           "all_files": true
         },
         {
-          "name": "highlightjs",
-          "version": "9.12.0",
+          "name": "selectize",
+          "version": "0.12.4",
           "src": {
-            "href": "highlightjs-9.12.0"
+            "href": "shared/selectize"
           },
           "meta": null,
-          "script": "highlight.js",
-          "stylesheet": "default.css",
-          "head": null,
+          "script": null,
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
           "attachment": null,
           "package": null,
           "all_files": true
@@ -96,7 +96,36 @@
           "all_files": true
         }
       ]
-    }
+    },
+    "out18fb29f9d978075c": "Feb",
+    "out2dc9ad63c6dea2b4": "Feb",
+    "out2df655e7561125ed": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\">VB1: Feb<\/span>",
+      "deps": [
+
+      ]
+    },
+    "out59bbc97b6a1b4bb3": "Feb",
+    "out5c5ae4d568e6625f": "Feb",
+    "out6fe48fa3cbd09f9e": "Feb",
+    "out77712108df8238a8": "Feb",
+    "out7a34f2cd008b85be": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Feb<\/span>",
+      "deps": [
+
+      ]
+    },
+    "out7b116bf5001aac45": "Feb",
+    "outacd6d4a49ebf0ff3": "Feb",
+    "outb0c41e07540ee80f": "Feb",
+    "outb6c6046969231172": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\">VB2: Feb<\/span>",
+      "deps": [
+
+      ]
+    },
+    "outc528c8f94aec73f5": "Feb",
+    "outffbf7f8633805741": "Feb"
   },
   "export": {
 
