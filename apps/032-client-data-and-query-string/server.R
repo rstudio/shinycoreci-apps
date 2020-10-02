@@ -15,7 +15,6 @@ function(input, output, session) {
   known_names <- c(
     "output_queryText_hidden",
     "url_search",
-    "allowDataUriScheme",
     "url_protocol",
     "url_port",
     "url_hash_initial",
