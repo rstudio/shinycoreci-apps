@@ -31,7 +31,6 @@ fluidPage(
       verbatimTextOutput("queryText", placeholder = TRUE),
       h3("session$clientdata values"),
       table_from_items(
-        "allowDataUriScheme:", verbatimTextOutput("allowDataUriScheme", placeholder = TRUE),
         "pixelratio:", verbatimTextOutput("pixelratio", placeholder = TRUE),
         "singletons:", verbatimTextOutput("singletons", placeholder = TRUE),
         "url_protocol:", verbatimTextOutput("url_protocol", placeholder = TRUE),
@@ -78,7 +77,6 @@ fluidPage(
 
       is_equal('queryText', 'shinyjster=1, test=(fançy!)');
 
-      is_equal('allowDataUriScheme', 'TRUE');
       is_equal('singletons', 'cd08188abc278d3fb2fee5b96fbff85056b59085');
 
       //// not testing due to inconsistent value

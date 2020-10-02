@@ -1,0 +1,16 @@
+app <- ShinyDriver$new("../../index.Rmd", seed = 37806)
+app$snapshotInit("mytest")
+
+app$snapshot()
+
+app$setInputs(xcol = "Sepal.Width")
+app$snapshot()
+
+app$setInputs(xcol = "Petal.Length")
+app$snapshot()
+
+app$setInputs(xcol = "Petal.Width")
+app$snapshot()
+
+app$setInputs(xcol = "Species")
+app$snapshot()
