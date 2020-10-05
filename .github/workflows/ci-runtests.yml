@@ -261,7 +261,7 @@ jobs:
       # do not update pkgs, as they were installed above
       # do update app pkgs, as they have NOT been installed
       - name: Run tests
-        timeout-minutes: 120
+        timeout-minutes: 180
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
