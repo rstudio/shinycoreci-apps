@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2020-10-01                  
+ date     2020-10-05                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -25,7 +25,7 @@ osVersion: Ubuntu 18.04.5 LTS
 10                cli       2.0.2   RSPM                       
 11         colorspace       1.4-1   RSPM                       
 12         commonmark         1.7   RSPM                       
-13              cpp11       0.2.2   CRAN                       
+13              cpp11       0.2.2   RSPM                       
 14             crayon       1.3.4   RSPM                       
 15          crosstalk  1.1.0.9000    Git efa729c        /master
 16               curl         4.3   CRAN                       
@@ -54,7 +54,7 @@ osVersion: Ubuntu 18.04.5 LTS
 39              highr         0.8   RSPM                       
 40                hms       0.5.3   RSPM                       
 41          htmltools  0.5.0.9001    Git 66aa3eb        /master
-42        htmlwidgets  1.5.1.9002    Git 62a1695        /master
+42        htmlwidgets  1.5.2.9000    Git 9df7c9e        /master
 43             httpuv  1.5.4.9000    Git 5bb4342        /master
 44               httr       1.4.2   RSPM                       
 45            isoband       0.2.2   RSPM                       
@@ -80,7 +80,7 @@ osVersion: Ubuntu 18.04.5 LTS
 65            pkgload       1.1.0   RSPM                       
 66             plotly  4.9.2.9000    Git 9bc585a        /master
 67                png       0.1-7   RSPM                       
-68               pool  0.1.4.9001    Git a03d7d1        /master
+68               pool  0.1.4.9001    Git 30a7565        /master
 69             praise       1.0.0   RSPM                       
 70        prettyunits       1.1.1   RSPM                       
 71           processx       3.4.4   RSPM                       
@@ -102,14 +102,14 @@ osVersion: Ubuntu 18.04.5 LTS
 87            remotes       2.2.0   RSPM                       
 88               renv      0.12.0   RSPM                       
 89              rlang       0.4.7   RSPM                       
-90          rmarkdown       2.4.1 GitHub 29aad5e   rstudio/HEAD
+90          rmarkdown       2.4.1 GitHub 1707d0b   rstudio/HEAD
 91          rprojroot       1.3-2   RSPM                       
 92          rsconnect 0.8.16-9002    Git 3b04a6d        /master
 93         rstudioapi        0.11   RSPM                       
 94               sass       0.2.0   RSPM                       
 95             scales       1.1.1   RSPM                       
 96        sessioninfo       1.1.1   RSPM                       
-97              shiny  1.5.0.9002    Git 24ac3b9        /master
+97              shiny  1.5.0.9003    Git 03ab966        /master
 98        shinycoreci  0.0.0.9005 GitHub e6b0fce rstudio/master
 99         shinyjster  0.0.0.9009    Git 36b5bb3        /master
 100         shinymeta       0.2.0    Git b78a1cf        /master
