@@ -19,6 +19,29 @@ on:
 
 jobs:
 
+  validate_no_vanilla_testing_files:
+    runs-on: ubuntu-18.04
+    name: Check for non-shinycoreci testing files
+
+    steps:
+      - name: GitHub Pull
+        uses: actions/checkout@v2
+
+      - name: Validate all testing files contain 'shinycoreci::'
+        shell: bash
+        run: |
+          # find all files that don't contain a test function
+          grep -L "shinycoreci::test_" ./apps/*/tests/*.R | \
+            while read FIL; do
+              if [[ $FIL =~ .*/169-.* ]]; then
+                echo "skipping 169" > /dev/null
+              else
+                echo "Testing file '$FIL' does not contain a shinycoreci testing function."
+                echo "See './apps/001-hello/tests' for examples"
+                echo exit 1
+              fi
+            done
+
   validate_no_current_shinytest_folders:
     runs-on: ubuntu-18.04
     name: Check for ${{ matrix.folder }} shinytest folders
@@ -49,6 +72,7 @@ jobs:
     name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     needs:
+      - validate_no_vanilla_testing_files
       - validate_no_current_shinytest_folders
 
     strategy:
