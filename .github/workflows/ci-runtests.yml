@@ -21,7 +21,7 @@ jobs:
 
   validate_no_vanilla_testing_files:
     runs-on: ubuntu-18.04
-    name: Check for non-shinycoreci testing files
+    name: Check for non shinycoreci::test_*() files
 
     steps:
       - name: GitHub Pull
