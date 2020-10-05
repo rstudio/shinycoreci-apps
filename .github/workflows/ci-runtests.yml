@@ -41,7 +41,7 @@ jobs:
                 exit 1
               fi
             done
-          exit 0
+          echo 'Validated that test files contain shinycoreci::test_*()'
 
   validate_no_current_shinytest_folders:
     runs-on: ubuntu-18.04
@@ -66,7 +66,7 @@ jobs:
             cat _folders_found.txt
             exit 1;
           fi
-          exit 0
+          echo 'Validated that no shinytest ${{ matrix.folder }} folders exist'
 
   shinytest-apps:
     runs-on: ${{ matrix.config.os }}
