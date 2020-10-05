@@ -27,7 +27,7 @@ jobs:
       - name: GitHub Pull
         uses: actions/checkout@v2
 
-      - name: Validate all testing files contain 'shinycoreci::'
+      - name: Validate all test files contain 'shinycoreci::test_*()'
         shell: bash
         run: |
           # find all files that don't contain a test function
