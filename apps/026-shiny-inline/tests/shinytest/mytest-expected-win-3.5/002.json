@@ -6,7 +6,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 75af7bfb81a1eba71125bfc7055b1e290dc87ecb]",
+      "html": "[html data sha1: 5d87747d84ee53e0c251b6e0d439e630386c51f4]",
       "deps": [
         {
           "name": "jquery",
@@ -71,6 +71,20 @@
           "all_files": true
         },
         {
+          "name": "anchor-sections",
+          "version": "1.0",
+          "src": {
+            "href": "anchor-sections-1.0"
+          },
+          "meta": null,
+          "script": "anchor-sections.js",
+          "stylesheet": "anchor-sections.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
           "name": "selectize",
           "version": "0.12.4",
           "src": {
@@ -85,17 +99,28 @@
           "all_files": true
         },
         {
-          "name": "ionrangeslider",
-          "version": "2.1.6",
+          "name": "ionrangeslider-css",
+          "version": "2.3.1",
+          "src": {
+            "href": "shared/ionrangeslider"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/ion.rangeSlider.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "ionrangeslider-javascript",
+          "version": "2.3.1",
           "src": {
             "href": "shared/ionrangeslider"
           },
           "meta": null,
           "script": "js/ion.rangeSlider.min.js",
-          "stylesheet": [
-            "css/ion.rangeSlider.css",
-            "css/ion.rangeSlider.skinShiny.css"
-          ],
+          "stylesheet": null,
           "head": null,
           "attachment": null,
           "package": null,
