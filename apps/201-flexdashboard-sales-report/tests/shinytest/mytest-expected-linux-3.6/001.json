@@ -1,18 +1,16 @@
 {
   "input": {
-    "clusters": 3,
-    "xcol": "Sepal.Length",
-    "ycol": "Sepal.Width"
+
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: cca5cc2a665c2ab29d999119dd4cda4e7e731c60]",
+      "html": "[html data sha1: 6e949a0fa49c2caefe4437b56b29cb6d3ca8f9ba]",
       "deps": [
         {
           "name": "jquery",
-          "version": "1.11.3",
+          "version": "3.5.0",
           "src": {
-            "href": "jquery-1.11.3"
+            "href": "jquery-3.5.0"
           },
           "meta": null,
           "script": "jquery.min.js",
@@ -102,18 +100,99 @@
           "all_files": true
         },
         {
-          "name": "selectize",
-          "version": "0.12.4",
+          "name": "htmlwidgets",
+          "version": "1.5.2.9000",
           "src": {
-            "href": "shared/selectize"
+            "href": "htmlwidgets-1.5.2.9000"
           },
           "meta": null,
-          "script": null,
-          "stylesheet": "css/selectize.bootstrap3.css",
-          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
+          "script": "htmlwidgets.js",
+          "stylesheet": null,
+          "head": null,
           "attachment": null,
           "package": null,
           "all_files": true
+        },
+        {
+          "name": "proj4js",
+          "version": "2.3.15",
+          "src": {
+            "href": "proj4js-2.3.15"
+          },
+          "meta": null,
+          "script": "proj4.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "highcharts",
+          "version": "8.1.2",
+          "src": {
+            "href": "highcharts-8.1.2"
+          },
+          "meta": null,
+          "script": [
+            "highcharts.js",
+            "highcharts-3d.js",
+            "highcharts-more.js",
+            "modules/stock.js",
+            "modules/map.js",
+            "modules/annotations.js",
+            "modules/data.js",
+            "modules/drilldown.js",
+            "modules/item-series.js",
+            "modules/offline-exporting.js",
+            "modules/overlapping-datalabels.js",
+            "modules/exporting.js",
+            "modules/export-data.js",
+            "modules/funnel.js",
+            "modules/heatmap.js",
+            "modules/treemap.js",
+            "modules/sankey.js",
+            "modules/dependency-wheel.js",
+            "modules/organization.js",
+            "modules/solid-gauge.js",
+            "modules/streamgraph.js",
+            "modules/sunburst.js",
+            "modules/vector.js",
+            "modules/wordcloud.js",
+            "modules/xrange.js",
+            "modules/tilemap.js",
+            "modules/venn.js",
+            "modules/gantt.js",
+            "modules/timeline.js",
+            "modules/parallel-coordinates.js",
+            "modules/bullet.js",
+            "modules/coloraxis.js",
+            "modules/dumbbell.js",
+            "modules/lollipop.js",
+            "modules/series-label.js",
+            "plugins/motion.js",
+            "custom/reset.js",
+            "modules/boost.js"
+          ],
+          "stylesheet": "css/motion.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "highchart-binding",
+          "version": "0.8.2",
+          "src": {
+            "href": "highchart-binding-0.8.2"
+          },
+          "meta": null,
+          "script": "highchart.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": false
         },
         {
           "name": "rmarkdown-performance",
@@ -130,41 +209,6 @@
           "all_files": true
         }
       ]
-    },
-    "out14b5704808d36246": {
-      "src": "[image data sha1: fceed8e7a5096793c7cf66d25a69edf0a26c99df]",
-      "width": 738,
-      "height": 626,
-      "alt": "Plot object",
-      "coordmap": {
-        "panels": [
-          {
-            "domain": {
-              "left": 4.156,
-              "right": 8.044,
-              "bottom": 1.904,
-              "top": 4.496
-            },
-            "range": {
-              "left": 59.04,
-              "right": 723.6,
-              "bottom": 551.56,
-              "top": -1
-            },
-            "log": {
-              "x": null,
-              "y": null
-            },
-            "mapping": {
-
-            }
-          }
-        ],
-        "dims": {
-          "width": 738,
-          "height": 626
-        }
-      }
     }
   },
   "export": {
