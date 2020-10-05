@@ -4,7 +4,9 @@ library(bootstraplib)
 shinyApp(
   navbarPage(
     theme = bs_theme(bg = "#202123", fg = "#B8BCC2", primary = "#EA80FC", base_font = "Grandstander"),
-    title = "Bootstrap 4 Dark Mode", id = "navbar",
+    title = "Bootstrap 4 Dark Mode",
+    collapsible = TRUE,
+    id = "navbar",
     tabPanel(
       "Inputs",
       tabsetPanel(
@@ -151,14 +153,13 @@ shinyApp(
                    detail = 'This may take a while...')
       for (i in 1:3) {
         progress$set(value = i)
-        Sys.sleep(2)
+        Sys.sleep(0.5)
       }
       progress$close()
     }
 
     observeEvent(input$showProgress, {
-      fake_progress("old")
-      #fake_progress()
+      fake_progress()
     })
 
     lapply(c("default", "message", "warning", "error"), function(x) {

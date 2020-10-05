@@ -4,7 +4,9 @@ library(bootstraplib)
 shinyApp(
   navbarPage(
     theme = bs_theme_new(3, bg = "#002B36", fg = "#EEE8D5", primary = "#2AA198", base_font = "Grandstander"),
-    title = "Bootstrap 3 Dark Mode", id = "navbar",
+    title = "Bootstrap 3 Dark Mode",
+    collapsible = TRUE,
+    id = "navbar",
     tabPanel(
       "Inputs",
       tabsetPanel(
