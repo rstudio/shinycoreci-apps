@@ -54,6 +54,8 @@ jobs:
             unlist() %>%
             unique()
           str(unique_apps)
+          str("${{ github.event_name == 'pull_request' }}")
+          str("${{ github.event_name == 'push' }}")
       - name: Bad Exit
         shell: bash
         run: |
