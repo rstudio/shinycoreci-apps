@@ -265,7 +265,7 @@ jobs:
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
-          run_tests_output <- shinycoreci::test_runtests(retries = 2, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)
+          run_tests_output <- shinycoreci::test_runtests(retries = 1, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)
           shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')
           shinycoreci::assert_runtests(run_tests_output)
 
