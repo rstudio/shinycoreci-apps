@@ -19,6 +19,33 @@ on:
 
 jobs:
 
+  files_changed:
+    runs-on: ubuntu-18.04
+    name: Check for files altered
+
+    steps:
+
+      - uses: r-lib/actions/setup-pandoc@master
+
+      - uses: r-lib/actions/setup-r@master
+
+      - name: Collect changed files
+        id: files
+        uses: jitterbit/get-changed-files@v1
+
+      - name: View Files
+        shell: Rscript {0}
+        run: |
+          install.packages("remotes")
+          remotes::install_cran("jsonlite")
+          str(jsonlite::parse_json("${{ steps.files.outputs.added_modified }}")
+      - name: Bad Exit
+        shell: bash
+        run: |
+          exit 1
+
+
+
   validate_no_vanilla_testing_files:
     runs-on: ubuntu-18.04
     name: Check for non shinycoreci::test_*() files
@@ -74,6 +101,7 @@ jobs:
     name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     needs:
+      - files_changed
       - validate_no_vanilla_testing_files
       - validate_no_current_shinytest_folders
 
