@@ -19,50 +19,6 @@ on:
 
 jobs:
 
-  files_changed:
-    runs-on: ubuntu-18.04
-    name: Check for files altered
-
-    steps:
-
-      - uses: r-lib/actions/setup-r@master
-
-      - name: Collect changed files
-        id: files_changed
-        uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'json'
-
-      - name: Install packages
-        shell: Rscript {0}
-        run: |
-          install.packages("remotes")
-          remotes::install_cran("jsonlite")
-          remotes::install_cran("magrittr")
-
-      - name: View Files
-        shell: Rscript {0}
-        run: |
-          library(magrittr)
-          files_changed <- jsonlite::parse_json('${{ steps.files_changed.outputs.added_modified }}', simplifyVector = TRUE)
-          if (length(files_changed) == 0) stop("No files to check")
-          unique_apps <-
-            files_changed %>%
-            strsplit("/") %>%
-            Filter(f = function(item) { identical(item[[1]], "apps") }) %>%
-            lapply(`[[`, 2) %>%
-            unlist() %>%
-            unique()
-          str(unique_apps)
-          str("${{ github.event_name == 'pull_request' }}")
-          str("${{ github.event_name == 'push' }}")
-      - name: Bad Exit
-        shell: bash
-        run: |
-          exit 1
-
-
-
   validate_no_vanilla_testing_files:
     runs-on: ubuntu-18.04
     name: Check for non shinycoreci::test_*() files
@@ -118,7 +74,6 @@ jobs:
     name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     needs:
-      - files_changed
       - validate_no_vanilla_testing_files
       - validate_no_current_shinytest_folders
 
@@ -163,6 +118,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Collect changed file name
+        if: github.event_name == 'pull_request'
+        id: files_changed
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
 
       - uses: r-lib/actions/setup-pandoc@master
 
@@ -310,7 +272,30 @@ jobs:
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
-          run_tests_output <- shinycoreci::test_runtests(retries = 1, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)
+          dir <- "apps"
+          apps <- shinycoreci::apps_runtests(dir)
+          is_pull_request <- isTRUE(jsonlite::parse_json("${{ github.event_name == 'pull_request' }}"))
+          if (is_pull_request) {
+            # reduce apps to only changed apps
+            files_changed <- jsonlite::parse_json('${{ steps.files_changed.outputs.added_modified }}', simplifyVector = TRUE)
+            changed_app_folders <-
+              Filter(strsplit(files_changed, "/"), f = function(item) {
+                identical(item[[1]], "apps") &&
+                dir.exists(file.path(item[[1]], item[[2]]))
+              })
+            unique_changed_apps <- unique(unlist(lapply(changed_app_folders, `[[`, 2)))
+            apps <- apps[apps %in% unique_changed_apps]
+            cat("Only checking changed apps:\n", paste0("* ", apps, "\n"))
+            if (length(apps) == 0) stop("No apps to check")
+          }
+          run_tests_output <- shinycoreci::test_runtests(
+            dir = dir,
+            apps = apps,
+            retries = 1,
+            assert = FALSE,
+            update_pkgs = FALSE,
+            update_app_pkgs = TRUE
+          )
           shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')
           shinycoreci::assert_runtests(run_tests_output)
 
