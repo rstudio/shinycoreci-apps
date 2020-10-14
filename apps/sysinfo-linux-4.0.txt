@@ -1,8 +1,8 @@
-Image Version:  20200920.1 
+Image Version:  20201004.1 
 osVersion: Ubuntu 18.04.5 LTS
 --------------------------------------------------------------------------------
  setting  value                       
- version  R version 4.0.2 (2020-06-22)
+ version  R version 4.0.3 (2020-10-10)
  os       Ubuntu 18.04.5 LTS          
  system   x86_64, linux-gnu           
  ui       X11                         
@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2020-10-05                  
+ date     2020-10-14                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -20,12 +20,12 @@ osVersion: Ubuntu 18.04.5 LTS
 5           base64enc       0.1-3   RSPM                       
 6                  BH    1.72.0-3   RSPM                       
 7                blob       1.2.1   RSPM                       
-8               callr       3.4.4   RSPM                       
+8               callr       3.5.1   CRAN                       
 9           checkmate       2.0.0   RSPM                       
-10                cli       2.0.2   RSPM                       
+10                cli       2.1.0   RSPM                       
 11         colorspace       1.4-1   RSPM                       
 12         commonmark         1.7   RSPM                       
-13              cpp11       0.2.2   RSPM                       
+13              cpp11       0.2.3   CRAN                       
 14             crayon       1.3.4   RSPM                       
 15          crosstalk  1.1.0.9000    Git efa729c        /master
 16               curl         4.3   CRAN                       
@@ -53,7 +53,7 @@ osVersion: Ubuntu 18.04.5 LTS
 38             hexbin      1.28.1   RSPM                       
 39              highr         0.8   RSPM                       
 40                hms       0.5.3   RSPM                       
-41          htmltools  0.5.0.9001    Git 66aa3eb        /master
+41          htmltools  0.5.0.9001    Git 5d42d84        /master
 42        htmlwidgets  1.5.2.9000    Git 9df7c9e        /master
 43             httpuv  1.5.4.9000    Git 5bb4342        /master
 44               httr       1.4.2   RSPM                       
@@ -80,13 +80,13 @@ osVersion: Ubuntu 18.04.5 LTS
 65            pkgload       1.1.0   RSPM                       
 66             plotly  4.9.2.9000    Git 9bc585a        /master
 67                png       0.1-7   RSPM                       
-68               pool  0.1.4.9001    Git 30a7565        /master
+68               pool  0.1.4.9002    Git 34bbaec        /master
 69             praise       1.0.0   RSPM                       
 70        prettyunits       1.1.1   RSPM                       
 71           processx       3.4.4   RSPM                       
 72           progress       1.2.2   RSPM                       
 73           promises  1.1.1.9000    Git 3d54b42        /master
-74                 ps       1.3.4   RSPM                       
+74                 ps       1.4.0   RSPM                       
 75              purrr       0.3.4   RSPM                       
 76            R.cache      0.14.0   RSPM                       
 77        R.methodsS3       1.8.1   RSPM                       
@@ -101,28 +101,28 @@ osVersion: Ubuntu 18.04.5 LTS
 86           rematch2       2.1.2   RSPM                       
 87            remotes       2.2.0   RSPM                       
 88               renv      0.12.0   RSPM                       
-89              rlang       0.4.7   RSPM                       
-90          rmarkdown       2.4.1 GitHub 1707d0b   rstudio/HEAD
+89              rlang       0.4.8   RSPM                       
+90          rmarkdown       2.4.4 GitHub 4722ac6   rstudio/HEAD
 91          rprojroot       1.3-2   RSPM                       
 92          rsconnect 0.8.16-9002    Git 3b04a6d        /master
 93         rstudioapi        0.11   RSPM                       
 94               sass       0.2.0   RSPM                       
 95             scales       1.1.1   RSPM                       
 96        sessioninfo       1.1.1   RSPM                       
-97              shiny  1.5.0.9003    Git 03ab966        /master
+97              shiny  1.5.0.9004    Git c498b02        /master
 98        shinycoreci  0.0.0.9005 GitHub e6b0fce rstudio/master
 99         shinyjster  0.0.0.9009    Git 36b5bb3        /master
 100         shinymeta       0.2.0    Git b78a1cf        /master
 101         shinytest  1.4.0.9002    Git c3f500b        /master
 102         showimage       1.0.0   RSPM                       
 103       sourcetools       0.1.7   RSPM                       
-104                sp       1.4-2   RSPM                       
+104                sp       1.4-4   RSPM                       
 105           stringi       1.5.3   RSPM                       
 106           stringr       1.4.0   RSPM                       
 107            styler       1.3.2   RSPM                       
 108               sys         3.4   RSPM                       
 109          testthat       2.3.2   RSPM                       
-110            tibble       3.0.3   RSPM                       
+110            tibble       3.0.4   RSPM                       
 111             tidyr       1.1.2   RSPM                       
 112        tidyselect       1.1.0   RSPM                       
 113           tinytex        0.26   RSPM                       
@@ -143,11 +143,11 @@ osVersion: Ubuntu 18.04.5 LTS
 128           foreign      0.8-80   CRAN                       
 129        KernSmooth     2.23-17   CRAN                       
 130           lattice     0.20-41   CRAN                       
-131              MASS    7.3-51.6   CRAN                       
+131              MASS      7.3-53   CRAN                       
 132            Matrix      1.2-18   CRAN                       
-133              mgcv      1.8-31   CRAN                       
-134              nlme     3.1-148   CRAN                       
+133              mgcv      1.8-33   CRAN                       
+134              nlme     3.1-149   CRAN                       
 135              nnet      7.3-14   CRAN                       
 136             rpart      4.1-15   CRAN                       
 137           spatial      7.3-12   CRAN                       
-138          survival      3.1-12   CRAN                       
+138          survival       3.2-7   CRAN                       
