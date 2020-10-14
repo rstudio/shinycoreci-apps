@@ -42,7 +42,7 @@ jobs:
       - name: View Files
         shell: Rscript {0}
         run: |
-          str(jsonlite::parse_json("${{ steps.files_changed.outputs.added_modified }}"))
+          str(jsonlite::parse_json('${{ steps.files_changed.outputs.added_modified }}'))
       - name: Bad Exit
         shell: bash
         run: |
