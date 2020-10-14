@@ -38,11 +38,22 @@ jobs:
         run: |
           install.packages("remotes")
           remotes::install_cran("jsonlite")
+          remotes::install_cran("magrittr")
 
       - name: View Files
         shell: Rscript {0}
         run: |
-          str(jsonlite::parse_json('${{ steps.files_changed.outputs.added_modified }}'))
+          library(magrittr)
+          files_changed <- jsonlite::parse_json('${{ steps.files_changed.outputs.added_modified }}', simplifyVector = TRUE)
+          if (length(files_changed) == 0) stop("No files to check")
+          unique_apps <-
+            files_changed %>%
+            strsplit("/") %>%
+            Filter(f = function(item) { identical(item[[1]], "apps") }) %>%
+            lapply(`[[`, 2) %>%
+            unlist() %>%
+            unique()
+          str(unique_apps)
       - name: Bad Exit
         shell: bash
         run: |
