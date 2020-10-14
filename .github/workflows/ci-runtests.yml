@@ -30,15 +30,19 @@ jobs:
       - uses: r-lib/actions/setup-r@master
 
       - name: Collect changed files
-        id: files
+        id: files_changed
         uses: jitterbit/get-changed-files@v1
 
-      - name: View Files
+      - name: Install packages
         shell: Rscript {0}
         run: |
           install.packages("remotes")
           remotes::install_cran("jsonlite")
-          str(jsonlite::parse_json("${{ steps.files.outputs.added_modified }}")
+
+      - name: View Files
+        shell: Rscript {0}
+        run: |
+          str(jsonlite::parse_json("${{ steps.files_changed.outputs.added_modified }}"))
       - name: Bad Exit
         shell: bash
         run: |
