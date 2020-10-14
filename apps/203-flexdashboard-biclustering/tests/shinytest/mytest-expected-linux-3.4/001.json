@@ -1,6 +1,6 @@
 {
   "input": {
-
+    "clusterNum": "1"
   },
   "output": {
     "__reactivedoc__": {
@@ -128,6 +128,76 @@
           "all_files": true
         }
       ]
+    },
+    "out000ad4b3a33bc7bc": {
+      "src": "[image data sha1: 1dcdcd80539cf0b5f5c9b7a9327e81502665ea45]",
+      "width": 738,
+      "height": 286,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 0.5,
+              "right": 70.5,
+              "bottom": 0.5,
+              "top": 419.5
+            },
+            "range": {
+              "left": 0,
+              "right": 738,
+              "bottom": 285,
+              "top": -1
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 738,
+          "height": 286
+        }
+      }
+    },
+    "outae6f9ef61bd253ae": {
+      "src": "[image data sha1: f07c24663bdbf0ff4c5fa2829582b1c8248f2351]",
+      "width": 738,
+      "height": 281,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": -1.52,
+              "right": 66.52,
+              "bottom": -5.471139248,
+              "top": 5.075021548
+            },
+            "range": {
+              "left": 59.04,
+              "right": 707.76,
+              "bottom": 206.56,
+              "top": 58.04
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 738,
+          "height": 281
+        }
+      }
     }
   },
   "export": {
