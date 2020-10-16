@@ -17,7 +17,24 @@
       "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" id=\"align-label\" for=\"align\">Column alignment:<\/label>\n  <div>\n    <select id=\"align\"><option value=\"NULL\" selected>NULL<\/option>\n<option value=\"?\">?<\/option>\n<option value=\"c\">c<\/option>\n<option value=\"l\">l<\/option>\n<option value=\"cc?\">cc?<\/option>\n<option value=\"rlc\">rlc<\/option>\n<option value=\"crr\">crr<\/option><\/select>\n    <script type=\"application/json\" data-for=\"align\" data-nonempty=\"\">{\"plugins\":[\"selectize-plugin-a11y\"]}<\/script>\n  <\/div>\n<\/div>",
       "deps": [
         {
-          "name": "selectize",
+          "name": "selectize-js",
+          "version": "0.12.4",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": [
+            "js/selectize.min.js",
+            "accessibility/js/selectize-plugin-a11y.min.js"
+          ],
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "selectize-css",
           "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
@@ -25,7 +42,7 @@
           "meta": null,
           "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
-          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
+          "head": null,
           "attachment": null,
           "package": null,
           "all_files": true
