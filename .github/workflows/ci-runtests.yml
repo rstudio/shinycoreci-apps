@@ -45,7 +45,7 @@ jobs:
           for FIL in ${FILES_CHANGED[@]}; do
             echo "File: '$FIL'"
             # check if path is in apps
-            if [[ "$FIL" =~ "^apps" ]]; then
+            if [[ "$FIL" =~ ^"apps" ]]; then
               SUBFIL=$(echo "$FIL" | cut -d/ -f 1-2)
               echo "Sub file: '$SUBFIL'"
               if [ -d "$SUBFIL" ]; then
