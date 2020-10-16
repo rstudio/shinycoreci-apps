@@ -21,7 +21,7 @@ jobs:
 
   validate_app_files_are_changed:
     runs-on: ubuntu-18.04
-    name: Check for altered app files
+    name: Check for altered Shiny app files
 
     steps:
       - name: GitHub Pull
@@ -34,29 +34,27 @@ jobs:
         with:
           format: 'json'
 
-      - name: Validate >= 1 app file is altered
+      - name: Validate >= 1 Shiny app file is altered
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
           # It is possible that a file contains a space, use json to parse the array
           readarray -t FILES_CHANGED <<<"$(jq -r '.[]' <<<'${{ steps.files_changed.outputs.added_modified }}')"
           # maintain that the file names are quoted by using [@]
-          echo Files changed: $FILES_CHANGED
+          echo Files modified or changed: $FILES_CHANGED
           for FIL in ${FILES_CHANGED[@]}; do
-            echo "File: '$FIL'"
+            echo "Inspecting file: '$FIL'"
             # check if path is in apps
             if [[ "$FIL" =~ ^"apps" ]]; then
               SUBFIL=$(echo "$FIL" | cut -d/ -f 1-2)
-              echo "Sub file: '$SUBFIL'"
+              echo "first two folders of file: '$SUBFIL'"
               if [ -d "$SUBFIL" ]; then
-                echo 'At least 1 app folder was altered.'
-                echo 'Modified or added files: ${{ steps.files_changed.outputs.added_modified }}'
+                echo 'At least 1 Shiny app folder was altered. Returning early'
                 exit 0
               fi
             fi
           done
-          echo 'No app folders added or modified'
-          echo 'Modified or added files: ${{ steps.files_changed.outputs.added_modified }}'
+          echo 'No apps folders added or modified'
           exit 1
 
   validate_no_vanilla_testing_files:
