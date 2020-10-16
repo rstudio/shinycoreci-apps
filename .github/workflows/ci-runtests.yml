@@ -19,6 +19,41 @@ on:
 
 jobs:
 
+  validate_app_files_are_changed:
+    runs-on: ubuntu-18.04
+    name: Check for altered app files
+
+    steps:
+      - name: GitHub Pull
+        uses: actions/checkout@v2
+
+      - name: Collect changed file names
+        if: github.event_name == 'pull_request'
+        id: files_changed
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'space-delimited'
+
+      - name: Validate >= 1 app file is altered
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          for FIL in ${{ steps.files_changed.outputs.added_modified }}; do
+            # check if path is in apps
+            if [[ "$FIL" =~ "^apps" ]]; then
+              SUBFIL=$(echo "$FIL" | cut -d/ -f 1-2)
+              if [ -d "$SUBFIL" ]; then
+                echo 'At least 1 app folder was altered.'
+                echo 'Modified or added files: ${{ steps.files_changed.outputs.added_modified }}'
+                exit 0
+              fi
+            fi
+          done
+
+          echo 'No app folders added or modified'
+          echo 'Modified or added files: ${{ steps.files_changed.outputs.added_modified }}'
+          exit 1
+
   validate_no_vanilla_testing_files:
     runs-on: ubuntu-18.04
     name: Check for non shinycoreci::test_*() files
@@ -33,7 +68,7 @@ jobs:
           # find all files that don't contain a test function
           grep -L "shinycoreci::test_" ./apps/*/tests/*.R | \
             while read FIL; do
-              if [[ $FIL =~ .*/169-.* ]]; then
+              if [[ "$FIL" =~ .*/169-.* ]]; then
                 echo "skipping 169" > /dev/null
               else
                 echo "Testing file '$FIL' does not contain a shinycoreci testing function."
@@ -74,6 +109,7 @@ jobs:
     name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     needs:
+      - validate_app_files_are_changed
       - validate_no_vanilla_testing_files
       - validate_no_current_shinytest_folders
 
@@ -119,7 +155,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Collect changed file name
+      - name: Collect changed file names
         if: github.event_name == 'pull_request'
         id: files_changed
         uses: jitterbit/get-changed-files@v1
