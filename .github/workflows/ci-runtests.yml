@@ -19,6 +19,44 @@ on:
 
 jobs:
 
+  validate_app_files_are_changed:
+    runs-on: ubuntu-18.04
+    name: Check for altered Shiny app files
+
+    steps:
+      - name: GitHub Pull
+        uses: actions/checkout@v2
+
+      - name: Collect changed file names
+        if: github.event_name == 'pull_request'
+        id: files_changed
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
+
+      - name: Validate >= 1 Shiny app file is altered
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          # It is possible that a file contains a space, use json to parse the array
+          readarray -t FILES_CHANGED <<<"$(jq -r '.[]' <<<'${{ steps.files_changed.outputs.added_modified }}')"
+          # maintain that the file names are quoted by using [@]
+          echo Files modified or changed: $FILES_CHANGED
+          for FIL in ${FILES_CHANGED[@]}; do
+            echo "Inspecting file: '$FIL'"
+            # check if path is in apps
+            if [[ "$FIL" =~ ^"apps" ]]; then
+              SUBFIL=$(echo "$FIL" | cut -d/ -f 1-2)
+              echo "first two folders of file: '$SUBFIL'"
+              if [ -d "$SUBFIL" ]; then
+                echo 'At least 1 Shiny app folder was altered. Returning early'
+                exit 0
+              fi
+            fi
+          done
+          echo 'No apps folders added or modified'
+          exit 1
+
   validate_no_vanilla_testing_files:
     runs-on: ubuntu-18.04
     name: Check for non shinycoreci::test_*() files
@@ -33,7 +71,7 @@ jobs:
           # find all files that don't contain a test function
           grep -L "shinycoreci::test_" ./apps/*/tests/*.R | \
             while read FIL; do
-              if [[ $FIL =~ .*/169-.* ]]; then
+              if [[ "$FIL" =~ .*/169-.* ]]; then
                 echo "skipping 169" > /dev/null
               else
                 echo "Testing file '$FIL' does not contain a shinycoreci testing function."
@@ -74,6 +112,7 @@ jobs:
     name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     needs:
+      - validate_app_files_are_changed
       - validate_no_vanilla_testing_files
       - validate_no_current_shinytest_folders
 
@@ -118,6 +157,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Collect changed file names
+        if: github.event_name == 'pull_request'
+        id: files_changed
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
 
       - uses: r-lib/actions/setup-pandoc@master
 
@@ -265,7 +311,30 @@ jobs:
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
-          run_tests_output <- shinycoreci::test_runtests(retries = 2, assert = FALSE, update_pkgs = FALSE, update_app_pkgs = TRUE)
+          dir <- "apps"
+          apps <- shinycoreci::apps_runtests(dir)
+          is_pull_request <- isTRUE(jsonlite::parse_json("${{ github.event_name == 'pull_request' }}"))
+          if (is_pull_request) {
+            # reduce apps to only changed apps
+            files_changed <- jsonlite::parse_json('${{ steps.files_changed.outputs.added_modified }}', simplifyVector = TRUE)
+            changed_app_folders <-
+              Filter(strsplit(files_changed, "/"), f = function(item) {
+                identical(item[[1]], "apps") &&
+                dir.exists(file.path(item[[1]], item[[2]]))
+              })
+            unique_changed_apps <- unique(unlist(lapply(changed_app_folders, `[[`, 2)))
+            apps <- apps[apps %in% unique_changed_apps]
+            cat("Only checking changed apps:\n", paste0("* ", apps, "\n"))
+            if (length(apps) == 0) stop("No apps to check")
+          }
+          run_tests_output <- shinycoreci::test_runtests(
+            dir = dir,
+            apps = apps,
+            retries = 1,
+            assert = FALSE,
+            update_pkgs = FALSE,
+            update_app_pkgs = TRUE
+          )
           shinycoreci::save_test_results(run_tests_output, gha_branch_name = '${{steps.gha_branch.outputs.name}}', pr_number = '${{github.event.pull_request.number}}', username = '${GITHUB_ACTOR}')
           shinycoreci::assert_runtests(run_tests_output)
 

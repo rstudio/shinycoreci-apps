@@ -6,7 +6,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: d30f9d8302f1b0c33949c8da4d957d68098e949f]",
+      "html": "[html data sha1: 566d563998dee1240cb8849c76df9df0613a69bf]",
       "deps": [
         {
           "name": "jquery",
@@ -71,6 +71,20 @@
           "all_files": true
         },
         {
+          "name": "anchor-sections",
+          "version": "1.0",
+          "src": {
+            "href": "anchor-sections-1.0"
+          },
+          "meta": null,
+          "script": "anchor-sections.js",
+          "stylesheet": "anchor-sections.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
           "name": "selectize",
           "version": "0.12.4",
           "src": {
@@ -85,17 +99,28 @@
           "all_files": true
         },
         {
-          "name": "ionrangeslider",
-          "version": "2.1.6",
+          "name": "ionrangeslider-css",
+          "version": "2.3.1",
+          "src": {
+            "href": "shared/ionrangeslider"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "css/ion.rangeSlider.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "ionrangeslider-javascript",
+          "version": "2.3.1",
           "src": {
             "href": "shared/ionrangeslider"
           },
           "meta": null,
           "script": "js/ion.rangeSlider.min.js",
-          "stylesheet": [
-            "css/ion.rangeSlider.css",
-            "css/ion.rangeSlider.skinShiny.css"
-          ],
+          "stylesheet": null,
           "head": null,
           "attachment": null,
           "package": null,
@@ -133,7 +158,7 @@
     },
     "out092bb89e9393fda8": "1",
     "out1ba546fb6de0170a": {
-      "src": "[image data sha1: ddc2a39a73430d1cc99a2631871a16088175251b]",
+      "src": "[image data sha1: 40621ce0cd80e738593ffa5c462abeb398fbffbf]",
       "width": 600,
       "height": 400,
       "alt": "Plot object",
@@ -147,10 +172,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.04,
-              "right": 569.76,
-              "bottom": 325.56,
-              "top": 58.04
+              "left": 59.0400098400016,
+              "right": 569.759994959999,
+              "bottom": 325.559981639995,
+              "top": 58.0400147600037
             },
             "log": {
               "x": null,
@@ -169,7 +194,7 @@
     },
     "out4534806ab07416dc": "A",
     "out59f0ffc8c7802ff4": {
-      "src": "[image data sha1: 3f0ef5c58ca4f6242335a596735e32006a81ba66]",
+      "src": "[image data sha1: 4316b1ecd7798c6124b3be10acc92718385d85be]",
       "width": 150,
       "height": 40,
       "alt": "Plot object",
@@ -179,8 +204,8 @@
             "domain": {
               "left": 1739.6033333332,
               "right": 1993.3133333368,
-              "bottom": -42.2400000024001,
-              "top": 296.0400000024
+              "bottom": -42.2396899121933,
+              "top": 296.039689912193
             },
             "range": {
               "left": 0,
