@@ -42,7 +42,7 @@ jobs:
           readarray -t FILES_CHANGED <<<jq -r '.[]' <<<'${{ steps.files_changed.outputs.added_modified }}'
           # maintain that the file names are quoted by using [@]
           echo Files changed: $FILES_CHANGED
-          for FIL in FILES_CHANGED[@]; do
+          for FIL in "${FILES_CHANGED[@]}"; do
             echo "File: '$FIL'"
             # check if path is in apps
             if [[ "$FIL" =~ "^apps" ]]; then
