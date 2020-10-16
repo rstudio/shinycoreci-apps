@@ -265,14 +265,6 @@ jobs:
           options(install.packages.check.source = 'no')
           if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()
 
-
-      - name: Install Testing Shiny
-        shell: Rscript {0}
-        run: |
-          options(install.packages.check.source = 'no')
-          remotes::install_github("rstudio/shiny@barret/debug")
-
-
       # do not update pkgs, as they were installed above
       # do update app pkgs, as they have NOT been installed
       - name: Run tests
