@@ -1,12 +1,10 @@
 {
   "input": {
-    "clusters": 3,
-    "xcol": "Sepal.Width",
-    "ycol": "Sepal.Width"
+    "clusterNum": "2"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: cca5cc2a665c2ab29d999119dd4cda4e7e731c60]",
+      "html": "[html data sha1: 550e462a11c915f513462c769adb7dda61cf6a26]",
       "deps": [
         {
           "name": "jquery",
@@ -148,24 +146,24 @@
         }
       ]
     },
-    "out14b5704808d36246": {
-      "src": "[image data sha1: 9ae6813ca4c8881e3bc2e89e30436ef350827fa2]",
+    "out29af5182d8abd845": {
+      "src": "[image data sha1: 60aca67c8e6ebd587144ff279cc1c356b656cd26]",
       "width": 738,
-      "height": 626,
+      "height": 286,
       "alt": "Plot object",
       "coordmap": {
         "panels": [
           {
             "domain": {
-              "left": 1.904,
-              "right": 4.496,
-              "bottom": 1.904,
-              "top": 4.496
+              "left": 0.5,
+              "right": 70.5,
+              "bottom": 0.5,
+              "top": 419.5
             },
             "range": {
-              "left": 59.04,
-              "right": 723.6,
-              "bottom": 551.56,
+              "left": 0,
+              "right": 738,
+              "bottom": 285,
               "top": -1
             },
             "log": {
@@ -179,7 +177,42 @@
         ],
         "dims": {
           "width": 738,
-          "height": 626
+          "height": 286
+        }
+      }
+    },
+    "out7bb48427180e2c3a": {
+      "src": "[image data sha1: 9d884598d785f69500b49183d45b64aa84646664]",
+      "width": 738,
+      "height": 281,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": -0.12,
+              "right": 30.12,
+              "bottom": -4.804595336,
+              "top": 4.411015936
+            },
+            "range": {
+              "left": 59.04,
+              "right": 707.76,
+              "bottom": 206.56,
+              "top": 58.04
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 738,
+          "height": 281
         }
       }
     }
