@@ -41,11 +41,13 @@ jobs:
           # It is possible that a file contains a space, use json to parse the array
           readarray -t files_changed <<<jq -r '.[]' <<<'${{ steps.files_changed.outputs.added_modified }}'
           # maintain that the file names are quoted by using [@]
+          echo Files changed: $FILES_CHANGED
           for FIL in files_changed[@]; do
+            echo "File: '$FIL'"
             # check if path is in apps
             if [[ "$FIL" =~ "^apps" ]]; then
               SUBFIL=$(echo "$FIL" | cut -d/ -f 1-2)
-              echo $SUBFIL
+              echo "Sub file: '$SUBFIL'"
               if [ -d "$SUBFIL" ]; then
                 echo 'At least 1 app folder was altered.'
                 echo 'Modified or added files: ${{ steps.files_changed.outputs.added_modified }}'
