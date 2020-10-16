@@ -100,7 +100,24 @@
           "all_files": true
         },
         {
-          "name": "selectize",
+          "name": "selectize-js",
+          "version": "0.12.4",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": [
+            "js/selectize.min.js",
+            "accessibility/js/selectize-plugin-a11y.min.js"
+          ],
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "selectize-css",
           "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
@@ -108,7 +125,7 @@
           "meta": null,
           "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
-          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
+          "head": null,
           "attachment": null,
           "package": null,
           "all_files": true
