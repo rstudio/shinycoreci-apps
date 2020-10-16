@@ -32,16 +32,20 @@ jobs:
         id: files_changed
         uses: jitterbit/get-changed-files@v1
         with:
-          format: 'space-delimited'
+          format: 'json'
 
       - name: Validate >= 1 app file is altered
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          for FIL in ${{ steps.files_changed.outputs.added_modified }}; do
+          # It is possible that a file contains a space, use json to parse the array
+          readarray -t files_changed <<<jq -r '.[]' <<<'${{ steps.files_changed.outputs.added_modified }}'
+          # maintain that the file names are quoted by using [@]
+          for FIL in files_changed[@]; do
             # check if path is in apps
             if [[ "$FIL" =~ "^apps" ]]; then
               SUBFIL=$(echo "$FIL" | cut -d/ -f 1-2)
+              echo $SUBFIL
               if [ -d "$SUBFIL" ]; then
                 echo 'At least 1 app folder was altered.'
                 echo 'Modified or added files: ${{ steps.files_changed.outputs.added_modified }}'
@@ -49,7 +53,6 @@ jobs:
               fi
             fi
           done
-
           echo 'No app folders added or modified'
           echo 'Modified or added files: ${{ steps.files_changed.outputs.added_modified }}'
           exit 1
