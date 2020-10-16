@@ -45,7 +45,24 @@
       "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" id=\"vars-label\" for=\"vars\">从岩石数据中选择一列作为自变量<\/label>\n  <div>\n    <select id=\"vars\"><option value=\"周长\" selected>周长<\/option>\n<option value=\"形状\">形状<\/option>\n<option value=\"渗透性\">渗透性<\/option><\/select>\n    <script type=\"application/json\" data-for=\"vars\" data-nonempty=\"\">{\"plugins\":[\"selectize-plugin-a11y\"]}<\/script>\n  <\/div>\n<\/div>",
       "deps": [
         {
-          "name": "selectize",
+          "name": "selectize-js",
+          "version": "0.12.4",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": [
+            "js/selectize.min.js",
+            "accessibility/js/selectize-plugin-a11y.min.js"
+          ],
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "selectize-css",
           "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
@@ -53,7 +70,7 @@
           "meta": null,
           "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
-          "head": "<script src=\"shared/selectize/js/selectize.min.js\"><\/script>\n<script src=\"shared/selectize/accessibility/js/selectize-plugin-a11y.min.js\"><\/script>",
+          "head": null,
           "attachment": null,
           "package": null,
           "all_files": true
