@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2020-10-19                  
+ date     2020-10-20                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -30,12 +30,12 @@ osVersion: Ubuntu 18.04.5 LTS
 15             crayon       1.3.4   RSPM                       
 16          crosstalk  1.1.0.9000    Git efa729c        /master
 17               curl         4.3   CRAN                       
-18         data.table      1.13.0   RSPM                       
+18         data.table      1.13.2   CRAN                       
 19                DBI       1.1.0   RSPM                       
 20             dbplyr       1.4.4   RSPM                       
 21            debugme       1.1.0   RSPM                       
 22               desc       1.2.0   RSPM                       
-23             digest      0.6.26   CRAN                       
+23             digest      0.6.26   RSPM                       
 24              dplyr       1.0.2   RSPM                       
 25           ellipsis       0.3.1   RSPM                       
 26            english       1.2-5   RSPM                       
@@ -62,7 +62,7 @@ osVersion: Ubuntu 18.04.5 LTS
 47          jquerylib       0.1.2 GitHub 3d45eb2   rstudio/HEAD
 48           jsonlite       1.7.1   RSPM                       
 49              knitr        1.30   RSPM                       
-50           labeling         0.3   RSPM                       
+50           labeling       0.4.2   CRAN                       
 51              later  1.1.0.9000    Git 56269c2        /master
 52           lazyeval       0.2.2   RSPM                       
 53            leaflet  2.0.3.9000    Git 35e6e34        /master
@@ -107,7 +107,7 @@ osVersion: Ubuntu 18.04.5 LTS
 92              rlang       0.4.8   RSPM                       
 93          rmarkdown       2.4.6 GitHub 7239cea   rstudio/HEAD
 94          rprojroot       1.3-2   RSPM                       
-95          rsconnect 0.8.16-9002    Git 3ceafcd        /master
+95          rsconnect 0.8.16-9002    Git 257d278        /master
 96         rstudioapi        0.11   RSPM                       
 97               sass  0.2.0.9004 GitHub 1f31de5   rstudio/HEAD
 98             scales       1.1.1   RSPM                       
