@@ -1,0 +1,217 @@
+{
+  "input": {
+
+  },
+  "output": {
+    "__reactivedoc__": {
+      "html": "[html data sha1: 1bbb3b560cbbca41c768af262567dcaf3e274bb8]",
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "3.5.0",
+          "src": {
+            "href": "jquery-3.5.0"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "bootstrap",
+          "version": "3.3.5",
+          "src": {
+            "href": "bootstrap-3.3.5"
+          },
+          "meta": {
+            "viewport": "width=device-width, initial-scale=1"
+          },
+          "script": [
+            "js/bootstrap.min.js",
+            "shim/html5shiv.min.js",
+            "shim/respond.min.js"
+          ],
+          "stylesheet": "css/cosmo.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "stickytableheaders",
+          "version": "0.1.19",
+          "src": {
+            "href": "stickytableheaders-0.1.19"
+          },
+          "meta": null,
+          "script": "jquery.stickytableheaders.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "font-awesome",
+          "version": "5.1.0",
+          "src": {
+            "href": "font-awesome-5.1.0"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "css/all.css",
+            "css/v4-shims.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "featherlight",
+          "version": "1.3.5",
+          "src": {
+            "href": "featherlight-1.3.5"
+          },
+          "meta": null,
+          "script": "featherlight.min.js",
+          "stylesheet": "featherlight.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "prism",
+          "version": "1.4.1",
+          "src": {
+            "href": "prism-1.4.1"
+          },
+          "meta": null,
+          "script": "prism.js",
+          "stylesheet": "prism.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "htmlwidgets",
+          "version": "1.5.2.9000",
+          "src": {
+            "href": "htmlwidgets-1.5.2.9000"
+          },
+          "meta": null,
+          "script": "htmlwidgets.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "proj4js",
+          "version": "2.3.15",
+          "src": {
+            "href": "proj4js-2.3.15"
+          },
+          "meta": null,
+          "script": "proj4.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "highcharts",
+          "version": "8.1.2",
+          "src": {
+            "href": "highcharts-8.1.2"
+          },
+          "meta": null,
+          "script": [
+            "highcharts.js",
+            "highcharts-3d.js",
+            "highcharts-more.js",
+            "modules/stock.js",
+            "modules/map.js",
+            "modules/annotations.js",
+            "modules/data.js",
+            "modules/drilldown.js",
+            "modules/item-series.js",
+            "modules/offline-exporting.js",
+            "modules/overlapping-datalabels.js",
+            "modules/exporting.js",
+            "modules/export-data.js",
+            "modules/funnel.js",
+            "modules/heatmap.js",
+            "modules/treemap.js",
+            "modules/sankey.js",
+            "modules/dependency-wheel.js",
+            "modules/organization.js",
+            "modules/solid-gauge.js",
+            "modules/streamgraph.js",
+            "modules/sunburst.js",
+            "modules/vector.js",
+            "modules/wordcloud.js",
+            "modules/xrange.js",
+            "modules/tilemap.js",
+            "modules/venn.js",
+            "modules/gantt.js",
+            "modules/timeline.js",
+            "modules/parallel-coordinates.js",
+            "modules/bullet.js",
+            "modules/coloraxis.js",
+            "modules/dumbbell.js",
+            "modules/lollipop.js",
+            "modules/series-label.js",
+            "plugins/motion.js",
+            "custom/reset.js",
+            "modules/boost.js"
+          ],
+          "stylesheet": "css/motion.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "highchart-binding",
+          "version": "0.8.2",
+          "src": {
+            "href": "highchart-binding-0.8.2"
+          },
+          "meta": null,
+          "script": "highchart.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": false
+        },
+        {
+          "name": "rmarkdown-performance",
+          "version": "0.1",
+          "src": {
+            "href": "rmarkdown-performance-0.1"
+          },
+          "meta": null,
+          "script": "rmd_perf.js",
+          "stylesheet": "rmd_perf.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
