@@ -140,7 +140,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
     steps:
-      - name: Notify slack start
+      - name: Notify slack INSTALL
         uses: voxmedia/github-action-slack-notify-build@v1
         if: success()
         id: slack
@@ -148,7 +148,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: START (${{ matrix.config.os }} - ${{ matrix.r }})
+          status: INSTALL (${{ matrix.config.os }} - ${{ matrix.r }})
           color: warning
 
       - name: Windows git setup
@@ -315,6 +315,16 @@ jobs:
           options(install.packages.check.source = 'no')
           if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()
 
+      - name: Notify slack TEST
+        uses: voxmedia/github-action-slack-notify-build@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          message_id: ${{ steps.slack.outputs.message_id }}
+          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          status: TEST (${{ matrix.config.os }} - ${{ matrix.r }})
+          color: good
+
       # do not update pkgs, as they were installed above
       # do update app pkgs, as they have NOT been installed
       - name: Run tests
@@ -417,7 +427,7 @@ jobs:
         # found, will be found.
         run: echo "::add-path::C:/Program Files/Git/usr/bin"
 
-      - name: Notify slack success
+      - name: Notify slack SUCCESS
         if: success()
         uses: voxmedia/github-action-slack-notify-build@v1
         env:
@@ -428,7 +438,7 @@ jobs:
           status: SUCCESS (${{ matrix.config.os }} - ${{ matrix.r }})
           color: good
 
-      - name: Notify slack fail
+      - name: Notify slack FAILED
         if: failure()
         uses: voxmedia/github-action-slack-notify-build@v1
         env:
