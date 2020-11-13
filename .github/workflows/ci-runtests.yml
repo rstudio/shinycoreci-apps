@@ -140,6 +140,13 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
     steps:
+      - name: Create short sha
+        id: short_sha
+        shell: bash
+        run: |
+          SHA="${{github.event.pull_request.head.sha}}${{ github.sha }}"
+          echo "::set-output name=sha::${SHA:0:7}"
+
       - name: Notify slack INSTALL
         uses: voxmedia/github-action-slack-notify-build@v1
         if: success()
@@ -148,7 +155,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: INSTALL (${{ matrix.config.os }} - ${{ matrix.r }})
+          status: INSTALL (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
           color: warning
 
       - name: Windows git setup
@@ -283,11 +290,6 @@ jobs:
       #  Either way, take the first 7 characters.
       # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
       # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
-      - name: Create short sha
-        id: short_sha
-        shell: Rscript {0}
-        run: |
-          cat('::set-output name=sha::', substr(paste0('${{ github.event.pull_request.head.sha }}', '${{ github.sha }}'), 1, 7), sep = '')
       - name: Create failure branch name
         id: failed_branch
         shell: Rscript {0}
@@ -322,7 +324,7 @@ jobs:
         with:
           message_id: ${{ steps.slack.outputs.message_id }}
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: TEST (${{ matrix.config.os }} - ${{ matrix.r }})
+          status: TEST (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
           color: good
 
       # do not update pkgs, as they were installed above
@@ -435,7 +437,7 @@ jobs:
         with:
           message_id: ${{ steps.slack.outputs.message_id }}
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: SUCCESS (${{ matrix.config.os }} - ${{ matrix.r }})
+          status: SUCCESS (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
           color: good
 
       - name: Notify slack FAILED
@@ -446,5 +448,5 @@ jobs:
         with:
           message_id: ${{ steps.slack.outputs.message_id }}
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: FAILED (${{ matrix.config.os }} - ${{ matrix.r }})
+          status: FAILED (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
           color: danger
