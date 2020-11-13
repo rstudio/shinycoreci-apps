@@ -402,6 +402,7 @@ jobs:
           # if any commits occured, then push to repo (compare to sha of current execution)
           echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}`"
           if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
+            # This branch should never exist. Force push
             git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
           fi
 
@@ -415,10 +416,27 @@ jobs:
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
           git fetch origin _test_results
           git checkout _test_results --
+
           git status
           git add _test_results/
           git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
-          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+
+          # attempt to push until success. Allow for 15 attempts
+          counter=0
+          git pull origin _test_results
+          until git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+          do
+            # wait 5-15 seconds to avoid deadlock
+            sleep $ [ ($RANDOM % 10) + 5 ]s
+
+            [[ counter -gt 15 ]] && echo "Too many attempts!" && exit 1
+            ((counter++))
+            echo "Push failed. Trying again. Try #$counter"
+
+            # pull again to have the latest
+            git pull origin _test_results
+          done
+
           git checkout $CURRENT_BRANCH
 
       - name: Fix path for Windows caching
