@@ -325,7 +325,7 @@ jobs:
           message_id: ${{ steps.slack.outputs.message_id }}
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
           status: TEST (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
-          color: good
+          color: warning
 
       # do not update pkgs, as they were installed above
       # do update app pkgs, as they have NOT been installed
