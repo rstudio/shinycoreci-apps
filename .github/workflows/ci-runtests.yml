@@ -370,10 +370,16 @@ jobs:
       - name: Git config
         if: always()
         shell: bash
+        # set local email to actor
+        # set local name to actor
+        # set to merge when pulling (used for test results)
         # need to unset the extra header to allow for regular https push
+        # display config
         run: |
+
           git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
             git config --local user.name "${GITHUB_ACTOR}" && \
+            git config --local pull.rebase false && \
             git config --local --unset http.https://github.com/.extraheader && \
             git config --local --list
 
@@ -427,7 +433,7 @@ jobs:
           until git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
           do
             # wait 5-15 seconds to avoid deadlock
-            sleep $ [ ($RANDOM % 10) + 5 ]s
+            sleep $[ ($RANDOM % 10) + 5 ]s
 
             [[ counter -gt 15 ]] && echo "Too many attempts!" && exit 1
             ((counter++))
