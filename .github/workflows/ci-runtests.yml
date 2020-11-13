@@ -140,6 +140,24 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
     steps:
+      - name: Create short sha
+        id: short_sha
+        shell: bash
+        run: |
+          SHA="${{github.event.pull_request.head.sha}}${{ github.sha }}"
+          echo "::set-output name=sha::${SHA:0:7}"
+
+      - name: Notify slack INSTALL
+        uses: voxmedia/github-action-slack-notify-build@v1
+        if: success()
+        id: slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          status: INSTALL (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
+          color: warning
+
       - name: Windows git setup
         if: runner.os == 'Windows'
         run:
@@ -272,11 +290,6 @@ jobs:
       #  Either way, take the first 7 characters.
       # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
       # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
-      - name: Create short sha
-        id: short_sha
-        shell: Rscript {0}
-        run: |
-          cat('::set-output name=sha::', substr(paste0('${{ github.event.pull_request.head.sha }}', '${{ github.sha }}'), 1, 7), sep = '')
       - name: Create failure branch name
         id: failed_branch
         shell: Rscript {0}
@@ -303,6 +316,16 @@ jobs:
         run: |
           options(install.packages.check.source = 'no')
           if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()
+
+      - name: Notify slack TEST
+        uses: voxmedia/github-action-slack-notify-build@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          message_id: ${{ steps.slack.outputs.message_id }}
+          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          status: TEST (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
+          color: good
 
       # do not update pkgs, as they were installed above
       # do update app pkgs, as they have NOT been installed
@@ -347,10 +370,16 @@ jobs:
       - name: Git config
         if: always()
         shell: bash
+        # set local email to actor
+        # set local name to actor
+        # set to merge when pulling (used for test results)
         # need to unset the extra header to allow for regular https push
+        # display config
         run: |
+
           git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
             git config --local user.name "${GITHUB_ACTOR}" && \
+            git config --local pull.rebase false && \
             git config --local --unset http.https://github.com/.extraheader && \
             git config --local --list
 
@@ -379,6 +408,7 @@ jobs:
           # if any commits occured, then push to repo (compare to sha of current execution)
           echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}`"
           if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
+            # This branch should never exist. Force push
             git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
           fi
 
@@ -392,10 +422,27 @@ jobs:
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
           git fetch origin _test_results
           git checkout _test_results --
+
           git status
           git add _test_results/
           git commit -m "Add test results for ${{steps.gha_branch.outputs.name}}"
-          git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+
+          # attempt to push until success. Allow for 15 attempts
+          counter=0
+          git pull origin _test_results
+          until git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+          do
+            # wait 5-15 seconds to avoid deadlock
+            sleep $[ ($RANDOM % 10) + 5 ]s
+
+            [[ counter -gt 15 ]] && echo "Too many attempts!" && exit 1
+            ((counter++))
+            echo "Push failed. Trying again. Try #$counter"
+
+            # pull again to have the latest
+            git pull origin _test_results
+          done
+
           git checkout $CURRENT_BRANCH
 
       - name: Fix path for Windows caching
@@ -405,3 +452,25 @@ jobs:
         # we'll just set the path so that the original tar that would be
         # found, will be found.
         run: echo "::add-path::C:/Program Files/Git/usr/bin"
+
+      - name: Notify slack SUCCESS
+        if: success()
+        uses: voxmedia/github-action-slack-notify-build@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          message_id: ${{ steps.slack.outputs.message_id }}
+          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          status: SUCCESS (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
+          color: good
+
+      - name: Notify slack FAILED
+        if: failure()
+        uses: voxmedia/github-action-slack-notify-build@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          message_id: ${{ steps.slack.outputs.message_id }}
+          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          status: FAILED (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
+          color: danger
