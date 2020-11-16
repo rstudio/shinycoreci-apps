@@ -211,6 +211,7 @@ color: #d14;
 a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
 a.anchor-section::before {content: '#';}
 .hasAnchor:hover a.anchor-section {visibility: visible;}
+ul > li > .anchor-section {display: none;}
 </style>
 <script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
 document.addEventListener('DOMContentLoaded', function() {
@@ -235,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add anchors
   h.forEach(function(x) {
     const id = x.id || section_id(x.parentElement);
-    if (id === '') {
+    if (id === '' || x.matches(':empty')) {
       return null;
     }
     let anchor = document.createElement('a');
