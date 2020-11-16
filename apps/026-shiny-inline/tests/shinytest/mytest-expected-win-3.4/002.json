@@ -72,9 +72,9 @@
         },
         {
           "name": "anchor-sections",
-          "version": "1.0",
+          "version": "1.0.1",
           "src": {
-            "href": "anchor-sections-1.0"
+            "href": "anchor-sections-1.0.1"
           },
           "meta": null,
           "script": "anchor-sections.js",
@@ -175,7 +175,7 @@
     },
     "out4f461eb96152fad3": "A",
     "out588bc784570505a1": {
-      "src": "[image data sha1: 68c743ba1ba86b2d0c8ef41b68cf2b39388915c6]",
+      "src": "[image data sha1: c003152ea6a53a1fccab42a65dba9fd6d9241dc4]",
       "width": 100,
       "height": 40,
       "alt": "Plot object",
@@ -185,8 +185,8 @@
             "domain": {
               "left": 1739.6033333332,
               "right": 1993.3133333368,
-              "bottom": -42.2397462921463,
-              "top": 296.039746292146
+              "bottom": -42.2400000024,
+              "top": 296.0400000024
             },
             "range": {
               "left": 0,
@@ -211,7 +211,7 @@
     },
     "outd713b92a568d73cd": "1",
     "outf944471fabb10bd8": {
-      "src": "[image data sha1: 40621ce0cd80e738593ffa5c462abeb398fbffbf]",
+      "src": "[image data sha1: ddc2a39a73430d1cc99a2631871a16088175251b]",
       "width": 600,
       "height": 400,
       "alt": "Plot object",
@@ -225,10 +225,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.0400098400016,
-              "right": 569.759994959999,
-              "bottom": 325.559981639995,
-              "top": 58.0400147600037
+              "left": 59.04,
+              "right": 569.76,
+              "bottom": 325.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
