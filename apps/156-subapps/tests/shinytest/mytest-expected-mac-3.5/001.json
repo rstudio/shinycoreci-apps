@@ -70,9 +70,9 @@
         },
         {
           "name": "anchor-sections",
-          "version": "1.0",
+          "version": "1.0.1",
           "src": {
-            "href": "anchor-sections-1.0"
+            "href": "anchor-sections-1.0.1"
           },
           "meta": null,
           "script": "anchor-sections.js",
