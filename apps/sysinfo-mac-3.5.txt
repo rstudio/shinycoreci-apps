@@ -10,7 +10,7 @@ osVersion: macOS  10.15.7
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2020-11-16                  
+ date     2020-11-18                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -20,7 +20,7 @@ osVersion: macOS  10.15.7
 5           base64enc       0.1-3   CRAN                       
 6                  BH    1.72.0-3   CRAN                       
 7                brio       1.1.0   CRAN                       
-8               bslib  0.2.2.9000 GitHub d05a310   rstudio/HEAD
+8               bslib  0.2.2.9000 GitHub b2531e8   rstudio/HEAD
 9              cachem  0.0.0.9000 GitHub 618bb63     r-lib/HEAD
 10              callr       3.5.1   CRAN                       
 11          checkmate       2.0.0   CRAN                       
@@ -56,7 +56,7 @@ osVersion: macOS  10.15.7
 41              highr         0.8   CRAN                       
 42                hms       0.5.3   CRAN                       
 43          htmltools  0.5.0.9002    Git 0741213        /master
-44        htmlwidgets  1.5.2.9001    Git a314353        /master
+44        htmlwidgets  1.5.2.9001    Git cfeddf0        /master
 45             httpuv  1.5.4.9000    Git 5bb4342        /master
 46               httr       1.4.2   CRAN                       
 47            isoband       0.2.2   CRAN                       
@@ -69,7 +69,7 @@ osVersion: macOS  10.15.7
 54            leaflet  2.0.3.9000    Git d4e7f69        /master
 55  leaflet.providers       1.9.0    Git a992fad        /master
 56          lifecycle       0.2.0   CRAN                       
-57           magrittr         1.5   CRAN                       
+57           magrittr       2.0.1   CRAN                       
 58           markdown         1.1   CRAN                       
 59               mime         0.9   CRAN                       
 60            munsell       0.5.0   CRAN                       
@@ -81,14 +81,14 @@ osVersion: macOS  10.15.7
 66           pkgbuild       1.1.0   CRAN                       
 67          pkgconfig       2.0.3   CRAN                       
 68            pkgload       1.1.0   CRAN                       
-69             plotly  4.9.2.9000    Git 51e444d        /master
+69             plotly  4.9.2.9000    Git e053059        /master
 70                png       0.1-7   CRAN                       
 71               pool  0.1.5.9000    Git b8a29b0        /master
 72             praise       1.0.0   CRAN                       
 73        prettyunits       1.1.1   CRAN                       
 74           processx       3.4.4   CRAN                       
 75           progress       1.2.2   CRAN                       
-76           promises  1.1.1.9000    Git 3d54b42        /master
+76           promises  1.1.1.9001    Git bbadb3d        /master
 77                 ps       1.4.0   CRAN                       
 78              purrr       0.3.4   CRAN                       
 79            R.cache      0.14.0   CRAN                       
@@ -113,11 +113,11 @@ osVersion: macOS  10.15.7
 98               sass  0.2.0.9005 GitHub fef1d25   rstudio/HEAD
 99             scales       1.1.1   CRAN                       
 100       sessioninfo       1.1.1   CRAN                       
-101             shiny  1.5.0.9005    Git b421f6b        /master
+101             shiny  1.5.0.9005    Git d1d177f        /master
 102       shinycoreci  0.0.0.9005 GitHub 9cfca22 rstudio/master
 103        shinyjster  0.0.0.9009    Git 36b5bb3        /master
 104         shinymeta       0.2.0    Git b78a1cf        /master
-105         shinytest  1.4.0.9002    Git c3f500b        /master
+105         shinytest  1.4.0.9002    Git 1063e91        /master
 106         showimage       1.0.0   CRAN                       
 107       sourcetools       0.1.7   CRAN                       
 108                sp       1.4-4   CRAN                       
@@ -131,7 +131,7 @@ osVersion: macOS  10.15.7
 116        tidyselect       1.1.0   CRAN                       
 117           tinytex        0.27   CRAN                       
 118              utf8       1.1.4   CRAN                       
-119             vctrs       0.3.4   CRAN                       
+119             vctrs       0.3.5   CRAN                       
 120           viridis       0.5.1   CRAN                       
 121       viridisLite       0.3.0   CRAN                       
 122             waldo       0.2.3   CRAN                       
