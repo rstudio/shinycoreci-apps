@@ -1,15 +1,15 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-3.6-centos7 .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-4.0-centos7 .
 
 
-ARG R_VERSION=3.6
+ARG R_VERSION=4.0
 
 # centos7
 ARG RELEASE=centos7
 FROM rstudio/r-base:${R_VERSION}-${RELEASE}
 ARG RELEASE=centos7
 
-MAINTAINER Barret Schloerke "barret@rstudio.com"
+# MAINTAINER Barret Schloerke "barret@rstudio.com"
 
 RUN yum -y update && \
   yum -y install epel-release && \
@@ -116,8 +116,6 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 RUN rm -r ~/apps/141-radiant
 
 # install R pkg system requirements
-## Install manually until ragg / RSPM fixes it; https://github.com/r-lib/ragg/issues/41
-RUN yum install -y freetype-devel libpng-devel libtiff-devel
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 

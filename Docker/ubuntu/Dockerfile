@@ -1,19 +1,19 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-3.6-bionic .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-4.0-bionic .
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg R_VERSION=3.5 -t rstudio/shinycoreci:base-3.5-bionic .
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg RELEASE=xenial -t rstudio/shinycoreci:base-3.6-xenial .
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg SHINYCORECI_SHA="shiny-1.4.0.1" -t rstudio/shinycoreci:base-3.6-bionic-rc_v1.4.0.1 .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg RELEASE=xenial -t rstudio/shinycoreci:base-4.0-xenial .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg SHINYCORECI_SHA="shiny-1.4.0.1" -t rstudio/shinycoreci:base-4.0-bionic-rc_v1.4.0.1 .
 
 #
 
-ARG R_VERSION=3.6
+ARG R_VERSION=4.0
 
 # bionic, xenial
 ARG RELEASE=bionic
 FROM rstudio/r-base:${R_VERSION}-${RELEASE}
 ARG RELEASE=bionic
 
-MAINTAINER Barret Schloerke "barret@rstudio.com"
+# MAINTAINER Barret Schloerke "barret@rstudio.com"
 
 # Don't print "debconf: unable to initialize frontend: Dialog" messages
 ARG DEBIAN_FRONTEND=noninteractive
@@ -142,11 +142,6 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 RUN rm -r ~/apps/141-radiant
 
 # install R pkg system requirements
-## Install manually until ragg / RSPM fixes it; https://github.com/r-lib/ragg/issues/41
-RUN apt-get update && apt-get install -y \
-  libfreetype6-dev \
-  libpng-dev \
-  libtiff5-dev
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 # install r pkgs

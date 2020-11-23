@@ -1,17 +1,17 @@
 # To build, cd to this directory, then:
-#   docker build -t rstudio/shinycoreci:sso-3.6-bionic .
-#   docker build --build-arg EXTRA_BASE_TAG="-rc_v1.4.0.1" -t rstudio/shinycoreci:sso-3.6-bionic-rc_v1.4.0.1 .
+#   docker build -t rstudio/shinycoreci:sso-4.0-bionic .
+#   docker build --build-arg EXTRA_BASE_TAG="-rc_v1.4.0.1" -t rstudio/shinycoreci:sso-4.0-bionic-rc_v1.4.0.1 .
 #
 # To run:
-#   docker run --rm -p 3838:3838 --name sso_bionic rstudio/shinycoreci:sso-3.6-bionic
+#   docker run --rm -p 3838:3838 --name sso_bionic rstudio/shinycoreci:sso-4.0-bionic
 
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
-ARG R_VERSION=3.6
+ARG R_VERSION=4.0
 ARG RELEASE=bionic
 ARG EXTRA_BASE_TAG=
 FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
 
-ARG R_VERSION=3.6
+ARG R_VERSION=4.0
 ARG RELEASE=bionic
 ARG EXTRA_BASE_TAG=
 ARG AWS_BUILD_MACHINE=ubuntu-14.04
