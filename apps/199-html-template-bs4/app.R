@@ -1,9 +1,17 @@
 library(shiny)
-library(bootstraplib)
+library(bslib)
+library(ggplot2)
+library(thematic)
+library(sf)
+library(DT)
 
 ui <- htmlTemplate(
   "template.html",
-  theme = bs_theme(bg = "black", fg = "white"),
+  theme = bs_theme(
+    version = 4, primary = "yellow",
+    bg = "black", fg = "white",
+    base_font = font_google("Yellowtail")
+  ),
   date = dateInput("date", "Date", value = Sys.Date() - 1),
   date_range = dateRangeInput(
     "date_range", "Date", start = Sys.Date(), end = Sys.Date() + 7
