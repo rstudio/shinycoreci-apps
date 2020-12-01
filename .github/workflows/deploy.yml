@@ -24,7 +24,7 @@ jobs:
 
       matrix:
         config:
-        - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5, retry: 3 }
+        - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5, retry: 1 }
         # beta.rstudioconnect does not support v4 yet
         # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
 
