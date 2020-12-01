@@ -60,6 +60,7 @@ ui <- fluidPage(
   ),
   shinyjster_js("
     var jst = jster();
+    jst.add(Jster.shiny.waitUntilStable);
 
     jst.add(function() { Jster.assert.isEqual($('#r_c_txt').text(),   '105') });
     jst.add(function() { Jster.assert.isEqual($('#r_e_txt').text(),   ''   ) });
