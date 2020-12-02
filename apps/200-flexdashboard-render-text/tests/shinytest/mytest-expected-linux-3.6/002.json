@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 85f7327014d7df01ba543935902cff5a4b12e244]",
+      "html": "[html data sha1: 11cc1bcaef70b708d0e51f046bd78ee1dfa5b195]",
       "deps": [
         {
           "name": "jquery",
@@ -55,7 +55,7 @@
           "all_files": true
         },
         {
-          "name": "selectize-js",
+          "name": "selectize",
           "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
@@ -65,20 +65,6 @@
             "js/selectize.min.js",
             "accessibility/js/selectize-plugin-a11y.min.js"
           ],
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "selectize-css",
-          "version": "0.12.4",
-          "src": {
-            "href": "shared/selectize"
-          },
-          "meta": null,
-          "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
           "head": null,
           "attachment": null,
@@ -114,35 +100,35 @@
         }
       ]
     },
-    "out036980023b23cf30": {
+    "out023b23cf30372dd6": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 2\">VB2: Mar<\/span>",
       "deps": [
 
       ]
     },
-    "out372dd6df6a227499": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Mar<\/span>",
-      "deps": [
-
-      ]
-    },
-    "out44a0bc45b351fb42": "Mar",
-    "out7dd30976d7eabf77": "Mar",
-    "out91b7f72ac16f31e0": "Mar",
-    "out9ac41049c5a0fec9": {
+    "out0a8e5e335db037b9": "Mar",
+    "out2ac16f31e0bc4ca2": "Mar",
+    "out36e10a1db3ec37d3": "Mar",
+    "out37acf95c5691b7f7": "Mar",
+    "out44da8241d70c7484": "Mar",
+    "out45b351fb42c9d1e5": "Mar",
+    "out49c5a0fec9036980": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 1\">VB1: Mar<\/span>",
       "deps": [
 
       ]
     },
-    "outa1909d37acf95c56": "Mar",
-    "outb037b936e10a1db3": "Mar",
-    "outbc4ca252caab469b": "Mar",
-    "outc6bba244da8241d7": "Mar",
-    "outc9d1e58b62f86530": "Mar",
-    "outdc20567dc228422d": "Mar",
-    "outec37d35207a0a103": "Mar",
-    "outf9200b0a8e5e335d": "Mar"
+    "out5207a0a1037dd309": "Mar",
+    "out52caab469b653cee": "Mar",
+    "out76d7eabf77a1909d": "Mar",
+    "out7dc228422df9200b": "Mar",
+    "out8b62f865309ac410": "Mar",
+    "outdf6a227499dc2056": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Mar<\/span>",
+      "deps": [
+
+      ]
+    }
   },
   "export": {
 
