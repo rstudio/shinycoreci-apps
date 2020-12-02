@@ -1,0 +1,136 @@
+{
+  "input": {
+    "month": "Mar"
+  },
+  "output": {
+    "__reactivedoc__": {
+      "html": "[html data sha1: 734b95fd8eb0b817a8499ea2dcea99be85345b08]",
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "1.11.3",
+          "src": {
+            "href": "jquery-1.11.3"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "bootstrap",
+          "version": "3.3.5",
+          "src": {
+            "href": "bootstrap-3.3.5"
+          },
+          "meta": {
+            "viewport": "width=device-width, initial-scale=1"
+          },
+          "script": [
+            "js/bootstrap.min.js",
+            "shim/html5shiv.min.js",
+            "shim/respond.min.js"
+          ],
+          "stylesheet": "css/cosmo.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "stickytableheaders",
+          "version": "0.1.19",
+          "src": {
+            "href": "stickytableheaders-0.1.19"
+          },
+          "meta": null,
+          "script": "jquery.stickytableheaders.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "selectize",
+          "version": "0.12.4",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": [
+            "js/selectize.min.js",
+            "accessibility/js/selectize-plugin-a11y.min.js"
+          ],
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyjster-assets",
+          "version": "0.0.0.9009",
+          "src": {
+            "href": "shinyjster-assets-0.0.0.9009"
+          },
+          "meta": null,
+          "script": "js/shinyjster.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "rmarkdown-performance",
+          "version": "0.1",
+          "src": {
+            "href": "rmarkdown-performance-0.1"
+          },
+          "meta": null,
+          "script": "rmd_perf.js",
+          "stylesheet": "rmd_perf.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "out001aac45b0c41e07": "Mar",
+    "out008b85be5c5ae4d5": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Mar<\/span>",
+      "deps": [
+
+      ]
+    },
+    "out338057412dc9ad63": "Mar",
+    "out4aec73f5c3f5d62c": "Mar",
+    "out540ee80fffbf7f86": "Mar",
+    "out561125edb6c60469": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\">VB1: Mar<\/span>",
+      "deps": [
+
+      ]
+    },
+    "out68e6625f77712108": "Mar",
+    "out692311727a34f2cd": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\">VB2: Mar<\/span>",
+      "deps": [
+
+      ]
+    },
+    "out6a1b4bb32df655e7": "Mar",
+    "out9ebf0ff359bbc97b": "Mar",
+    "outc6dea2b4a12611aa": "Mar",
+    "outcbd09f9e18fb29f9": "Mar",
+    "outd978075c7b116bf5": "Mar",
+    "outdf8238a86fe48fa3": "Mar"
+  },
+  "export": {
+
+  }
+}
