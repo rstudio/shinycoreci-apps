@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: d1fb9b2530fa157e344c204b9616648b3145725e]",
+      "html": "[html data sha1: f8970ff2ed28d23064b1ce761439ae0471067e71]",
       "deps": [
         {
           "name": "jquery",
@@ -63,20 +63,6 @@
           "meta": null,
           "script": "highlight.js",
           "stylesheet": "default.css",
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "anchor-sections",
-          "version": "1.0.1",
-          "src": {
-            "href": "anchor-sections-1.0.1"
-          },
-          "meta": null,
-          "script": "anchor-sections.js",
-          "stylesheet": "anchor-sections.css",
           "head": null,
           "attachment": null,
           "package": null,
