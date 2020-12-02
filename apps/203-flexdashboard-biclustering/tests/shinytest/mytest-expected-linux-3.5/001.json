@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: c698c119e686f0ca06573b856b323f9828225461]",
+      "html": "[html data sha1: e6bdddfc77de9cd702f79ef5c4f4a91ecd5ffd47]",
       "deps": [
         {
           "name": "jquery",
@@ -100,7 +100,7 @@
           "all_files": true
         },
         {
-          "name": "selectize-js",
+          "name": "selectize",
           "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
@@ -110,20 +110,6 @@
             "js/selectize.min.js",
             "accessibility/js/selectize-plugin-a11y.min.js"
           ],
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "selectize-css",
-          "version": "0.12.4",
-          "src": {
-            "href": "shared/selectize"
-          },
-          "meta": null,
-          "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
           "head": null,
           "attachment": null,
@@ -146,42 +132,7 @@
         }
       ]
     },
-    "out000ad4b3a33bc7bc": {
-      "src": "[image data sha1: 1dcdcd80539cf0b5f5c9b7a9327e81502665ea45]",
-      "width": 738,
-      "height": 286,
-      "alt": "Plot object",
-      "coordmap": {
-        "panels": [
-          {
-            "domain": {
-              "left": 0.5,
-              "right": 70.5,
-              "bottom": 0.5,
-              "top": 419.5
-            },
-            "range": {
-              "left": 0,
-              "right": 738,
-              "bottom": 285,
-              "top": -1
-            },
-            "log": {
-              "x": null,
-              "y": null
-            },
-            "mapping": {
-
-            }
-          }
-        ],
-        "dims": {
-          "width": 738,
-          "height": 286
-        }
-      }
-    },
-    "outae6f9ef61bd253ae": {
+    "out1bd253ae912cdbb2": {
       "src": "[image data sha1: f07c24663bdbf0ff4c5fa2829582b1c8248f2351]",
       "width": 738,
       "height": 281,
@@ -213,6 +164,41 @@
         "dims": {
           "width": 738,
           "height": 281
+        }
+      }
+    },
+    "outa33bc7bcae6f9ef6": {
+      "src": "[image data sha1: 1dcdcd80539cf0b5f5c9b7a9327e81502665ea45]",
+      "width": 738,
+      "height": 286,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 0.5,
+              "right": 70.5,
+              "bottom": 0.5,
+              "top": 419.5
+            },
+            "range": {
+              "left": 0,
+              "right": 738,
+              "bottom": 285,
+              "top": -1
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 738,
+          "height": 286
         }
       }
     }
