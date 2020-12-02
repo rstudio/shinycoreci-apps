@@ -1,0 +1,136 @@
+{
+  "input": {
+    "month": "Feb"
+  },
+  "output": {
+    "__reactivedoc__": {
+      "html": "[html data sha1: 11cc1bcaef70b708d0e51f046bd78ee1dfa5b195]",
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "1.11.3",
+          "src": {
+            "href": "jquery-1.11.3"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "bootstrap",
+          "version": "3.3.5",
+          "src": {
+            "href": "bootstrap-3.3.5"
+          },
+          "meta": {
+            "viewport": "width=device-width, initial-scale=1"
+          },
+          "script": [
+            "js/bootstrap.min.js",
+            "shim/html5shiv.min.js",
+            "shim/respond.min.js"
+          ],
+          "stylesheet": "css/cosmo.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "stickytableheaders",
+          "version": "0.1.19",
+          "src": {
+            "href": "stickytableheaders-0.1.19"
+          },
+          "meta": null,
+          "script": "jquery.stickytableheaders.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "selectize",
+          "version": "0.12.4",
+          "src": {
+            "href": "shared/selectize"
+          },
+          "meta": null,
+          "script": [
+            "js/selectize.min.js",
+            "accessibility/js/selectize-plugin-a11y.min.js"
+          ],
+          "stylesheet": "css/selectize.bootstrap3.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyjster-assets",
+          "version": "0.0.0.9009",
+          "src": {
+            "href": "shinyjster-assets-0.0.0.9009"
+          },
+          "meta": null,
+          "script": "js/shinyjster.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "rmarkdown-performance",
+          "version": "0.1",
+          "src": {
+            "href": "rmarkdown-performance-0.1"
+          },
+          "meta": null,
+          "script": "rmd_perf.js",
+          "stylesheet": "rmd_perf.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "out023b23cf30372dd6": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\">VB2: Feb<\/span>",
+      "deps": [
+
+      ]
+    },
+    "out0a8e5e335db037b9": "Feb",
+    "out2ac16f31e0bc4ca2": "Feb",
+    "out36e10a1db3ec37d3": "Feb",
+    "out37acf95c5691b7f7": "Feb",
+    "out44da8241d70c7484": "Feb",
+    "out45b351fb42c9d1e5": "Feb",
+    "out49c5a0fec9036980": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\">VB1: Feb<\/span>",
+      "deps": [
+
+      ]
+    },
+    "out5207a0a1037dd309": "Feb",
+    "out52caab469b653cee": "Feb",
+    "out76d7eabf77a1909d": "Feb",
+    "out7dc228422df9200b": "Feb",
+    "out8b62f865309ac410": "Feb",
+    "outdf6a227499dc2056": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Feb<\/span>",
+      "deps": [
+
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
