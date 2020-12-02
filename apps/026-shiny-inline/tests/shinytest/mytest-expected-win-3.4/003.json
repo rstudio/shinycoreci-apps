@@ -6,7 +6,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: bd644bc80425dd10f59eeb5a504378ab3b5ca0f4]",
+      "html": "[html data sha1: 270aafb72451384db92fa8d8883e4609475b97c4]",
       "deps": [
         {
           "name": "jquery",
@@ -71,21 +71,7 @@
           "all_files": true
         },
         {
-          "name": "anchor-sections",
-          "version": "1.0.1",
-          "src": {
-            "href": "anchor-sections-1.0.1"
-          },
-          "meta": null,
-          "script": "anchor-sections.js",
-          "stylesheet": "anchor-sections.css",
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "selectize-js",
+          "name": "selectize",
           "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
@@ -95,20 +81,6 @@
             "js/selectize.min.js",
             "accessibility/js/selectize-plugin-a11y.min.js"
           ],
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "selectize-css",
-          "version": "0.12.4",
-          "src": {
-            "href": "shared/selectize"
-          },
-          "meta": null,
-          "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
           "head": null,
           "attachment": null,
@@ -173,8 +145,8 @@
         }
       ]
     },
-    "out4f461eb96152fad3": "A",
-    "out588bc784570505a1": {
+    "out568d73cd588bc784": "3.25",
+    "out570505a1ad9a4e20": {
       "src": "[image data sha1: 413d13d902421a57aff5712e717aeb0663bd84d5]",
       "width": 300,
       "height": 40,
@@ -209,8 +181,8 @@
         }
       }
     },
-    "outd713b92a568d73cd": "3.25",
-    "outf944471fabb10bd8": {
+    "out6152fad3d713b92a": "A",
+    "outabb10bd84f461eb9": {
       "src": "[image data sha1: 5038aeb2a38c9fd8b454bf0e3d093f0dde6c59c3]",
       "width": 600,
       "height": 400,
