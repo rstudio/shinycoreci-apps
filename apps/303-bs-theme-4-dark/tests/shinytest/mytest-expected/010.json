@@ -1,0 +1,53 @@
+{
+  "input": {
+    "check": false,
+    "checkGroup": "A",
+    "danger": 0,
+    "dark": 0,
+    "date": "2020-12-25",
+    "dateRange": [
+      "2020-12-29",
+      "2020-12-26"
+    ],
+    "file": null,
+    "info": 0,
+    "light": 0,
+    "numeric": 5,
+    "otherNav": "Messages",
+    "password": "se",
+    "plot_example": "GeomSmooth",
+    "primary": 0,
+    "radioButtons": "B",
+    "secondary": 0,
+    "select": "CO",
+    "selectize": "AK",
+    "selectizeMulti": [
+      "AZ",
+      "CO",
+      "AL"
+    ],
+    "selectMulti": null,
+    "showDefault": 1,
+    "showError": 1,
+    "showMessage": 1,
+    "showModal": 1,
+    "showProgress": 1,
+    "showProgress2": 0,
+    "showWarning": 1,
+    "slider": [
+      8,
+      51
+    ],
+    "success": 0,
+    "text": "dsfdgf",
+    "textArea": "safds",
+    "warning": 0
+  },
+  "output": {
+    "inputPanelOutput": "List of 5\n $ sliderInput        : int [1:2] 8 51\n $ selectizeInput     : chr \"AK\"\n $ selectizeMultiInput: chr [1:3] \"AZ\" \"CO\" \"AL\"\n $ dateInput          : Date[1:1], format: \"2020-12-25\"\n $ dateRangeInput     : Date[1:2], format: \"2020-12-29\" \"2020-12-26\"",
+    "inputPanelOutputHeader": "Below are the values bound to each input widget above"
+  },
+  "export": {
+
+  }
+}
