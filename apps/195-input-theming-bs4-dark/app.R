@@ -20,10 +20,6 @@ theme <- bs_theme(
   code_font = font_google("Fira Code")
 )
 
-# TODO: thematic needs a fix for this "Error: cannot open file 'Rplots.pdf'"
-# https://github.com/ropensci/plotly/issues/494
-pdf(NULL)
-
 if (interactive()) {
   bs_theme_preview(theme)
 } else {
