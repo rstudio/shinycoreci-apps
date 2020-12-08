@@ -1,0 +1,36 @@
+library(shinytest)
+library(bslib)
+
+withr::with_dir("../", {
+  # bs_theme() defs may be added/removed from this file, which will
+  # add/remove new shinytests
+  test_names <- names(yaml::yaml.load_file("themes.yaml", eval.expr = TRUE))
+  test_names <- gsub("\\s+", "-", test_names)
+
+  # Prevent the possibility of weird subdirs
+  bad_names <- grep("/", test_names, fixed = TRUE, value = TRUE)
+  if (length(bad_names)) {
+    stop(
+      "`/` is not allowed in theme name(s), please remove it:",
+      paste(bad_names, collapse = ", ")
+    )
+  }
+
+  # Ensure shinytest/ doesn't include anything other than themes.yaml tests
+  test_dir <- file.path("tests", "shinytest")
+  bad_dirs <- grep(
+    paste0("^", test_names, collapse = "|^"),
+    list.dirs(test_dir), value = TRUE
+  )
+  unlink(bad_dirs, recursive = TRUE)
+  unlink(Sys.glob(file.path(test_dir, "*.R")))
+
+  lapply(test_names, function(x) {
+    brio::write_file(
+      glue::glue(brio::read_file("shinytest-template.R"), test_name = x, .open = "{{", .close = "}}"),
+      file.path(test_dir, paste0(x, ".R"))
+    )
+  })
+
+  shinytest::testApp(testnames = test_names)
+})
