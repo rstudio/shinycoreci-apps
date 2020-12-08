@@ -1,4 +1,13 @@
-
+library(shinytest)
+library(bslib)
+theme <- yaml::yaml.load_file('../../themes.yaml', eval.expr = TRUE)[['{{test_name}}']]
+if (!is_bs_theme(theme)) {
+  theme <- do.call(bs_theme, theme)
+}
+# This `shinytest::` below is a hack to avoid shiny::runTests() thinking this
+# template is itself a testing app https://github.com/rstudio/shiny/blob/24a1ef/R/test.R#L36
+app <- shinytest::ShinyDriver$new('../../', seed = 101, options = list(bslib_theme = theme))
+app$snapshotInit('{{test_name}}')
 app$snapshot()
 app$setInputs(slider = c(30, 83))
 app$setInputs(slider = c(14, 83))
