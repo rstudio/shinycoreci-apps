@@ -1,7 +1,10 @@
 library(shinytest)
 library(bslib)
 
-withr::with_dir("../", {
+run_test_app <- function() {
+  old <- setwd("../")
+  on.exit(setwd(old), add = TRUE)
+
   # bs_theme() defs may be added/removed from this file, which will
   # add/remove new shinytests
   test_names <- names(yaml::yaml.load_file("themes.yaml", eval.expr = TRUE))
@@ -33,4 +36,15 @@ withr::with_dir("../", {
   })
 
   shinytest::testApp(testnames = test_names)
-})
+}
+
+# Only run these tests on mac + r-release
+# (To reduce the amount of screenshot diffing noise)
+release <- rversions::r_release()$version
+release <- paste0(
+  strsplit(release, ".", fixed = TRUE)[[1]][1:2],
+  collapse = "."
+)
+if (identical(paste0("mac-", release), shinycoreci::platform_rversion())) {
+  run_test_app()
+}
