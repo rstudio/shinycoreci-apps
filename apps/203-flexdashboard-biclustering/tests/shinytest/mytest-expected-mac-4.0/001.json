@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 91e41f67c77260143c544605658291bbc1e2272a]",
+      "html": "[html data sha1: e9ec2f0cecb3d0ae7ffad0c58c24fe30e6f155d9]",
       "deps": [
         {
           "name": "jquery",
@@ -132,42 +132,7 @@
         }
       ]
     },
-    "out2c3a9f203271b74f": {
-      "src": "[image data sha1: c795293c12e2ee6d7071cce643a099388a747b15]",
-      "width": 738,
-      "height": 282,
-      "alt": "Plot object",
-      "coordmap": {
-        "panels": [
-          {
-            "domain": {
-              "left": 0.12,
-              "right": 23.88,
-              "bottom": -5.096770144,
-              "top": 4.933558244
-            },
-            "range": {
-              "left": 59.04,
-              "right": 707.76,
-              "bottom": 207.56,
-              "top": 58.04
-            },
-            "log": {
-              "x": null,
-              "y": null
-            },
-            "mapping": {
-
-            }
-          }
-        ],
-        "dims": {
-          "width": 738,
-          "height": 282
-        }
-      }
-    },
-    "outd8457bb48427180e": {
+    "out29af5182d8abd845": {
       "src": "[image data sha1: 1e47bb8084f3689b5ad8e6f8e22279ea2307f2a7]",
       "width": 738,
       "height": 285,
@@ -199,6 +164,41 @@
         "dims": {
           "width": 738,
           "height": 285
+        }
+      }
+    },
+    "out7bb48427180e2c3a": {
+      "src": "[image data sha1: c795293c12e2ee6d7071cce643a099388a747b15]",
+      "width": 738,
+      "height": 282,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 0.12,
+              "right": 23.88,
+              "bottom": -5.096770144,
+              "top": 4.933558244
+            },
+            "range": {
+              "left": 59.04,
+              "right": 707.76,
+              "bottom": 207.56,
+              "top": 58.04
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 738,
+          "height": 282
         }
       }
     }
