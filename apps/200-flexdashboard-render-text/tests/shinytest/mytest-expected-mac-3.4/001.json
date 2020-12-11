@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 8c5c6a2855cbaaa263aa2f4c9a4dca91a4e70d4b]",
+      "html": "[html data sha1: c233879754bd576022b3bd885ad051fa6d5ab2f4]",
       "deps": [
         {
           "name": "jquery",
@@ -100,35 +100,35 @@
         }
       ]
     },
-    "out001aac45b0c41e07": "Feb",
-    "out008b85be5c5ae4d5": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Feb<\/span>",
-      "deps": [
-
-      ]
-    },
-    "out338057412dc9ad63": "Feb",
-    "out4aec73f5c3f5d62c": "Feb",
-    "out540ee80fffbf7f86": "Feb",
-    "out561125edb6c60469": {
+    "out18fb29f9d978075c": "Feb",
+    "out2dc9ad63c6dea2b4": "Feb",
+    "out2df655e7561125ed": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 1\">VB1: Feb<\/span>",
       "deps": [
 
       ]
     },
-    "out68e6625f77712108": "Feb",
-    "out692311727a34f2cd": {
+    "out59bbc97b6a1b4bb3": "Feb",
+    "out5c5ae4d568e6625f": "Feb",
+    "out6fe48fa3cbd09f9e": "Feb",
+    "out77712108df8238a8": "Feb",
+    "out7a34f2cd008b85be": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Feb<\/span>",
+      "deps": [
+
+      ]
+    },
+    "out7b116bf5001aac45": "Feb",
+    "outacd6d4a49ebf0ff3": "Feb",
+    "outb0c41e07540ee80f": "Feb",
+    "outb6c6046969231172": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 2\">VB2: Feb<\/span>",
       "deps": [
 
       ]
     },
-    "out6a1b4bb32df655e7": "Feb",
-    "out9ebf0ff359bbc97b": "Feb",
-    "outc6dea2b4a12611aa": "Feb",
-    "outcbd09f9e18fb29f9": "Feb",
-    "outd978075c7b116bf5": "Feb",
-    "outdf8238a86fe48fa3": "Feb"
+    "outc528c8f94aec73f5": "Feb",
+    "outffbf7f8633805741": "Feb"
   },
   "export": {
 
