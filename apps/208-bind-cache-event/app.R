@@ -60,6 +60,7 @@ ui <- fluidPage(
   ),
   shinyjster_js("
     var jst = jster();
+    jst.add(Jster.shiny.waitUntilStable);
 
     jst.add(function() { Jster.assert.isEqual($('#r_c_txt').text(),   '105') });
     jst.add(function() { Jster.assert.isEqual($('#r_e_txt').text(),   ''   ) });
@@ -170,6 +171,9 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
+  # include shinyjster_server call at top of server definition
+  shinyjster::shinyjster_server(input, output)
+
   r_c_count  <- reactiveVal(0)
   r_e_count  <- reactiveVal(0)
   r_ce_count <- reactiveVal(0)
