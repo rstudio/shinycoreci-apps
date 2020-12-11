@@ -6,7 +6,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 496fb2980c0db70462b0ffc95ef0708d73cc4c8d]",
+      "html": "[html data sha1: 41db4395d799c49315c3fb7061bb2609b4fb0595]",
       "deps": [
         {
           "name": "jquery",
@@ -71,21 +71,7 @@
           "all_files": true
         },
         {
-          "name": "anchor-sections",
-          "version": "1.0.1",
-          "src": {
-            "href": "anchor-sections-1.0.1"
-          },
-          "meta": null,
-          "script": "anchor-sections.js",
-          "stylesheet": "anchor-sections.css",
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "selectize-js",
+          "name": "selectize",
           "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
@@ -95,20 +81,6 @@
             "js/selectize.min.js",
             "accessibility/js/selectize-plugin-a11y.min.js"
           ],
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "selectize-css",
-          "version": "0.12.4",
-          "src": {
-            "href": "shared/selectize"
-          },
-          "meta": null,
-          "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
           "head": null,
           "attachment": null,
