@@ -81,6 +81,45 @@ jobs:
             done
           echo 'Validated that test files contain shinycoreci::test_*()'
 
+  validate_shinyjster_apps_are_fully_integrated:
+    runs-on: ubuntu-18.04
+    name: Check that shinyjster is fully integrated
+
+    steps:
+      - name: GitHub Pull
+        uses: actions/checkout@v2
+
+      - name: Validate all shiny jster based apps are integrated
+        shell: bash
+        run: |
+          # find all app files that don't contain shinyjster parts
+          find ./apps -name "shinyjster-*.R" |
+            while read FIL; do
+              if [[ "$FIL" =~ .*/169-.* ]]; then
+                echo "skipping 169" > /dev/null
+              else
+                folder_up=`dirname $FIL`
+                if [[ "`basename $folder_up`" -eq "tests" ]]; then
+                  app_folder=`dirname $folder_up`
+
+                  if grep -q -r $app_folder/*.R* -e "shinyjster_server("; then
+                  # OK
+                  else
+                    echo "Testing app '$app_folder' did not contain 'shinyjster_server(' but contains a shinyjster test file"
+                    exit 1
+                  fi
+
+                  if grep -q -r $app_folder/*.R* -e "shinyjster_js("; then
+                  # OK
+                  else
+                    echo "Testing app '$app_folder' did not contain 'shinyjster_js(' but contains a shinyjster test file"
+                    exit 1
+                  fi
+                fi
+              fi
+            done
+          echo 'Validated that test files contain all shinyjster requirements'
+
   validate_no_current_shinytest_folders:
     runs-on: ubuntu-18.04
     name: Check for ${{ matrix.folder }} shinytest folders
@@ -114,6 +153,7 @@ jobs:
     needs:
       - validate_app_files_are_changed
       - validate_no_vanilla_testing_files
+      - validate_shinyjster_apps_are_fully_integrated
       - validate_no_current_shinytest_folders
 
     strategy:
