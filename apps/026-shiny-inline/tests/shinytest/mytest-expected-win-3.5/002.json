@@ -6,7 +6,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 270aafb72451384db92fa8d8883e4609475b97c4]",
+      "html": "[html data sha1: 3da8690966419cb303f5bff9df9d252d5e4e3d55]",
       "deps": [
         {
           "name": "jquery",
@@ -145,8 +145,8 @@
         }
       ]
     },
-    "out568d73cd588bc784": "1",
-    "out570505a1ad9a4e20": {
+    "out4f461eb96152fad3": "A",
+    "out588bc784570505a1": {
       "src": "[image data sha1: c003152ea6a53a1fccab42a65dba9fd6d9241dc4]",
       "width": 100,
       "height": 40,
@@ -181,8 +181,8 @@
         }
       }
     },
-    "out6152fad3d713b92a": "A",
-    "outabb10bd84f461eb9": {
+    "outd713b92a568d73cd": "1",
+    "outf944471fabb10bd8": {
       "src": "[image data sha1: ddc2a39a73430d1cc99a2631871a16088175251b]",
       "width": 600,
       "height": 400,
