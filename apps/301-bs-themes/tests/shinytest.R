@@ -35,7 +35,7 @@ run_test_app <- function() {
     )
   })
 
-  shinytest::testApp(testnames = test_names)
+  shinycoreci::test_shinytest_app(".", testnames = test_names)
 }
 
 # Only run these tests on mac + r-release
