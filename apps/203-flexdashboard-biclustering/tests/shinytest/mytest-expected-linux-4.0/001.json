@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 91e41f67c77260143c544605658291bbc1e2272a]",
+      "html": "[html data sha1: e9ec2f0cecb3d0ae7ffad0c58c24fe30e6f155d9]",
       "deps": [
         {
           "name": "jquery",
@@ -132,42 +132,7 @@
         }
       ]
     },
-    "out2c3a9f203271b74f": {
-      "src": "[image data sha1: 5bd07510a944554a401cc0a5312f01aa48e227d6]",
-      "width": 738,
-      "height": 281,
-      "alt": "Plot object",
-      "coordmap": {
-        "panels": [
-          {
-            "domain": {
-              "left": 0.12,
-              "right": 23.88,
-              "bottom": -5.096770144,
-              "top": 4.933558244
-            },
-            "range": {
-              "left": 59.04,
-              "right": 707.76,
-              "bottom": 206.56,
-              "top": 58.0400000000001
-            },
-            "log": {
-              "x": null,
-              "y": null
-            },
-            "mapping": {
-
-            }
-          }
-        ],
-        "dims": {
-          "width": 738,
-          "height": 281
-        }
-      }
-    },
-    "outd8457bb48427180e": {
+    "out29af5182d8abd845": {
       "src": "[image data sha1: bc807d1ad2f04a3d97735315b9e7604cc10c63a8]",
       "width": 738,
       "height": 286,
@@ -199,6 +164,41 @@
         "dims": {
           "width": 738,
           "height": 286
+        }
+      }
+    },
+    "out7bb48427180e2c3a": {
+      "src": "[image data sha1: 5bd07510a944554a401cc0a5312f01aa48e227d6]",
+      "width": 738,
+      "height": 281,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 0.12,
+              "right": 23.88,
+              "bottom": -5.096770144,
+              "top": 4.933558244
+            },
+            "range": {
+              "left": 59.04,
+              "right": 707.76,
+              "bottom": 206.56,
+              "top": 58.0400000000001
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 738,
+          "height": 281
         }
       }
     }
