@@ -103,14 +103,14 @@ jobs:
                   app_folder=`dirname $folder_up`
 
                   if grep -q -r $app_folder/*.R* -e "shinyjster_server("; then
-                  # OK
+                    echo "found regex" > /dev/null
                   else
                     echo "Testing app '$app_folder' did not contain 'shinyjster_server(' but contains a shinyjster test file"
                     exit 1
                   fi
 
                   if grep -q -r $app_folder/*.R* -e "shinyjster_js("; then
-                  # OK
+                    echo "found regex" > /dev/null
                   else
                     echo "Testing app '$app_folder' did not contain 'shinyjster_js(' but contains a shinyjster test file"
                     exit 1
