@@ -6,7 +6,7 @@ library(bslib)
 my_theme <- bs_theme(bootswatch = "darkly")
 ui <- fluidPage(
   theme = my_theme,
-  radioButtons("current_theme", "Choose a theme for bslib", choices = c("darkly", "flatly", "minty")),
+  radioButtons("current_theme", "Choose a theme for bslib", choices = c("darkly", "flatly", "cerulean")),
   p("This app was taken from",  a("this PR", href = "https://github.com/rstudio/shinyvalidate/pull/4"), "on the shinyvalidate repo."),
   p("The shinytest starts by fulfilling all requirements and then rebreaking them."),
   textInput("text", ""),
