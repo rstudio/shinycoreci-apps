@@ -79,39 +79,24 @@ flatly3:
 journal3:
   version: 3
   bootswatch: journal
-litera3:
-  version: 3
-  bootswatch: litera
 lumen3:
   version: 3
   bootswatch: lumen
-lux3:
+paper3:
   version: 3
-  bootswatch: lux
-materia3:
+  bootswatch: paper
+readable3:
   version: 3
-  bootswatch: materia
-minty3:
-  version: 3
-  bootswatch: minty
-pulse3:
-  version: 3
-  bootswatch: pulse
+  bootswatch: readable
 sandstone3:
   version: 3
   bootswatch: sandstone
 simplex3:
   version: 3
   bootswatch: simplex
-sketchy3:
-  version: 3
-  bootswatch: sketchy
 slate3:
   version: 3
   bootswatch: slate
-solar3:
-  version: 3
-  bootswatch: solar
 spacelab3:
   version: 3
   bootswatch: spacelab

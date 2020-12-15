@@ -5,7 +5,7 @@
 
 library(shinytest)
 library(bslib)
-theme <- yaml::yaml.load_file('../../themes.yaml', eval.expr = TRUE)[['{{test_name}}']]
+theme <- yaml::yaml.load_file('../../themes.yaml', eval.expr = TRUE)[['readable3']]
 if (!is_bs_theme(theme)) {
   theme <- do.call(bs_theme, theme)
 }
@@ -19,5 +19,5 @@ app <- shinytest::ShinyDriver$new(
   options = list(bslib_theme = theme)
 )
 
-app$snapshotInit('{{test_name}}')
+app$snapshotInit('readable3')
 app$snapshot()
