@@ -30,7 +30,10 @@ run_test_app <- function() {
 
   lapply(test_names, function(x) {
     brio::write_file(
-      glue::glue(brio::read_file("shinytest-template.R"), test_name = x, .open = "{{", .close = "}}"),
+      paste0(
+        "# Do not edit this test script by hand. This script was generated automatically by \n# ./app/shinytest-template.R & ./app/tests/shinytest.R\n",
+        glue::glue(brio::read_file("shinytest-template.R"), test_name = x, .open = "{{", .close = "}}")
+      ),
       file.path(test_dir, paste0(x, ".R"))
     )
   })

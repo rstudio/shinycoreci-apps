@@ -1,8 +1,5 @@
-# --------------------------------------------------------------------------------
-# Do not edit this test script by hand. This script was generated automatically by
+# Do not edit this test script by hand. This script was generated automatically by 
 # ./app/shinytest-template.R & ./app/tests/shinytest.R
-# --------------------------------------------------------------------------------
-
 library(shinytest)
 library(bslib)
 theme <- yaml::yaml.load_file('../../themes.yaml', eval.expr = TRUE)[['default4']]
