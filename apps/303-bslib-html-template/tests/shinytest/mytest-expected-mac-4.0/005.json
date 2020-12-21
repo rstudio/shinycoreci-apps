@@ -6,7 +6,10 @@
       "2020-12-24"
     ],
     "select": "AL",
-    "select_multiple": null
+    "select_multiple": [
+      "MN",
+      "CA"
+    ]
   },
   "output": {
 

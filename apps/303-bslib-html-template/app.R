@@ -1,9 +1,5 @@
 library(shiny)
 library(bslib)
-library(ggplot2)
-library(thematic)
-library(sf)
-library(DT)
 
 ui <- htmlTemplate(
   "template.html",
@@ -12,9 +8,13 @@ ui <- htmlTemplate(
     bg = "black", fg = "white",
     base_font = font_google("Yellowtail")
   ),
-  date = dateInput("date", "Date", value = Sys.Date() - 1),
+  date = dateInput("date", "Date", value = "2020-12-20"),
   date_range = dateRangeInput(
-    "date_range", "Date", start = Sys.Date(), end = Sys.Date() + 7
+    "date_range", "Date",
+    min = "2020-12-10",
+    start = "2020-12-15",
+    end = "2020-12-24",
+    max = "2021-12-30"
   ),
   select = selectInput("select", "Single", choices = state.abb),
   select_multiple = selectInput("select_multiple", "Multiple", choices = c("Choose a state" = "", state.abb), multiple = TRUE),
