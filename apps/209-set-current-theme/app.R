@@ -1,10 +1,12 @@
 library(shiny)
 library(bslib)
 light <- bs_theme()
-dark <- bs_theme(bg = "black", fg = "white", primary = "purple")
+dark <- bs_theme(bg = "black", fg = "white")
 ui <- fluidPage(
   theme = light,
   checkboxInput("dark_mode", "Dark mode", value = FALSE),
+  verbatimTextOutput("bg"),
+  verbatimTextOutput("fg"),
   shinyjster::shinyjster_js("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
@@ -18,6 +20,9 @@ ui <- fluidPage(
     jst.add(function() {
       Shiny.setInputValue('dark_mode', true);
     });
+
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilIdleFor(1000));
 
     // Wait until the body's bg color has changed
     jst.add(function(done) {
@@ -33,9 +38,17 @@ ui <- fluidPage(
       wait();
     });
 
+
     jst.add(function() {
       var bg = window.getComputedStyle(document.body).backgroundColor;
       Jster.assert.isEqual(bg, 'rgb(0, 0, 0)');
+      // Make sure getCurrentTheme() has been invalidated
+      Jster.assert.isEqual(
+        $('#bg').text().trim(), '#000000'
+      );
+      Jster.assert.isEqual(
+        $('#fg').text().trim(), '#FFFFFF'
+      );
     });
 
     jst.test();
@@ -47,6 +60,14 @@ server <- function(input, output, session) {
   observe(session$setCurrentTheme(
     if (isTRUE(input$dark_mode)) dark else light
   ))
+
+  get_theme_vals <- function(vars) {
+    vals <- bs_get_variables(session$getCurrentTheme(), vars)
+    htmltools::parseCssColors(unname(vals))
+  }
+
+  output$bg <- renderText(get_theme_vals("bg"))
+  output$fg <- renderText(get_theme_vals("fg"))
 }
 shinyApp(ui, server)
 
