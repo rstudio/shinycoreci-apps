@@ -106,7 +106,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
   # include shinyjster_server call at top of server definition
-  # shinyjster::shinyjster_server(input, output)
+  shinyjster::shinyjster_server(input, output)
 
   # none <- character(0)
 
