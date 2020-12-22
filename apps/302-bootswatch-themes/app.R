@@ -1,7 +1,11 @@
 library(shiny)
-library(bslib)
+if (!require("bslib")) {
+  remotes::install_github("rstudio/bslib")
+}
+if (!require("thematic")) {
+  remotes::install_github("rstudio/thematic")
+}
 library(ggplot2)
-library(thematic)
 library(sf)
 library(DT)
 
