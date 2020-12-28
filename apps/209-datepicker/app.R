@@ -4,8 +4,6 @@ library(shiny)
 library(magrittr)
 library(rlang)
 
-options(shiny.minified = FALSE)
-
 init_dates <- list(
   min = "2013-04-10",
   value = "2013-04-11",
