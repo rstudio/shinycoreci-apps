@@ -1,158 +1,158 @@
-Image Version:  20201210.0 
+Image Version:  20201210.0
 osVersion: Ubuntu 18.04.5 LTS
 --------------------------------------------------------------------------------
- setting  value                       
+ setting  value
  version  R version 3.6.3 (2020-02-29)
- os       Ubuntu 18.04.5 LTS          
- system   x86_64, linux-gnu           
- ui       X11                         
- language (EN)                        
- collate  C.UTF-8                     
- ctype    C.UTF-8                     
- tz       UTC                         
- date     2020-12-22                  
+ os       Ubuntu 18.04.5 LTS
+ system   x86_64, linux-gnu
+ ui       X11
+ language (EN)
+ collate  C.UTF-8
+ ctype    C.UTF-8
+ tz       UTC
+ date     2020-12-22
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
-1         AsioHeaders    1.16.1-1   RSPM                       
-2             askpass         1.1   RSPM                       
-3          assertthat       0.2.1   RSPM                       
-4           backports       1.2.1   RSPM                       
-5           base64enc       0.1-3   RSPM                       
-6                  BH    1.72.0-3   RSPM                       
-7                brio       1.1.0   RSPM                       
+1         AsioHeaders    1.16.1-1   RSPM
+2             askpass         1.1   RSPM
+3          assertthat       0.2.1   RSPM
+4           backports       1.2.1   RSPM
+5           base64enc       0.1-3   RSPM
+6                  BH    1.72.0-3   RSPM
+7                brio       1.1.0   RSPM
 8               bslib  0.2.3.9000 GitHub 338b05f   rstudio/HEAD
 9              cachem  0.0.0.9000 GitHub ebef4f8     r-lib/HEAD
-10              callr       3.5.1   RSPM                       
-11          checkmate       2.0.0   RSPM                       
-12                cli       2.2.0   RSPM                       
-13         colorspace       2.0-0   RSPM                       
-14         commonmark         1.7   RSPM                       
-15              cpp11       0.2.4   RSPM                       
-16             crayon       1.3.4   RSPM                       
+10              callr       3.5.1   RSPM
+11          checkmate       2.0.0   RSPM
+12                cli       2.2.0   RSPM
+13         colorspace       2.0-0   RSPM
+14         commonmark         1.7   RSPM
+15              cpp11       0.2.4   RSPM
+16             crayon       1.3.4   RSPM
 17          crosstalk  1.1.0.9000    Git efa729c        /master
-18               curl         4.3   CRAN                       
-19         data.table      1.13.4   RSPM                       
-20                DBI       1.1.0   RSPM                       
-21            debugme       1.1.0   RSPM                       
-22               desc       1.2.0   RSPM                       
-23            diffobj       0.3.2   RSPM                       
-24             digest      0.6.27   RSPM                       
-25              dplyr       1.0.2   RSPM                       
-26           ellipsis       0.3.1   RSPM                       
-27            english       1.2-5   RSPM                       
-28           evaluate        0.14   RSPM                       
-29              fansi       0.4.1   RSPM                       
-30             farver       2.0.3   RSPM                       
+18               curl         4.3   CRAN
+19         data.table      1.13.4   RSPM
+20                DBI       1.1.0   RSPM
+21            debugme       1.1.0   RSPM
+22               desc       1.2.0   RSPM
+23            diffobj       0.3.2   RSPM
+24             digest      0.6.27   RSPM
+25              dplyr       1.0.2   RSPM
+26           ellipsis       0.3.1   RSPM
+27            english       1.2-5   RSPM
+28           evaluate        0.14   RSPM
+29              fansi       0.4.1   RSPM
+30             farver       2.0.3   RSPM
 31            fastmap  1.0.1.9001    Git e23f9c2        /master
 32      flexdashboard  0.5.1.9000    Git 02207b7        /master
-33                 fs       1.5.0   RSPM                       
-34           generics       0.1.0   RSPM                       
-35            ggplot2       3.3.2   RSPM                       
-36               glue       1.4.2   RSPM                       
-37          gridExtra         2.3   RSPM                       
-38                 gt       0.2.2   RSPM                       
-39             gtable       0.3.0   RSPM                       
-40             hexbin      1.28.1   RSPM                       
-41              highr         0.8   RSPM                       
-42                hms       0.5.3   RSPM                       
+33                 fs       1.5.0   RSPM
+34           generics       0.1.0   RSPM
+35            ggplot2       3.3.2   RSPM
+36               glue       1.4.2   RSPM
+37          gridExtra         2.3   RSPM
+38                 gt       0.2.2   RSPM
+39             gtable       0.3.0   RSPM
+40             hexbin      1.28.1   RSPM
+41              highr         0.8   RSPM
+42                hms       0.5.3   RSPM
 43          htmltools  0.5.0.9003    Git d18bd8e        /master
 44        htmlwidgets  1.5.3.9000    Git 31dd945        /master
 45             httpuv  1.5.4.9000    Git ed87a9b        /master
-46               httr       1.4.2   RSPM                       
-47            isoband       0.2.3   RSPM                       
-48          jquerylib       0.1.3   RSPM                       
-49           jsonlite       1.7.2   RSPM                       
-50              knitr        1.30   RSPM                       
-51           labeling       0.4.2   RSPM                       
+46               httr       1.4.2   RSPM
+47            isoband       0.2.3   RSPM
+48          jquerylib       0.1.3   RSPM
+49           jsonlite       1.7.2   RSPM
+50              knitr        1.30   RSPM
+51           labeling       0.4.2   RSPM
 52              later  1.1.0.9000    Git ff8c451        /master
-53           lazyeval       0.2.2   RSPM                       
+53           lazyeval       0.2.2   RSPM
 54            leaflet  2.0.3.9000    Git 5bf15ec        /master
 55  leaflet.providers       1.9.0    Git a992fad        /master
-56          lifecycle       0.2.0   RSPM                       
-57           magrittr       2.0.1   RSPM                       
-58           markdown         1.1   RSPM                       
-59               mime         0.9   RSPM                       
-60            munsell       0.5.0   RSPM                       
-61            openssl       1.4.3   RSPM                       
-62            packrat       0.5.0   RSPM                       
-63          parsedate       1.2.0   RSPM                       
-64             pillar       1.4.7   RSPM                       
-65              pingr       2.0.1   RSPM                       
-66           pkgbuild       1.2.0   RSPM                       
-67          pkgconfig       2.0.3   RSPM                       
-68            pkgload       1.1.0   RSPM                       
+56          lifecycle       0.2.0   RSPM
+57           magrittr       2.0.1   RSPM
+58           markdown         1.1   RSPM
+59               mime         0.9   RSPM
+60            munsell       0.5.0   RSPM
+61            openssl       1.4.3   RSPM
+62            packrat       0.5.0   RSPM
+63          parsedate       1.2.0   RSPM
+64             pillar       1.4.7   RSPM
+65              pingr       2.0.1   RSPM
+66           pkgbuild       1.2.0   RSPM
+67          pkgconfig       2.0.3   RSPM
+68            pkgload       1.1.0   RSPM
 69             plotly  4.9.2.9000    Git e741959        /master
-70                png       0.1-7   RSPM                       
+70                png       0.1-7   RSPM
 71               pool  0.1.5.9000    Git 0d059e4        /master
-72             praise       1.0.0   RSPM                       
-73        prettyunits       1.1.1   RSPM                       
-74           processx       3.4.5   RSPM                       
-75           progress       1.2.2   RSPM                       
+72             praise       1.0.0   RSPM
+73        prettyunits       1.1.1   RSPM
+74           processx       3.4.5   RSPM
+75           progress       1.2.2   RSPM
 76           promises  1.1.1.9001    Git bbadb3d        /master
-77                 ps       1.5.0   RSPM                       
-78              purrr       0.3.4   RSPM                       
-79            R.cache      0.14.0   RSPM                       
-80        R.methodsS3       1.8.1   RSPM                       
-81               R.oo      1.24.0   RSPM                       
-82            R.utils      2.10.1   RSPM                       
-83                 R6       2.5.0   RSPM                       
-84           rappdirs       0.3.1   RSPM                       
-85             raster       3.4-5   RSPM                       
-86       RColorBrewer       1.1-2   RSPM                       
-87               Rcpp       1.0.5   RSPM                       
+77                 ps       1.5.0   RSPM
+78              purrr       0.3.4   RSPM
+79            R.cache      0.14.0   RSPM
+80        R.methodsS3       1.8.1   RSPM
+81               R.oo      1.24.0   RSPM
+82            R.utils      2.10.1   RSPM
+83                 R6       2.5.0   RSPM
+84           rappdirs       0.3.1   RSPM
+85             raster       3.4-5   RSPM
+86       RColorBrewer       1.1-2   RSPM
+87               Rcpp       1.0.5   RSPM
 88           reactlog       1.1.0    Git 31c519d        /master
-89            rematch       1.0.1   RSPM                       
-90           rematch2       2.1.2   RSPM                       
-91            remotes       2.2.0   RSPM                       
-92               renv      0.12.3   RSPM                       
-93              rlang       0.4.9   RSPM                       
+89            rematch       1.0.1   RSPM
+90           rematch2       2.1.2   RSPM
+91            remotes       2.2.0   RSPM
+92               renv      0.12.3   RSPM
+93              rlang       0.4.9   RSPM
 94          rmarkdown       2.6.4 GitHub 1e80b8a   rstudio/HEAD
-95          rprojroot       2.0.2   RSPM                       
+95          rprojroot       2.0.2   RSPM
 96          rsconnect 0.8.16-9002    Git c64f5af        /master
-97         rstudioapi        0.13   RSPM                       
+97         rstudioapi        0.13   RSPM
 98               sass  0.2.0.9005 GitHub 403002c   rstudio/HEAD
-99             scales       1.1.1   RSPM                       
-100       sessioninfo       1.1.1   RSPM                       
+99             scales       1.1.1   RSPM
+100       sessioninfo       1.1.1   RSPM
 101             shiny  1.5.0.9006    Git d56afca        /master
 102       shinycoreci  0.0.0.9005 GitHub 0afbbbc rstudio/master
 103        shinyjster  0.0.0.9009    Git 3358dfd        /master
 104         shinymeta       0.2.0    Git b78a1cf        /master
 105         shinytest  1.4.0.9003    Git 15a296b        /master
-106         showimage       1.0.0   RSPM                       
-107       sourcetools       0.1.7   RSPM                       
-108                sp       1.4-4   RSPM                       
-109           stringi       1.5.3   RSPM                       
-110           stringr       1.4.0   RSPM                       
-111            styler       1.3.2   RSPM                       
-112               sys         3.4   RSPM                       
-113          testthat       3.0.1   RSPM                       
-114            tibble       3.0.4   RSPM                       
-115             tidyr       1.1.2   RSPM                       
-116        tidyselect       1.1.0   RSPM                       
-117           tinytex        0.28   RSPM                       
-118              utf8       1.1.4   RSPM                       
-119             vctrs       0.3.6   RSPM                       
-120           viridis       0.5.1   RSPM                       
-121       viridisLite       0.3.0   RSPM                       
-122             waldo       0.2.3   RSPM                       
+106         showimage       1.0.0   RSPM
+107       sourcetools       0.1.7   RSPM
+108                sp       1.4-4   RSPM
+109           stringi       1.5.3   RSPM
+110           stringr       1.4.0   RSPM
+111            styler       1.3.2   RSPM
+112               sys         3.4   RSPM
+113          testthat       3.0.1   RSPM
+114            tibble       3.0.4   RSPM
+115             tidyr       1.1.2   RSPM
+116        tidyselect       1.1.0   RSPM
+117           tinytex        0.28   RSPM
+118              utf8       1.1.4   RSPM
+119             vctrs       0.3.6   RSPM
+120           viridis       0.5.1   RSPM
+121       viridisLite       0.3.0   RSPM
+122             waldo       0.2.3   RSPM
 123         webdriver  1.0.5.9000 GitHub 10f25c5   rstudio/HEAD
 124         websocket  1.3.1.9000    Git 441b9d3        /master
-125             withr       2.3.0   RSPM                       
-126              xfun        0.19   RSPM                       
-127            xtable       1.8-4   RSPM                       
-128              yaml       2.2.1   RSPM                       
-129              boot      1.3-24   CRAN                       
-130             class      7.3-15   CRAN                       
-131           cluster       2.1.0   CRAN                       
-132         codetools      0.2-16   CRAN                       
-133           foreign      0.8-75   CRAN                       
-134        KernSmooth     2.23-16   CRAN                       
-135           lattice     0.20-38   CRAN                       
-136              MASS    7.3-51.5   CRAN                       
-137            Matrix      1.2-18   CRAN                       
-138              mgcv      1.8-31   CRAN                       
-139              nlme     3.1-144   CRAN                       
-140              nnet      7.3-12   CRAN                       
-141             rpart      4.1-15   CRAN                       
-142           spatial      7.3-11   CRAN                       
-143          survival       3.1-8   CRAN                       
+125             withr       2.3.0   RSPM
+126              xfun        0.19   RSPM
+127            xtable       1.8-4   RSPM
+128              yaml       2.2.1   RSPM
+129              boot      1.3-24   CRAN
+130             class      7.3-15   CRAN
+131           cluster       2.1.0   CRAN
+132         codetools      0.2-16   CRAN
+133           foreign      0.8-75   CRAN
+134        KernSmooth     2.23-16   CRAN
+135           lattice     0.20-38   CRAN
+136              MASS    7.3-51.5   CRAN
+137            Matrix      1.2-18   CRAN
+138              mgcv      1.8-31   CRAN
+139              nlme     3.1-144   CRAN
+140              nnet      7.3-12   CRAN
+141             rpart      4.1-15   CRAN
+142           spatial      7.3-11   CRAN
+143          survival       3.1-8   CRAN
