@@ -9,13 +9,13 @@
   "output": {
     "async_output": {
       "message": "error!",
-      "call": "eventReactiveHandler(...)",
+      "call": "eventReactiveValueFunc(...)",
       "type": null
     },
     "observeEventStatus": "(none)",
     "sync_output": {
       "message": "error!",
-      "call": "eventReactiveHandler(...)",
+      "call": "eventReactiveValueFunc(...)",
       "type": null
     }
   },

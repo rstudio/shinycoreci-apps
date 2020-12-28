@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: a3e6c9510cf670cc39d247aeb292f534564ec0c6]",
+      "html": "[html data sha1: 18f476216f425ec0e8363280b070f295bb5d36da]",
       "deps": [
         {
           "name": "jquery",
@@ -55,7 +55,7 @@
           "all_files": true
         },
         {
-          "name": "selectize-js",
+          "name": "selectize",
           "version": "0.12.4",
           "src": {
             "href": "shared/selectize"
@@ -65,20 +65,6 @@
             "js/selectize.min.js",
             "accessibility/js/selectize-plugin-a11y.min.js"
           ],
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
-        {
-          "name": "selectize-css",
-          "version": "0.12.4",
-          "src": {
-            "href": "shared/selectize"
-          },
-          "meta": null,
-          "script": null,
           "stylesheet": "css/selectize.bootstrap3.css",
           "head": null,
           "attachment": null,
