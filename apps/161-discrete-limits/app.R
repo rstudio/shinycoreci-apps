@@ -10,7 +10,7 @@ m <- mpg %>%
   distinct(cty, drv, .keep_all = TRUE) %>%
   mutate(key = dplyr::row_number())
 
-ui <- basicPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   p("Brushing these plots should return the correct number of data points"),
   p(
     a("Issue #1433", href = "https://github.com/rstudio/shiny/issues/1433"), "/",

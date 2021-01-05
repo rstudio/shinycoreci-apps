@@ -30,7 +30,7 @@ grid <- data.frame(
 )
 
 shinyApp(
-  ui = fluidPage(
+  ui = fluidPage(theme = bslib::bs_theme(),
     # Some custom CSS
     tags$head(
       tags$style(HTML("

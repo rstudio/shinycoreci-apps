@@ -1,7 +1,7 @@
 library(shiny)
 
 # Define UI for data upload app ----
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
 
   # App title ----
   titlePanel("Uploading Files"),

@@ -10,7 +10,7 @@ mpgData$am <- factor(mpgData$am, labels = c("Automatic", "Manual"))
 
 
 # Define UI for miles per gallon app ----
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
 
   # App title ----
   titlePanel("Miles Per Gallon"),

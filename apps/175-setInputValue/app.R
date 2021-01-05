@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   includeScript("script.js"),
   p("This test exercises Shiny.setInputValue() with different priorities."),
   p("The word 'Pass' should appear below within a couple of seconds."),

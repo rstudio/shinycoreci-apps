@@ -13,7 +13,7 @@ onStop(function() {
 
 
 shinyApp(
-  ui = fluidPage(
+  ui = fluidPage(theme = bslib::bs_theme(),
     p("The plot below doesn't have any interactions. It should be draggable."),
     plotOutput("plot_no_interact", height = 250, width = 250),
 

@@ -1,5 +1,5 @@
 shinyApp(
-  ui = basicPage(
+  ui = fluidPage(theme = bslib::bs_theme(),
     actionButton("show", "Show modal dialog")
   ),
   server = function(input, output) {

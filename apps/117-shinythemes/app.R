@@ -3,9 +3,9 @@
 
 shinyApp(
   ui = tagList(
-    shinythemes::themeSelector(),
+    #shinythemes::themeSelector(),
     navbarPage(
-      # theme = "cerulean",  # <--- To use a theme, uncomment this
+      theme = bslib::bs_theme(),
       "shinythemes",
       tabPanel("Navbar 1",
         sidebarPanel(

@@ -1,7 +1,7 @@
 library(shiny)
 library(magrittr)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   fluidRow(
     column(12,
       h1("Throttle/debounce test app"),

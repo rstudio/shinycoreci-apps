@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   titlePanel("Changing the values of inputs from the server"),
   fluidRow(
     column(3, wellPanel(

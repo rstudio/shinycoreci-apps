@@ -1,5 +1,5 @@
 shinyApp(
-  ui = fluidPage(
+  ui = fluidPage(theme = bslib::bs_theme(),
     sliderInput("slider", "Slider", 1, 100, 50),
     downloadButton("report", "Generate report")
   ),

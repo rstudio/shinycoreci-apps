@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   p(
     "This app is meant to test encoding of JSON snapshots with shinytest.",
     a("Issue #206", href = "https://github.com/rstudio/shinytest/issues/206")

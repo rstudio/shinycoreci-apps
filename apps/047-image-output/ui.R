@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   titlePanel("Image output"),
 
   fluidRow(

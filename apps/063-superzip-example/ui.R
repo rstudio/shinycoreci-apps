@@ -10,7 +10,7 @@ vars <- c(
 )
 
 
-navbarPage("Superzip", id="nav",
+navbarPage("Superzip", id="nav", theme = bslib::bs_theme(),
 
   tabPanel("Interactive map",
     div(class="outer",

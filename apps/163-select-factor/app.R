@@ -3,7 +3,7 @@ library(shiny)
 # Regression test for https://github.com/rstudio/shiny/pull/2524/
 choices <- factor(setNames(letters, LETTERS))
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   title = "Select from Factor",
   tags$ol(
     tags$li("Select any capital letter from the input below."),
