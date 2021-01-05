@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   title = 'Embed an HTML report from R Markdown/knitr',
   sidebarLayout(
     sidebarPanel(

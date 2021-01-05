@@ -2,7 +2,7 @@ library(shiny)
 library(promises)
 library(ggplot2)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   h1("Caching async plots/keys"),
   p("Ensure that all eight plots appear."),
   hr(),

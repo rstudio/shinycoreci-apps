@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
 
   titlePanel("Button Example - Do NOT Touch application"),
 

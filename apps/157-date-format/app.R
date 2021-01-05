@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   HTML(
     "<h3>Informative warnings for mis-specified date strings</h3>
     (Issue <a href='https://github.com/rstudio/shiny/issues/2402'>#2402</a>;

@@ -2,7 +2,7 @@ library(shiny)
 library(bslib)
 light <- bs_theme()
 dark <- bs_theme(bg = "black", fg = "white")
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   theme = light,
   checkboxInput("dark_mode", "Dark mode", value = FALSE),
   verbatimTextOutput("bg"),

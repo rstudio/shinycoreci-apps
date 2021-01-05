@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   HTML("<p>Demonstrates that <code>.R</code> files in the <code>R</code> directory are automatically loaded at runtime.</p>
 
 <p>At the moment, this functionality is opt-in so this app requires setting the following option in order to work:</p>

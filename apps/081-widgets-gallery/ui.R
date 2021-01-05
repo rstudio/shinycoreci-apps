@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
 
   tags$head(tags$style(HTML("
     .shiny-text-output {

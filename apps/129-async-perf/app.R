@@ -5,7 +5,7 @@ plan(multicore)
 library(ggplot2)
 
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   tags$style("p { max-width: 600px; }"),
   h2("Measuring async overhead"),
   p("This app measures the amount of time it takes a trivial async renderText

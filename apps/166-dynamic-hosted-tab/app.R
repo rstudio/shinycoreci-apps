@@ -9,7 +9,7 @@
 
 
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   sidebarLayout(
     sidebarPanel(
       actionButton("add", "DO NOT TOUCH!")

@@ -24,7 +24,7 @@ make_row <- function(func, base_id, label, ...) {
   )
 }
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   tags$p(
     tags$strong("Instructions:"),
     "Verify that each row contains two identical outputs."

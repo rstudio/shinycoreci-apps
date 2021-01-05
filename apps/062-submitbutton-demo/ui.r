@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   titlePanel("submitButton example"),
   fluidRow(
     column(3, wellPanel(

@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   tags$h2("JavaScript output binding example"),
   fluidRow(
     column(width=6,

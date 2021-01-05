@@ -1,6 +1,6 @@
 library(markdown)
 
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
 
   titlePanel("includeText, includeHTML, and includeMarkdown"),
 

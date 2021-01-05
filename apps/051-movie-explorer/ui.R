@@ -8,7 +8,7 @@ actionLink <- function(inputId, ...) {
          ...)
 }
 
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   titlePanel("Movie explorer"),
   fluidRow(
     column(3,

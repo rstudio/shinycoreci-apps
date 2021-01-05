@@ -2,7 +2,7 @@ library(shiny)
 library(reactlog)
 reactlog_enable()
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   titlePanel("Dynamically generated user interface components"),
   fluidRow(
 

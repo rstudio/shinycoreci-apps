@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   # Application title
   titlePanel("Word Cloud"),
 

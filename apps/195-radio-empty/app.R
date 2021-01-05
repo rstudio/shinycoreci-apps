@@ -1,4 +1,4 @@
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   p("This app tests whether radio buttons can have none selected, and that it is
     possible to update them to have none selected. "
   ),

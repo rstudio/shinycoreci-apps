@@ -1,5 +1,5 @@
 # 定义用户界面
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
 
   # 标题
   titlePanel("麻麻再也不用担心我的Shiny应用不能显示中文了"),

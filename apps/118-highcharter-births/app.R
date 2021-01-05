@@ -11,7 +11,7 @@ births <- read.csv("data/births.csv")
 years <- unique(births$year)
 
 # UI ----------------------------------------------------------------
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
 
   # App title -------------------------------------------------------
   titlePanel("The Friday the 13th effect"),

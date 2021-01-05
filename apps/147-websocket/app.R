@@ -2,7 +2,7 @@ library(shiny)
 library(websocket)
 library(shinyjs)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   shinyjs::useShinyjs(),
   fluidRow(
     column(6, offset = 3,

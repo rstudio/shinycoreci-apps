@@ -2,7 +2,7 @@ library(shiny)
 library(plotly)
 library(htmlwidgets)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   plotlyOutput("p1", height = 200),
   plotlyOutput("p2", height = 200),
   plotlyOutput("p3", height = 200),

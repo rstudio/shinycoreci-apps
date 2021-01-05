@@ -2,7 +2,7 @@
 
 library(shiny)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   p("Verify that this app doesn't crash on startup, and that Go draws a plot."),
   actionButton("go", "Go"),
   plotOutput("plot"),

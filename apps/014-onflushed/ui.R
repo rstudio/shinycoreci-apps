@@ -1,4 +1,4 @@
-basicPage(
+fluidPage(theme = bslib::bs_theme(),
   h2('Immediate output here'),
   verbatimTextOutput('fast'),
   h2('Delayed output comes after the page is ready'),

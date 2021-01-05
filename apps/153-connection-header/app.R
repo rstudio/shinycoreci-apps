@@ -11,7 +11,7 @@ async_status_code <- function(url, headers) {
   })
 }
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   h2("Connection Header test"),
   p(
     "This tests whether static JS assets can be successfully served when",

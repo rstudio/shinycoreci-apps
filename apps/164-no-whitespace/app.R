@@ -1,7 +1,7 @@
 library(shiny)
 
 # Define UI for app
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(),
   # App title ----
   titlePanel("Suppress Whitespace!"),
   shiny::textOutput("package"),

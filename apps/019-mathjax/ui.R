@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(),
   title = 'MathJax Examples',
   withMathJax(
     # Don't show "Processing math...", "Loading math...", to make timing

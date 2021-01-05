@@ -3,7 +3,7 @@
 
 shinyApp(
 
-  fluidPage(
+  fluidPage(theme = bslib::bs_theme(),
     sidebarLayout(
       sidebarPanel(
         sliderInput("n", "Number of points", 4, 32, value = 8, step = 4)
