@@ -1,1 +1,1 @@
-shinycoreci::test_shinyjster_app("chrome", dimensions = "600x700")
+shinycoreci::test_shinyjster_app("chrome", dimensions = "550x700")
