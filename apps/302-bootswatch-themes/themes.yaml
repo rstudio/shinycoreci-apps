@@ -1,0 +1,111 @@
+cerulean4:
+  version: 4
+  bootswatch: cerulean
+cosmo4:
+  version: 4
+  bootswatch: cosmo
+cyborg4:
+  version: 4
+  bootswatch: cyborg
+darkly4:
+  version: 4
+  bootswatch: darkly
+flatly4:
+  version: 4
+  bootswatch: flatly
+journal4:
+  version: 4
+  bootswatch: journal
+litera4:
+  version: 4
+  bootswatch: litera
+lumen4:
+  version: 4
+  bootswatch: lumen
+lux4:
+  version: 4
+  bootswatch: lux
+materia4:
+  version: 4
+  bootswatch: materia
+minty4:
+  version: 4
+  bootswatch: minty
+pulse4:
+  version: 4
+  bootswatch: pulse
+sandstone4:
+  version: 4
+  bootswatch: sandstone
+simplex4:
+  version: 4
+  bootswatch: simplex
+sketchy4:
+  version: 4
+  bootswatch: sketchy
+slate4:
+  version: 4
+  bootswatch: slate
+solar4:
+  version: 4
+  bootswatch: solar
+spacelab4:
+  version: 4
+  bootswatch: spacelab
+superhero4:
+  version: 4
+  bootswatch: superhero
+united4:
+  version: 4
+  bootswatch: united
+yeti4:
+  version: 4
+  bootswatch: yeti
+cerulean3:
+  version: 3
+  bootswatch: cerulean
+cosmo3:
+  version: 3
+  bootswatch: cosmo
+cyborg3:
+  version: 3
+  bootswatch: cyborg
+darkly3:
+  version: 3
+  bootswatch: darkly
+flatly3:
+  version: 3
+  bootswatch: flatly
+journal3:
+  version: 3
+  bootswatch: journal
+lumen3:
+  version: 3
+  bootswatch: lumen
+paper3:
+  version: 3
+  bootswatch: paper
+readable3:
+  version: 3
+  bootswatch: readable
+sandstone3:
+  version: 3
+  bootswatch: sandstone
+simplex3:
+  version: 3
+  bootswatch: simplex
+slate3:
+  version: 3
+  bootswatch: slate
+spacelab3:
+  version: 3
+  bootswatch: spacelab
+superhero3:
+  version: 3
+  bootswatch: superhero
+united3:
+  version: 3
+  bootswatch: united
+yeti3:
+  version: 3
+  bootswatch: yeti

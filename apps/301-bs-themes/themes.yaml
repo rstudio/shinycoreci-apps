@@ -1,0 +1,23 @@
+default4:
+  version: 4
+default3:
+  version: 3
+custom4:
+  version: 4
+  bg: "#202123"
+  fg: "#B8BCC2"
+  primary: "#EA80FC"
+  secondary: "#00DAC6"
+  success: "#4F9B29"
+  info: "#28B3ED"
+  warning: "#FD7424"
+  danger: "#F7367E"
+  base_font: !expr bslib::font_google("Open Sans")
+  heading_font: !expr bslib::font_google("Proza Libre")
+  code_font: !expr bslib::font_google("Fira Code")
+custom3:
+  version: 3
+  bg: "#002B36"
+  fg: "#EEE8D5"
+  primary: "#2AA198"
+  base_font: !expr font_google("Grandstander")
