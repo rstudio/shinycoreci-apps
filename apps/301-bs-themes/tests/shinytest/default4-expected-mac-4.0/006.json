@@ -178,9 +178,9 @@
         },
         {
           "name": "jquery",
-          "version": "1.11.3",
+          "version": "3.5.1",
           "src": {
-            "href": "jquery-1.11.3"
+            "href": "jquery-3.5.1"
           },
           "meta": null,
           "script": "jquery.min.js",
@@ -191,9 +191,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.0.1",
+          "version": "1.1.0.9000",
           "src": {
-            "href": "crosstalk-1.1.0.1"
+            "href": "crosstalk-1.1.0.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
@@ -207,7 +207,7 @@
     "inputPanelOutput": "List of 5\n $ sliderInput        : int [1:2] 14 83\n $ selectizeInput     : chr \"AK\"\n $ selectizeMultiInput: chr [1:3] \"AK\" \"AR\" \"CO\"\n $ dateInput          : Date[1:1], format: \"2020-12-21\"\n $ dateRangeInput     : Date[1:2], format: \"2020-12-24\" \"2020-12-26\"",
     "inputPanelOutputHeader": "Below are the values bound to each input widget above",
     "plot": {
-      "src": "[image data sha1: 87737d82eec92620398aac2b151de93bf910a5e1]",
+      "src": "[image data sha1: ce76ff1c900a1f440c0eb5712ec58b4771fafdce]",
       "width": 962,
       "height": 400,
       "alt": "Plot object",

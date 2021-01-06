@@ -49,6 +49,7 @@ app$setInputs(navbar = "Tables")
 app$snapshot()
 app$setInputs(navbar = "Fonts")
 app$snapshot()
+app$setInputs(navbar = "Notifications")
 app$setInputs(otherNav = "Uploads & Downloads")
 app$uploadFile(file = "upload-file.txt")
 app$snapshot()
@@ -62,7 +63,7 @@ app$snapshot()
 
 # It'd be nice to have snapshots of notifications and progress bars,
 # but I'm not sure if the timing issues they present are worth the maintainence cost
-#app$setInputs(navbar = "Notifications")
+#
 #app$setInputs(showDefault = "click")
 #app$setInputs(showMessage = "click")
 #app$setInputs(showWarning = "click")
