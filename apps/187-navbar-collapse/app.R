@@ -44,8 +44,7 @@ jster <- shinyjster::shinyjster_js(
     "
 )
 
-ui <- navbarPage(
-  theme = bslib::bs_global_get(),
+ui <- navbarPage(theme = bslib::bs_theme(),
   "", collapsible = TRUE,
   tabPanel("Plot", msg, plotOutput("plot")),
   tabPanel("Summary", msg, verbatimTextOutput("summary"), jster)
