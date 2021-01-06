@@ -2,7 +2,7 @@ library(shiny)
 
 # ensure two column appear on small displays
 column2 <- function(x) {
-  div(class = "col-xs-6", x)
+  div(class = "col-6", x)
 }
 
 row <- function(w1, w2) {
