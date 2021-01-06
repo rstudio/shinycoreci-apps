@@ -57,7 +57,7 @@ btn_server <- function(id, navId = id) {
 
 ui <- navbarPage(
   title = "",
-  theme = bslib::bs_theme(bootswatch = "cosmo"),
+  theme = bslib::bs_global_get(),
   # Nav ids needs to be namespaced by the relevant btn_ui() id
   id = NS("navbar", "navbar"),
   tabPanel(

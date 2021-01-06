@@ -1,5 +1,16 @@
-app <- ShinyDriver$new("../../")
-app$snapshotInit("mytest")
+# Do not edit this test script by hand. This script was generated automatically by 
+# ./app/shinytest-template.R & ./app/tests/shinytest.R
+library(shinytest)
+library(bslib)
+theme <- yaml::yaml.load_file('../../themes.yaml', eval.expr = TRUE)[['cosmo4']]
+if (!is_bs_theme(theme)) {
+  theme <- do.call(bs_theme, theme)
+}
+
+# The bslib themer-demo app listens to this option through
+# bslib::bs_global_get()
+app <- ShinyDriver$new("../../", options = list(bslib_theme = theme))
+app$snapshotInit("cosmo4")
 
 app$snapshot()
 app$setInputs(`navbar-insert` = "click")

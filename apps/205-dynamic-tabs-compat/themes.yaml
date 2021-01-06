@@ -1,0 +1,6 @@
+cosmo4:
+  version: 4
+  bootswatch: cosmo
+cosmo3:
+  version: 3
+  bootswatch: cosmo
