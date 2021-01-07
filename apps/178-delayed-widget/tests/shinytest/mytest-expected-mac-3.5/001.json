@@ -2119,9 +2119,9 @@
       "deps": [
         {
           "name": "htmlwidgets",
-          "version": "1.5.3.9000",
+          "version": "1.5.1",
           "src": {
-            "href": "htmlwidgets-1.5.3.9000"
+            "href": "htmlwidgets-1.5.1"
           },
           "meta": null,
           "script": "htmlwidgets.js",
@@ -2174,32 +2174,21 @@
           "all_files": true
         },
         {
-          "name": "proj4",
-          "version": "2.6.2",
-          "src": {
-            "href": "proj4-2.6.2"
-          },
-          "meta": null,
-          "script": "proj4.min.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": false
-        },
-        {
           "name": "Proj4Leaflet",
           "version": "1.0.1",
           "src": {
             "href": "Proj4Leaflet-1.0.1"
           },
           "meta": null,
-          "script": "proj4leaflet.js",
+          "script": [
+            "proj4-compressed.js",
+            "proj4leaflet.js"
+          ],
           "stylesheet": null,
           "head": null,
           "attachment": null,
           "package": null,
-          "all_files": false
+          "all_files": true
         },
         {
           "name": "rstudio_leaflet",
@@ -2217,9 +2206,9 @@
         },
         {
           "name": "leaflet-binding",
-          "version": "2.0.3.9000",
+          "version": "2.0.3",
           "src": {
-            "href": "leaflet-binding-2.0.3.9000"
+            "href": "leaflet-binding-2.0.3"
           },
           "meta": null,
           "script": "leaflet.js",
