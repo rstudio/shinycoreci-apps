@@ -66,8 +66,8 @@ osVersion: Ubuntu 18.04.5 LTS
 51           labeling       0.4.2   RSPM                       
 52              later  1.1.0.9000    Git eb2c8ad        /master
 53           lazyeval       0.2.2   RSPM                       
-54            leaflet     2.0.4.1    Git 89aba69     /rc-v2.0.4
-55  leaflet.providers       1.9.0    Git a992fad        /master
+54            leaflet     2.0.4.1   CRAN                       
+55  leaflet.providers       1.9.0   RSPM                       
 56          lifecycle       0.2.0   RSPM                       
 57           magrittr       2.0.1   RSPM                       
 58           markdown         1.1   RSPM                       
@@ -104,7 +104,7 @@ osVersion: Ubuntu 18.04.5 LTS
 89            rematch       1.0.1   RSPM                       
 90           rematch2       2.1.2   RSPM                       
 91            remotes       2.2.0   RSPM                       
-92               renv      0.12.3   RSPM                       
+92               renv      0.12.4   CRAN                       
 93              rlang      0.4.10   RSPM                       
 94          rmarkdown         2.6   RSPM                       
 95          rprojroot       2.0.2   RSPM                       
@@ -114,7 +114,7 @@ osVersion: Ubuntu 18.04.5 LTS
 99             scales       1.1.1   RSPM                       
 100       sessioninfo       1.1.1   RSPM                       
 101             shiny       1.6.0    Git a844938     /rc-v1.6.0
-102       shinycoreci  0.0.0.9005 GitHub d013c57 rstudio/master
+102       shinycoreci  0.0.0.9005 GitHub cc85055 rstudio/master
 103        shinyjster  0.0.0.9009    Git 3358dfd        /master
 104         shinymeta       0.2.0    Git b78a1cf        /master
 105         shinytest       1.4.1    Git 1c1f837     /rc-v1.4.1
@@ -126,7 +126,7 @@ osVersion: Ubuntu 18.04.5 LTS
 111            styler       1.3.2   RSPM                       
 112               sys         3.4   RSPM                       
 113          testthat       3.0.1   RSPM                       
-114          thematic       0.1.1    Git f384891     /rc-v0.1.1
+114          thematic       0.1.1    Git b3d481a     /rc-v0.1.1
 115            tibble       3.0.4   RSPM                       
 116             tidyr       1.1.2   RSPM                       
 117        tidyselect       1.1.0   RSPM                       
@@ -139,7 +139,7 @@ osVersion: Ubuntu 18.04.5 LTS
 124         webdriver  1.0.5.9000    Git 10f25c5        /master
 125         websocket  1.3.1.9000    Git 0745e31        /master
 126             withr       2.3.0   RSPM                       
-127              xfun        0.20   CRAN                       
+127              xfun        0.20   RSPM                       
 128            xtable       1.8-4   RSPM                       
 129              yaml       2.2.1   RSPM                       
 130              boot      1.3-25   CRAN                       
