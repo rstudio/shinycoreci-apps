@@ -161,7 +161,7 @@ jobs:
       max-parallel: 6
       matrix:
         shinycoreci:
-        - { branch: "master", text: ""}
+        - { branch: "pkgdepends", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
           - "4.0"
