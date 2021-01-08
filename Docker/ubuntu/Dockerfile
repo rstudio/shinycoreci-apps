@@ -116,6 +116,7 @@ ENV GITHUB_PAT=$GITHUB_PAT
 
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
+RUN R --quiet -e "remotes::install_cran(c('knitr', 'rmarkdown', 'curl'))"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
 
 ARG SHINYCORECI_SHA=master
@@ -150,6 +151,8 @@ RUN apt-get update && apt-get install -y \
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 # install r pkgs
+## install htmltools to get dev version
+RUN R --quiet -e "remotes::install_github('rstudio/htmltools', auth_token ='${GITHUB_PAT}')"
 RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps')"
 
 
