@@ -3,7 +3,7 @@ name: Docker
 on:
   push:
     branches:
-      - docker
+      - docker**
       - ghactions
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   schedule:
