@@ -121,6 +121,8 @@ RUN yum install -y freetype-devel libpng-devel libtiff-devel
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 
 # install r pkgs
+## install htmltools to get dev version
+RUN R --quiet -e "remotes::install_github('rstudio/htmltools', auth_token ='${GITHUB_PAT}')"
 RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps')"
 
 
