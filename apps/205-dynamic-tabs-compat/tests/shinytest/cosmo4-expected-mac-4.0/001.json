@@ -1,10 +1,8 @@
 {
   "input": {
-    "navbar-hide": 0,
     "navbar-insert": 0,
     "navbar-navbar": "Home",
     "navbar-remove": 0,
-    "navbar-show": 0,
     "navlist-hide": 0,
     "navlist-insert": 0,
     "navlist-navlist": "base",
