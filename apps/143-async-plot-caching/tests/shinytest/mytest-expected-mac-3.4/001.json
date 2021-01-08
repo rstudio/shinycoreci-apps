@@ -4,7 +4,7 @@
   },
   "output": {
     "ggplotNN": {
-      "src": "[image data sha1: 85e86240617f5e3e747870fcc2c13b6933215cdc]",
+      "src": "[image data sha1: 61c919a13031ae5418d16905c9259f993462882b]",
       "alt": "Plot object",
       "coordmap": {
         "panels": [
@@ -30,9 +30,9 @@
               "y": "dist"
             },
             "range": {
-              "left": 38.2325216319463,
+              "left": 38.0220724131963,
               "right": 474.520547945206,
-              "bottom": 367.625291494461,
+              "bottom": 368.509178173071,
               "top": 5.47945205479452
             }
           }
@@ -45,7 +45,7 @@
       "class": "shiny-scalable"
     },
     "ggplotNY": {
-      "src": "[image data sha1: 85e86240617f5e3e747870fcc2c13b6933215cdc]",
+      "src": "[image data sha1: 61c919a13031ae5418d16905c9259f993462882b]",
       "alt": "Plot object",
       "coordmap": {
         "panels": [
@@ -71,9 +71,9 @@
               "y": "dist"
             },
             "range": {
-              "left": 38.2325216319463,
+              "left": 38.0220724131963,
               "right": 474.520547945206,
-              "bottom": 367.625291494461,
+              "bottom": 368.509178173071,
               "top": 5.47945205479452
             }
           }
@@ -86,7 +86,7 @@
       "class": "shiny-scalable"
     },
     "ggplotYN": {
-      "src": "[image data sha1: 85e86240617f5e3e747870fcc2c13b6933215cdc]",
+      "src": "[image data sha1: 61c919a13031ae5418d16905c9259f993462882b]",
       "alt": "Plot object",
       "coordmap": {
         "panels": [
@@ -112,9 +112,9 @@
               "y": "dist"
             },
             "range": {
-              "left": 38.2325216319463,
+              "left": 38.0220724131963,
               "right": 474.520547945206,
-              "bottom": 367.625291494461,
+              "bottom": 368.509178173071,
               "top": 5.47945205479452
             }
           }
@@ -127,7 +127,7 @@
       "class": "shiny-scalable"
     },
     "ggplotYY": {
-      "src": "[image data sha1: 85e86240617f5e3e747870fcc2c13b6933215cdc]",
+      "src": "[image data sha1: 61c919a13031ae5418d16905c9259f993462882b]",
       "alt": "Plot object",
       "coordmap": {
         "panels": [
@@ -153,9 +153,9 @@
               "y": "dist"
             },
             "range": {
-              "left": 38.2325216319463,
+              "left": 38.0220724131963,
               "right": 474.520547945206,
-              "bottom": 367.625291494461,
+              "bottom": 368.509178173071,
               "top": 5.47945205479452
             }
           }
