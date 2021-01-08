@@ -116,6 +116,7 @@ ENV GITHUB_PAT=$GITHUB_PAT
 
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
+RUN R --quiet -e "remotes::install_cran(c('knitr', 'rmarkdown', 'curl'))"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
 
 ARG SHINYCORECI_SHA=master

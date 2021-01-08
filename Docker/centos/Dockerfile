@@ -86,11 +86,10 @@ ENV GITHUB_PAT=$GITHUB_PAT
 
 # prep install
 RUN R --quiet -e "install.packages('remotes')"
+RUN R --quiet -e "remotes::install_cran(c('knitr', 'rmarkdown', 'curl'))"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
 # some how this package isn't a dep, but is required for a package
 RUN R --quiet -e "remotes::install_cran(c('markdown'))"
-# shinycoreci deps
-RUN R --quiet -e "remotes::install_cran(c('sessioninfo', 'renv', 'remotes', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'leaflet', 'leaflet.providers', 'crosstalk', 'flexdashboard', 'pool', 'curl', 'jsonlite', 'callr', 'progress', 'rsconnect', 'httr'))"
 
 ARG SHINYCORECI_SHA=master
 ARG APPS_SHA=master
