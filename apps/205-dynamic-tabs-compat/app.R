@@ -8,14 +8,14 @@ card <- function(title, body) {
   )
 }
 
-btn_ui <- function(id) {
+btn_ui <- function(id, show = TRUE, hide = TRUE) {
   ns <- NS(id)
   tagList(
     actionButton(ns('insert'), 'Insert'),
     actionButton(ns('remove'), 'Remove'),
     HTML("&nbsp;"),
-    actionButton(ns('show'), 'Show'),
-    actionButton(ns('hide'), 'Hide')
+    if (show) actionButton(ns('show'), 'Show'),
+    if (hide) actionButton(ns('hide'), 'Hide')
   )
 }
 
@@ -62,7 +62,7 @@ ui <- navbarPage(
   id = NS("navbar", "navbar"),
   tabPanel(
     "Home",
-    card("navbarPage() controls", btn_ui("navbar")),
+    card("navbarPage() controls", btn_ui("navbar", show = FALSE, hide = FALSE)),
     card(
       "tabsetPanel() controls",
       fluidRow(
