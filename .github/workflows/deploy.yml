@@ -64,7 +64,7 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-testthat-
 
-      - name: Install shinycoreci
+      - name: Install shinycoreci app deps
         # if non linux, install binaries
         # make sure to get the best version number possible
         # If remotes isn't installed, install it
@@ -76,14 +76,19 @@ jobs:
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
+          -e "if (system.file(package = 'rsconnect') == '') remotes::install_cran('rsconnect')"
           -e "if (system.file(package = 'plogr') == '') remotes::install_cran('plogr')"
           -e "## 141-radiant"
           -e "if (system.file(package = 'RcppEigen') == '') remotes::install_cran('RcppEigen')"
           -e "## 141-radiant"
           -e "if (system.file(package = 'radiant') == '') remotes::install_cran('radiant', dependencies = TRUE)"
+      - name: Install htmltools
+        run: >
           # install htmltools to get dev version
           Rscript
-          -e "remotes::install_github('rstudio/htmltools', auth_token ='${GITHUB_PAT}')"
+          -e "remotes::install_github('rstudio/htmltools')"
+      - name: Install shinycoreci
+        run: >
           Rscript
           -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
 
