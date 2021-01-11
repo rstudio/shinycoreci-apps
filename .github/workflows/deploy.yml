@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - deploy
+      - deploy**
       - ghactions
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   schedule:
