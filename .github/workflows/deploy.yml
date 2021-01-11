@@ -72,16 +72,20 @@ jobs:
         # install the specific branch of shinycoreci
         run: >
           Rscript
-          -e "## options(pkgType = 'binary')"
-          -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
-          -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
-          -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
-          -e "if (system.file(package = 'plogr') == '') remotes::install_cran('plogr')"
-          -e "## 141-radiant"
-          -e "if (system.file(package = 'RcppEigen') == '') remotes::install_cran('RcppEigen')"
-          -e "## 141-radiant"
-          -e "if (system.file(package = 'radiant') == '') remotes::install_cran('radiant', dependencies = TRUE)"
-          -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
+            -e "## options(pkgType = 'binary')"
+            -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
+            -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
+            -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
+            -e "if (system.file(package = 'plogr') == '') remotes::install_cran('plogr')"
+            -e "## 141-radiant"
+            -e "if (system.file(package = 'RcppEigen') == '') remotes::install_cran('RcppEigen')"
+            -e "## 141-radiant"
+            -e "if (system.file(package = 'radiant') == '') remotes::install_cran('radiant', dependencies = TRUE)"
+          # install htmltools to get dev version
+          Rscript
+            -e "remotes::install_github('rstudio/htmltools', auth_token ='${GITHUB_PAT}')"
+          Rscript
+            -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
 
       - name: Deploy Apps to Shinyapps.io
         if: matrix.config.type == 'shinyappsio'
