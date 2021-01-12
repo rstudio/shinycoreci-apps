@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - deploy
+      - deploy**
       - ghactions
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   schedule:
@@ -25,8 +25,8 @@ jobs:
       matrix:
         config:
         - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5, retry: 3 }
-        # beta.rstudioconnect does not support v4 yet
-        # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
+        # beta.rstudioconnect does not support R v4.0 yet
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
 
         # - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 1, retry: 3, extra_app_text: ", apps = c('001-hello', '002-text')" }
         # beta.rstudioconnect does not support v4 yet
@@ -64,7 +64,7 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-testthat-
 
-      - name: Install shinycoreci
+      - name: Install shinycoreci app deps
         # if non linux, install binaries
         # make sure to get the best version number possible
         # If remotes isn't installed, install it
@@ -76,11 +76,20 @@ jobs:
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
+          -e "if (system.file(package = 'rsconnect') == '') remotes::install_cran('rsconnect')"
           -e "if (system.file(package = 'plogr') == '') remotes::install_cran('plogr')"
           -e "## 141-radiant"
           -e "if (system.file(package = 'RcppEigen') == '') remotes::install_cran('RcppEigen')"
           -e "## 141-radiant"
           -e "if (system.file(package = 'radiant') == '') remotes::install_cran('radiant', dependencies = TRUE)"
+      - name: Install htmltools
+        run: >
+          Rscript
+          -e "# install htmltools to get dev version"
+          -e "remotes::install_github('rstudio/htmltools')"
+      - name: Install shinycoreci
+        run: >
+          Rscript
           -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
 
       - name: Deploy Apps to Shinyapps.io
