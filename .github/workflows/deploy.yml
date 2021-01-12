@@ -84,8 +84,8 @@ jobs:
           -e "if (system.file(package = 'radiant') == '') remotes::install_cran('radiant', dependencies = TRUE)"
       - name: Install htmltools
         run: >
-          # install htmltools to get dev version
           Rscript
+          -e "# install htmltools to get dev version"
           -e "remotes::install_github('rstudio/htmltools')"
       - name: Install shinycoreci
         run: >
