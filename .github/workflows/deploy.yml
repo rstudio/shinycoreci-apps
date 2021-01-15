@@ -91,6 +91,10 @@ jobs:
         run: >
           Rscript
           -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
+      - name: Install again
+        run: >
+          Rscript
+          -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
 
       - name: Deploy Apps to Shinyapps.io
         if: matrix.config.type == 'shinyappsio'
