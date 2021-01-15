@@ -58,11 +58,11 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-deploy3-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-${{ matrix.config.type }}-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-shinytest-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-testthat-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy3-libs-${{ matrix.config.type }}-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy3-libs-shinytest-
+            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy3-libs-testthat-
 
       - name: Install shinycoreci app deps
         # if non linux, install binaries
