@@ -64,7 +64,7 @@ jobs:
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy3-libs-shinytest-
             ${{ runner.os }}-r-${{ matrix.config.r }}-deploy3-libs-testthat-
 
-      - name: Install shinycoreci app deps
+      - name: Prep shinycoreci app deps
         # if non linux, install binaries
         # make sure to get the best version number possible
         # If remotes isn't installed, install it
@@ -96,6 +96,10 @@ jobs:
         run: >
           Rscript
           -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
+      - name: Install app deps
+        run: >
+          Rscript
+          -e "shinycoreci::install_exact_shinycoreci_deps(apps = shinycoreci::apps_deploy('apps'))"
 
       - name: Deploy Apps to Shinyapps.io
         if: matrix.config.type == 'shinyappsio'
