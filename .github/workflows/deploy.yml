@@ -86,7 +86,8 @@ jobs:
         run: >
           Rscript
           -e "# install htmltools to get dev version"
-          -e "remotes::install_github('rstudio/htmltools')"
+          -e "remotes::install_cran('htmltools', type = 'source')"
+          -e "remotes::install_github('rstudio/shinythemes')"
       - name: Install shinycoreci
         run: >
           Rscript
