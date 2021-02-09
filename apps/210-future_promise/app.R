@@ -49,18 +49,33 @@ ui <- fluidPage(
     )
   ),
   shinyjster::shinyjster_js("
+    var wait_for_buttons = function(done) {
+      var wait = function() {
+        if ($('#go_future_promise').attr('disabled')) {
+          setTimeout(wait, 0.1);
+          return;
+        }
+        done();
+        return;
+      }
+      setTimeout(wait, 2000);
+    }
+
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
     for (i = 0; i < 2; i++) {
       jst.add(function() {
         Jster.button.click('go_future_future');
       });
-      jst.add(Jster.shiny.waitUntilIdleFor(1000));
+      jst.add(wait_for_buttons);
+      jst.add(Jster.shiny.waitUntilIdleFor(2000));
       jst.add(function() {
         Jster.button.click('go_future_promise');
       });
-      jst.add(Jster.shiny.waitUntilIdleFor(1000));
+      jst.add(wait_for_buttons);
+      jst.add(Jster.shiny.waitUntilIdleFor(2000));
     }
+    jst.add(Jster.shiny.waitUntilIdleFor(2000));
     jst.add(function() {
       Jster.assert.isEqual(
         $('#status').text().trim(),
