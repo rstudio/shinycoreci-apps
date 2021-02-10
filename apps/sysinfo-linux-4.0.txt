@@ -20,7 +20,7 @@ osVersion: Ubuntu 18.04.5 LTS
 5           base64enc       0.1-3   RSPM                       
 6                  BH    1.75.0-0   RSPM                       
 7                brio       1.1.1   RSPM                       
-8               bslib  0.2.4.9001    Git f613324        /master
+8               bslib  0.2.4.9001    Git 94ddbba        /master
 9              cachem  1.0.3.9001    Git c7fdadf        /master
 10              callr       3.5.1   RSPM                       
 11          checkmate       2.0.0   RSPM                       
@@ -82,7 +82,7 @@ osVersion: Ubuntu 18.04.5 LTS
 67           pkgbuild       1.2.0   RSPM                       
 68           pkgcache  1.1.1.9000 GitHub a021bbb     r-lib/HEAD
 69          pkgconfig       2.0.3   RSPM                       
-70         pkgdepends  0.0.0.9007    Git 72b4c80        /master
+70         pkgdepends  0.0.0.9007    Git f407f28        /master
 71            pkgload       1.1.0   RSPM                       
 72             plotly       4.9.3   RSPM                       
 73                png       0.1-7   RSPM                       
@@ -91,7 +91,7 @@ osVersion: Ubuntu 18.04.5 LTS
 76        prettyunits       1.1.1   RSPM                       
 77           processx       3.4.5   RSPM                       
 78           progress       1.2.2   RSPM                       
-79           promises  1.1.1.9001    Git 70c7a94        /master
+79           promises  1.1.1.9001    Git 192e927        /master
 80                 ps       1.5.0   RSPM                       
 81              purrr       0.3.4   RSPM                       
 82            R.cache      0.14.0   RSPM                       
@@ -116,7 +116,7 @@ osVersion: Ubuntu 18.04.5 LTS
 101              sass  0.3.1.9000    Git 2526470        /master
 102            scales       1.1.1   RSPM                       
 103       sessioninfo       1.1.1   RSPM                       
-104             shiny  1.6.0.9000    Git a634734        /master
+104             shiny  1.6.0.9000    Git edf354f        /master
 105       shinycoreci  0.0.0.9005 GitHub a4c46f4 rstudio/master
 106        shinyjster  0.0.0.9009    Git 3358dfd        /master
 107         shinymeta       0.2.0    Git 7c12317        /master
@@ -142,9 +142,9 @@ osVersion: Ubuntu 18.04.5 LTS
 127       viridisLite       0.3.0   RSPM                       
 128             waldo       0.2.3   RSPM                       
 129         webdriver       1.0.6   RSPM                       
-130         websocket  1.3.1.9000    Git a276ea3        /master
+130         websocket       1.3.2    Git 4406726        /master
 131             withr       2.4.1   RSPM                       
-132              xfun        0.20   RSPM                       
+132              xfun        0.21   CRAN                       
 133            xtable       1.8-4   RSPM                       
 134              yaml       2.2.1   RSPM                       
 135               zip       2.1.1   RSPM                       
