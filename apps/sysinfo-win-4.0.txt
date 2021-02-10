@@ -1,4 +1,4 @@
-Image Version:  20201210.0 
+Image Version:  20210202.1 
 osVersion: Windows Server x64 (build 17763)
 --------------------------------------------------------------------------------
  setting  value                       
@@ -10,7 +10,7 @@ osVersion: Windows Server x64 (build 17763)
  collate  English_United States.1252  
  ctype    English_United States.1252  
  tz       UTC                         
- date     2021-01-16                  
+ date     2021-02-10                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -19,16 +19,16 @@ osVersion: Windows Server x64 (build 17763)
 4           backports       1.2.1   CRAN                       
 5           base64enc       0.1-3   CRAN                       
 6                  BH    1.75.0-0   CRAN                       
-7                brio       1.1.0   CRAN                       
-8               bslib       0.2.4    Git 62124c2     /rc-v0.2.4
-9              cachem  0.0.0.9000    Git 65c78b0        /master
+7                brio       1.1.1   CRAN                       
+8               bslib  0.2.4.9001    Git f613324        /master
+9              cachem  1.0.3.9001    Git c7fdadf        /master
 10              callr       3.5.1   CRAN                       
 11          checkmate       2.0.0   CRAN                       
-12                cli  2.2.0.9000 GitHub d2f1506     r-lib/HEAD
+12                cli  2.3.0.9000 GitHub 9ef875e     r-lib/HEAD
 13         colorspace       2.0-0   CRAN                       
 14         commonmark         1.7   CRAN                       
-15              cpp11       0.2.5   CRAN                       
-16             crayon       1.3.4   CRAN                       
+15              cpp11       0.2.6   CRAN                       
+16             crayon       1.4.1   CRAN                       
 17          crosstalk  1.1.1.9000    Git 4182a36        /master
 18               curl         4.3   CRAN                       
 19         data.table      1.13.6   CRAN                       
@@ -37,15 +37,15 @@ osVersion: Windows Server x64 (build 17763)
 22               desc       1.2.0   CRAN                       
 23            diffobj       0.3.3   CRAN                       
 24             digest      0.6.27   CRAN                       
-25              dplyr       1.0.3   CRAN                       
+25              dplyr       1.0.4   CRAN                       
 26           ellipsis       0.3.1   CRAN                       
 27            english       1.2-5   CRAN                       
 28           evaluate        0.14   CRAN                       
 29              fansi       0.4.2   CRAN                       
 30             farver       2.0.3   CRAN                       
-31            fastmap  1.0.1.9001    Git e23f9c2        /master
+31            fastmap       1.1.0    Git 52134c4        /master
 32           filelock       1.0.2   CRAN                       
-33      flexdashboard  0.5.2.9000    Git d2ed65b        /master
+33      flexdashboard  0.5.2.9000    Git 4fc48b8        /master
 34                 fs       1.5.0   CRAN                       
 35           generics       0.1.0   CRAN                       
 36            ggplot2       3.3.3   CRAN                       
@@ -55,14 +55,14 @@ osVersion: Windows Server x64 (build 17763)
 40             gtable       0.3.0   CRAN                       
 41              highr         0.8   CRAN                       
 42                hms       1.0.0   CRAN                       
-43          htmltools       0.5.1   CRAN                       
+43          htmltools  0.5.1.9000    Git 8d5a998        /master
 44        htmlwidgets       1.5.3   CRAN                       
-45             httpuv       1.5.5   CRAN                       
+45             httpuv       1.5.5    Git c4a7732        /master
 46               httr       1.4.2   CRAN                       
 47            isoband       0.2.3   CRAN                       
 48          jquerylib       0.1.3   CRAN                       
 49           jsonlite       1.7.2   CRAN                       
-50              knitr        1.30   CRAN                       
+50              knitr        1.31   CRAN                       
 51           labeling       0.4.2   CRAN                       
 52              later  1.1.0.9000    Git eb2c8ad        /master
 53           lazyeval       0.2.2   CRAN                       
@@ -80,18 +80,18 @@ osVersion: Windows Server x64 (build 17763)
 65             pillar       1.4.7   CRAN                       
 66              pingr       2.0.1   CRAN                       
 67           pkgbuild       1.2.0   CRAN                       
-68           pkgcache  1.1.1.9000 GitHub b94ec0a     r-lib/HEAD
+68           pkgcache  1.1.1.9000 GitHub a021bbb     r-lib/HEAD
 69          pkgconfig       2.0.3   CRAN                       
-70         pkgdepends  0.0.0.9007    Git c3ea8c5        /master
+70         pkgdepends  0.0.0.9007    Git 72b4c80        /master
 71            pkgload       1.1.0   CRAN                       
 72             plotly       4.9.3   CRAN                       
 73                png       0.1-7   CRAN                       
-74               pool  0.1.5.9001    Git a4d7f89        /master
+74               pool  0.1.6.9000    Git 00fad2c        /master
 75             praise       1.0.0   CRAN                       
 76        prettyunits       1.1.1   CRAN                       
 77           processx       3.4.5   CRAN                       
 78           progress       1.2.2   CRAN                       
-79           promises  1.1.1.9001    Git 55ca04f        /master
+79           promises  1.1.1.9001    Git 70c7a94        /master
 80                 ps       1.5.0   CRAN                       
 81              purrr       0.3.4   CRAN                       
 82            R.cache      0.14.0   CRAN                       
@@ -99,7 +99,7 @@ osVersion: Windows Server x64 (build 17763)
 84               R.oo      1.24.0   CRAN                       
 85            R.utils      2.10.1   CRAN                       
 86                 R6       2.5.0   CRAN                       
-87           rappdirs       0.3.1   CRAN                       
+87           rappdirs       0.3.3   CRAN                       
 88             raster       3.4-5   CRAN                       
 89       RColorBrewer       1.1-2   CRAN                       
 90               Rcpp       1.0.6   CRAN                       
@@ -111,17 +111,17 @@ osVersion: Windows Server x64 (build 17763)
 96              rlang      0.4.10   CRAN                       
 97          rmarkdown         2.6   CRAN                       
 98          rprojroot       2.0.2   CRAN                       
-99          rsconnect 0.8.16-9002    Git 200f599        /master
+99          rsconnect 0.8.16-9002    Git 8c11a55        /master
 100        rstudioapi        0.13   CRAN                       
-101              sass       0.3.0   CRAN                       
+101              sass  0.3.1.9000    Git 2526470        /master
 102            scales       1.1.1   CRAN                       
 103       sessioninfo       1.1.1   CRAN                       
-104             shiny       1.6.0    Git 5ddff1b     /rc-v1.6.0
-105       shinycoreci  0.0.0.9005 GitHub b064b29 rstudio/master
+104             shiny  1.6.0.9000    Git a634734        /master
+105       shinycoreci  0.0.0.9005 GitHub a4c46f4 rstudio/master
 106        shinyjster  0.0.0.9009    Git 3358dfd        /master
-107         shinymeta       0.2.0    Git b78a1cf        /master
-108         shinytest       1.5.0   CRAN                       
-109       shinythemes  1.1.2.9000    Git 0e938e0        /master
+107         shinymeta       0.2.0    Git 7c12317        /master
+108         shinytest       1.5.0    Git dea2ecc        /master
+109       shinythemes       1.2.0    Git dee0e6c        /master
 110         showimage       1.0.0   CRAN                       
 111       sourcetools       0.1.7   CRAN                       
 112                sp       1.4-5   CRAN                       
@@ -130,11 +130,11 @@ osVersion: Windows Server x64 (build 17763)
 115            styler       1.3.2   CRAN                       
 116               sys         3.4   CRAN                       
 117          testthat       3.0.1   CRAN                       
-118          thematic       0.1.1    Git a92e59b     /rc-v0.1.1
-119            tibble       3.0.5   CRAN                       
+118          thematic  0.1.1.9000    Git 03b8c7b        /master
+119            tibble       3.0.6   CRAN                       
 120             tidyr       1.1.2   CRAN                       
 121        tidyselect       1.1.0   CRAN                       
-122           tinytex        0.28   CRAN                       
+122           tinytex        0.29   CRAN                       
 123              utf8       1.1.4   CRAN                       
 124              uuid       0.1-4   CRAN                       
 125             vctrs       0.3.6   CRAN                       
@@ -142,8 +142,8 @@ osVersion: Windows Server x64 (build 17763)
 127       viridisLite       0.3.0   CRAN                       
 128             waldo       0.2.3   CRAN                       
 129         webdriver       1.0.6   CRAN                       
-130         websocket       1.3.1   CRAN                       
-131             withr       2.4.0   CRAN                       
+130         websocket  1.3.1.9000    Git a276ea3        /master
+131             withr       2.4.1   CRAN                       
 132              xfun        0.20   CRAN                       
 133            xtable       1.8-4   CRAN                       
 134              yaml       2.2.1   CRAN                       
