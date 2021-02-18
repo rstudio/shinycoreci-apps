@@ -74,7 +74,7 @@
           {
             "method": "addTiles",
             "args": [
-              "//{s}.tiles.mapbox.com/v3/jcheng.map-5ebohr46/{z}/{x}/{y}.png",
+              "//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
               null,
               null,
               {
@@ -90,7 +90,7 @@
                 "opacity": 1,
                 "zIndex": 1,
                 "detectRetina": false,
-                "attribution": "Maps by <a href=\"http://www.mapbox.com/\">Mapbox<\/a>"
+                "attribution": "&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"
               }
             ]
           }
