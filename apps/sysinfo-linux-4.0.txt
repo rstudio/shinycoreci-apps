@@ -1,8 +1,8 @@
-Image Version:  20210131.1 
+Image Version:  20210208.0 
 osVersion: Ubuntu 18.04.5 LTS
 --------------------------------------------------------------------------------
  setting  value                       
- version  R version 4.0.3 (2020-10-10)
+ version  R version 4.0.4 (2021-02-15)
  os       Ubuntu 18.04.5 LTS          
  system   x86_64, linux-gnu           
  ui       X11                         
@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-02-10                  
+ date     2021-02-18                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -20,8 +20,8 @@ osVersion: Ubuntu 18.04.5 LTS
 5           base64enc       0.1-3   RSPM                       
 6                  BH    1.75.0-0   RSPM                       
 7                brio       1.1.1   RSPM                       
-8               bslib  0.2.4.9001    Git 94ddbba        /master
-9              cachem  1.0.3.9001    Git c7fdadf        /master
+8               bslib  0.2.4.9001    Git 1ec4775        /master
+9              cachem       1.0.4    Git 8af39cf        /master
 10              callr       3.5.1   RSPM                       
 11          checkmate       2.0.0   RSPM                       
 12                cli  2.3.0.9000 GitHub 9ef875e     r-lib/HEAD
@@ -45,7 +45,7 @@ osVersion: Ubuntu 18.04.5 LTS
 30             farver       2.0.3   RSPM                       
 31            fastmap       1.1.0    Git 52134c4        /master
 32           filelock       1.0.2   RSPM                       
-33      flexdashboard  0.5.2.9000    Git 4fc48b8        /master
+33      flexdashboard  0.5.2.9000    Git d8f6984        /master
 34                 fs       1.5.0   RSPM                       
 35           generics       0.1.0   RSPM                       
 36            ggplot2       3.3.3   RSPM                       
@@ -68,11 +68,11 @@ osVersion: Ubuntu 18.04.5 LTS
 53           lazyeval       0.2.2   RSPM                       
 54            leaflet     2.0.4.1   RSPM                       
 55  leaflet.providers       1.9.0   RSPM                       
-56          lifecycle       0.2.0   RSPM                       
+56          lifecycle       1.0.0   RSPM                       
 57            lpSolve      5.6.15   RSPM                       
 58           magrittr       2.0.1   RSPM                       
 59           markdown         1.1   RSPM                       
-60               mime         0.9   RSPM                       
+60               mime        0.10   RSPM                       
 61            munsell       0.5.0   RSPM                       
 62            openssl       1.4.3   RSPM                       
 63            packrat       0.5.0   RSPM                       
@@ -80,9 +80,9 @@ osVersion: Ubuntu 18.04.5 LTS
 65             pillar       1.4.7   RSPM                       
 66              pingr       2.0.1   RSPM                       
 67           pkgbuild       1.2.0   RSPM                       
-68           pkgcache  1.1.1.9000 GitHub a021bbb     r-lib/HEAD
+68           pkgcache  1.1.1.9000 GitHub b1104b9     r-lib/HEAD
 69          pkgconfig       2.0.3   RSPM                       
-70         pkgdepends  0.0.0.9007    Git f407f28        /master
+70         pkgdepends  0.0.0.9007    Git 407f792        /master
 71            pkgload       1.1.0   RSPM                       
 72             plotly       4.9.3   RSPM                       
 73                png       0.1-7   RSPM                       
@@ -116,7 +116,7 @@ osVersion: Ubuntu 18.04.5 LTS
 101              sass  0.3.1.9000    Git 2526470        /master
 102            scales       1.1.1   RSPM                       
 103       sessioninfo       1.1.1   RSPM                       
-104             shiny  1.6.0.9000    Git edf354f        /master
+104             shiny  1.6.0.9000    Git 60db1e0        /master
 105       shinycoreci  0.0.0.9005 GitHub a4c46f4 rstudio/master
 106        shinyjster  0.0.0.9009    Git 3358dfd        /master
 107         shinymeta       0.2.0    Git 7c12317        /master
@@ -129,7 +129,7 @@ osVersion: Ubuntu 18.04.5 LTS
 114           stringr       1.4.0   RSPM                       
 115            styler       1.3.2   RSPM                       
 116               sys         3.4   RSPM                       
-117          testthat       3.0.1   RSPM                       
+117          testthat       3.0.2   RSPM                       
 118          thematic  0.1.1.9000    Git 03b8c7b        /master
 119            tibble       3.0.6   RSPM                       
 120             tidyr       1.1.2   RSPM                       
@@ -140,26 +140,26 @@ osVersion: Ubuntu 18.04.5 LTS
 125             vctrs       0.3.6   RSPM                       
 126           viridis       0.5.1   RSPM                       
 127       viridisLite       0.3.0   RSPM                       
-128             waldo       0.2.3   RSPM                       
+128             waldo       0.2.4   RSPM                       
 129         webdriver       1.0.6   RSPM                       
 130         websocket       1.3.2    Git 4406726        /master
 131             withr       2.4.1   RSPM                       
-132              xfun        0.21   CRAN                       
+132              xfun        0.21   RSPM                       
 133            xtable       1.8-4   RSPM                       
 134              yaml       2.2.1   RSPM                       
 135               zip       2.1.1   RSPM                       
-136              boot      1.3-25   CRAN                       
-137             class      7.3-17   CRAN                       
+136              boot      1.3-26   CRAN                       
+137             class      7.3-18   CRAN                       
 138           cluster       2.1.0   CRAN                       
-139         codetools      0.2-16   CRAN                       
-140           foreign      0.8-80   CRAN                       
-141        KernSmooth     2.23-17   CRAN                       
+139         codetools      0.2-18   CRAN                       
+140           foreign      0.8-81   CRAN                       
+141        KernSmooth     2.23-18   CRAN                       
 142           lattice     0.20-41   CRAN                       
 143              MASS      7.3-53   CRAN                       
-144            Matrix      1.2-18   CRAN                       
+144            Matrix       1.3-2   CRAN                       
 145              mgcv      1.8-33   CRAN                       
-146              nlme     3.1-149   CRAN                       
-147              nnet      7.3-14   CRAN                       
+146              nlme     3.1-152   CRAN                       
+147              nnet      7.3-15   CRAN                       
 148             rpart      4.1-15   CRAN                       
-149           spatial      7.3-12   CRAN                       
+149           spatial      7.3-13   CRAN                       
 150          survival       3.2-7   CRAN                       
