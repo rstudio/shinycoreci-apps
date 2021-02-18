@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: f9635cfc38d2be178fe38d715f66c6a053d42e4f]",
+      "html": "[html data sha1: f1b1d02e0ac5159278e662e9ca5a2e79cfb22878]",
       "deps": [
         {
           "name": "jquery",
@@ -52,6 +52,19 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "value-box-accent-static",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-accent-static-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {
@@ -103,9 +116,21 @@
     "out18fb29f9d978075c": "Mar",
     "out2dc9ad63c6dea2b4": "Mar",
     "out2df655e7561125ed": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\">VB1: Mar<\/span>",
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\" data-color-accent=\"primary\">VB1: Mar<\/span>",
       "deps": [
-
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
     "out59bbc97b6a1b4bb3": "Mar",
@@ -113,18 +138,42 @@
     "out6fe48fa3cbd09f9e": "Mar",
     "out77712108df8238a8": "Mar",
     "out7a34f2cd008b85be": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Mar<\/span>",
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\" data-color-accent=\"primary\">VB3: Mar<\/span>",
       "deps": [
-
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
     "out7b116bf5001aac45": "Mar",
     "outacd6d4a49ebf0ff3": "Mar",
     "outb0c41e07540ee80f": "Mar",
     "outb6c6046969231172": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\">VB2: Mar<\/span>",
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\" data-color-accent=\"primary\">VB2: Mar<\/span>",
       "deps": [
-
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
     "outc528c8f94aec73f5": "Mar",
