@@ -6,7 +6,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 73d3266941baa48b66b48899fbb969c0e0daa041]",
+      "html": "[html data sha1: eaf9637a36f2cc6e37900ff78e04c50b5212c7ff]",
       "deps": [
         {
           "name": "jquery",
@@ -71,6 +71,19 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "value-box-accent-static",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-accent-static-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {
@@ -167,7 +180,8 @@
           "width": 738,
           "height": 626
         }
-      }
+      },
+      "error": null
     }
   },
   "export": {
