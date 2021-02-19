@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 691e293076006b1d1660595b1abef94a375b0346]",
+      "html": "[html data sha1: d4d8b6f8d57dcc1e4ed2f7585c7c302ea6de4443]",
       "deps": [
         {
           "name": "jquery",
@@ -69,6 +69,19 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "value-box-accent-static",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-accent-static-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {
