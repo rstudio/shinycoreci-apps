@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: c2ab1d6597e4edba2b1c510e73cbd5b85c47cbe5]",
+      "html": "[html data sha1: 8a75083a839dd30ef3269a821772cfe17c3aa972]",
       "deps": [
         {
           "name": "jquery",
@@ -55,6 +55,19 @@
           "all_files": true
         },
         {
+          "name": "value-box-accent-static",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-accent-static-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
           "name": "selectize",
           "version": "0.12.4",
           "src": {
@@ -101,24 +114,60 @@
       ]
     },
     "out036980023b23cf30": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\">VB2: Feb<\/span>",
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\" data-color-accent=\"primary\">VB2: Feb<\/span>",
       "deps": [
-
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
     "out372dd6df6a227499": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Feb<\/span>",
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\" data-color-accent=\"primary\">VB3: Feb<\/span>",
       "deps": [
-
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
     "out44a0bc45b351fb42": "Feb",
     "out7dd30976d7eabf77": "Feb",
     "out91b7f72ac16f31e0": "Feb",
     "out9ac41049c5a0fec9": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\">VB1: Feb<\/span>",
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\" data-color-accent=\"primary\">VB1: Feb<\/span>",
       "deps": [
-
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
     "outa1909d37acf95c56": "Feb",
