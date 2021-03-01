@@ -73,6 +73,8 @@ navbarPage("Superzip", id="nav",
       )
     ),
     hr(),
-    DT::dataTableOutput("ziptable")
+    DT::dataTableOutput("ziptable"),
+    # needed to display the crosshair in the ziptable
+    conditionalPanel("false", icon("crosshair"))
   )
 )
