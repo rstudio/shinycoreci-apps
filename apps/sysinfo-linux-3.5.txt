@@ -80,9 +80,9 @@ osVersion: Ubuntu 18.04.5 LTS
 65             pillar       1.5.0   RSPM                       
 66              pingr       2.0.1   RSPM                       
 67           pkgbuild       1.2.0   RSPM                       
-68           pkgcache  1.2.0.9000 GitHub 271574c     r-lib/HEAD
+68           pkgcache       1.2.0   RSPM                       
 69          pkgconfig       2.0.3   RSPM                       
-70         pkgdepends  0.0.0.9007    Git dbbd350        /master
+70         pkgdepends  0.0.0.9007    Git d6d4505        /master
 71            pkgload       1.2.0   RSPM                       
 72             plotly       4.9.3   RSPM                       
 73                png       0.1-7   RSPM                       
