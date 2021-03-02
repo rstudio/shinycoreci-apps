@@ -70,31 +70,6 @@
             }
           }
         },
-        "calls": [
-          {
-            "method": "addTiles",
-            "args": [
-              "//{s}.tiles.mapbox.com/v3/jcheng.map-5ebohr46/{z}/{x}/{y}.png",
-              null,
-              null,
-              {
-                "minZoom": 0,
-                "maxZoom": 18,
-                "tileSize": 256,
-                "subdomains": "abc",
-                "errorTileUrl": "",
-                "tms": false,
-                "noWrap": false,
-                "zoomOffset": 0,
-                "zoomReverse": false,
-                "opacity": 1,
-                "zIndex": 1,
-                "detectRetina": false,
-                "attribution": "Maps by <a href=\"http://www.mapbox.com/\">Mapbox<\/a>"
-              }
-            ]
-          }
-        ],
         "setView": [
           [
             37.45,
