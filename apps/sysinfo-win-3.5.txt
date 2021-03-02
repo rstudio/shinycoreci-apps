@@ -74,15 +74,15 @@ osVersion: Windows Server x64 (build 17763)
 59           markdown         1.1   CRAN                       
 60               mime        0.10   CRAN                       
 61            munsell       0.5.0   CRAN                       
-62            openssl       1.4.3   CRAN                       
+62            openssl       1.4.1   CRAN                       
 63            packrat       0.5.0   CRAN                       
 64          parsedate       1.2.0   CRAN                       
 65             pillar       1.5.0   CRAN                       
 66              pingr       2.0.1   CRAN                       
 67           pkgbuild       1.2.0   CRAN                       
-68           pkgcache  1.2.0.9000 GitHub 271574c     r-lib/HEAD
+68           pkgcache       1.2.0   CRAN                       
 69          pkgconfig       2.0.3   CRAN                       
-70         pkgdepends  0.0.0.9007    Git dbbd350        /master
+70         pkgdepends  0.0.0.9007    Git d6d4505        /master
 71            pkgload       1.2.0   CRAN                       
 72             plotly       4.9.3   CRAN                       
 73                png       0.1-7   CRAN                       
