@@ -21,7 +21,8 @@ function(input, output, session) {
   # Create the map
   output$map <- renderLeaflet({
     leaflet() %>%
-      addTiles() %>%
+      # Do not include files. Updated tiles produce false positive results
+      # addTiles() %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4)
   })
 
