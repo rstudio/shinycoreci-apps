@@ -26,7 +26,7 @@ fluidPage(
       tableOutput("view")
     )
   ),
-  shinyjster::shinyjster_js("
+  shinyjster::shinyjster_js( "
   // used `Jster.unicode.escape(x, true)` to generate unicode characters.
 
   var jst = jster();
