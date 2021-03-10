@@ -260,6 +260,12 @@ jobs:
           sudo -s apt-get update
           sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
 
+      # Install Chinese font
+      - name: Install Chinese font
+        if: runner.os == 'Linux'
+        run: |
+          sudo -s apt-get install -y fonts-wqy-zenhei
+
       # Install Cairo system dependencies
       - name: Mac systemdeps
         if: runner.os == 'macOS'
