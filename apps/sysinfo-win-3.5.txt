@@ -74,7 +74,7 @@ osVersion: Windows Server x64 (build 17763)
 59           markdown         1.1   CRAN                       
 60               mime        0.10   CRAN                       
 61            munsell       0.5.0   CRAN                       
-62            openssl       1.4.1   CRAN                       
+62            openssl       1.4.3   CRAN                       
 63            packrat       0.5.0   CRAN                       
 64          parsedate       1.2.0   CRAN                       
 65             pillar       1.5.1   CRAN                       
