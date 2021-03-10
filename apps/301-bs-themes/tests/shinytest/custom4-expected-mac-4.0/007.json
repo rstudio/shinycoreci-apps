@@ -378,6 +378,7 @@
         }
       }
     },
+    "thematic_needed": null,
     "wellPanelOutput": "List of 9\n $ selectInput      : chr \"AZ\"\n $ selectMultiInput : NULL\n $ textInput        : chr \"asfdsf\"\n $ numericInput     : int 4\n $ passwordInput    : chr \"secretdfdsf\"\n $ textAreaInput    : chr \"dsfsdf\"\n $ checkInput       : logi FALSE\n $ checkGroupInput  : chr \"A\"\n $ radioButtonsInput: chr \"B\"",
     "wellPanelOutputHeader": "Below are the values bound to each input widget above"
   },
