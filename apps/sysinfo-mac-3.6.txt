@@ -1,4 +1,4 @@
-Image Version:  20210220.1 
+Image Version:  20210302.1 
 osVersion: macOS Catalina 10.15.7
 --------------------------------------------------------------------------------
  setting  value                       
@@ -10,7 +10,7 @@ osVersion: macOS Catalina 10.15.7
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2021-03-02                  
+ date     2021-03-10                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -34,10 +34,10 @@ osVersion: macOS Catalina 10.15.7
 19         data.table      1.14.0   CRAN                       
 20                DBI       1.1.1   CRAN                       
 21            debugme       1.1.0   CRAN                       
-22               desc       1.2.0   CRAN                       
+22               desc       1.3.0   CRAN                       
 23            diffobj       0.3.3   CRAN                       
 24             digest      0.6.27   CRAN                       
-25              dplyr       1.0.4   CRAN                       
+25              dplyr       1.0.5   CRAN                       
 26           ellipsis       0.3.1   CRAN                       
 27            english       1.2-5   CRAN                       
 28           evaluate        0.14   CRAN                       
@@ -45,7 +45,7 @@ osVersion: macOS Catalina 10.15.7
 30             farver       2.1.0   CRAN                       
 31            fastmap       1.1.0    Git 52134c4        /master
 32           filelock       1.0.2   CRAN                       
-33      flexdashboard  0.5.2.9000    Git 6683252        /master
+33      flexdashboard  0.5.2.9000    Git 0c712c1        /master
 34                 fs       1.5.0   CRAN                       
 35           generics       0.1.0   CRAN                       
 36            ggplot2       3.3.3   CRAN                       
@@ -59,7 +59,7 @@ osVersion: macOS Catalina 10.15.7
 44        htmlwidgets       1.5.3   CRAN                       
 45             httpuv       1.5.5    Git c4a7732        /master
 46               httr       1.4.2   CRAN                       
-47            isoband       0.2.3   CRAN                       
+47            isoband       0.2.4   CRAN                       
 48          jquerylib       0.1.3   CRAN                       
 49           jsonlite       1.7.2   CRAN                       
 50              knitr        1.31   CRAN                       
@@ -77,12 +77,12 @@ osVersion: macOS Catalina 10.15.7
 62            openssl       1.4.3   CRAN                       
 63            packrat       0.5.0   CRAN                       
 64          parsedate       1.2.0   CRAN                       
-65             pillar       1.5.0   CRAN                       
+65             pillar       1.5.1   CRAN                       
 66              pingr       2.0.1   CRAN                       
 67           pkgbuild       1.2.0   CRAN                       
 68           pkgcache       1.2.0   CRAN                       
 69          pkgconfig       2.0.3   CRAN                       
-70         pkgdepends  0.0.0.9007    Git d6d4505        /master
+70         pkgdepends  0.0.0.9007    Git 1c8887c        /master
 71            pkgload       1.2.0   CRAN                       
 72             plotly       4.9.3   CRAN                       
 73                png       0.1-7   CRAN                       
@@ -109,17 +109,17 @@ osVersion: macOS Catalina 10.15.7
 94            remotes       2.2.0   CRAN                       
 95               renv      0.13.0   CRAN                       
 96              rlang      0.4.10   CRAN                       
-97          rmarkdown       2.7.2 GitHub c0b8584   rstudio/HEAD
+97          rmarkdown       2.7.3 GitHub 61db7a9   rstudio/HEAD
 98          rprojroot       2.0.2   CRAN                       
 99          rsconnect 0.8.16-9002    Git 8c11a55        /master
 100        rstudioapi        0.13   CRAN                       
 101              sass  0.3.1.9000    Git 2526470        /master
 102            scales       1.1.1   CRAN                       
 103       sessioninfo       1.1.1   CRAN                       
-104             shiny  1.6.0.9000    Git 8395598        /master
+104             shiny  1.6.0.9000    Git d582e53        /master
 105       shinycoreci  0.0.0.9005 GitHub eecb724 rstudio/master
 106        shinyjster  0.0.0.9009    Git 3358dfd        /master
-107         shinymeta       0.2.0    Git 7c12317        /master
+107         shinymeta       0.2.0    Git a3ed28f        /master
 108         shinytest       1.5.0    Git dea2ecc        /master
 109       shinythemes       1.2.0    Git dee0e6c        /master
 110         showimage       1.0.0   CRAN                       
@@ -130,17 +130,17 @@ osVersion: macOS Catalina 10.15.7
 115            styler       1.3.2   CRAN                       
 116               sys         3.4   CRAN                       
 117          testthat       3.0.2   CRAN                       
-118          thematic  0.1.1.9000    Git a8acacf        /master
+118          thematic  0.1.1.9000    Git ba71991        /master
 119            tibble       3.1.0   CRAN                       
-120             tidyr       1.1.2   CRAN                       
+120             tidyr       1.1.3   CRAN                       
 121        tidyselect       1.1.0   CRAN                       
-122           tinytex        0.29   CRAN                       
+122           tinytex        0.30   CRAN                       
 123              utf8       1.1.4   CRAN                       
 124              uuid       0.1-4   CRAN                       
 125             vctrs       0.3.6   CRAN                       
 126           viridis       0.5.1   CRAN                       
 127       viridisLite       0.3.0   CRAN                       
-128             waldo       0.2.4   CRAN                       
+128             waldo       0.2.5   CRAN                       
 129         webdriver       1.0.6   CRAN                       
 130         websocket       1.3.2    Git 4406726        /master
 131             withr       2.4.1   CRAN                       
