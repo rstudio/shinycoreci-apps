@@ -9,7 +9,8 @@ ui <- fluidPage(
       "Gravatar" = "gravatar"
     )),
     conditionalPanel("input.type === 'selfie'",
-      camera_input("selfie", "Take a selfie")
+      camera_input("selfie", "Take a selfie"),
+      div("(The camera is disabled)")
     ),
     conditionalPanel("input.type === 'upload'",
       fileInput("upload", NULL, accept = c("image/jpeg", "image/png")),
@@ -65,12 +66,10 @@ server <- function(input, output, session) {
   output$gravatar_preview <- renderUI({
     req(gravatar_iv$is_valid())
 
-    email <- gsub("^\\s*(.*?)\\s*$", "\\1", input$email)
-    email <- tolower(email)
-    hash <- digest::digest(email, algo = "md5", serialize = FALSE)
-    url <- paste0("https://www.gravatar.com/avatar/", hash)
+    # Removing association with gravatar service;
+    # instead returns a static image
 
-    tags$img(src = url, alt = "Gravatar image")
+    tags$img(src = "face.png", alt = "Gravatar image")
   })
 
   observeEvent(input$submit, {
