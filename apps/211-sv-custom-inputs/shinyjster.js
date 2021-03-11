@@ -17,46 +17,46 @@ function runAndCheck(jst, run, check) {
 var jst = jster();
 jst.add(Jster.shiny.waitUntilStable);
 
-jst.add(() => {
+jst.add( function() {
   Jster.assert.isTrue(!checkForMessage("#selfie > span.feedback-message",
     "Click the 'Take photo' button before submitting"));
 });
 
 runAndCheck(jst,
-  () => { Jster.button.click("submit"); },
-  () => {
+  function() { Jster.button.click("submit"); },
+  function() {
     Jster.assert.isTrue(checkForMessage("#selfie > span.feedback-message",
       "Click the 'Take photo' button before submitting"));
   }
 );
 
 runAndCheck(jst,
-  () => { Jster.radio.clickOption("type", "upload"); },
-  () => {
+  function() { Jster.radio.clickOption("type", "upload"); },
+  function() {
     Jster.assert.isTrue(checkForMessage(".form-group > span.help-block.shiny-validation-message",
       "Please choose a file"));
   }
 );
 
 runAndCheck(jst,
-  () => { Jster.radio.clickOption("type", "gravatar"); },
-  () => {
+  function() { Jster.radio.clickOption("type", "gravatar"); },
+  function() {
     Jster.assert.isTrue(checkForMessage(".form-group > span.help-block.shiny-validation-message",
       "Required"));
   }
 );
 
 runAndCheck(jst,
-  () => { Jster.input.setValue("email", "hello"); },
-  () => {
+  function() { Jster.input.setValue("email", "hello"); },
+  function() {
     Jster.assert.isTrue(checkForMessage(".form-group > span.help-block.shiny-validation-message",
       "Not a valid email address"));
   }
 );
 
 runAndCheck(jst,
-  () => { Jster.input.setValue("email", "joe@example.com"); },
-  () => {
+  function() { Jster.input.setValue("email", "joe@example.com"); },
+  function() {
     Jster.assert.isTrue(!document.querySelector(".shiny-validation-message"));
   }
 );
