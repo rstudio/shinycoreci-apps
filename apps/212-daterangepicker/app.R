@@ -1,8 +1,7 @@
 library(shiny)
 
 # DATA SET UP
-# Initially setting the slider values from 6 to 25 so that we are sure of the possible dates in the date picker
-# (specifically with the case when we dont know whether a particular month has 30 or 31 days)
+# Initially setting the slider values from 6 to 10 to test with fewer dates
 # Note: Later: Work with cases when the slider value is < 6 or > 25 with dynamic calendar dates.
 
 init_data <- list(
