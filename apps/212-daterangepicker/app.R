@@ -1,15 +1,14 @@
 library(shiny)
-library(magrittr)
 
 # DATA SET UP
 # Initially setting the slider values from 6 to 25 so that we are sure of the possible dates in the date picker
 # (specifically with the case when we dont know whether a particular month has 30 or 31 days)
-# Note: Later: Work with cases when the slider value is < 6 or > 25 with dynamic dates.
+# Note: Later: Work with cases when the slider value is < 6 or > 25 with dynamic calendar dates.
 
 init_data <- list(
   slider_min = 6,
   slider_value = 6,
-  slider_max = 25
+  slider_max = 10
 )
 
 dates <- lapply(init_data$slider_min:init_data$slider_max, function(i){
@@ -114,8 +113,7 @@ server <- function(input, output, session) {
                          min = date - 5,
                          max = date + 5
     )
-  }) %>%
-    bindEvent(input$n)
+  })
 
   #OUTPUTS
   output$slider_val <- renderText({
