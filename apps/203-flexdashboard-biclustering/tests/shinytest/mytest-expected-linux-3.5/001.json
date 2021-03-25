@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 691e293076006b1d1660595b1abef94a375b0346]",
+      "html": "[html data sha1: 4926014f3ee143c06086e5c6b2ab90109236c3b0]",
       "deps": [
         {
           "name": "jquery",
@@ -35,7 +35,7 @@
             "shim/respond.min.js"
           ],
           "stylesheet": "css/cosmo.min.css",
-          "head": null,
+          "head": "<style>h1 {font-size: 34px;}\n       h1.title {font-size: 38px;}\n       h2 {font-size: 30px;}\n       h3 {font-size: 24px;}\n       h4 {font-size: 18px;}\n       h5 {font-size: 16px;}\n       h6 {font-size: 12px;}\n       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}\n       pre:not([class]) { background-color: white }<\/style>",
           "attachment": null,
           "package": null,
           "all_files": true
@@ -72,6 +72,19 @@
           "all_files": true
         },
         {
+          "name": "value-box-accent-static",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-accent-static-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
           "name": "featherlight",
           "version": "1.3.5",
           "src": {
@@ -97,6 +110,35 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-fillpage",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-fillpage-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "fillpage.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {
@@ -168,9 +210,9 @@
       }
     },
     "outae6f9ef61bd253ae": {
-      "src": "[image data sha1: f07c24663bdbf0ff4c5fa2829582b1c8248f2351]",
+      "src": "[image data sha1: fc99ea6d25c792805cf9a7202cad086478907918]",
       "width": 738,
-      "height": 281,
+      "height": 282,
       "alt": "Plot object",
       "coordmap": {
         "panels": [
@@ -184,7 +226,7 @@
             "range": {
               "left": 59.04,
               "right": 707.76,
-              "bottom": 206.56,
+              "bottom": 207.56,
               "top": 58.04
             },
             "log": {
@@ -198,9 +240,10 @@
         ],
         "dims": {
           "width": 738,
-          "height": 281
+          "height": 282
         }
-      }
+      },
+      "error": null
     }
   },
   "export": {
