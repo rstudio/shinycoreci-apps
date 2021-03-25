@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 0b9b3782a212bd2b7710302df2b06306c13e5a2e]",
+      "html": "[html data sha1: e11c21289c78ef9ca9793a1a0ade95ecaf3c7a12]",
       "deps": [
         {
           "name": "jquery",
@@ -89,7 +89,7 @@
           "meta": null,
           "script": null,
           "stylesheet": [
-            "flexdashboard.css",
+            "flexdashboard.min.css",
             "theme-cosmo.css"
           ],
           "head": null,

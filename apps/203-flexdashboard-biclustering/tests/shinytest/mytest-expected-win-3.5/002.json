@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: d4d8b6f8d57dcc1e4ed2f7585c7c302ea6de4443]",
+      "html": "[html data sha1: 4926014f3ee143c06086e5c6b2ab90109236c3b0]",
       "deps": [
         {
           "name": "jquery",
@@ -35,7 +35,7 @@
             "shim/respond.min.js"
           ],
           "stylesheet": "css/cosmo.min.css",
-          "head": null,
+          "head": "<style>h1 {font-size: 34px;}\n       h1.title {font-size: 38px;}\n       h2 {font-size: 30px;}\n       h3 {font-size: 24px;}\n       h4 {font-size: 18px;}\n       h5 {font-size: 16px;}\n       h6 {font-size: 12px;}\n       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}\n       pre:not([class]) { background-color: white }<\/style>",
           "attachment": null,
           "package": null,
           "all_files": true
@@ -113,6 +113,35 @@
           "all_files": true
         },
         {
+          "name": "flexdashboard-fillpage",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-fillpage-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "fillpage.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
           "name": "selectize",
           "version": "0.12.4",
           "src": {
@@ -146,9 +175,9 @@
       ]
     },
     "out000ad4b3a33bc7bc": {
-      "src": "[image data sha1: 05bdb9fd95adaa8f7e3ee8e8f986ccf53d8782c3]",
+      "src": "[image data sha1: 0ac5697192eb4a731a33f73ae19b4a6a6d8f6b71]",
       "width": 738,
-      "height": 286,
+      "height": 287,
       "alt": "Plot object",
       "coordmap": {
         "panels": [
@@ -162,7 +191,7 @@
             "range": {
               "left": 0,
               "right": 738,
-              "bottom": 285,
+              "bottom": 286,
               "top": -1
             },
             "log": {
@@ -176,7 +205,7 @@
         ],
         "dims": {
           "width": 738,
-          "height": 286
+          "height": 287
         }
       }
     },
