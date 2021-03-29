@@ -6,3 +6,7 @@ app$snapshot()
 
 app$setInputs(month = "Mar")
 app$snapshot()
+
+# view second page
+app$executeScript('$("#navbar li a").last().click();')
+app$snapshot()
