@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-03-24                  
+ date     2021-03-29                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -20,14 +20,14 @@ osVersion: Ubuntu 18.04.5 LTS
 5           base64enc       0.1-3   RSPM                       
 6                  BH    1.75.0-0   RSPM                       
 7                brio       1.1.1   RSPM                       
-8               bslib  0.2.4.9002    Git b2b4e55        /master
+8               bslib  0.2.4.9002    Git c7835c2        /master
 9              cachem  1.0.4.9000    Git 5964320        /master
-10              callr       3.5.1   RSPM                       
+10              callr       3.6.0   RSPM                       
 11          checkmate       2.0.0   RSPM                       
 12                cli       2.3.1   RSPM                       
 13         colorspace       2.0-0   RSPM                       
 14         commonmark         1.7   RSPM                       
-15              cpp11       0.2.6   RSPM                       
+15              cpp11       0.2.7 GitHub 2112dad     r-lib/HEAD
 16             crayon       1.4.1   RSPM                       
 17          crosstalk  1.1.1.9000    Git 4182a36        /master
 18               curl         4.3   CRAN                       
@@ -55,7 +55,7 @@ osVersion: Ubuntu 18.04.5 LTS
 40             gtable       0.3.0   RSPM                       
 41              highr         0.8   RSPM                       
 42                hms       1.0.0   RSPM                       
-43          htmltools  0.5.1.9000    Git 8a3b28d        /master
+43          htmltools  0.5.1.9000    Git 9abc3f2        /master
 44        htmlwidgets       1.5.3   RSPM                       
 45             httpuv       1.5.5    Git c4a7732        /master
 46               httr       1.4.2   RSPM                       
@@ -64,7 +64,7 @@ osVersion: Ubuntu 18.04.5 LTS
 49           jsonlite       1.7.2   RSPM                       
 50              knitr        1.31   RSPM                       
 51           labeling       0.4.2   RSPM                       
-52              later  1.1.0.9001    Git b2df02e        /master
+52              later  1.1.0.9001    Git 8ff7298        /master
 53           lazyeval       0.2.2   RSPM                       
 54            leaflet     2.0.4.1   RSPM                       
 55  leaflet.providers       1.9.0   RSPM                       
@@ -111,12 +111,12 @@ osVersion: Ubuntu 18.04.5 LTS
 96              rlang      0.4.10   RSPM                       
 97          rmarkdown       2.7.4 GitHub a11240d   rstudio/HEAD
 98          rprojroot       2.0.2   RSPM                       
-99          rsconnect 0.8.16-9002    Git 833fb27        /master
+99          rsconnect 0.8.16-9002    Git 256cd69        /master
 100        rstudioapi        0.13   RSPM                       
-101              sass  0.3.1.9000    Git 2526470        /master
+101              sass  0.3.1.9001    Git 4b98868        /master
 102            scales       1.1.1   RSPM                       
 103       sessioninfo       1.1.1   RSPM                       
-104             shiny  1.6.0.9000    Git e29d92c        /master
+104             shiny  1.6.0.9000    Git 268c9af        /master
 105       shinycoreci  0.0.0.9005 GitHub 2c01cc9 rstudio/master
 106        shinyjster  0.0.0.9009    Git 2c2a11c        /master
 107         shinymeta       0.2.0    Git bfa8fe6        /master
@@ -137,12 +137,12 @@ osVersion: Ubuntu 18.04.5 LTS
 122           tinytex      0.30.2 GitHub 5946a2a     yihui/HEAD
 123              utf8       1.2.1   RSPM                       
 124              uuid       0.1-4   RSPM                       
-125             vctrs       0.3.6   RSPM                       
+125             vctrs       0.3.7   CRAN                       
 126           viridis       0.5.1   RSPM                       
 127       viridisLite       0.3.0   RSPM                       
 128             waldo       0.2.5   RSPM                       
 129         webdriver       1.0.6   RSPM                       
-130         websocket       1.3.2    Git 4406726        /master
+130         websocket  1.3.2.9001    Git c43ed52        /master
 131             withr       2.4.1   RSPM                       
 132              xfun        0.22   RSPM                       
 133            xtable       1.8-4   RSPM                       
