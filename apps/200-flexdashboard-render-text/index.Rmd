@@ -50,12 +50,14 @@ shinyjster::shinyjster_js("
     })
   }
 
-  function assert_page(idx, name) {
+  function assert_page(idx, month) {
     jst.add(Jster.shiny.waitUntilStable);
 
     jst.add(function() {
       // make sure on first page
       $('a[href=\"#section-p1\"]').click();
+    });
+    jst.add(function() {
       // make sure first tab is displayed
       $('a[href=\"#section-tab1\"]').click();
     });
@@ -77,40 +79,40 @@ shinyjster::shinyjster_js("
     jst.add(Jster.shiny.waitUntilStable);
     jst.add(Jster.shiny.waitUntilStable);
 
-    assert_equal_qs('a[href=\"#section-p1\"]', 'Page 1: ' + name);
-    assert_equal_qs('a[href=\"#section-p2\"]', 'Page 2: ' + name);
-    assert_equal('sidebarContent', 'Sidebar Content: ' + name);
+    assert_equal_qs('a[href=\"#section-p1\"]', 'Page 1: ' + month);
+    assert_equal_qs('a[href=\"#section-p2\"]', 'Page 2: ' + month);
+    assert_equal('sidebarContent', 'Sidebar Content: ' + month);
 
-    assert_equal_qs('#section-hidden1 .value-output', 'VB1: ' + name);
-    assert_equal_qs('#section-hidden2 .value-output', 'VB2: ' + name);
-    assert_equal_qs('#section-hidden3 .value-output', 'VB3: ' + name);
+    assert_equal_qs('#section-hidden1 .value-output', 'VB1: ' + month);
+    assert_equal_qs('#section-hidden2 .value-output', 'VB2: ' + month);
+    assert_equal_qs('#section-hidden3 .value-output', 'VB3: ' + month);
 
-    assert_equal_qs('#section-row2_plotly .chart-title', 'Row 2 Plotly Title: ' + name);
-    assert_equal_qs('#section-row2_plotly p', 'Row 2 Plotly Content: ' + name);
-    assert_equal_qs('#section-row2_plotly .chart-notes', 'Plotly Caption: ' + name);
-    assert_equal_qs('#section-row2_plotly svg .gtitle', name);
+    assert_equal_qs('#section-row2_plotly .chart-title', 'Row 2 Plotly Title: ' + month);
+    assert_equal_qs('#section-row2_plotly p', 'Row 2 Plotly Content: ' + month);
+    assert_equal_qs('#section-row2_plotly .chart-notes', 'Plotly Caption: ' + month);
+    assert_equal_qs('#section-row2_plotly svg .gtitle', month);
 
-    assert_equal_qs('#section-row2_shiny .chart-title', 'Row 2 Shiny Title: ' + name);
-    assert_equal_qs('#section-row2_shiny p', 'Row 2 Shiny Content: ' + name);
-    assert_equal_qs('#section-row2_shiny .chart-notes', 'Shiny Caption: ' + name);
+    assert_equal_qs('#section-row2_shiny .chart-title', 'Row 2 Shiny Title: ' + month);
+    assert_equal_qs('#section-row2_shiny p', 'Row 2 Shiny Content: ' + month);
+    assert_equal_qs('#section-row2_shiny .chart-notes', 'Shiny Caption: ' + month);
     jst.add(function() {
       Jster.assert.isEqual(
         $('#section-row2_shiny img').attr('alt'),
-        'Shiny plot alt text: ' + name,
+        'Shiny plot alt text: ' + month,
         {query_string: \"$('#section-row2_shiny img').attr('alt')\", element: $('#section-row2_shiny img')}
       );
     })
 
-    assert_equal_qs('a[href=\"#section-tab1\"]', 'Tab 1 Title: ' + name);
-    assert_equal_qs('#section-tab1 p', 'Tab 1 Content: ' + name);
+    assert_equal_qs('a[href=\"#section-tab1\"]', 'Tab 1 Title: ' + month);
+    assert_equal_qs('#section-tab1 p', 'Tab 1 Content: ' + month);
 
     jst.add(function() {
       $('a[href=\"#section-tab2\"]').click();
     });
     jst.add(Jster.shiny.waitUntilStable);
 
-    assert_equal_qs('a[href=\"#section-tab2\"]', 'Tab 2 Title: ' + name);
-    assert_equal_qs('#section-tab2 p', 'Tab 2 Content: ' + name);
+    assert_equal_qs('a[href=\"#section-tab2\"]', 'Tab 2 Title: ' + month);
+    assert_equal_qs('#section-tab2 p', 'Tab 2 Content: ' + month);
 
     // test second page
     jst.add(function() {
@@ -121,30 +123,28 @@ shinyjster::shinyjster_js("
     });
     jst.add(Jster.shiny.waitUntilStable);
 
-    assert_equal_qs('#section-p2r1 .chart-title', 'P2R1 Title: ' + name);
-    assert_equal_qs('#section-p2r1 p', 'P2R1 Content: ' + name);
+    assert_equal_qs('#section-p2r1 .chart-title', 'P2R1 Title: ' + month);
+    assert_equal_qs('#section-p2r1 p', 'P2R1 Content: ' + month);
 
-    assert_equal_qs('#section-p2r1_plot .chart-title', 'P2R1 plot Title: ' + name);
-    assert_equal_qs('#section-p2r1_plot p', 'P2R1 plot Content: ' + name);
-    assert_equal_qs('#section-p2r1_plot .chart-notes', 'Plot Caption: ' + name);
+    assert_equal_qs('#section-p2r1_plot .chart-title', 'P2R1 plot Title: ' + month);
+    assert_equal_qs('#section-p2r1_plot p', 'P2R1 plot Content: ' + month);
+    assert_equal_qs('#section-p2r1_plot .chart-notes', 'Plot Caption: ' + month);
 
-    assert_equal_qs('a[href=\"#section-p2t1\"]', 'P2T1 Title: ' + name);
-    assert_equal_qs('#section-p2t1 p', 'P2T1 Content: ' + name);
+    assert_equal_qs('a[href=\"#section-p2t1\"]', 'P2T1 Title: ' + month);
+    assert_equal_qs('#section-p2t1 p', 'P2T1 Content: ' + month);
 
     jst.add(function() {
       $('a[href=\"#section-p2t2\"]').click();
     });
     jst.add(Jster.shiny.waitUntilStable);
-    assert_equal_qs('a[href=\"#section-p2t2\"]', 'P2T2 Title: ' + name);
-    assert_equal_qs('#section-p2t2 p', 'P2T2 Content: ' + name);
+    assert_equal_qs('a[href=\"#section-p2t2\"]', 'P2T2 Title: ' + month);
+    assert_equal_qs('#section-p2t2 p', 'P2T2 Content: ' + month);
   }
 
-
   assert_page(1, 'Feb');
-  assert_page(2, 'Mar');
+  assert_page(5, 'Jun');
 
   jst.test();
-  console.log('done!')
 ")
 ```
 
