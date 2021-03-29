@@ -219,11 +219,12 @@ Row
 Row 3 Content: `r renderText(getmonth())`
 
 ```{r}
-plotly::renderPlotly({
+library(plotly)
+renderPlotly({
   cars %>%
-    plotly::plot_ly(x = ~ speed, y = ~ dist) %>%
-    plotly::add_markers() %>%
-    plotly::layout(title = getmonth())
+    plot_ly(x = ~ speed, y = ~ dist) %>%
+    add_markers() %>%
+    layout(title = getmonth())
 })
 ```
 
