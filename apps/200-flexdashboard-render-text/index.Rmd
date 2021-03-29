@@ -85,9 +85,10 @@ shinyjster::shinyjster_js("
     assert_equal_qs('#section-hidden2 .value-output', 'VB2: ' + name);
     assert_equal_qs('#section-hidden3 .value-output', 'VB3: ' + name);
 
-    assert_equal_qs('#section-row2_plot .chart-title', 'Row 2 plot Title: ' + name);
-    assert_equal_qs('#section-row2_plot p', 'Row 2 plot Content: ' + name);
-    assert_equal_qs('#section-row2_plot .chart-notes', 'Plot Caption: ' + name);
+    assert_equal_qs('#section-row2_plotly .chart-title', 'Row 2 Plotly Title: ' + name);
+    assert_equal_qs('#section-row2_plotly p', 'Row 2 Plotly Content: ' + name);
+    assert_equal_qs('#section-row2_plotly .chart-notes', 'Plotly Caption: ' + name);
+    assert_equal_qs('#section-row2_plotly svg .gtitle', name);
 
     assert_equal_qs('#section-row2_shiny .chart-title', 'Row 2 Shiny Title: ' + name);
     assert_equal_qs('#section-row2_shiny p', 'Row 2 Shiny Content: ' + name);
@@ -99,13 +100,6 @@ shinyjster::shinyjster_js("
         {query_string: \"$('#section-row2_shiny img').attr('alt')\", element: $('#section-row2_shiny img')}
       );
     })
-
-    assert_equal_qs('#section-row3 .chart-title', 'Row 3 Title: ' + name);
-    assert_equal_qs('#section-row3 p', 'Row 3 Content: ' + name);
-    assert_equal_qs('#section-row3 .chart-notes', 'Plotly Caption: ' + name);
-    assert_equal_qs('#section-row3 svg .gtitle', name);
-
-    jst.add(Jster.shiny.waitUntilStable);
 
     assert_equal_qs('a[href=\"#section-tab1\"]', 'Tab 1 Title: ' + name);
     assert_equal_qs('#section-tab1 p', 'Tab 1 Content: ' + name);
@@ -130,8 +124,9 @@ shinyjster::shinyjster_js("
     assert_equal_qs('#section-p2r1 .chart-title', 'P2R1 Title: ' + name);
     assert_equal_qs('#section-p2r1 p', 'P2R1 Content: ' + name);
 
-    assert_equal_qs('#section-p2r2 .chart-title', 'P2R2 Title: ' + name);
-    assert_equal_qs('#section-p2r2 p', 'P2R2 Content: ' + name);
+    assert_equal_qs('#section-p2r1_plot .chart-title', 'P2R1 plot Title: ' + name);
+    assert_equal_qs('#section-p2r1_plot p', 'P2R1 plot Content: ' + name);
+    assert_equal_qs('#section-p2r1_plot .chart-notes', 'Plot Caption: ' + name);
 
     assert_equal_qs('a[href=\"#section-p2t1\"]', 'P2T1 Title: ' + name);
     assert_equal_qs('#section-p2t1 p', 'P2T1 Content: ' + name);
@@ -187,16 +182,21 @@ renderValueBox({
 Row
 -------------------------------------
 
-### Row 2 plot Title:  `r renderText(getmonth())` {id=row2_plot}
+### Row 2 Plotly Title:  `r renderText(getmonth())` {id=row2_plotly}
 
-Row 2 plot Content: `r renderText(getmonth())`
+Row 2 Plotly Content: `r renderText(getmonth())`
 
-```{r, fig.width=10, fig.height=7}
-plot(ldeaths, main = "Static title")
+```{r}
+library(plotly)
+renderPlotly({
+  cars %>%
+    plot_ly(x = ~ speed, y = ~ dist) %>%
+    add_markers() %>%
+    layout(title = getmonth())
+})
 ```
 
-> Plot Caption: `r renderText(getmonth())`
-
+> Plotly Caption: `r renderText(getmonth())`
 
 ### Row 2 Shiny Title:  `r renderText(getmonth())` {id=row2_shiny}
 
@@ -211,24 +211,6 @@ renderPlot({
 
 > Shiny Caption: `r renderText(getmonth())`
 
-Row
--------------------------------------
-
-### Row 3 Title:  `r renderText(getmonth())` {id=row3}
-
-Row 3 Content: `r renderText(getmonth())`
-
-```{r}
-library(plotly)
-renderPlotly({
-  cars %>%
-    plot_ly(x = ~ speed, y = ~ dist) %>%
-    add_markers() %>%
-    layout(title = getmonth())
-})
-```
-
-> Plotly Caption: `r renderText(getmonth())`
 
 
 Row {.tabset}
@@ -263,12 +245,15 @@ Row
 
 P2R1 Content: `r renderText(getmonth())`
 
-Row
--------------------------------------
+### P2R1 plot Title:  `r renderText(getmonth())` {id=p2r1_plot}
 
-### P2R2 Title:  `r renderText(getmonth())` {id=p2r2}
+P2R1 plot Content: `r renderText(getmonth())`
 
-P2R2 Content: `r renderText(getmonth())`
+```{r, fig.width=10, fig.height=7}
+plot(ldeaths, main = "Static title")
+```
+
+> Plot Caption: `r renderText(getmonth())`
 
 
 Row {.tabset}
