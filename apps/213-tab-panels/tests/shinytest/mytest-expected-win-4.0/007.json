@@ -1,9 +1,9 @@
 {
   "input": {
-    "add": 1,
-    "addFoo": 1,
-    "remove": 1,
-    "tabs": "f"
+    "add": 2,
+    "addFoo": 2,
+    "removeFoo": 1,
+    "tabs": "Foo"
   },
   "output": {
 

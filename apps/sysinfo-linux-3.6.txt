@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-04-13                  
+ date     2021-04-14                  
 --------------------------------------------------------------------------------
               Package    Version Source     SHA            Ref
 1         AsioHeaders   1.16.1-1   RSPM                       
@@ -80,7 +80,7 @@ osVersion: Ubuntu 18.04.5 LTS
 65             pillar      1.6.0   CRAN                       
 66              pingr      2.0.1   RSPM                       
 67           pkgbuild      1.2.0   RSPM                       
-68           pkgcache      1.2.0   RSPM                       
+68           pkgcache      1.2.1   CRAN                       
 69          pkgconfig      2.0.3   RSPM                       
 70         pkgdepends 0.1.0.9000    Git 6b225ff        /master
 71            pkgload      1.2.1   RSPM                       
@@ -109,15 +109,15 @@ osVersion: Ubuntu 18.04.5 LTS
 94            remotes      2.3.0   RSPM                       
 95               renv     0.13.2   RSPM                       
 96              rlang     0.4.10   RSPM                       
-97          rmarkdown     2.7.10 GitHub 98ba0e2   rstudio/HEAD
+97          rmarkdown     2.7.10 GitHub a4e009b   rstudio/HEAD
 98          rprojroot      2.0.2   RSPM                       
 99          rsconnect     0.8.17    Git c038a64        /master
 100        rstudioapi       0.13   RSPM                       
-101              sass 0.3.1.9001    Git bc50e9b        /master
+101              sass 0.3.1.9001    Git dd6a2b1        /master
 102            scales      1.1.1   RSPM                       
 103       sessioninfo      1.1.1   RSPM                       
 104             shiny 1.6.0.9000    Git 4a2bb8f        /master
-105       shinycoreci 0.0.0.9005 GitHub a7fbcca rstudio/master
+105       shinycoreci 0.0.0.9005 GitHub 1ef5078 rstudio/master
 106        shinyjster 0.0.0.9009    Git 2c2a11c        /master
 107         shinymeta      0.2.0    Git 5285f0d        /master
 108         shinytest      1.5.0    Git dea2ecc        /master
@@ -140,7 +140,7 @@ osVersion: Ubuntu 18.04.5 LTS
 125              uuid      0.1-4   RSPM                       
 126             vctrs      0.3.7   RSPM                       
 127           viridis      0.5.1   RSPM                       
-128       viridisLite      0.3.0   RSPM                       
+128       viridisLite      0.4.0   CRAN                       
 129             waldo      0.2.5   RSPM                       
 130         webdriver      1.0.6   RSPM                       
 131         websocket 1.3.2.9001    Git c43ed52        /master

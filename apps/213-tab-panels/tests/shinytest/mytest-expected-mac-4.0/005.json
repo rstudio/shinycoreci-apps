@@ -1,9 +1,9 @@
 {
   "input": {
     "add": 1,
-    "addFoo": 0,
-    "remove": 1,
-    "tabs": "Dynamic"
+    "addFoo": 1,
+    "removeFoo": 1,
+    "tabs": "Hello"
   },
   "output": {
 

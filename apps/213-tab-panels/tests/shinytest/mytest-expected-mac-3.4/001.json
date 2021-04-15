@@ -2,7 +2,7 @@
   "input": {
     "add": 0,
     "addFoo": 0,
-    "remove": 0,
+    "removeFoo": 0,
     "tabs": "Hello"
   },
   "output": {

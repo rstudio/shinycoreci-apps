@@ -9,39 +9,44 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       actionButton("add", "Add 'Dynamic' tab"),
-      actionButton("remove", "Remove 'Foo' tab"),
+      actionButton("removeFoo", "Remove 'Foo' tabs"),
       actionButton("addFoo", "Add New 'Foo' tab")
     ),
     mainPanel(
       tabsetPanel(
         id = "tabs",
         tabPanel("Hello", "This is the hello tab"),
-        tabPanel("Foo", "This is the foo tab"),
+        tabPanel("Foo-0", "This is the Foo-0 tab", value = "Foo"),
         navbarMenu(menuName = "Menu",
           "Static",
           tabPanel("Static 1", "Static 1", value = "s1"),
           tabPanel("Static 2", "Static 2", value = "s2")
-        ),
-        tabPanel("Footest", "This is the footest tab",value = "f")
+        )
       )
     )
   )
 )
+
 server <- function(input, output, session) {
   observeEvent(input$add, {
+    id <- paste0("Dynamic-", input$add)
     insertTab(
       inputId = "tabs",
-      tabPanel("Dynamic", "Dynamic"),
+      tabPanel(id, id),
       target = "s2"
     )
   })
-  observeEvent(input$remove, {
+  observeEvent(input$removeFoo, {
     removeTab(inputId = "tabs", target = "Foo")
   })
   observeEvent(input$addFoo, {
     insertTab(
       inputId = "tabs",
-      tabPanel("Foo", "This is the new foo tab"),
+      tabPanel(
+        paste0("Foo-", input$addFoo),
+        paste0("This is the new Foo-", input$addFoo, " tab"),
+        value = "Foo"
+      ),
       target = "Menu",
       position = "before",
       select = TRUE)
