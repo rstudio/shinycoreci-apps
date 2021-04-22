@@ -1,10 +1,25 @@
 {
   "input": {
-    "month": "Mar"
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "month": "Mar",
+    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\""
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: e11c21289c78ef9ca9793a1a0ade95ecaf3c7a12]",
+      "html": "[html data sha1: 9e10f1ce50975652c759b4a8e867a047dd012ce6]",
       "deps": [
         {
           "name": "jquery",
@@ -114,17 +129,32 @@
           "all_files": true
         },
         {
-          "name": "shinyjster-assets",
-          "version": "0.0.0.9009",
+          "name": "htmlwidgets",
+          "version": "1.5.3",
           "src": {
-            "href": "shinyjster-assets-0.0.0.9009"
+            "href": "htmlwidgets-1.5.3"
           },
           "meta": null,
-          "script": "js/shinyjster.js",
+          "script": "htmlwidgets.js",
           "stylesheet": null,
           "head": null,
           "attachment": null,
+          "package": null,
           "all_files": true
+        },
+        {
+          "name": "plotly-binding",
+          "version": "4.9.3",
+          "src": {
+            "href": "plotly-binding-4.9.3"
+          },
+          "meta": null,
+          "script": "plotly.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": false
         },
         {
           "name": "rmarkdown-performance",
@@ -142,6 +172,7 @@
         }
       ]
     },
+    "out17dc247a06b0a7ee": "Mar",
     "out18fb29f9d978075c": "Mar",
     "out2dc9ad63c6dea2b4": "Mar",
     "out2df655e7561125ed": {
@@ -164,7 +195,280 @@
     },
     "out59bbc97b6a1b4bb3": "Mar",
     "out5c5ae4d568e6625f": "Mar",
-    "out6fe48fa3cbd09f9e": "Mar",
+    "out6fe48fa3cbd09f9e": {
+      "x": {
+        "layout": {
+          "margin": {
+            "b": 40,
+            "l": 60,
+            "t": 25,
+            "r": 10
+          },
+          "title": "Mar",
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "title": "speed"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "title": "dist"
+          },
+          "hovermode": "closest",
+          "showlegend": false
+        },
+        "source": "A",
+        "config": {
+          "showSendToCloud": false
+        },
+        "data": [
+          {
+            "x": [
+              4,
+              4,
+              7,
+              7,
+              8,
+              9,
+              10,
+              10,
+              10,
+              11,
+              11,
+              12,
+              12,
+              12,
+              12,
+              13,
+              13,
+              13,
+              13,
+              14,
+              14,
+              14,
+              14,
+              15,
+              15,
+              15,
+              16,
+              16,
+              17,
+              17,
+              17,
+              18,
+              18,
+              18,
+              18,
+              19,
+              19,
+              19,
+              20,
+              20,
+              20,
+              20,
+              20,
+              22,
+              23,
+              24,
+              24,
+              24,
+              24,
+              25
+            ],
+            "y": [
+              2,
+              10,
+              4,
+              22,
+              16,
+              10,
+              18,
+              26,
+              34,
+              17,
+              28,
+              14,
+              20,
+              24,
+              28,
+              26,
+              34,
+              34,
+              46,
+              26,
+              36,
+              60,
+              80,
+              20,
+              26,
+              54,
+              32,
+              40,
+              32,
+              40,
+              50,
+              42,
+              56,
+              76,
+              84,
+              36,
+              46,
+              68,
+              32,
+              48,
+              52,
+              56,
+              64,
+              66,
+              54,
+              70,
+              92,
+              93,
+              120,
+              85
+            ],
+            "type": "scatter",
+            "mode": "markers",
+            "marker": {
+              "color": "rgba(31,119,180,1)",
+              "line": {
+                "color": "rgba(31,119,180,1)"
+              }
+            },
+            "error_y": {
+              "color": "rgba(31,119,180,1)"
+            },
+            "error_x": {
+              "color": "rgba(31,119,180,1)"
+            },
+            "line": {
+              "color": "rgba(31,119,180,1)"
+            },
+            "xaxis": "x",
+            "yaxis": "y",
+            "frame": null
+          }
+        ],
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "3.5.1",
+          "src": {
+            "href": "jquery-3.5.1"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.1.1.9000",
+          "src": {
+            "href": "crosstalk-1.1.1.9000"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "1.57.1",
+          "src": {
+            "href": "plotly-htmlwidgets-css-1.57.1"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "1.57.1",
+          "src": {
+            "href": "plotly-main-1.57.1"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
     "out77712108df8238a8": "Mar",
     "out7a34f2cd008b85be": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 3\" data-color-accent=\"primary\">VB3: Mar<\/span>",
@@ -185,6 +489,8 @@
       ]
     },
     "out7b116bf5001aac45": "Mar",
+    "out8832926306c93cd4": "Mar",
+    "outa12611aaf168b69a": "Mar",
     "outacd6d4a49ebf0ff3": "Mar",
     "outb0c41e07540ee80f": "Mar",
     "outb6c6046969231172": {
@@ -206,7 +512,41 @@
       ]
     },
     "outc528c8f94aec73f5": "Mar",
-    "outffbf7f8633805741": "Mar"
+    "outffbf7f8633805741": {
+      "src": "[image data sha1: 2e825ff3bf5b31a140762574583b014d3f08e6b1]",
+      "width": 356,
+      "height": 229,
+      "alt": "Shiny plot alt text: Mar",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 3.16,
+              "right": 25.84,
+              "bottom": -2.72,
+              "top": 124.72
+            },
+            "range": {
+              "left": 59.0400165842743,
+              "right": 325.759991505616,
+              "bottom": 154.559967930117,
+              "top": 58.0400257816706
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 356,
+          "height": 229
+        }
+      }
+    }
   },
   "export": {
 

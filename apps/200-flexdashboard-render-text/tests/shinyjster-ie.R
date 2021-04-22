@@ -1,1 +1,3 @@
-shinycoreci::test_shinyjster_app("ie")
+if (shinycoreci::platform() != "win") {
+  shinycoreci::test_shinyjster_app("ie")
+}
