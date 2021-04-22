@@ -74,7 +74,7 @@ osVersion: Windows Server x64 (build 17763)
 59           markdown         1.1   CRAN                       
 60               mime        0.10   CRAN                       
 61            munsell       0.5.0   CRAN                       
-62            openssl         1.3   CRAN                       
+62            openssl       1.4.3   CRAN                       
 63            packrat       0.6.0   CRAN                       
 64          parsedate       1.2.1   CRAN                       
 65             pillar       1.6.0   CRAN                       
@@ -117,7 +117,7 @@ osVersion: Windows Server x64 (build 17763)
 102            scales       1.1.1   CRAN                       
 103       sessioninfo       1.1.1   CRAN                       
 104             shiny  1.6.0.9000    Git 1558c84        /master
-105       shinycoreci  0.0.0.9005 GitHub 1ef5078 rstudio/master
+105       shinycoreci  0.0.0.9005 GitHub 978758b rstudio/master
 106        shinyjster  0.0.0.9009    Git 2c2a11c        /master
 107         shinymeta       0.2.0    Git 988e427        /master
 108         shinytest       1.5.0    Git dea2ecc        /master
