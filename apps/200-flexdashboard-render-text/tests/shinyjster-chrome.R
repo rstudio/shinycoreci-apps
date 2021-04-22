@@ -1,1 +1,1 @@
-shinycoreci::test_shinyjster_app("chrome")
+if (FALSE) shinycoreci::test_shinyjster_app("chrome")

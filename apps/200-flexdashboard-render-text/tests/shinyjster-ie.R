@@ -1,1 +1,1 @@
-shinycoreci::test_shinyjster_app("ie")
+if (FALSE) shinycoreci::test_shinyjster_app("ie")

@@ -32,7 +32,7 @@ Sidebar Content: `r renderText(getmonth())`
 
 </div>
 
-```{r}
+```{r, eval = FALSE}
 shinyjster::shinyjster_server(input, output, session)
 shinyjster::shinyjster_js("
   var jst = jster(1);

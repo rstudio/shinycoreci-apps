@@ -1,1 +1,1 @@
-shinycoreci::test_shinyjster_app("firefox")
+if (FALSE) shinycoreci::test_shinyjster_app("firefox")
