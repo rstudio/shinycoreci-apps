@@ -1,1 +1,3 @@
-if (FALSE) shinycoreci::test_shinyjster_app("chrome")
+if (shinycoreci::platform() != "win") {
+  shinycoreci::test_shinyjster_app("chrome")
+}
