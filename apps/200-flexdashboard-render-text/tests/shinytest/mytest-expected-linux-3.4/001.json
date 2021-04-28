@@ -4,7 +4,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 948ec079c07bb4f64177745600627aeb3ecb6dbb]",
+      "html": "[html data sha1: 7c811ef3a11feac5a9d5a5f93a1b2db98937b0df]",
       "deps": [
         {
           "name": "jquery",
@@ -63,35 +63,6 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "flexdashboard-css",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-css-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": [
-            "flexdashboard.min.css",
-            "theme-cosmo.css"
-          ],
           "head": null,
           "attachment": null,
           "all_files": true
