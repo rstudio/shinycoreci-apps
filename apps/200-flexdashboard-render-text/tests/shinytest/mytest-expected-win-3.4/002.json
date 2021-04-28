@@ -15,12 +15,11 @@
       ]
     },
     "month": "Mar",
-    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\"",
-    "plotly_relayout-A": "{\"width\":356,\"height\":201}"
+    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\""
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: d449f5dd8d3e3d58742cf27d78887f6d5d1ca9f5]",
+      "html": "[html data sha1: 139207c6c9467adba9ae58ef1f3e6d6bfe71c327]",
       "deps": [
         {
           "name": "jquery",
@@ -84,35 +83,6 @@
           "all_files": true
         },
         {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "flexdashboard-css",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-css-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": [
-            "flexdashboard.min.css",
-            "theme-cosmo.css"
-          ],
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
           "name": "selectize",
           "version": "0.12.4",
           "src": {
@@ -127,6 +97,19 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyjster-assets",
+          "version": "0.0.0.9009",
+          "src": {
+            "href": "shinyjster-assets-0.0.0.9009"
+          },
+          "meta": null,
+          "script": "js/shinyjster.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {
@@ -514,9 +497,9 @@
     },
     "outc528c8f94aec73f5": "Mar",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: f73537d02a352f9495191a961d64e99cf3539710]",
+      "src": "[image data sha1: fb399a7de581487776616bac19d98dc0ac0e67e7]",
       "width": 356,
-      "height": 201,
+      "height": 229,
       "alt": "Shiny plot alt text: Mar",
       "coordmap": {
         "panels": [
@@ -528,10 +511,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.0400165842743,
-              "right": 325.759991505616,
-              "bottom": 126.559963462668,
-              "top": 58.0400293731489
+              "left": 59.04,
+              "right": 325.76,
+              "bottom": 154.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
@@ -544,10 +527,9 @@
         ],
         "dims": {
           "width": 356,
-          "height": 201
+          "height": 229
         }
-      },
-      "error": null
+      }
     }
   },
   "export": {
