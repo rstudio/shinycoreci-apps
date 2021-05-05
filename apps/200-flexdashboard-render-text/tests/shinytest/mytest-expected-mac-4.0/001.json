@@ -1,11 +1,41 @@
 {
   "input": {
-    "month": "Feb"
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "month": "Feb",
+    "plotly_afterplot-A": "\"outb037b936e10a1db3\"",
+    "plotly_relayout-A": "{\"width\":356,\"height\":199}"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: d3124247604c4f86289f3334504ab73bb6efc2a4]",
+      "html": "[html data sha1: 36b58a00ad55416fb5a69f73839dbecf12f148c8]",
       "deps": [
+        {
+          "name": "header-attrs",
+          "version": "2.7.4",
+          "src": {
+            "href": "header-attrs-2.7.4"
+          },
+          "meta": null,
+          "script": "header-attrs.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
         {
           "name": "jquery",
           "version": "1.11.3",
@@ -63,35 +93,6 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "flexdashboard-css",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-css-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": [
-            "flexdashboard.min.css",
-            "theme-cosmo.css"
-          ],
           "head": null,
           "attachment": null,
           "all_files": true
@@ -212,9 +213,9 @@
     "out653cee2a3d1d7c1c": "Feb",
     "out7dd30976d7eabf77": "Feb",
     "out91b7f72ac16f31e0": {
-      "src": "[image data sha1: 578187a9a5a8fc6eb6e5bcfeb5e736c3fccf06bd]",
+      "src": "[image data sha1: 9b0bb6663ee38cb7d9099f7cd50152a7be539489]",
       "width": 356,
-      "height": 227,
+      "height": 199,
       "alt": "Shiny plot alt text: Feb",
       "coordmap": {
         "panels": [
@@ -228,7 +229,7 @@
             "range": {
               "left": 59.04,
               "right": 325.76,
-              "bottom": 152.56,
+              "bottom": 124.56,
               "top": 58.04
             },
             "log": {
@@ -242,7 +243,7 @@
         ],
         "dims": {
           "width": 356,
-          "height": 227
+          "height": 199
         }
       },
       "error": null
