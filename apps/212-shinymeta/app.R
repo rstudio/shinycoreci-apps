@@ -1,7 +1,10 @@
 library(shiny)
 library(shinymeta)
 library(magrittr)
+
+# Needed to display the modal
 library(shinyAce)
+library(clipr)
 
 selectColumnUI <- function(id, label) {
   ns <- NS(id)
