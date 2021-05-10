@@ -1,4 +1,4 @@
-Image Version:  20210419.1 
+Image Version:  20210504.1 
 osVersion: Ubuntu 18.04.5 LTS
 --------------------------------------------------------------------------------
  setting  value                       
@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-04-27                  
+ date     2021-05-10                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -19,32 +19,32 @@ osVersion: Ubuntu 18.04.5 LTS
 4           backports       1.2.1   RSPM                       
 5           base64enc       0.1-3   RSPM                       
 6                brio       1.1.2   RSPM                       
-7               bslib  0.2.4.9003    Git e09af88        /master
+7               bslib  0.2.4.9003    Git ba6a80d        /master
 8              cachem  1.0.4.9000    Git 5964320        /master
 9               callr       3.7.0   RSPM                       
 10          checkmate       2.0.0   RSPM                       
-11                cli       2.5.0   CRAN                       
-12         colorspace       2.0-0   RSPM                       
+11                cli       2.5.0   RSPM                       
+12         colorspace       2.0-1   RSPM                       
 13         commonmark         1.7   RSPM                       
 14              cpp11       0.2.7   RSPM                       
 15             crayon       1.4.1   RSPM                       
 16          crosstalk  1.1.1.9000    Git 4182a36        /master
-17               curl         4.3   CRAN                       
+17               curl       4.3.1   CRAN                       
 18         data.table      1.14.0   RSPM                       
 19                DBI       1.1.1   RSPM                       
 20            debugme       1.1.0   RSPM                       
 21               desc       1.3.0   RSPM                       
 22            diffobj       0.3.4   RSPM                       
 23             digest      0.6.27   RSPM                       
-24              dplyr       1.0.5   RSPM                       
-25           ellipsis       0.3.1   RSPM                       
+24              dplyr       1.0.6   RSPM                       
+25           ellipsis       0.3.2   RSPM                       
 26            english       1.2-5   RSPM                       
 27           evaluate        0.14   RSPM                       
 28              fansi       0.4.2   RSPM                       
 29             farver       2.1.0   RSPM                       
 30            fastmap       1.1.0    Git 52134c4        /master
 31           filelock       1.0.2   RSPM                       
-32      flexdashboard  0.5.2.9000    Git 4f127a2        /master
+32      flexdashboard  0.5.2.9000    Git 7ca5378        /master
 33                 fs       1.5.0   RSPM                       
 34           generics       0.1.0   RSPM                       
 35            ggplot2       3.3.3   RSPM                       
@@ -54,12 +54,12 @@ osVersion: Ubuntu 18.04.5 LTS
 39             gtable       0.3.0   RSPM                       
 40              highr         0.9   RSPM                       
 41                hms       1.0.0   RSPM                       
-42          htmltools  0.5.1.9002    Git 62b2f7d        /master
+42          htmltools  0.5.1.9003    Git e12171e        /master
 43        htmlwidgets       1.5.3   RSPM                       
-44             httpuv       1.6.0    Git 4b11cca        /master
+44             httpuv  1.6.0.9000    Git fca544b        /master
 45               httr       1.4.2   RSPM                       
 46            isoband       0.2.4   RSPM                       
-47          jquerylib       0.1.4   CRAN                       
+47          jquerylib       0.1.4   RSPM                       
 48           jsonlite       1.7.2   RSPM                       
 49              knitr        1.33   RSPM                       
 50           labeling       0.4.2   RSPM                       
@@ -73,7 +73,7 @@ osVersion: Ubuntu 18.04.5 LTS
 58           markdown         1.1   RSPM                       
 59               mime        0.10   RSPM                       
 60            munsell       0.5.0   RSPM                       
-61            openssl       1.4.3   RSPM                       
+61            openssl       1.4.4   RSPM                       
 62            packrat       0.6.0   RSPM                       
 63          parsedate       1.2.1   RSPM                       
 64             pillar       1.6.0   RSPM                       
@@ -88,12 +88,12 @@ osVersion: Ubuntu 18.04.5 LTS
 73               pool  0.1.6.9000    Git 00fad2c        /master
 74             praise       1.0.0   RSPM                       
 75        prettyunits       1.1.1   RSPM                       
-76           processx       3.5.1   RSPM                       
+76           processx       3.5.2   RSPM                       
 77           progress       1.2.2   RSPM                       
 78           promises  1.2.0.9000    Git a821b88        /master
 79                 ps       1.6.0   RSPM                       
 80              purrr       0.3.4   RSPM                       
-81            R.cache      0.14.0   RSPM                       
+81            R.cache      0.15.0   RSPM                       
 82        R.methodsS3       1.8.1   RSPM                       
 83               R.oo      1.24.0   RSPM                       
 84            R.utils      2.10.1   RSPM                       
@@ -107,25 +107,25 @@ osVersion: Ubuntu 18.04.5 LTS
 92           rematch2       2.1.2   RSPM                       
 93            remotes       2.3.0   RSPM                       
 94               renv      0.13.2   RSPM                       
-95              rlang 0.4.10.9002 GitHub e36b868     r-lib/HEAD
-96          rmarkdown      2.7.12 GitHub 6e572ca   rstudio/HEAD
+95              rlang 0.4.11.9000 GitHub 096e5aa     r-lib/HEAD
+96          rmarkdown       2.8.1 GitHub e98207f   rstudio/HEAD
 97          rprojroot       2.0.2   RSPM                       
 98          rsconnect      0.8.17    Git c038a64        /master
 99         rstudioapi        0.13   RSPM                       
-100              sass  0.3.1.9001    Git dd6a2b1        /master
+100              sass  0.3.1.9003    Git 6166162        /master
 101            scales       1.1.1   RSPM                       
 102       sessioninfo       1.1.1   RSPM                       
-103             shiny  1.6.0.9000    Git 1558c84        /master
+103             shiny  1.6.0.9000    Git 383fa6c        /master
 104       shinycoreci  0.0.0.9005 GitHub 978758b rstudio/master
 105        shinyjster  0.0.0.9009    Git 2c2a11c        /master
-106         shinymeta       0.2.0    Git 988e427        /master
+106         shinymeta       0.2.0    Git 895d752        /master
 107         shinytest       1.5.0    Git dea2ecc        /master
 108       shinythemes       1.2.0    Git dee0e6c        /master
 109     shinyvalidate  0.0.0.9002    Git c8becd9        /master
 110         showimage       1.0.0   RSPM                       
 111       sourcetools       0.1.7   RSPM                       
 112                sp       1.4-5   RSPM                       
-113           stringi       1.5.3   RSPM                       
+113           stringi       1.6.1   CRAN                       
 114           stringr       1.4.0   RSPM                       
 115            styler       1.4.1   RSPM                       
 116               sys         3.4   RSPM                       
@@ -133,11 +133,11 @@ osVersion: Ubuntu 18.04.5 LTS
 118          thematic  0.1.2.9000    Git be612e5        /master
 119            tibble       3.1.1   RSPM                       
 120             tidyr       1.1.3   RSPM                       
-121        tidyselect       1.1.0   RSPM                       
-122           tinytex      0.31.6 GitHub a86ced0     yihui/HEAD
+121        tidyselect       1.1.1   RSPM                       
+122           tinytex        0.31   RSPM                       
 123              utf8       1.2.1   RSPM                       
 124              uuid       0.1-4   RSPM                       
-125             vctrs       0.3.7   RSPM                       
+125             vctrs       0.3.8   RSPM                       
 126           viridis       0.6.0   RSPM                       
 127       viridisLite       0.4.0   RSPM                       
 128             waldo       0.2.5   RSPM                       
