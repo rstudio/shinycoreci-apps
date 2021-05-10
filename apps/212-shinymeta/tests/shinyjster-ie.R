@@ -1,1 +1,1 @@
-shinycoreci::test_shinyjster_app("ie")
+if (getRversion() >= "3.5") shinycoreci::test_shinyjster_app("ie")

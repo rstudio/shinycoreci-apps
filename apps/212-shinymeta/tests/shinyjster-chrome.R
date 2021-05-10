@@ -1,1 +1,1 @@
-shinycoreci::test_shinyjster_app("chrome")
+if (getRversion() >= "3.5") shinycoreci::test_shinyjster_app("chrome")
