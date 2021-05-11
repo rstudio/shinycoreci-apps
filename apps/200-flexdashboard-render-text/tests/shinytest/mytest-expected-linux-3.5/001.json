@@ -1,10 +1,25 @@
 {
   "input": {
-    "month": "Feb"
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "month": "Feb",
+    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\""
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 6bd7590acd55a9529019f98256ca0ea7cedb140f]",
+      "html": "[html data sha1: 16b1f935dad1cda4a6edcbb3cb1fcd22c3f0af7e]",
       "deps": [
         {
           "name": "jquery",
@@ -63,6 +78,22 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
           "head": null,
           "attachment": null,
           "all_files": true
@@ -482,7 +513,7 @@
     },
     "outc528c8f94aec73f5": "Feb",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: b7b7b2424462fc235b5219be619ad2ff7b9067da]",
+      "src": "[image data sha1: e6ff133b31d965632239137546dc2f24e63c17ca]",
       "width": 356,
       "height": 229,
       "alt": "Shiny plot alt text: Feb",
