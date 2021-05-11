@@ -19,7 +19,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: fb2ab41505d4bfff055ab0e925d8c548673b14f0]",
+      "html": "[html data sha1: 1de33c2677e76af31df4f301d1573c00704fa409]",
       "deps": [
         {
           "name": "jquery",
@@ -83,19 +83,6 @@
           "all_files": true
         },
         {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
           "name": "flexdashboard-css",
           "version": "0.5.2.9000",
           "src": {
@@ -126,6 +113,19 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyjster-assets",
+          "version": "0.0.0.9009",
+          "src": {
+            "href": "shinyjster-assets-0.0.0.9009"
+          },
+          "meta": null,
+          "script": "js/shinyjster.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {

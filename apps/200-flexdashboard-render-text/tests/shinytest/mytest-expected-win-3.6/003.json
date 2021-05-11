@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: fb2ab41505d4bfff055ab0e925d8c548673b14f0]",
+      "html": "[html data sha1: 1de33c2677e76af31df4f301d1573c00704fa409]",
       "deps": [
         {
           "name": "jquery",
@@ -84,19 +84,6 @@
           "all_files": true
         },
         {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
           "name": "flexdashboard-css",
           "version": "0.5.2.9000",
           "src": {
@@ -127,6 +114,19 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyjster-assets",
+          "version": "0.0.0.9009",
+          "src": {
+            "href": "shinyjster-assets-0.0.0.9009"
+          },
+          "meta": null,
+          "script": "js/shinyjster.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {
@@ -194,7 +194,6 @@
     },
     "out0c4ed20cca892f03": "Mar",
     "out163e7301d8a64ce7": "Mar",
-    "out2b49a33cb7775fa4": "Mar",
     "out372dd6df6a227499": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 3\" data-color-accent=\"primary\">VB3: Mar<\/span>",
       "deps": [
@@ -556,7 +555,8 @@
     "outdc20567dc228422d": "Mar",
     "outec37d35207a0a103": "Mar",
     "outf3e342adbfac80ed": "Mar",
-    "outf9200b0a8e5e335d": "Mar"
+    "outf9200b0a8e5e335d": "Mar",
+    "p2r1content": "Mar"
   },
   "export": {
 
