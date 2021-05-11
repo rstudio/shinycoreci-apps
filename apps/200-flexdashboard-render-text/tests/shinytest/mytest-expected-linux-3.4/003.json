@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 7c811ef3a11feac5a9d5a5f93a1b2db98937b0df]",
+      "html": "[html data sha1: 5ebb5aa2e8e0e175be680937d9f97f4c391ad74f]",
       "deps": [
         {
           "name": "jquery",
@@ -79,6 +79,22 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
           "head": null,
           "attachment": null,
           "all_files": true
@@ -480,7 +496,6 @@
     "out861b33d9e5a28ccd": "Mar",
     "out8832926306c93cd4": "Mar",
     "out9169f03eb7dd8bb5": "Mar",
-    "out917bad7a6774d78b": "Mar",
     "outa12611aaf168b69a": "Mar",
     "outacd6d4a49ebf0ff3": "Mar",
     "outb0c41e07540ee80f": "Mar",
@@ -506,7 +521,7 @@
     "outd91c9f20549f06ca": "Mar",
     "outf3f8a9f513689642": "Mar",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: 2bbfe016f9866963cf9cf24a32eee1b03f31ae2b]",
+      "src": "[image data sha1: 7d668ebfc197a5f40013120c28746161108cf64c]",
       "width": 356,
       "height": 201,
       "alt": "Shiny plot alt text: Mar",
@@ -540,7 +555,8 @@
         }
       },
       "error": null
-    }
+    },
+    "p2r1content": "Mar"
   },
   "export": {
 
