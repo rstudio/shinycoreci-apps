@@ -1,10 +1,26 @@
 {
   "input": {
-    "month": "Feb"
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "month": "Feb",
+    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\"",
+    "plotly_relayout-A": "{\"width\":356,\"height\":199}"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 8040ebe414ef3059e3c4c0cb0666110eb8cf1588]",
+      "html": "[html data sha1: e765c3e64833993cfcc765eeae0c7574c37c82b8]",
       "deps": [
         {
           "name": "jquery",
@@ -63,19 +79,6 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
           "head": null,
           "attachment": null,
           "all_files": true
@@ -511,9 +514,9 @@
     },
     "outc528c8f94aec73f5": "Feb",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: 578187a9a5a8fc6eb6e5bcfeb5e736c3fccf06bd]",
+      "src": "[image data sha1: 26ba6e0c34447113d364ba449d997ac573e7541f]",
       "width": 356,
-      "height": 227,
+      "height": 199,
       "alt": "Shiny plot alt text: Feb",
       "coordmap": {
         "panels": [
@@ -527,7 +530,7 @@
             "range": {
               "left": 59.04,
               "right": 325.76,
-              "bottom": 152.56,
+              "bottom": 124.56,
               "top": 58.04
             },
             "log": {
@@ -541,7 +544,7 @@
         ],
         "dims": {
           "width": 356,
-          "height": 227
+          "height": 199
         }
       },
       "error": null
