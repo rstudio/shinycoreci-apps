@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 0ae61e0cf76d75453f69b0c84b49858c1ae99a91]",
+      "html": "[html data sha1: f306ea833b82c033083d38e3acf4a6c42bd6ef30]",
       "deps": [
         {
           "name": "jquery",
@@ -79,19 +79,6 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
           "head": null,
           "attachment": null,
           "all_files": true
