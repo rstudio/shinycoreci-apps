@@ -1,10 +1,25 @@
 {
   "input": {
-    "month": "Feb"
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "month": "Feb",
+    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\""
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 139207c6c9467adba9ae58ef1f3e6d6bfe71c327]",
+      "html": "[html data sha1: 5781c325206c8a39c3b2a605c733613b28a8a977]",
       "deps": [
         {
           "name": "jquery",
@@ -63,6 +78,22 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
           "head": null,
           "attachment": null,
           "all_files": true
@@ -482,7 +513,7 @@
     },
     "outc528c8f94aec73f5": "Feb",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: d6899fd771a62c5393e9e64ca871dc5b01593314]",
+      "src": "[image data sha1: 29a2bc469389b91b752ff0eac14ec3f55b660582]",
       "width": 356,
       "height": 229,
       "alt": "Shiny plot alt text: Feb",
@@ -496,10 +527,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.04,
-              "right": 325.76,
-              "bottom": 154.56,
-              "top": 58.04
+              "left": 59.0400165842743,
+              "right": 325.759991505616,
+              "bottom": 154.559967930117,
+              "top": 58.0400257816706
             },
             "log": {
               "x": null,
