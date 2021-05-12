@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 8040ebe414ef3059e3c4c0cb0666110eb8cf1588]",
+      "html": "[html data sha1: 4e43d2b810b4fba7fcea17184fe71ab7d8e5d573]",
       "deps": [
         {
           "name": "jquery",
@@ -79,19 +79,6 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
           "head": null,
           "attachment": null,
           "all_files": true
@@ -509,7 +496,6 @@
     "out861b33d9e5a28ccd": "Mar",
     "out8832926306c93cd4": "Mar",
     "out9169f03eb7dd8bb5": "Mar",
-    "out917bad7a6774d78b": "Mar",
     "outa12611aaf168b69a": "Mar",
     "outacd6d4a49ebf0ff3": "Mar",
     "outb0c41e07540ee80f": "Mar",
@@ -568,7 +554,8 @@
           "height": 199
         }
       }
-    }
+    },
+    "p2r1content": "Mar"
   },
   "export": {
 

@@ -1,10 +1,25 @@
 {
   "input": {
-    "month": "Feb"
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "month": "Feb",
+    "plotly_afterplot-A": "\"outb037b936e10a1db3\""
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: fb2ab41505d4bfff055ab0e925d8c548673b14f0]",
+      "html": "[html data sha1: 6f9468bb9da6f5ca93561b3a4335cca7afd2d664]",
       "deps": [
         {
           "name": "jquery",
@@ -68,19 +83,6 @@
           "all_files": true
         },
         {
-          "name": "flexdashboard-fillpage",
-          "version": "0.5.2.9000",
-          "src": {
-            "href": "flexdashboard-fillpage-0.5.2.9000"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fillpage.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
           "name": "flexdashboard-css",
           "version": "0.5.2.9000",
           "src": {
@@ -111,6 +113,19 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "shinyjster-assets",
+          "version": "0.0.0.9009",
+          "src": {
+            "href": "shinyjster-assets-0.0.0.9009"
+          },
+          "meta": null,
+          "script": "js/shinyjster.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {

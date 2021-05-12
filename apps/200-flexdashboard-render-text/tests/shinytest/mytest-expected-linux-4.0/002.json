@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: edbdb00fdf96ba138584077498da7ec9751cfb1c]",
+      "html": "[html data sha1: 6f9468bb9da6f5ca93561b3a4335cca7afd2d664]",
       "deps": [
         {
           "name": "jquery",
@@ -79,6 +79,22 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
           "head": null,
           "attachment": null,
           "all_files": true
@@ -199,7 +215,7 @@
     "out653cee2a3d1d7c1c": "Mar",
     "out7dd30976d7eabf77": "Mar",
     "out91b7f72ac16f31e0": {
-      "src": "[image data sha1: 2bbfe016f9866963cf9cf24a32eee1b03f31ae2b]",
+      "src": "[image data sha1: 973875faffa828a9c2d714858bbf590156afb58d]",
       "width": 356,
       "height": 201,
       "alt": "Shiny plot alt text: Mar",

@@ -243,7 +243,11 @@ Row
 
 ### P2R1 Title:  `r renderText(getmonth())` {id=p2r1}
 
-P2R1 Content: `r renderText(getmonth())`
+P2R1 Content: `r textOutput("p2r1content", inline = TRUE)`
+
+```{r}
+output$p2r1content <- renderText(getmonth())
+```
 
 ### P2R1 plot Title:  `r renderText(getmonth())` {id=p2r1_plot}
 

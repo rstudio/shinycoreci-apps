@@ -15,11 +15,12 @@
       ]
     },
     "month": "Mar",
-    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\""
+    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\"",
+    "plotly_relayout-A": "{\"width\":356,\"height\":201}"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 6bd7590acd55a9529019f98256ca0ea7cedb140f]",
+      "html": "[html data sha1: 4e43d2b810b4fba7fcea17184fe71ab7d8e5d573]",
       "deps": [
         {
           "name": "jquery",
@@ -78,6 +79,22 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
           "head": null,
           "attachment": null,
           "all_files": true
@@ -497,9 +514,9 @@
     },
     "outc528c8f94aec73f5": "Mar",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: eb6007e3c5b5ef673bdd43ef74513d6ace659ff6]",
+      "src": "[image data sha1: 7d668ebfc197a5f40013120c28746161108cf64c]",
       "width": 356,
-      "height": 229,
+      "height": 201,
       "alt": "Shiny plot alt text: Mar",
       "coordmap": {
         "panels": [
@@ -513,7 +530,7 @@
             "range": {
               "left": 59.04,
               "right": 325.76,
-              "bottom": 154.56,
+              "bottom": 126.56,
               "top": 58.04
             },
             "log": {
@@ -527,9 +544,10 @@
         ],
         "dims": {
           "width": 356,
-          "height": 229
+          "height": 201
         }
-      }
+      },
+      "error": null
     }
   },
   "export": {

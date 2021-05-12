@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 139207c6c9467adba9ae58ef1f3e6d6bfe71c327]",
+      "html": "[html data sha1: 4e43d2b810b4fba7fcea17184fe71ab7d8e5d573]",
       "deps": [
         {
           "name": "jquery",
@@ -79,6 +79,22 @@
           "meta": null,
           "script": null,
           "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
           "head": null,
           "attachment": null,
           "all_files": true
@@ -480,7 +496,6 @@
     "out861b33d9e5a28ccd": "Mar",
     "out8832926306c93cd4": "Mar",
     "out9169f03eb7dd8bb5": "Mar",
-    "out917bad7a6774d78b": "Mar",
     "outa12611aaf168b69a": "Mar",
     "outacd6d4a49ebf0ff3": "Mar",
     "outb0c41e07540ee80f": "Mar",
@@ -506,7 +521,7 @@
     "outd91c9f20549f06ca": "Mar",
     "outf3f8a9f513689642": "Mar",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: 25a351b0a92bc17e071d5b17bb46f0852ff9e634]",
+      "src": "[image data sha1: f73537d02a352f9495191a961d64e99cf3539710]",
       "width": 356,
       "height": 201,
       "alt": "Shiny plot alt text: Mar",
@@ -520,10 +535,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.04,
-              "right": 325.76,
-              "bottom": 126.56,
-              "top": 58.04
+              "left": 59.0400165842743,
+              "right": 325.759991505616,
+              "bottom": 126.559963462668,
+              "top": 58.0400293731489
             },
             "log": {
               "x": null,
@@ -540,7 +555,8 @@
         }
       },
       "error": null
-    }
+    },
+    "p2r1content": "Mar"
   },
   "export": {
 
