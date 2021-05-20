@@ -1,6 +1,7 @@
 library(shiny)
 library(shinymeta)
-library(magrittr)
+library(plotly)
+library(DT)
 
 # Needed to display the modal
 library(shinyAce)
@@ -49,6 +50,8 @@ ui <- fluidPage(
     column(3, selectColumnUI("y", "y var"))
   ),
   outputCodeButton(plotOutput("plot")),
+  outputCodeButton(plotlyOutput("plotly")),
+  outputCodeButton(dataTableOutput("table")),
   shinyjster::shinyjster_js(paste(collapse = "\n", readLines("shinyjster.js")))
 )
 
@@ -73,6 +76,31 @@ server <- function(input, output, session) {
   observeEvent(input$plot_output_code, {
     displayCodeModal(expandChain(
       output$plot(),
+      x$average(),
+      y$average()
+    ))
+  })
+
+  output$plotly <- metaRender(renderPlotly, {
+    plot_ly(..(df_plot()), x = ~x, y = ~y) %>%
+      add_markers()
+  })
+
+  observeEvent(input$plotly_output_code, {
+    displayCodeModal(expandChain(
+      output$plotly(),
+      x$average(),
+      y$average()
+    ))
+  })
+
+  output$table <- metaRender(renderDataTable, {
+    datatable(..(df_plot()))
+  })
+
+  observeEvent(input$table_output_code, {
+    displayCodeModal(expandChain(
+      output$table(),
       x$average(),
       y$average()
     ))
