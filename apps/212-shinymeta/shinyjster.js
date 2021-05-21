@@ -42,7 +42,11 @@ $("button").each(function(idx) {
       expected_script(idx)
     );
   });
-
+  jst.add(Jster.shiny.waitUntilStable);
+  jst.add(function() {
+    $("[data-dismiss='modal']").click();
+  });
+  jst.add(Jster.shiny.waitUntilStable);
 });
 
 jst.test();
