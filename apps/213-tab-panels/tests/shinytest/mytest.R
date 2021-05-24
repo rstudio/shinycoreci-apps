@@ -7,6 +7,7 @@ app$snapshot()
 app$setInputs(add = "click")
 app$setInputs(tabs = "Dynamic-1")
 app$executeScript("$('.dropdown-toggle').click()"); # show
+Sys.sleep(1)
 app$snapshot()
 app$executeScript("$('.dropdown-toggle').click()"); # hide
 
@@ -25,6 +26,7 @@ app$snapshot()
 # Add Dynamic-2 tab and show it in menu. Do not show Dynamic-2 tab.
 app$setInputs(add = "click")
 app$executeScript("$('.dropdown-toggle').click()"); # show
+Sys.sleep(1)
 app$snapshot()
 app$executeScript("$('.dropdown-toggle').click()"); # hide
 
