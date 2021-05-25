@@ -351,8 +351,8 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ steps.phantomjs.outputs.path }}
-          key: ${{ runner.os }}-phantomjs-1
-          restore-keys: ${{ runner.os }}-phantomjs-1
+          key: ${{ runner.os }}-phantomjs-2
+          restore-keys: ${{ runner.os }}-phantomjs-2
       - name: Install PhantomJS
         shell: Rscript {0}
         run: |
