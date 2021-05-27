@@ -325,6 +325,11 @@ jobs:
         run: |
           options(install.packages.check.source = 'no')
           shinycoreci:::install_ci()
+      - name: Install dev shiny
+        shell: Rscript {0}
+        run: |
+          remotes::install_github("rstudio/shiny#3317")
+
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
@@ -385,7 +390,6 @@ jobs:
           dir <- "apps"
           apps <- shinycoreci::apps_runtests(dir)
           is_pull_request <- isTRUE(jsonlite::parse_json("${{ github.event_name == 'not_pull_request' }}"))
-          remotes::install_github("rstudio/shiny#3317")
           if (is_pull_request) {
             # reduce apps to only changed apps
             files_changed <- jsonlite::parse_json('${{ steps.files_changed.outputs.added_modified }}', simplifyVector = TRUE)
