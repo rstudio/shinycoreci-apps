@@ -3,6 +3,10 @@
     "ex1_cell_clicked": {
 
     },
+    "ex1_cells_selected": [
+
+    ],
+    "ex1_columns_selected": null,
     "ex1_rows_all": [
       1,
       2,
@@ -224,7 +228,8 @@
         "selection": {
           "mode": "multiple",
           "selected": null,
-          "target": "row"
+          "target": "row",
+          "selectable": null
         }
       },
       "evals": [
@@ -236,9 +241,9 @@
       "deps": [
         {
           "name": "dt-core",
-          "version": "1.10.16",
+          "version": "1.10.20",
           "src": {
-            "href": "dt-core-1.10.16"
+            "href": "dt-core-1.10.20"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
