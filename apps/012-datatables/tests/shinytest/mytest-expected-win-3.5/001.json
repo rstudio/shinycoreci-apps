@@ -4,6 +4,10 @@
     "mytable1_cell_clicked": {
 
     },
+    "mytable1_cells_selected": [
+
+    ],
+    "mytable1_columns_selected": null,
     "mytable1_rows_all": [
       1,
       2,
@@ -1073,7 +1077,8 @@
         "selection": {
           "mode": "multiple",
           "selected": null,
-          "target": "row"
+          "target": "row",
+          "selectable": null
         }
       },
       "evals": [
