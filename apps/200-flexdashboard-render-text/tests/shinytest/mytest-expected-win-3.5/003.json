@@ -16,7 +16,7 @@
     },
     "month": "Mar",
     "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\"",
-    "plotly_relayout-A": "{\"width\":356,\"height\":201}"
+    "plotly_relayout-A": "{\"width\":356,\"height\":205}"
   },
   "output": {
     "__reactivedoc__": {
@@ -521,9 +521,9 @@
     "outd91c9f20549f06ca": "Mar",
     "outf3f8a9f513689642": "Mar",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: f73537d02a352f9495191a961d64e99cf3539710]",
+      "src": "[image data sha1: 99db3d71f4d107268e4c7b10aa33614c94b0a5a9]",
       "width": 356,
-      "height": 201,
+      "height": 205,
       "alt": "Shiny plot alt text: Mar",
       "coordmap": {
         "panels": [
@@ -535,10 +535,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.0400165842743,
-              "right": 325.759991505616,
-              "bottom": 126.559963462668,
-              "top": 58.0400293731489
+              "left": 59.04,
+              "right": 325.76,
+              "bottom": 130.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
@@ -551,7 +551,7 @@
         ],
         "dims": {
           "width": 356,
-          "height": 201
+          "height": 205
         }
       },
       "error": null

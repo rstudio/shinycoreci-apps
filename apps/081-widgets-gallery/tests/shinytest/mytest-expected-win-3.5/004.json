@@ -8,20 +8,7 @@
       "2019-12-19",
       "2019-12-12"
     ],
-    "file": {
-      "name": [
-        "cars.csv"
-      ],
-      "size": [
-        308
-      ],
-      "type": [
-        "text/csv"
-      ],
-      "datapath": [
-        "0.csv"
-      ]
-    },
+    "file": null,
     "num": 1,
     "radio": "3",
     "select": "1",
@@ -38,7 +25,7 @@
     "checkGroupOut": "NULL",
     "dateOut": "[1] \"2014-01-30\"",
     "datesOut": "[1] \"2019-12-19\" \"2019-12-12\"",
-    "fileOut": "      name size     type        datapath\n1 cars.csv  308 text/csv <tempdir>/0.csv",
+    "fileOut": "NULL",
     "numOut": "[1] 1",
     "radioOut": "[1] \"3\"",
     "selectOut": "[1] \"1\"",
