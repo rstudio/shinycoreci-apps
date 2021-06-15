@@ -38,7 +38,8 @@ btn_server <- function(id, navId = id) {
           "-----",
           tabPanel("B", "B- content")
         ),
-        target = NULL
+        target = NULL,
+        position = "after"
       )
     })
 
