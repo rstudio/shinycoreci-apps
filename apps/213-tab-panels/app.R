@@ -33,7 +33,8 @@ server <- function(input, output, session) {
     insertTab(
       inputId = "tabs",
       tabPanel(id, id),
-      target = "s2"
+      target = "s2",
+      position = "before"
     )
   })
   observeEvent(input$removeFoo, {
