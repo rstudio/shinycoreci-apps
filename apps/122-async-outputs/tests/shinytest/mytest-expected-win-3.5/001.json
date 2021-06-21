@@ -32,7 +32,7 @@
       "src": "[image data sha1: fd852df5478eb7eb9410ee9101bb364adf487fb0]"
     },
     "plot": {
-      "src": "[image data sha1: d744441fe029b5f9efa1e0563f9849b220d95fea]",
+      "src": "[image data sha1: d8358e7dd8f7907713f82bd85a9dc8532f18e5e6]",
       "width": 383,
       "height": 400,
       "alt": "Plot object",
@@ -46,10 +46,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.04,
-              "right": 352.76,
-              "bottom": 325.56,
-              "top": 58.04
+              "left": 59.0400154151476,
+              "right": 352.759992104437,
+              "bottom": 325.559981639995,
+              "top": 58.0400147600037
             },
             "log": {
               "x": null,
@@ -67,7 +67,7 @@
       }
     },
     "plota": {
-      "src": "[image data sha1: d744441fe029b5f9efa1e0563f9849b220d95fea]",
+      "src": "[image data sha1: d8358e7dd8f7907713f82bd85a9dc8532f18e5e6]",
       "width": 383,
       "height": 400,
       "alt": "Plot object",
@@ -81,10 +81,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.04,
-              "right": 352.76,
-              "bottom": 325.56,
-              "top": 58.04
+              "left": 59.0400154151476,
+              "right": 352.759992104437,
+              "bottom": 325.559981639995,
+              "top": 58.0400147600037
             },
             "log": {
               "x": null,
