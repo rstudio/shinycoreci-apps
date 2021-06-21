@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 4e43d2b810b4fba7fcea17184fe71ab7d8e5d573]",
+      "html": "[html data sha1: d9304cc567fde7c9e3979a33fac3d2f04637e1c5]",
       "deps": [
         {
           "name": "jquery",
@@ -145,9 +145,9 @@
         },
         {
           "name": "plotly-binding",
-          "version": "4.9.3",
+          "version": "4.9.4",
           "src": {
-            "href": "plotly-binding-4.9.3"
+            "href": "plotly-binding-4.9.4"
           },
           "meta": null,
           "script": "plotly.js",
@@ -438,7 +438,7 @@
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
