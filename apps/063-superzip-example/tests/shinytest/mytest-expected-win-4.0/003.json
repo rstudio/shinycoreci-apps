@@ -5,7 +5,7 @@
     "map_bounds": {
       "north": 57.8914973527103,
       "east": -50.2734375,
-      "south": 9.53574899813363,
+      "south": 9.53574899813361,
       "west": -137.4609375
     },
     "map_center": {
@@ -31951,7 +31951,7 @@
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
