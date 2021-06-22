@@ -456,7 +456,7 @@
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
@@ -560,7 +560,7 @@
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
