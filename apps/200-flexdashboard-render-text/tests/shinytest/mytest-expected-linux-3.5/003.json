@@ -145,9 +145,9 @@
         },
         {
           "name": "plotly-binding",
-          "version": "4.9.4",
+          "version": "4.9.4.1",
           "src": {
-            "href": "plotly-binding-4.9.4"
+            "href": "plotly-binding-4.9.4.1"
           },
           "meta": null,
           "script": "plotly.js",
