@@ -13,7 +13,7 @@ ui <- fluidPage(
   tags$h3("Output"),
   verbatimTextOutput("selected"),
   shinyjster::shinyjster_js("
-    var jst = jster(200);
+    var jst = jster(50);
 
     var alpha = 'abcdefghijklmnopqrstuvwxyz';
     var lowerLetters = alpha.split('');
