@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 6f9468bb9da6f5ca93561b3a4335cca7afd2d664]",
+      "html": "[html data sha1: 7e2ac843ae1d87f99f82e417e1dfc95064102a53]",
       "deps": [
         {
           "name": "jquery",
@@ -145,9 +145,9 @@
         },
         {
           "name": "plotly-binding",
-          "version": "4.9.3",
+          "version": "4.9.4.1",
           "src": {
-            "href": "plotly-binding-4.9.3"
+            "href": "plotly-binding-4.9.4.1"
           },
           "meta": null,
           "script": "plotly.js",
@@ -250,8 +250,7 @@
           "width": 356,
           "height": 201
         }
-      },
-      "error": null
+      }
     },
     "out9ac41049c5a0fec9": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 1\" data-color-accent=\"primary\">VB1: Mar<\/span>",
@@ -514,7 +513,7 @@
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
