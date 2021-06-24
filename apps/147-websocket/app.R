@@ -86,7 +86,24 @@ ui <- fluidPage(
     jst.add(function() {
       Jster.button.click('close');
     });
-    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(function(done) {
+      var start = new Date();
+      var wait = function() {
+        var curNow = new Date()
+        if (curNow > (start + (20 * 1000))) {
+          done();
+          return;
+        }
+        if (
+          /Closed/.test($('#status').text().trim())
+        ) {
+          done();
+          return;
+        }
+        setTimeout(wait, 20)
+      }
+      wait();
+    })
     jst.add(function() {
       Jster.assert.isEqual(
         $('#status').text().trim(),
