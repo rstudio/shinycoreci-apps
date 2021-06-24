@@ -13,7 +13,6 @@ library(shiny)
 
 # Inputs: `r renderText({getmonth()})` {.sidebar}
 
-
 ```{r}
 selectInput(
   "month",
