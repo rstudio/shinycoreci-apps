@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 51b55c20ae07fcae69ffde8e00c21f2eb4e1f054]",
+      "html": "[html data sha1: 7e2ac843ae1d87f99f82e417e1dfc95064102a53]",
       "deps": [
         {
           "name": "jquery",
@@ -145,9 +145,9 @@
         },
         {
           "name": "plotly-binding",
-          "version": "4.9.4",
+          "version": "4.9.4.1",
           "src": {
-            "href": "plotly-binding-4.9.4"
+            "href": "plotly-binding-4.9.4.1"
           },
           "meta": null,
           "script": "plotly.js",
@@ -218,7 +218,7 @@
     "out7dd30976d7eabf77": "Mar",
     "out8fe432e1a79c80a4": "Mar",
     "out91b7f72ac16f31e0": {
-      "src": "[image data sha1: 2bbfe016f9866963cf9cf24a32eee1b03f31ae2b]",
+      "src": "[image data sha1: 973875faffa828a9c2d714858bbf590156afb58d]",
       "width": 356,
       "height": 201,
       "alt": "Shiny plot alt text: Mar",
@@ -250,8 +250,7 @@
           "width": 356,
           "height": 201
         }
-      },
-      "error": null
+      }
     },
     "out9ac41049c5a0fec9": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 1\" data-color-accent=\"primary\">VB1: Mar<\/span>",
