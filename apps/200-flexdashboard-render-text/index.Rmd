@@ -13,6 +13,7 @@ library(shiny)
 
 # Inputs: `r renderText({getmonth()})` {.sidebar}
 
+
 ```{r}
 selectInput(
   "month",
@@ -34,7 +35,7 @@ Sidebar Content: `r renderText(getmonth())`
 ```{r}
 shinyjster::shinyjster_server(input, output, session)
 shinyjster::shinyjster_js("
-  var jst = jster(200);
+  var jst = jster(1);
   function assert_equal(id, txt) {
     assert_equal_qs('#section-' + id, txt);
   }
