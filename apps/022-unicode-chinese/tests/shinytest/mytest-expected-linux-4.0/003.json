@@ -7,7 +7,7 @@
   },
   "output": {
     "rockplot": {
-      "src": "[image data sha1: 9904404c37605afcd69b3fe67935638d7231bb1a]",
+      "src": "[image data sha1: 5d95bd50e61c0be91441bda5e230c5410c64574d]",
       "width": 631,
       "height": 400,
       "alt": "Plot object",
@@ -42,7 +42,7 @@
       }
     },
     "rockvars": {
-      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" id=\"vars-label\" for=\"vars\">从岩石数据中选择一列作为自变量<\/label>\n  <div>\n    <select id=\"vars\"><option value=\"周长\" selected>周长<\/option>\n<option value=\"形状\">形状<\/option>\n<option value=\"渗透性\">渗透性<\/option><\/select>\n    <script type=\"application/json\" data-for=\"vars\" data-nonempty=\"\">{\"plugins\":[\"selectize-plugin-a11y\"]}<\/script>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"form-group shiny-input-container\">\n  <label class=\"control-label\" id=\"vars-label\" for=\"vars\">从岩石数据中选择一列作为自变量<\/label>\n  <div>\n    <select id=\"vars\"><option value=\"周长\" selected>周长<\/option>\n<option value=\"形状\">形状<\/option>\n<option value=\"渗透性\">渗透性<\/option><\/select>\n    <script type=\"application/json\" data-for=\"vars\" data-nonempty=\"\">{\"plugins\":[\"selectize-plugin-a11y\"],\"dropdownParent\":\"body\"}<\/script>\n  <\/div>\n<\/div>",
       "deps": [
         {
           "name": "selectize",
