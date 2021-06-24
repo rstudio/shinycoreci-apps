@@ -75,7 +75,7 @@ osVersion: Ubuntu 18.04.5 LTS
 60            lpSolve      5.6.15   RSPM                       
 61           magrittr       2.0.1   RSPM                       
 62           markdown         1.1   RSPM                       
-63               mime        0.11   CRAN                       
+63               mime        0.11   RSPM                       
 64            munsell       0.5.0   RSPM                       
 65            openssl       1.4.4   RSPM                       
 66            packrat       0.6.0   RSPM                       
