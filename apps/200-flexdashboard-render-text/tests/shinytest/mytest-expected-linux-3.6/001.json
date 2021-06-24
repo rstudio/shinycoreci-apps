@@ -19,7 +19,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 51b55c20ae07fcae69ffde8e00c21f2eb4e1f054]",
+      "html": "[html data sha1: 7e2ac843ae1d87f99f82e417e1dfc95064102a53]",
       "deps": [
         {
           "name": "jquery",
@@ -144,9 +144,9 @@
         },
         {
           "name": "plotly-binding",
-          "version": "4.9.4",
+          "version": "4.9.4.1",
           "src": {
-            "href": "plotly-binding-4.9.4"
+            "href": "plotly-binding-4.9.4.1"
           },
           "meta": null,
           "script": "plotly.js",
@@ -214,7 +214,7 @@
     "out653cee2a3d1d7c1c": "Feb",
     "out7dd30976d7eabf77": "Feb",
     "out91b7f72ac16f31e0": {
-      "src": "[image data sha1: b7b7b2424462fc235b5219be619ad2ff7b9067da]",
+      "src": "[image data sha1: e6ff133b31d965632239137546dc2f24e63c17ca]",
       "width": 356,
       "height": 229,
       "alt": "Shiny plot alt text: Feb",
