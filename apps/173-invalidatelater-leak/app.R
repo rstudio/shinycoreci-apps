@@ -7,7 +7,7 @@ onStop(function() {
   options(op)
 })
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   p("This application tests if", code("invalidateLater"),
     "causes significant memory leakage. (",
     a("#2555", href = "https://github.com/rstudio/shiny/pull/2555", .noWS = "outside"),

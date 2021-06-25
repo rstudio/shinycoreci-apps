@@ -4,7 +4,7 @@ library(shiny)
 
 
 # Define UI for app that draws a histogram ----
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
 
   # App title ----
   titlePanel("Hello Shiny!"),

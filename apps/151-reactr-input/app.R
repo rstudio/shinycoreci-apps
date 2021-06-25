@@ -18,7 +18,7 @@ simpleTextInput <- function(inputId, default = "") {
 }
 
 ui <- function(request) {
-  fluidPage(theme = bslib::bs_theme(),
+  fluidPage(theme = bslib::bs_theme(version=5),
     titlePanel("reactR Input Demo"),
     tags$p("Enter text under 'Input' below. It should show up under 'Output'."),
     tags$p("You should also be able to bookmark this page and the input will retain its value."),

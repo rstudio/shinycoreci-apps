@@ -1,4 +1,4 @@
-fluidPage(theme = bslib::bs_theme(),
+fluidPage(theme = bslib::bs_theme(version=5),
   tags$style(HTML("#shiny-notification-panel { width: 450px; }
                   .shiny-notification { opacity: 0.95; }
                   h2 { padding-left: 15px; }")),

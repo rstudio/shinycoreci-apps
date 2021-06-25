@@ -1,7 +1,7 @@
 library(shiny)
 
 shinyApp(
-  ui = fluidPage(theme = bslib::bs_theme(),
+  ui = fluidPage(theme = bslib::bs_theme(version=5),
     p(
       "This test ensures that", code("selectInput()"), "doesn't introduce extra input variable(s).",
       a("Issue #2396", href = "https://github.com/rstudio/shiny/issues/2396"), "/",

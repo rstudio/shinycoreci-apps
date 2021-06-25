@@ -3,7 +3,7 @@ library(bslib)
 
 ui <- htmlTemplate(
   "template.html",
-  theme = bs_theme(
+  theme = bs_theme(version=5
     version = 4, primary = "yellow",
     bg = "black", fg = "white",
     base_font = font_google("Yellowtail")

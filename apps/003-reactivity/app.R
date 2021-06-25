@@ -1,7 +1,7 @@
 library(shiny)
 
 # Define UI for dataset viewer app ----
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
 
   # App title ----
   titlePanel("Reactivity"),

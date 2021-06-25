@@ -27,7 +27,7 @@ dtmod <- function(input, output, session) {
   })
 }
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h3("Test DT::replaceData with Shiny modules (rstudio/DT#626)"),
   p("Make sure each Increment button updates (only) the corresponding value"),
   fluidRow(

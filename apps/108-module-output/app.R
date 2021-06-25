@@ -5,7 +5,7 @@ library(shiny)
 
 source("linked_scatter.R")
 
-ui <- fixedPage(theme = bslib::bs_theme(),
+ui <- fixedPage(theme = bslib::bs_theme(version=5),
   h2("Module example"),
   linkedScatterUI("scatters"),
   textOutput("summary")

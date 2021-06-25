@@ -4,7 +4,7 @@ library(promises)
 library(magrittr)
 plan(multisession)
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   p("This app tests that ", tags$code("invalidateLater()"), " calls are held until async operations are complete."),
   tags$ol(
     tags$li("You should see the number below increasing by 1, every 2 seconds."),

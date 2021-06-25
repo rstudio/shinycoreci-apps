@@ -53,7 +53,7 @@ make_row <- function(func, base_id, label, ...) {
   )
 }
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h2("Current tick"),
   tags$p(
     "This app tests whether all render functions execute synchronous user code within the current tick.",

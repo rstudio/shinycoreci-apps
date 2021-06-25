@@ -1,7 +1,7 @@
 library(shiny)
 library(ggplot2)  # for the diamonds dataset
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   title = "Examples of DataTables",
   sidebarLayout(
     sidebarPanel(

@@ -1,6 +1,6 @@
 library(markdown)
 
-fluidPage(theme = bslib::bs_theme(),style="padding-top: 80px;",
+fluidPage(theme = bslib::bs_theme(version=5),style="padding-top: 80px;",
   h1("Absolutely-positioned panels"),
   absolutePanel(
     bottom = 20, right = 20, width = 300,

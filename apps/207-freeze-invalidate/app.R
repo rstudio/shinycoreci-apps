@@ -6,7 +6,7 @@ library(shinyjster)
 # in a flush cycle_ that each observer executes, it should either see the two
 # inputs in a consistent state OR attempt to read a frozen input and req(FALSE).
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   radioButtons("type", "Data type", c("numbers", "letters"), "numbers"),
   radioButtons("value", "Value", as.character(1:5), inline = TRUE),
   verbatimTextOutput("check"),

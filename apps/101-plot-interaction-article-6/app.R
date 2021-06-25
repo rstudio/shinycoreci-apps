@@ -2,7 +2,7 @@
 
 
 library(ggplot2)
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   plotOutput("plot1", brush = "plot_brush", height = 250),
   verbatimTextOutput("info")
 )

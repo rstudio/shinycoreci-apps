@@ -3,7 +3,7 @@
 
 library(shiny)
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   plotOutput("plot1", click = "plot_click"),
   verbatimTextOutput("info")
 )

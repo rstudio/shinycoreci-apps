@@ -3,7 +3,7 @@
 
 library(ggplot2)
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   fluidRow(
     column(width = 4, class = "well",
       h4("Brush and double-click to zoom"),

@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   "Below is a test for behavior described ",
   a("here", href = "https://github.com/rstudio/rmarkdown/pull/1631"),
   HTML("

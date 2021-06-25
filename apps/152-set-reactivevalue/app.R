@@ -9,7 +9,7 @@ obj <- lapply(1:60, function(i) {
 
 
 shinyApp(
-  ui = fluidPage(theme = bslib::bs_theme(),
+  ui = fluidPage(theme = bslib::bs_theme(version=5),
     p("This is a test for ", a("#2375",href = "https://github.com/rstudio/shiny/issues/2375"),
       ". The elapsed time should be small, less than 0.5 seconds."),
     htmlOutput("txt"),

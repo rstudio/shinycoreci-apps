@@ -43,7 +43,7 @@ server <- function(input, output, session) {
   callModule(myPlot, "plot2")
 }
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   titlePanel("Namespaced conditional panels"),
   fluidRow(
     myPlotUI("plot1", label = "My first plot")

@@ -36,7 +36,7 @@ showIcons <- function(icons) {
   )
 }
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   tags$h2("FontAwesome 4 icons"),
   p("The following icons are from the FontAwesome 4 set. They should display properly below."),
   showIcons(fa4icons),

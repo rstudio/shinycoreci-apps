@@ -32,7 +32,7 @@ if (FALSE) {
 }
 
 # Essentially the same as bs_theme_preview(), but deployable
-old_theme <- bs_global_set(bs_theme())
+old_theme <- bs_global_set(bs_theme(version=5))
 onStop(function() {
   bs_global_set(old_theme)
 })

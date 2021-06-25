@@ -11,7 +11,7 @@ onStop(function() {
   removeResourcePath("images")
 })
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   "You should see two warnings about resource paths in your R console.",
   # This image is here to ensure that addResourcePath("images", ...)
   # throws a warning when your app has a www/images directory.

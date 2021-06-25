@@ -78,7 +78,7 @@ do_plot <- function(family = "Pacifico") {
 
 create_testing_app <- function(ui, server) {
   shinyApp(
-    fluidPage(theme = bslib::bs_theme(),
+    fluidPage(theme = bslib::bs_theme(version=5),
       info2css(info1, "body"),
       info2css(info2, "#info2"),
       ui

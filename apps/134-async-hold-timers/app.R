@@ -7,7 +7,7 @@ wait_seconds <- function(secs) {
   promise(~{later::later(~resolve(TRUE), secs)})
 }
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h2("Verify timers don't run until async tasks are complete"),
   "If this app runs for about 10 seconds without killing the session, that's success!",
   uiOutput("status"),

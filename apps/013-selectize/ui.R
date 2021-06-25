@@ -1,6 +1,6 @@
 library(shiny)
 
-fluidPage(theme = bslib::bs_theme(),
+fluidPage(theme = bslib::bs_theme(version=5),
   title = 'Selectize examples',
   sidebarLayout(
     sidebarPanel(

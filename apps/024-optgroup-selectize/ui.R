@@ -1,4 +1,4 @@
-fluidPage(theme = bslib::bs_theme(),sidebarLayout(
+fluidPage(theme = bslib::bs_theme(version=5),sidebarLayout(
   sidebarPanel(
     # use regions as option groups
     selectizeInput('x1', 'X1', choices = list(

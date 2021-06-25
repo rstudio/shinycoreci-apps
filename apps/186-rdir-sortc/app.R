@@ -1,5 +1,5 @@
 shinyApp(
-  ui = fluidPage(theme = bslib::bs_theme(),
+  ui = fluidPage(theme = bslib::bs_theme(version=5),
     shinyjster::shinyjster_js("
       var jst = jster();
       jst.add(Jster.shiny.waitUntilStable);

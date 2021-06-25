@@ -2,7 +2,7 @@ n_letter_groups <- 5
 sample_letters <- replicate(n_letter_groups, {list(c("T", "N", "U", "A" ,"X"))})
 
 
-fluidPage(theme = bslib::bs_theme(),
+fluidPage(theme = bslib::bs_theme(version=5),
   title = 'Creating a UI from a loop',
 
   sidebarLayout(

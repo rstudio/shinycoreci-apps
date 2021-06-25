@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPage(theme = bslib::bs_theme(),
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h2("reactiveTimer test"),
   p("This test exercises two reactiveTimers. One is global, one is per-session."),
 

@@ -1,4 +1,4 @@
-fluidPage(theme = bslib::bs_theme(),
+fluidPage(theme = bslib::bs_theme(version=5),
   headerPanel('Iris k-means clustering'),
   sidebarLayout(
     sidebarPanel(

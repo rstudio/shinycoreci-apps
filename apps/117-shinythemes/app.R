@@ -5,7 +5,7 @@ shinyApp(
   ui = tagList(
     #shinythemes::themeSelector(),
     navbarPage(
-      theme = bslib::bs_theme(),
+      theme = bslib::bs_theme(version=5),
       "shinythemes",
       tabPanel(
         "Navbar 1",
