@@ -15,7 +15,8 @@
       ]
     },
     "month": "Feb",
-    "plotly_afterplot-A": "\"outb037b936e10a1db3\""
+    "plotly_afterplot-A": "\"outb037b936e10a1db3\"",
+    "plotly_relayout-A": "{\"width\":356,\"height\":201}"
   },
   "output": {
     "__reactivedoc__": {
@@ -214,9 +215,9 @@
     "out653cee2a3d1d7c1c": "Feb",
     "out7dd30976d7eabf77": "Feb",
     "out91b7f72ac16f31e0": {
-      "src": "[image data sha1: e6ff133b31d965632239137546dc2f24e63c17ca]",
+      "src": "[image data sha1: 8170ab6ba84063f1de68fab0ab8f6ee43a5e3efe]",
       "width": 356,
-      "height": 229,
+      "height": 201,
       "alt": "Shiny plot alt text: Feb",
       "coordmap": {
         "panels": [
@@ -230,7 +231,7 @@
             "range": {
               "left": 59.04,
               "right": 325.76,
-              "bottom": 154.56,
+              "bottom": 126.56,
               "top": 58.04
             },
             "log": {
@@ -244,7 +245,7 @@
         ],
         "dims": {
           "width": 356,
-          "height": 229
+          "height": 201
         }
       },
       "error": null
