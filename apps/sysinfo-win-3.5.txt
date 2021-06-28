@@ -10,7 +10,7 @@ osVersion: Windows Server x64 (build 17763)
  collate  English_United States.1252  
  ctype    English_United States.1252  
  tz       UTC                         
- date     2021-06-24                  
+ date     2021-06-25                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -51,7 +51,7 @@ osVersion: Windows Server x64 (build 17763)
 36        fontawesome  0.2.1.9001    Git 159fd98        /master
 37                 fs       1.5.0   CRAN                       
 38           generics       0.1.0   CRAN                       
-39            ggplot2       3.3.4   CRAN                       
+39            ggplot2       3.3.5   CRAN                       
 40               glue       1.4.2   CRAN                       
 41          gridExtra         2.3   CRAN                       
 42                 gt       0.3.0   CRAN                       

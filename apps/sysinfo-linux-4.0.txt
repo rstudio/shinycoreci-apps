@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-06-24                  
+ date     2021-06-25                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -75,7 +75,7 @@ osVersion: Ubuntu 18.04.5 LTS
 60            lpSolve      5.6.15   RSPM                       
 61           magrittr       2.0.1   RSPM                       
 62           markdown         1.1   RSPM                       
-63               mime        0.11   CRAN                       
+63               mime        0.11   RSPM                       
 64            munsell       0.5.0   RSPM                       
 65            openssl       1.4.4   RSPM                       
 66            packrat       0.6.0   RSPM                       
@@ -121,52 +121,51 @@ osVersion: Ubuntu 18.04.5 LTS
 106       sessioninfo       1.1.1   RSPM                       
 107             shiny  1.6.0.9021    Git 244fdc7        /master
 108       shinycoreci  0.0.0.9005 GitHub ea98926 rstudio/master
-109           shinyjs       2.0.0   RSPM                       
-110        shinyjster  0.0.0.9009    Git 7c97e9b        /master
-111         shinymeta  0.2.0.9000    Git 6180c18        /master
-112         shinytest  1.5.0.9001    Git e1bc8bd        /master
-113       shinythemes       1.2.0    Git dee0e6c        /master
-114     shinyvalidate  0.1.0.9000    Git b12cb1e        /master
-115         showimage       1.0.0   RSPM                       
-116       sourcetools       0.1.7   RSPM                       
-117                sp       1.4-5   RSPM                       
-118           stringi       1.6.2   RSPM                       
-119           stringr       1.4.0   RSPM                       
-120            styler       1.4.1   RSPM                       
-121               sys         3.4   RSPM                       
-122          testthat       3.0.3   RSPM                       
-123          thematic     0.1.2.1    Git 9858628        /master
-124            tibble       3.1.2   RSPM                       
-125             tidyr       1.1.3   RSPM                       
-126        tidyselect       1.1.1   RSPM                       
-127           tinytex        0.32   RSPM                       
-128              utf8       1.2.1   RSPM                       
-129              uuid       0.1-4   RSPM                       
-130             vctrs       0.3.8   RSPM                       
-131           viridis       0.6.1   RSPM                       
-132       viridisLite       0.4.0   RSPM                       
-133             waldo       0.2.5   RSPM                       
-134         webdriver  1.0.6.9001    Git af4d1c6        /master
-135         websocket       1.4.0    Git 51dec68        /master
-136             withr       2.4.2   RSPM                       
-137              xfun        0.24   RSPM                       
-138            xtable       1.8-4   RSPM                       
-139               xts      0.12.1   RSPM                       
-140              yaml       2.2.1   RSPM                       
-141               zip       2.2.0   RSPM                       
-142               zoo       1.8-9   RSPM                       
-143              boot      1.3-27   CRAN                       
-144             class      7.3-18   CRAN                       
-145           cluster       2.1.1   CRAN                       
-146         codetools      0.2-18   CRAN                       
-147           foreign      0.8-81   CRAN                       
-148        KernSmooth     2.23-18   CRAN                       
-149           lattice     0.20-41   CRAN                       
-150              MASS    7.3-53.1   CRAN                       
-151            Matrix       1.3-2   CRAN                       
-152              mgcv      1.8-34   CRAN                       
-153              nlme     3.1-152   CRAN                       
-154              nnet      7.3-15   CRAN                       
-155             rpart      4.1-15   CRAN                       
-156           spatial      7.3-13   CRAN                       
-157          survival      3.2-10   CRAN                       
+109        shinyjster  0.0.0.9009    Git 7c97e9b        /master
+110         shinymeta  0.2.0.9000    Git 6180c18        /master
+111         shinytest  1.5.0.9001    Git e1bc8bd        /master
+112       shinythemes       1.2.0    Git dee0e6c        /master
+113     shinyvalidate  0.1.0.9000    Git b12cb1e        /master
+114         showimage       1.0.0   RSPM                       
+115       sourcetools       0.1.7   RSPM                       
+116                sp       1.4-5   RSPM                       
+117           stringi       1.6.2   RSPM                       
+118           stringr       1.4.0   RSPM                       
+119            styler       1.4.1   RSPM                       
+120               sys         3.4   RSPM                       
+121          testthat       3.0.3   RSPM                       
+122          thematic     0.1.2.1    Git 9858628        /master
+123            tibble       3.1.2   RSPM                       
+124             tidyr       1.1.3   RSPM                       
+125        tidyselect       1.1.1   RSPM                       
+126           tinytex        0.32   RSPM                       
+127              utf8       1.2.1   RSPM                       
+128              uuid       0.1-4   RSPM                       
+129             vctrs       0.3.8   RSPM                       
+130           viridis       0.6.1   RSPM                       
+131       viridisLite       0.4.0   RSPM                       
+132             waldo       0.2.5   RSPM                       
+133         webdriver  1.0.6.9001    Git af4d1c6        /master
+134         websocket       1.4.0    Git 51dec68        /master
+135             withr       2.4.2   RSPM                       
+136              xfun        0.24   RSPM                       
+137            xtable       1.8-4   RSPM                       
+138               xts      0.12.1   RSPM                       
+139              yaml       2.2.1   RSPM                       
+140               zip       2.2.0   RSPM                       
+141               zoo       1.8-9   RSPM                       
+142              boot      1.3-27   CRAN                       
+143             class      7.3-18   CRAN                       
+144           cluster       2.1.1   CRAN                       
+145         codetools      0.2-18   CRAN                       
+146           foreign      0.8-81   CRAN                       
+147        KernSmooth     2.23-18   CRAN                       
+148           lattice     0.20-41   CRAN                       
+149              MASS    7.3-53.1   CRAN                       
+150            Matrix       1.3-2   CRAN                       
+151              mgcv      1.8-34   CRAN                       
+152              nlme     3.1-152   CRAN                       
+153              nnet      7.3-15   CRAN                       
+154             rpart      4.1-15   CRAN                       
+155           spatial      7.3-13   CRAN                       
+156          survival      3.2-10   CRAN                       
