@@ -250,7 +250,8 @@
           "width": 356,
           "height": 201
         }
-      }
+      },
+      "error": null
     },
     "out9ac41049c5a0fec9": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 1\" data-color-accent=\"primary\">VB1: Mar<\/span>",
