@@ -14,4 +14,6 @@ app$snapshot()
 # View second page
 app$executeScript('$("#navbar li a").last().click();')
 app$waitForValue("p2r1content", iotype = "output")
+# wait some more time just to let the images adjust
+Sys.sleep(5)
 app$snapshot()
