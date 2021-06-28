@@ -7,8 +7,6 @@ Sys.sleep(5)
 app$snapshot()
 
 app$setInputs(month = "Mar")
-# wait again until plotly is happy
-app$waitForValue("plotly_afterplot-A", ignore = list(plotly_feb, NULL))
 # wait some more time just to let the images adjust
 Sys.sleep(5)
 app$snapshot()
