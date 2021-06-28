@@ -37,6 +37,19 @@ jobs:
         - name: Centos7
           workdir: Docker/centos
           type: centos7
+          r: "4.1"
+        - name: Bionic
+          workdir: Docker/ubuntu
+          type: bionic
+          r: "4.1"
+        - name: Xenial
+          workdir: Docker/ubuntu
+          type: xenial
+          r: "4.1"
+
+        - name: Centos7
+          workdir: Docker/centos
+          type: centos7
           r: "4.0"
         - name: Bionic
           workdir: Docker/ubuntu
