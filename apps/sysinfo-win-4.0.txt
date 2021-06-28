@@ -120,7 +120,7 @@ osVersion: Windows Server x64 (build 17763)
 105            scales       1.1.1   CRAN                       
 106       sessioninfo       1.1.1   CRAN                       
 107             shiny  1.6.0.9021    Git 244fdc7        /master
-108       shinycoreci  0.0.0.9005 GitHub 5477b1f rstudio/master
+108       shinycoreci  0.0.0.9005 GitHub ffd398b rstudio/master
 109        shinyjster  0.0.0.9009    Git 7c97e9b        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
 111         shinytest  1.5.0.9001    Git e1bc8bd        /master
