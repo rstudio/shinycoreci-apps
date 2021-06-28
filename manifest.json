@@ -2176,7 +2176,7 @@
       "GithubRepo": "shinycoreci",
       "GithubUsername": "rstudio",
       "GithubRef": "HEAD",
-      "GithubSha1": "a57937d2e38862d23eaee70e746dbd5ddcdf7849",
+      "GithubSha1": "0cd0aa9089f6c4ac9d256200d0bfbd2abf7de52f",
       "description": {
         "Package": "shinycoreci",
         "Title": "CI Testing for shiny",
@@ -2196,16 +2196,16 @@
         "RemoteRepo": "shinycoreci",
         "RemoteUsername": "rstudio",
         "RemoteRef": "HEAD",
-        "RemoteSha": "a57937d2e38862d23eaee70e746dbd5ddcdf7849",
+        "RemoteSha": "0cd0aa9089f6c4ac9d256200d0bfbd2abf7de52f",
         "GithubRepo": "shinycoreci",
         "GithubUsername": "rstudio",
         "GithubRef": "HEAD",
-        "GithubSHA1": "a57937d2e38862d23eaee70e746dbd5ddcdf7849",
+        "GithubSHA1": "0cd0aa9089f6c4ac9d256200d0bfbd2abf7de52f",
         "NeedsCompilation": "no",
-        "Packaged": "2021-06-28 15:54:00 UTC; barret",
+        "Packaged": "2021-06-28 16:44:58 UTC; barret",
         "Author": "Winston Chang [aut, cre],\n  Barret Schloerke [aut],\n  Alan Dipert [aut],\n  RStudio [cph, fnd]",
         "Maintainer": "Winston Chang <winston@rstudio.com>",
-        "Built": "R 4.0.2; ; 2021-06-28 15:54:01 UTC; unix"
+        "Built": "R 4.0.2; ; 2021-06-28 16:44:59 UTC; unix"
       }
     },
     "sourcetools": {
