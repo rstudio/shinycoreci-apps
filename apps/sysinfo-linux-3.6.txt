@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-06-25                  
+ date     2021-06-28                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -27,7 +27,7 @@ osVersion: Ubuntu 18.04.5 LTS
 12                cli       2.5.0   RSPM                       
 13         colorspace       2.0-2   RSPM                       
 14         commonmark         1.7   RSPM                       
-15              cpp11       0.3.1   CRAN                       
+15              cpp11       0.3.1   RSPM                       
 16             crayon       1.4.1   RSPM                       
 17          crosstalk  1.1.1.9000    Git f8e0fa4        /master
 18               curl       4.3.2   CRAN                       
@@ -51,7 +51,7 @@ osVersion: Ubuntu 18.04.5 LTS
 36        fontawesome  0.2.1.9001    Git 159fd98        /master
 37                 fs       1.5.0   RSPM                       
 38           generics       0.1.0   RSPM                       
-39            ggplot2       3.3.5   CRAN                       
+39            ggplot2       3.3.5   RSPM                       
 40               glue       1.4.2   RSPM                       
 41          gridExtra         2.3   RSPM                       
 42                 gt       0.3.0   RSPM                       
@@ -111,7 +111,7 @@ osVersion: Ubuntu 18.04.5 LTS
 96           rematch2       2.1.2   RSPM                       
 97            remotes       2.4.0   RSPM                       
 98               renv      0.13.2   RSPM                       
-99              rlang 0.4.11.9000 GitHub 9bed9dd     r-lib/HEAD
+99              rlang 0.4.11.9000 GitHub 869f00a     r-lib/HEAD
 100         rmarkdown         2.9   RSPM                       
 101         rprojroot       2.0.2   RSPM                       
 102         rsconnect      0.8.18    Git e42166e        /master
@@ -120,7 +120,7 @@ osVersion: Ubuntu 18.04.5 LTS
 105            scales       1.1.1   RSPM                       
 106       sessioninfo       1.1.1   RSPM                       
 107             shiny  1.6.0.9021    Git 244fdc7        /master
-108       shinycoreci  0.0.0.9005 GitHub 368a2c6 rstudio/master
+108       shinycoreci  0.0.0.9005 GitHub ffd398b rstudio/master
 109        shinyjster  0.0.0.9009    Git 7c97e9b        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
 111         shinytest  1.5.0.9001    Git e1bc8bd        /master
