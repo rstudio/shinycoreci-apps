@@ -1,10 +1,16 @@
 app <- ShinyDriver$new("../../index.Rmd", seed = 75237)
 app$snapshotInit("mytest")
 
-app$waitForValue("plotly_afterplot-A")
+plotly_feb <- app$waitForValue("plotly_afterplot-A")
+# wait some more time just to let the images adjust
+Sys.sleep(5)
 app$snapshot()
 
 app$setInputs(month = "Mar")
+# wait again until plotly is happy
+app$waitForValue("plotly_afterplot-A", ignore = list(plotly_feb, NULL))
+# wait some more time just to let the images adjust
+Sys.sleep(5)
 app$snapshot()
 
 # View second page
