@@ -360,6 +360,22 @@ jobs:
           options(install.packages.check.source = 'no')
           if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()
 
+      - name: Session info
+        shell: Rscript {0}
+        run: |
+          # init
+          if (not_installed <- system.file(package = "sessioninfo") == "") {
+            install.packages("sessioninfo")
+          }
+          # load
+          library(shinycoreci)
+          # display
+          sessioninfo::session_info()
+          # cleanup
+          if (not_installed) {
+            remove.packages("sessioninfo")
+          }
+
       - name: Notify slack TEST
         uses: voxmedia/github-action-slack-notify-build@v1
         env:

@@ -15,11 +15,12 @@
       ]
     },
     "month": "Mar",
-    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\""
+    "plotly_afterplot-A": "\"out6fe48fa3cbd09f9e\"",
+    "plotly_relayout-A": "{\"width\":356,\"height\":201}"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: d9304cc567fde7c9e3979a33fac3d2f04637e1c5]",
+      "html": "[html data sha1: 2f3efa1c82d88d665cf05b3e494e384dbd51bdee]",
       "deps": [
         {
           "name": "jquery",
@@ -513,9 +514,9 @@
     },
     "outc528c8f94aec73f5": "Mar",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: fb399a7de581487776616bac19d98dc0ac0e67e7]",
+      "src": "[image data sha1: f73537d02a352f9495191a961d64e99cf3539710]",
       "width": 356,
-      "height": 229,
+      "height": 201,
       "alt": "Shiny plot alt text: Mar",
       "coordmap": {
         "panels": [
@@ -527,10 +528,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.04,
-              "right": 325.76,
-              "bottom": 154.56,
-              "top": 58.04
+              "left": 59.0400165842743,
+              "right": 325.759991505616,
+              "bottom": 126.559963462668,
+              "top": 58.0400293731489
             },
             "log": {
               "x": null,
@@ -543,7 +544,7 @@
         ],
         "dims": {
           "width": 356,
-          "height": 229
+          "height": 201
         }
       }
     }

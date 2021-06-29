@@ -3,6 +3,7 @@ title: "Shiny Location Kitchen Sink"
 output:
   flexdashboard::flex_dashboard:
     orientation: rows
+    resize_reload: false
 runtime: shiny
 ---
 
@@ -12,7 +13,6 @@ library(shiny)
 ```
 
 # Inputs: `r renderText({getmonth()})` {.sidebar}
-
 
 ```{r}
 selectInput(

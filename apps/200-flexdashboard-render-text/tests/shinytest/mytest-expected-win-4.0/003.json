@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 51b55c20ae07fcae69ffde8e00c21f2eb4e1f054]",
+      "html": "[html data sha1: 0c17b9950a8b9d72805da3aad945f738c3cb36b9]",
       "deps": [
         {
           "name": "jquery",
@@ -218,7 +218,7 @@
     "out7dd30976d7eabf77": "Mar",
     "out8fe432e1a79c80a4": "Mar",
     "out91b7f72ac16f31e0": {
-      "src": "[image data sha1: 25a351b0a92bc17e071d5b17bb46f0852ff9e634]",
+      "src": "[image data sha1: f73537d02a352f9495191a961d64e99cf3539710]",
       "width": 356,
       "height": 201,
       "alt": "Shiny plot alt text: Mar",
@@ -232,10 +232,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.04,
-              "right": 325.76,
-              "bottom": 126.56,
-              "top": 58.04
+              "left": 59.0400165842743,
+              "right": 325.759991505616,
+              "bottom": 126.559963462668,
+              "top": 58.0400293731489
             },
             "log": {
               "x": null,
@@ -250,8 +250,7 @@
           "width": 356,
           "height": 201
         }
-      },
-      "error": null
+      }
     },
     "out9ac41049c5a0fec9": {
       "html": "<span class=\"value-output\" data-caption=\"Value Box 1\" data-color-accent=\"primary\">VB1: Mar<\/span>",
