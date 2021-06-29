@@ -1,7 +1,7 @@
 app <- ShinyDriver$new("../../index.Rmd", seed = 75237)
 app$snapshotInit("mytest")
 
-plotly_feb <- app$waitForValue("plotly_afterplot-A")
+app$waitForValue("plotly_afterplot-A")
 # wait some more time just to let the images adjust
 Sys.sleep(5)
 app$snapshot()
