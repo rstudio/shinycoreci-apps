@@ -1,4 +1,4 @@
-Image Version:  20210621.1 
+Image Version:  20210628.1 
 osVersion: Ubuntu 18.04.5 LTS
 --------------------------------------------------------------------------------
  setting  value                       
@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-06-29                  
+ date     2021-06-30                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -29,7 +29,7 @@ osVersion: Ubuntu 18.04.5 LTS
 14         commonmark         1.7   RSPM                       
 15              cpp11       0.3.1   RSPM                       
 16             crayon       1.4.1   RSPM                       
-17          crosstalk  1.1.1.9000    Git f8e0fa4        /master
+17          crosstalk  1.1.1.9000    Git 382ec5e        /master
 18               curl       4.3.2   CRAN                       
 19         data.table      1.14.0   RSPM                       
 20                DBI       1.1.1   RSPM                       
@@ -111,7 +111,7 @@ osVersion: Ubuntu 18.04.5 LTS
 96           rematch2       2.1.2   RSPM                       
 97            remotes       2.4.0   RSPM                       
 98               renv      0.13.2   RSPM                       
-99              rlang 0.4.11.9000 GitHub 27236e2     r-lib/HEAD
+99              rlang 0.4.11.9000 GitHub 901fe93     r-lib/HEAD
 100         rmarkdown         2.9   RSPM                       
 101         rprojroot       2.0.2   RSPM                       
 102         rsconnect      0.8.18    Git e42166e        /master
@@ -119,7 +119,7 @@ osVersion: Ubuntu 18.04.5 LTS
 104              sass  0.4.0.9000    Git f148415        /master
 105            scales       1.1.1   RSPM                       
 106       sessioninfo       1.1.1   RSPM                       
-107             shiny  1.6.0.9021    Git 3c22cdf        /master
+107             shiny  1.6.0.9021    Git c9770cb        /master
 108       shinycoreci  0.0.0.9005 GitHub 4e3cf7d rstudio/master
 109        shinyjster  0.0.0.9009    Git 7c97e9b        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
