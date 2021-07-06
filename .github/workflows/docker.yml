@@ -63,10 +63,12 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - uses: r-lib/actions/setup-r@master
+    - name: Get R version
+      uses: r-lib/actions/setup-r@master
       id: install-r
       with:
         r-version: ${{ matrix.r_alias }}
+        install-r: false # No need to install. Just need version
 
     - name: Get apps sha
       if: ${{ steps.install-r.outputs.installed-r-version != '3.5' || matrix.docker.type != 'bionic' }}
