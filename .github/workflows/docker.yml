@@ -61,12 +61,13 @@ jobs:
       with:
         r-version: ${{ matrix.r_alias }}
         install-r: false # No need to install. Just need version
-
-    - name: Get apps sha
-      if: ${{ steps.install-r.outputs.installed-r-version != '3.5' || matrix.docker.type != 'bionic' }}
-      shell: bash
-      id: apps
+    - name: Short R version and SHA
+      id: short
       run: |
+        # keep only the major.minor values
+        VERSION=`echo '${{ steps.install-r.outputs.installed-r-version }}' | sed 's/\([0-9]\.[0-9]\).*/\1/'`
+        echo '::set-output name=r-version::'
+
         SHA=${{ github.event.pull_request.head.sha }}
         if [[ -z "$SHA" ]]; then
           SHA=${{ github.sha }}
@@ -76,10 +77,9 @@ jobs:
         echo $SHORT_SHA
         echo "::set-output name=sha::$SHORT_SHA"
 
-
     # https://github.com/marketplace/actions/publish-docker
     - name: Build Base
-      if: ${{ steps.install-r.outputs.installed-r-version != '3.5' || matrix.docker.type != 'bionic' }}
+      if: ${{ steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic' }}
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -87,13 +87,13 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.docker.workdir }}
-        buildargs: "R_VERSION=${{ steps.install-r.outputs.installed-r-version }},RELEASE=${{ matrix.docker.type }},APPS_SHA=${{ steps.apps.outputs.sha }},SHINYCORECI_SHA=${{ matrix.flavor.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
-        tags: "base-${{ steps.install-r.outputs.installed-r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
+        buildargs: "R_VERSION=${{ steps.short.outputs.r-version }},RELEASE=${{ matrix.docker.type }},APPS_SHA=${{ steps.short.outputs.sha }},SHINYCORECI_SHA=${{ matrix.flavor.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        tags: "base-${{ steps.short.outputs.r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
 
 
     # https://github.com/marketplace/actions/publish-docker
     - name: Build SSO
-      if: ${{ steps.install-r.outputs.installed-r-version != '3.5' || matrix.docker.type != 'bionic' }}
+      if: ${{ steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic' }}
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -101,20 +101,20 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.docker.workdir }}_sso
-        buildargs: "R_VERSION=${{ steps.install-r.outputs.installed-r-version }},RELEASE=${{ matrix.docker.type }},EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
-        tags: "sso-${{ steps.install-r.outputs.installed-r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
+        buildargs: "R_VERSION=${{ steps.short.outputs.r-version }},RELEASE=${{ matrix.docker.type }},EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
+        tags: "sso-${{ steps.short.outputs.r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
 
 
         # Note: Store the license as a single line string with new lines as visible '\n' characters.
     - name: Store SSP License
-      if: ${{ steps.install-r.outputs.installed-r-version != '3.5' || matrix.docker.type != 'bionic' }}
+      if: ${{ steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic' }}
       shell: bash
       run: |
         printf "%b" "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.docker.workdir }}_ssp/ssp.lic 2>/dev/null
         wc -l ${{ matrix.docker.workdir }}_ssp/ssp.lic
     # https://github.com/marketplace/actions/publish-docker
     - name: Build SSP
-      if: ${{ steps.install-r.outputs.installed-r-version != '3.5' || matrix.docker.type != 'bionic' }}
+      if: ${{ steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic' }}
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -123,8 +123,8 @@ jobs:
         cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.docker.workdir }}_ssp
         # ignoring build arg *_AWS_BUILD_MACHINE as it's consistent within file
-        buildargs: "R_VERSION=${{ steps.install-r.outputs.installed-r-version }},RELEASE=${{ matrix.docker.type }},SSP_LICENSE_FILE=ssp.lic,EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
-        tags: "ssp-${{ steps.install-r.outputs.installed-r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
+        buildargs: "R_VERSION=${{ steps.short.outputs.r-version }},RELEASE=${{ matrix.docker.type }},SSP_LICENSE_FILE=ssp.lic,EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
+        tags: "ssp-${{ steps.short.outputs.r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
     - name: Remove SSP License
       if: always()
       run: |
