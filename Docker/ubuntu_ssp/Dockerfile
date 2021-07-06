@@ -1,5 +1,5 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-3.6-bionic .
+#   docker build --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.1-focal .
 #   docker build --build-arg EXTRA_BASE_TAG=-rc_v1.4.0.1 --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-3.6-bionic-rc_v1.4.0.1 .
 
 # To run:
@@ -8,13 +8,13 @@
 
 
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
-ARG R_VERSION=3.6
-ARG RELEASE=bionic
+ARG R_VERSION=4.1
+ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
 FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
 
-ARG R_VERSION=3.6
-ARG RELEASE=bionic
+ARG R_VERSION=4.1
+ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
 ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
