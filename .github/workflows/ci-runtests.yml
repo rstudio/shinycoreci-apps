@@ -162,11 +162,11 @@ jobs:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
-          - "4.1"
-          - "4.0"
-          - "3.6"
-          - "3.5"
-          - "3.4"
+          - "release"
+          - "oldrel/1"
+          - "oldrel/2"
+          - "oldrel/3"
+          - "oldrel/4"
         config:
         - { os: macOS-latest }
         - { os: windows-latest }
