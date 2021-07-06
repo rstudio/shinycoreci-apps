@@ -19,7 +19,7 @@ ARG EXTRA_BASE_TAG=
 ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
 RUN apt-get update && apt-get install -y \
-  libssl1.0.0 \
+  libssl-dev \
   psmisc
 
 # =====================================================================
