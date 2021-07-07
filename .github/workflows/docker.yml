@@ -95,12 +95,12 @@ jobs:
           #   extra_base_tag: "-rc_v1.4.0.1"
 
         r_version:
-          - ${{ steps.rversions.outputs.devel }}
-          - ${{ steps.rversions.outputs.release }}
-          - ${{ steps.rversions.outputs.oldrel1 }}
-          - ${{ steps.rversions.outputs.oldrel2 }}
-          - ${{ steps.rversions.outputs.oldrel3 }}
-          - ${{ steps.rversions.outputs.oldrel4 }}
+          - ${{ needs.rversions.outputs.devel }}
+          - ${{ needs.rversions.outputs.release }}
+          - ${{ needs.rversions.outputs.oldrel1 }}
+          - ${{ needs.rversions.outputs.oldrel2 }}
+          - ${{ needs.rversions.outputs.oldrel3 }}
+          - ${{ needs.rversions.outputs.oldrel4 }}
 
         docker:
           - name: Centos7
