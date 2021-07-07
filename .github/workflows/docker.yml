@@ -65,13 +65,13 @@ jobs:
     - name: Set Output
       id: versions
       run: |
-        echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
+        # echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
         echo "release: ${{ steps.release.outputs.installed-r-version }}"
         echo "oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}"
         echo "oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}"
         echo "oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}"
         echo "oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}"
-        echo '::set-output name=versions::{"devel": "${{ steps.devel.outputs.installed-r-version }}", "release": "steps.release.outputs.installed-r-version", "oldrel1": "${{ steps.oldrel1.outputs.installed-r-version }}", "oldrel2": "${{ steps.oldrel2.outputs.installed-r-version }}", "oldrel3": "${{ steps.oldrel3.outputs.installed-r-version }}", "oldrel4": "${{ steps.oldrel4.outputs.installed-r-version }}"}'
+        echo '::set-output name=versions::{"release": "${{ steps.release.outputs.installed-r-version }}", "oldrel1": "${{ steps.oldrel1.outputs.installed-r-version }}", "oldrel2": "${{ steps.oldrel2.outputs.installed-r-version }}", "oldrel3": "${{ steps.oldrel3.outputs.installed-r-version }}", "oldrel4": "${{ steps.oldrel4.outputs.installed-r-version }}"}'
 
   docker:
     needs:
