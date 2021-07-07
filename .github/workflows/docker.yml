@@ -15,18 +15,23 @@ on:
 
 
 jobs:
-  r:
+  rversions:
     name: R Versions
     runs-on: ubuntu-latest
     outputs:
-      versions: ${{ steps.set_versions.outputs.versions }}
+      devel: ${{ steps.devel.outputs.installed-r-version }}
+      release: ${{ steps.release.outputs.installed-r-version }}
+      oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}
+      oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}
+      oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}
+      oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}
     steps:
-    # - name: devel
-    #   uses: r-lib/actions/setup-r@master
-    #   id: devel
-    #   with:
-    #     r-version: devel
-    #     install-r: false # No need to install. Just need version
+    - name: devel
+      uses: r-lib/actions/setup-r@master
+      id: devel
+      with:
+        r-version: devel
+        install-r: false # No need to install. Just need version
 
     - name: release
       uses: r-lib/actions/setup-r@master
@@ -66,18 +71,15 @@ jobs:
     - name: Set Output
       id: set_versions
       run: |
-        # echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
+        echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
         echo "release: ${{ steps.release.outputs.installed-r-version }}"
         echo "oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}"
         echo "oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}"
         echo "oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}"
         echo "oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}"
-        echo '{"release": "${{ steps.release.outputs.installed-r-version }}", "oldrel1": "${{ steps.oldrel1.outputs.installed-r-version }}", "oldrel2": "${{ steps.oldrel2.outputs.installed-r-version }}", "oldrel3": "${{ steps.oldrel3.outputs.installed-r-version }}", "oldrel4": "${{ steps.oldrel4.outputs.installed-r-version }}"}'
-        echo '::set-output name=versions::{"release": "${{ steps.release.outputs.installed-r-version }}", "oldrel1": "${{ steps.oldrel1.outputs.installed-r-version }}", "oldrel2": "${{ steps.oldrel2.outputs.installed-r-version }}", "oldrel3": "${{ steps.oldrel3.outputs.installed-r-version }}", "oldrel4": "${{ steps.oldrel4.outputs.installed-r-version }}"}'
 
   docker:
-    needs:
-    - r
+    needs: rversions
     name: ${{ matrix.docker.type }}-${{ matrix.r_version }}${{ matrix.flavor.extra_base_tag }}
     runs-on: ubuntu-latest
 
@@ -92,7 +94,13 @@ jobs:
           # - shinycoreci_sha: shiny-1.4.0.1
           #   extra_base_tag: "-rc_v1.4.0.1"
 
-        r_version: ${{ fromJson(needs.r.outputs.versions) }}
+        r_version:
+          - ${{ steps.rversions.outputs.devel }}
+          - ${{ steps.rversions.outputs.release }}
+          - ${{ steps.rversions.outputs.oldrel1 }}
+          - ${{ steps.rversions.outputs.oldrel2 }}
+          - ${{ steps.rversions.outputs.oldrel3 }}
+          - ${{ steps.rversions.outputs.oldrel4 }}
 
         docker:
           - name: Centos7
