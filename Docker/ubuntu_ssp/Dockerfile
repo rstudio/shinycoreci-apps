@@ -16,7 +16,6 @@ FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
 ARG R_VERSION=4.1
 ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
-ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
 # =====================================================================
 # Shiny Server

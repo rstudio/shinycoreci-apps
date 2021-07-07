@@ -80,7 +80,7 @@ jobs:
       id: can-build
       if: ${{ !( steps.short.outputs.r-version == '3.5' && matrix.docker.type == 'bionic') }}
       run: |
-        echo "Did this step run?"
+        echo "If this step did not run, then we're knowingly unable to install this version of R on this Linux distro"
 
     # https://github.com/marketplace/actions/publish-docker
     - name: Build Base
