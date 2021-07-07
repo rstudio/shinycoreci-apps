@@ -1,10 +1,10 @@
 # To build, cd to this directory, then:
 #   docker build --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.1-focal .
-#   docker build --build-arg EXTRA_BASE_TAG=-rc_v1.4.0.1 --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-3.6-bionic-rc_v1.4.0.1 .
+#   docker build --build-arg EXTRA_BASE_TAG=-rc_v1.4.0.1 --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.1-focal-rc_v1.4.0.1 .
 
 # To run:
-#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-3.6-bionic
-#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-3.6-bionic-rc_v1.4.0.1
+#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-4.1-focal
+#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-4.1-focal-rc_v1.4.0.1
 
 
 # "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
@@ -18,16 +18,16 @@ ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
 ARG AWS_BUILD_MACHINE=ubuntu-14.04
 
-RUN apt-get update && apt-get install -y \
-  libssl-dev \
-  psmisc
-
 # =====================================================================
 # Shiny Server
 # =====================================================================
 
-# Download and install shiny server pro
-RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
+RUN apt-get update && apt-get install -y gdebi-core && \
+  case "${RELEASE}" in \
+    xenial) AWS_BUILD_MACHINE=ubuntu-16.04 ;; \
+    *)      AWS_BUILD_MACHINE=ubuntu-18.04 ;; \
+  esac && \
+  wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
   VERSION=$(cat version.txt)  && \
   wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/shiny-server-commercial-$VERSION-amd64.deb" -O ssp-latest.deb && \
   gdebi -n ssp-latest.deb && \
