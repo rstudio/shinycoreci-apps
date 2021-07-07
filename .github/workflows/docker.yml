@@ -16,10 +16,67 @@ on:
 
 jobs:
   r:
+    name: R Versions
+    runs-on: ubuntu-latest
+
+    steps:
+    # - name: devel
+    #   uses: r-lib/actions/setup-r@master
+    #   id: devel
+    #   with:
+    #     r-version: devel
+    #     install-r: false # No need to install. Just need version
+
+    - name: release
+      uses: r-lib/actions/setup-r@master
+      id: release
+      with:
         r-version: release
         install-r: false # No need to install. Just need version
+
+    - name: oldrel/1
+      uses: r-lib/actions/setup-r@master
+      id: oldrel1
+      with:
+        r-version: oldrel/1
+        install-r: false # No need to install. Just need version
+
+    - name: oldrel/2
+      uses: r-lib/actions/setup-r@master
+      id: oldrel2
+      with:
+        r-version: oldrel/2
+        install-r: false # No need to install. Just need version
+
+    - name: oldrel/3
+      uses: r-lib/actions/setup-r@master
+      id: oldrel3
+      with:
+        r-version: oldrel/3
+        install-r: false # No need to install. Just need version
+
+    - name: oldrel/4
+      uses: r-lib/actions/setup-r@master
+      id: oldrel4
+      with:
+        r-version: oldrel/4
+        install-r: false # No need to install. Just need version
+
+    - name: Set Output
+      id: versions
+      run: |
+        echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
+        echo "release: ${{ steps.release.outputs.installed-r-version }}"
+        echo "oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}"
+        echo "oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}"
+        echo "oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}"
+        echo "oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}"
+        echo '::set-output name=versions::{"devel": "${{ steps.devel.outputs.installed-r-version }}", "release": "steps.release.outputs.installed-r-version", "oldrel1": "${{ steps.oldrel1.outputs.installed-r-version }}", "oldrel2": "${{ steps.oldrel2.outputs.installed-r-version }}", "oldrel3": "${{ steps.oldrel3.outputs.installed-r-version }}", "oldrel4": "${{ steps.oldrel4.outputs.installed-r-version }}"}'
+
   docker:
-    name: ${{ matrix.docker.type }}-${{ matrix.r_alias }}${{ matrix.flavor.extra_base_tag }}
+    needs:
+    - r
+    name: ${{ matrix.docker.type }}-${{ matrix.r_version }}${{ matrix.flavor.extra_base_tag }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -33,27 +90,23 @@ jobs:
           # - shinycoreci_sha: shiny-1.4.0.1
           #   extra_base_tag: "-rc_v1.4.0.1"
 
-        r_alias:
-          - "release"
-          - "oldrel/1"
-          - "oldrel/2"
-          - "oldrel/3"
-          - "oldrel/4"
+        r_version: ${{ fromJson(needs.r.outputs.versions) }}
 
         docker:
           - name: Centos7
             workdir: Docker/centos
             type: centos7
+          # Focal has trouble installing R 3.4, 3.5
           - name: Focal
             workdir: Docker/ubuntu
             type: focal
           - name: Bionic
             workdir: Docker/ubuntu
             type: bionic
+          # Xenial has trouble installing R 3.5
           - name: Xenial
             workdir: Docker/ubuntu
             type: xenial
-            # Xenial has trouble installing R 3.5
 
     steps:
 
@@ -61,7 +114,7 @@ jobs:
       uses: r-lib/actions/setup-r@master
       id: install-r
       with:
-        r-version: ${{ matrix.r_alias }}
+        r-version: ${{ matrix.r_version }}
         install-r: false # No need to install. Just need version
     - name: Short R version and SHA
       id: short
