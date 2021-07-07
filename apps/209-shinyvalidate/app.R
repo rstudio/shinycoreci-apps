@@ -1,12 +1,8 @@
 library(shiny)
 library(shinyvalidate)
-library(bslib)
 
-
-my_theme <- bs_theme(bootswatch = "darkly")
 ui <- fluidPage(
-  theme = my_theme,
-  radioButtons("current_theme", "Choose a theme for bslib", choices = c("darkly", "flatly", "cerulean")),
+  theme = bslib::bs_theme(),
   p("This app was taken from",  a("this PR", href = "https://github.com/rstudio/shinyvalidate/pull/4"), "on the shinyvalidate repo."),
   p("The shinytest starts by fulfilling all requirements and then rebreaking them."),
   textInput("text", ""),
@@ -30,10 +26,6 @@ server <- function(input, output, session) {
   iv$add_rule("checkboxGroup", ~if (!identical(., "B")) "Please check (just) B!")
   iv$add_rule("radio", ~if (!identical(., "B")) "Please check B!")
   iv$enable()
-
-  observe({
-    session$setCurrentTheme(bs_theme(bootswatch = input$current_theme))
-  })
 }
 
 shinyApp(ui, server)
