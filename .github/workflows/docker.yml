@@ -126,6 +126,6 @@ jobs:
         buildargs: "R_VERSION=${{ steps.short.outputs.r-version }},RELEASE=${{ matrix.docker.type }},SSP_LICENSE_FILE=ssp.lic,EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
         tags: "ssp-${{ steps.short.outputs.r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
     - name: Remove SSP License
-      if: always()
+      if: ${{ always() && (steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic') }}
       run: |
         rm ${{ matrix.docker.workdir }}_ssp/ssp.lic
