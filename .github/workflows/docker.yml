@@ -76,10 +76,15 @@ jobs:
         SHORT_SHA=${SHA:0:7}
         echo "sha: $SHORT_SHA"
         echo "::set-output name=sha::$SHORT_SHA"
+    - name: Should install
+      id: can-build
+      if: ${{ !( steps.short.outputs.r-version == '3.5' && matrix.docker.type == 'bionic') }}
+      run: |
+        echo "Did this step run?"
 
     # https://github.com/marketplace/actions/publish-docker
     - name: Build Base
-      if: ${{ steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic' }}
+      if: steps.can-build.conclusion != 'skipped'
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -93,7 +98,7 @@ jobs:
 
     # https://github.com/marketplace/actions/publish-docker
     - name: Build SSO
-      if: ${{ steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic' }}
+      if: steps.can-build.conclusion != 'skipped'
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -107,14 +112,14 @@ jobs:
 
         # Note: Store the license as a single line string with new lines as visible '\n' characters.
     - name: Store SSP License
-      if: ${{ steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic' }}
+      if: steps.can-build.conclusion != 'skipped'
       shell: bash
       run: |
         printf "%b" "${{ secrets.SSP_LICENSE_FILE }}" > ${{ matrix.docker.workdir }}_ssp/ssp.lic 2>/dev/null
         wc -l ${{ matrix.docker.workdir }}_ssp/ssp.lic
     # https://github.com/marketplace/actions/publish-docker
     - name: Build SSP
-      if: ${{ steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic' }}
+      if: steps.can-build.conclusion != 'skipped'
       uses: elgohr/Publish-Docker-Github-Action@2.12
       with:
         name: rstudio/shinycoreci
@@ -126,6 +131,6 @@ jobs:
         buildargs: "R_VERSION=${{ steps.short.outputs.r-version }},RELEASE=${{ matrix.docker.type }},SSP_LICENSE_FILE=ssp.lic,EXTRA_BASE_TAG=${{ matrix.flavor.extra_base_tag }}"
         tags: "ssp-${{ steps.short.outputs.r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
     - name: Remove SSP License
-      if: ${{ always() && (steps.short.outputs.r-version != '3.5' || matrix.docker.type != 'bionic') }}
+      if: ${{ always() && steps.can-build.conclusion != 'skipped' }}
       run: |
         rm ${{ matrix.docker.workdir }}_ssp/ssp.lic
