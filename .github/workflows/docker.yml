@@ -18,7 +18,8 @@ jobs:
   r:
     name: R Versions
     runs-on: ubuntu-latest
-
+    outputs:
+      versions: ${{ steps.set_versions.outputs.versions }}
     steps:
     # - name: devel
     #   uses: r-lib/actions/setup-r@master
@@ -63,7 +64,7 @@ jobs:
         install-r: false # No need to install. Just need version
 
     - name: Set Output
-      id: versions
+      id: set_versions
       run: |
         # echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
         echo "release: ${{ steps.release.outputs.installed-r-version }}"
