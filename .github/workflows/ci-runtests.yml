@@ -223,6 +223,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@master
 
       - uses: r-lib/actions/setup-r@master
+        id: install-r
         with:
           r-version: ${{ matrix.r }}
       - name: R Options
@@ -238,9 +239,9 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-${{ steps.cache_id.outputs.value }}
+          key: ${{ runner.os }}-r-${{ steps.install-r.outputs.installed-r-version }}${{ matrix.shinycoreci.text }}-libs-2-runtests-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-
+            ${{ runner.os }}-r-${{ steps.install-r.outputs.installed-r-version }}${{ matrix.shinycoreci.text }}-libs-2-runtests-
 
       - name: Install curl
         if: runner.os == 'Linux'
@@ -264,7 +265,7 @@ jobs:
           if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')
       # Install raster on R 3.4
       - name: Install raster
-        if: matrix.r == '3.4'
+        if: steps.install-r.outputs.installed-r-version == '3.4.4'
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
@@ -342,7 +343,7 @@ jobs:
         id: gha_branch
         shell: Rscript {0}
         run: |
-          cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')
+          cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ steps.install-r.outputs.installed-r-version }}',  '-', '${{ runner.os }}', sep = '')
 
       - name: Find PhantomJS path
         id: phantomjs
