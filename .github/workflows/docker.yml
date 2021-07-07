@@ -95,7 +95,7 @@ jobs:
           #   extra_base_tag: "-rc_v1.4.0.1"
 
         r_version:
-          - ${{ needs.rversions.outputs.devel }}
+          # - ${{ needs.rversions.outputs.devel }}
           - ${{ needs.rversions.outputs.release }}
           - ${{ needs.rversions.outputs.oldrel1 }}
           - ${{ needs.rversions.outputs.oldrel2 }}
