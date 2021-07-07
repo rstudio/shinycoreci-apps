@@ -56,7 +56,6 @@ jobs:
             # Xenial has trouble installing R 3.5
 
     steps:
-    - uses: actions/checkout@master
 
     - name: Get R version
       uses: r-lib/actions/setup-r@master
@@ -84,6 +83,9 @@ jobs:
       if: ${{ !( ( steps.short.outputs.r-version == '3.5' && matrix.docker.type == 'bionic' ) || ( matrix.docker.type == 'focal' && ( steps.short.outputs.r-version == '3.4' || steps.short.outputs.r-version == '3.5' ) ) ) }}
       run: |
         echo "If this step did not run, then we're knowingly unable to install this version of R on this Linux distro"
+
+    - uses: actions/checkout@master
+      if: steps.can-build.conclusion != 'skipped'
 
     # https://github.com/marketplace/actions/publish-docker
     - name: Build Base
