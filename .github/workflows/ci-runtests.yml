@@ -244,6 +244,7 @@ jobs:
     steps:
       - name: Short R version and SHA
         id: short
+        shell: bash
         run: |
           # keep only the major.minor values
           RVERSION=`echo '${{ steps.install-r.outputs.installed-r-version }}' | sed 's/\([0-9]\.[0-9]\).*/\1/'`
@@ -252,17 +253,11 @@ jobs:
 
           SHA="${{github.event.pull_request.head.sha}}${{ github.sha }}"
           if [[ -z "$SHA" ]]; then
-            SHA=${{ github.sha }}
+            SHA="${{ github.sha }}"
           fi
-          SHORT_SHA=${SHA:0:7}
+          SHORT_SHA="${SHA:0:7}"
           echo "sha: $SHORT_SHA"
           echo "::set-output name=sha::$SHORT_SHA"
-      - name: Create short sha
-        id: short_sha
-        shell: bash
-        run: |
-          SHA="${{github.event.pull_request.head.sha}}${{ github.sha }}"
-          echo "::set-output name=sha::${SHA:0:7}"
 
       - name: Notify slack INSTALL
         uses: voxmedia/github-action-slack-notify-build@v1
