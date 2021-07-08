@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- withTags(fluidPage(
+ui <- withTags(fluidPage(theme = bslib::bs_theme(version=5),
   h3("Test of additional renderPlot args"),
   ol(
     li("The background of the plot should be the same color as the page background."),

@@ -4,7 +4,7 @@
 library(shiny)
 dataset <- reactiveVal(data.frame(x = rnorm(400), y = rnorm(400)))
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   sidebarLayout(
     sidebarPanel(
       sliderInput("n", "Number of points to display", 50, 400, 100, step = 50),

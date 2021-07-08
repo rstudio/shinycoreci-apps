@@ -5,7 +5,7 @@ library(promises)
 library(shiny)
 
 ui <- function(req) {
-  fluidPage(
+  fluidPage(theme = bslib::bs_theme(version=5),
     # This is here just to make sure the slider's HTML dependencies are populated
     # in the documents <head>.
     htmltools::htmlDependencies(sliderInput("ignore_me", "Isn't used", 0, 1, 0.5)),

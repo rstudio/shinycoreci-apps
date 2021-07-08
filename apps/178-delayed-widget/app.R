@@ -1,7 +1,7 @@
 library(shiny)
 library(leaflet)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   tags$script(HTML(
     "window.leaflet_calls = [];"
   )),

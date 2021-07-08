@@ -3,7 +3,7 @@
 
 library(png)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   # Some custom CSS for a smaller font for preformatted text
   tags$head(
     tags$style(HTML("

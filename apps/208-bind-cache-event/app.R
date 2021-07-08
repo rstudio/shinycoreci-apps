@@ -8,7 +8,7 @@ tr <- tags$tr
 td <- tags$td
 
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   tags$head(
     tags$style(HTML("
       table, th, td {

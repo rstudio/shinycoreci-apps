@@ -130,7 +130,7 @@ server_output_name <- function(i) paste0("server-", i, "-output")
 server_select_name <- function(i) paste0("server-", i, "-select")
 
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   tags$head(tags$style("
   table, th, td {
     border: 1px solid lightgrey;

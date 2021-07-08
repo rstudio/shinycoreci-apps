@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h3("Pressing \"Clear\" should clear the plot."),
   plotOutput("plot"),
   actionButton("clear", "Clear"),

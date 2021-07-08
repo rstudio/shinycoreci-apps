@@ -4,7 +4,7 @@
 library(shiny)
 
 # Define UI for slider demo app ----
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
 
   # App title ----
   titlePanel("Sliders"),

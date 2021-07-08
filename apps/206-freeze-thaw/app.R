@@ -126,7 +126,7 @@ generate_ui <- function(f, id, value, env = rlang::caller_env()) {
   rlang::eval_tidy(rlang::f_rhs(f), list(.id = id, .value = value), env)
 }
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   fluidRow(
     column(6,
       actionButton("go", "Go"),

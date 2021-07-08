@@ -2,7 +2,7 @@
 
 
 library(ggplot2)
-ui <- basicPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   plotOutput("plot1", click = "plot_click"),
   verbatimTextOutput("info")
 )

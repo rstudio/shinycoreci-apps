@@ -1,7 +1,7 @@
 library(shiny)
 
 # Define UI for data download app ----
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
 
   # App title ----
   titlePanel("Downloading Data"),

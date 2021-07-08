@@ -226,15 +226,8 @@ jobs:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
-          # - ${{ needs.rversions.outputs.devel }}
-          - ${{ needs.rversions.outputs.release }}
-          - ${{ needs.rversions.outputs.oldrel1 }}
-          - ${{ needs.rversions.outputs.oldrel2 }}
-          - ${{ needs.rversions.outputs.oldrel3 }}
-          - ${{ needs.rversions.outputs.oldrel4 }}
+          - "4.0"
         config:
-        - { os: macOS-latest }
-        - { os: windows-latest }
         - { os: ubuntu-18.04, rspm: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true

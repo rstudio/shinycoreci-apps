@@ -5,7 +5,7 @@ dir.create(tempdir)
 addResourcePath("my_test_prefix", tempdir)
 unlink(tempdir, recursive = TRUE)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   HTML("This app tests whether deleting a directory pointed to by <code>addResourcePath</code> breaks Shiny. If you're reading this, the <span id='test_passed'>test passed</span>!"),
   shinyjster::shinyjster_js("
     var jst = jster();

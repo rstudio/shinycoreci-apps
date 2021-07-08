@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(version=5),
   title = 'Create plots in selectize input',
   fluidRow(
     column(

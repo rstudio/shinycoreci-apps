@@ -17,7 +17,7 @@ parsed_url_singleton <- singleton(
   h3("Parsed URL query string")
 )
 
-fluidPage(
+fluidPage(theme = bslib::bs_theme(version=5),
   titlePanel("Client data and query string example"),
 
   fluidRow(

@@ -2,7 +2,7 @@ library(shiny)
 library(promises)
 
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h2("eventReactive with async event:"),
 
   radioButtons("type", "Type of event", c(

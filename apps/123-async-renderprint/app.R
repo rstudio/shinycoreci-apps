@@ -3,7 +3,7 @@ library(future)
 library(promises)
 plan(multiprocess)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h1("renderPrint tests"),
   p(HTML("The \"visible\" cells should say <code>[1] \"Hello\"</code>, and the \"invisible\" cells should be empty.")),
   tags$style(

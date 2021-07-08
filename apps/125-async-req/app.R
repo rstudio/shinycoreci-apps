@@ -3,7 +3,7 @@ library(promises)
 library(future)
 plan(multiprocess)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   tags$style(
     "td, th { border: 1px solid #AAA; padding: 6px; }"
   ),

@@ -4,7 +4,7 @@ reactlog::reactlog_enable()
 
 # The app below is a VERY condensed form of shiny::runExample("03_reactivity")
 #   with the reactlog module added in the `ui` and `server`
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   titlePanel("Reactivity"),
   sidebarLayout(
     sidebarPanel(

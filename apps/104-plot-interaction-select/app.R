@@ -8,7 +8,7 @@ library(ggplot2)
 mtcars2 <- mtcars[, c("mpg", "cyl", "disp", "hp", "wt", "am", "gear")]
 
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   fluidRow(
     column(width = 4,
       plotOutput("plot1", height = 300,

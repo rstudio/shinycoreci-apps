@@ -3,7 +3,7 @@ library(shiny)
 library(reactlog)
 reactlog_enable()
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   tags$h1("Pythagorean theorem"),
   numericInput("a", "A", 3),
   numericInput("b", "B", 4),

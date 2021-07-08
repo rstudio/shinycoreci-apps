@@ -11,7 +11,7 @@ wait <- function(secs) {
   promise(~{later::later(~resolve(TRUE), secs)})
 }
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h2("Verify inputs are not updated until async tasks are complete"),
   p(
     strong("Instructions:"),

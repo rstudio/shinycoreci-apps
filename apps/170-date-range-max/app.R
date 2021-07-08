@@ -1,5 +1,5 @@
 library(shiny)
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   dateInput("val", "Date Input", max = Sys.Date()),
   "Below is a test for ",
   a("#2355", href = "https://github.com/rstudio/shiny/issues/2335"),

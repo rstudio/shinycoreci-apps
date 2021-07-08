@@ -44,7 +44,7 @@ dates <- list(
 
 
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   dateInput("date", "Example", min = init_dates$min, value = init_dates$value, max = init_dates$max),
   actionButton("go", "Go"),
   tags$table(

@@ -2,7 +2,7 @@ library(shiny)
 
 # ensure two column appear on small displays
 column2 <- function(x) {
-  div(class = "col-xs-6", x)
+  div(class = "col-6", x)
 }
 
 row <- function(w1, w2) {
@@ -11,7 +11,7 @@ row <- function(w1, w2) {
 
 label_initial <- "An <i>escaped</i> Label"
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   p("Everytime you click on the button below, it should add labels to the column that doesn't (currently) have labels, and remove labels from the column that does (currently) have labels. Every label should say: '", tags$b(label_initial, .noWS = "outside"), "'."),
   p(
     a(href = "https://github.com/rstudio/shiny/pull/2406", "PR #2406"), ", ",

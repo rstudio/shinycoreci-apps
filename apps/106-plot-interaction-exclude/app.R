@@ -3,7 +3,7 @@
 
 library(ggplot2)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   fluidRow(
     column(width = 6,
       plotOutput("plot1", height = 350,

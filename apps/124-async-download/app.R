@@ -5,7 +5,7 @@ library(promises)
 library(future)
 plan(multiprocess)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   h2("Async downloadHandler test"),
   tags$ol(
     tags$li("Verify that plot appears below"),

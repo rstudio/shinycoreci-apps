@@ -24,7 +24,7 @@ make_row <- function(func, base_id, label, ...) {
   )
 }
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   tags$p(
     tags$strong("Instructions:"),
     "Verify that each row contains two identical outputs."
@@ -38,7 +38,7 @@ ui <- fluidPage(
   make_row(textOutput, "text", "Text"),
   make_row(verbatimTextOutput, "print", "Print"),
   make_row(verbatimTextOutput, "print2", "Print 2"),
-  make_row(dataTableOutput, "datatable", "Data Table"),
+  make_row(DT::dataTableOutput, "datatable", "Data Table"),
   make_row(imageOutput, "image", "Image", height = "auto"),
   make_row(tableOutput, "table", "Table"),
   make_row(uiOutput, "ui", "UI"),
@@ -127,12 +127,12 @@ server <- function(input, output, session) {
     future({ Sys.sleep(1) }) %...>% { "hello" }
   })
 
-  output$datatable <- renderDataTable({
-    head(cars)
+  output$datatable <- DT::renderDataTable({
+    DT::datatable(head(cars), style = "bootstrap4")
   })
 
-  output$datatablea <- renderDataTable({
-    future({ Sys.sleep(1); head(cars) })
+  output$datatablea <- DT::renderDataTable({
+    future({ Sys.sleep(1); DT::datatable(head(cars), style = "bootstrap4") })
   })
 
   output$image <- renderImage({

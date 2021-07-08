@@ -1,4 +1,4 @@
-navbarPage(
+navbarPage(theme = bslib::bs_theme(version=5),
   id = 'tabs',
   title = 'DataTable Options',
   tabPanel('Display length',     DT::dataTableOutput('ex1')),

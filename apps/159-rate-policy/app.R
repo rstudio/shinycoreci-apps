@@ -2,7 +2,7 @@ library(shiny)
 
 initRange <- c(1, 2)
 
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   p("Make sure the output below is debounced: if you keep moving the slider, the value should update only after you have stopped for 0.25 seconds.
      Next, click on the 'Update to Dates' button. The slider should show dates, the output value should still be debounced when moving the slider, and the type of the values in the text box should be Date[1:2]."),
   actionButton("update", "Update to Dates"),

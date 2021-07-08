@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(version=5),
   title = 'Download a PDF report',
   sidebarLayout(
     sidebarPanel(

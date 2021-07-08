@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(version=5),
   fluidRow(
     column(12,
       h2("Shiny Table Demo"),

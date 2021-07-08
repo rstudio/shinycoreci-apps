@@ -1,5 +1,5 @@
 shinyApp(
-  fluidPage(
+  fluidPage(theme = bslib::bs_theme(version=5),
     p(
       "Click on each of the links below. They should report that the file is not found, or is forbidden.",
       "(For issues ", a("httpuv#235", href = "https://github.com/rstudio/httpuv/pull/235"),

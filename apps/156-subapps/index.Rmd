@@ -11,7 +11,7 @@ Check the 3 items below. Also, verify that the page survives three reloads.
 (1 of 3) Verify that a selectize input and summary output appear below.
 
 ```{r echo=FALSE}
-ui <- fluidPage(
+ui <- fluidPage(theme = bslib::bs_theme(version=5),
   selectInput("select", "Select dataset", ls("package:datasets")),
   verbatimTextOutput("summary")
 )

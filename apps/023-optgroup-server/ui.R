@@ -1,4 +1,4 @@
-fluidPage(
+fluidPage(theme = bslib::bs_theme(version=5),
   selectizeInput('group', NULL, NULL, multiple = TRUE, options = list(
 
     placeholder = 'Select a category',

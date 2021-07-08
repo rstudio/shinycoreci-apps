@@ -1,6 +1,6 @@
 start_date <- as.Date("2020-01-08")
 
-fluidPage(
+fluidPage(theme = bslib::bs_theme(version=5),
   titlePanel("Dates and date ranges"),
 
   column(4, wellPanel(
