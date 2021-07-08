@@ -459,7 +459,7 @@ jobs:
         run: |
           options(install.packages.check.source = 'no')
           dir <- "apps"
-          apps <- shinycoreci::apps_runtests(dir, filter = "shinyjster-chrome")
+          apps <- shinycoreci::apps_runtests(dir)
           is_pull_request <- isTRUE(jsonlite::parse_json("${{ github.event_name == 'pull_request' }}"))
           if (is_pull_request) {
             # reduce apps to only changed apps
