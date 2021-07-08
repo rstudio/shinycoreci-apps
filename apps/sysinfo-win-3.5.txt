@@ -38,7 +38,7 @@ osVersion: Windows Server x64 (build 17763)
 23            diffobj       0.3.4   CRAN                       
 24             digest      0.6.27   CRAN                       
 25              dplyr       1.0.7   CRAN                       
-26                 DT      0.18.1    Git c08891a        /master
+26                 DT      0.18.1    Git c49fb4d        /master
 27           dygraphs     1.1.1.7    Git 70b60ab        /master
 28           ellipsis       0.3.2   CRAN                       
 29            english       1.2-5   CRAN                       
