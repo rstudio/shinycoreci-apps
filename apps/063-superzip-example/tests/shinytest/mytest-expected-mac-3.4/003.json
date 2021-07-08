@@ -23,6 +23,10 @@
     "ziptable_cell_clicked": {
 
     },
+    "ziptable_cells_selected": [
+
+    ],
+    "ziptable_columns_selected": null,
     "ziptable_rows_all": [
       1,
       2,
@@ -31803,31 +31807,6 @@
             }
           }
         },
-        "calls": [
-          {
-            "method": "addTiles",
-            "args": [
-              "//{s}.tiles.mapbox.com/v3/jcheng.map-5ebohr46/{z}/{x}/{y}.png",
-              null,
-              null,
-              {
-                "minZoom": 0,
-                "maxZoom": 18,
-                "tileSize": 256,
-                "subdomains": "abc",
-                "errorTileUrl": "",
-                "tms": false,
-                "noWrap": false,
-                "zoomOffset": 0,
-                "zoomReverse": false,
-                "opacity": 1,
-                "zIndex": 1,
-                "detectRetina": false,
-                "attribution": "Maps by <a href=\"http://www.mapbox.com/\">Mapbox<\/a>"
-              }
-            ]
-          }
-        ],
         "setView": [
           [
             37.45,
@@ -31923,7 +31902,8 @@
         "selection": {
           "mode": "multiple",
           "selected": null,
-          "target": "row"
+          "target": "row",
+          "selectable": null
         }
       },
       "evals": [
@@ -31935,9 +31915,9 @@
       "deps": [
         {
           "name": "dt-core",
-          "version": "1.10.16",
+          "version": "1.10.20",
           "src": {
-            "href": "dt-core-1.10.16"
+            "href": "dt-core-1.10.20"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
@@ -31965,13 +31945,13 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.0.9000",
+          "version": "1.1.1.9000",
           "src": {
-            "href": "crosstalk-1.1.0.9000"
+            "href": "crosstalk-1.1.1.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true

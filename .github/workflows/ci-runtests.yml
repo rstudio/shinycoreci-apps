@@ -18,52 +18,105 @@ on:
       - ci
 
 jobs:
+  rversions:
+    name: R Versions
+    runs-on: ubuntu-latest
+    outputs:
+      devel: ${{ steps.devel.outputs.installed-r-version }}
+      release: ${{ steps.release.outputs.installed-r-version }}
+      oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}
+      oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}
+      oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}
+      oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}
+    steps:
+    - name: devel
+      uses: r-lib/actions/setup-r@master
+      id: devel
+      with:
+        r-version: devel
+        install-r: false # No need to install. Just need version
 
-  validate_app_files_are_changed:
+    - name: release
+      uses: r-lib/actions/setup-r@master
+      id: release
+      with:
+        r-version: release
+        install-r: false # No need to install. Just need version
+
+    - name: oldrel/1
+      uses: r-lib/actions/setup-r@master
+      id: oldrel1
+      with:
+        r-version: oldrel/1
+        install-r: false # No need to install. Just need version
+
+    - name: oldrel/2
+      uses: r-lib/actions/setup-r@master
+      id: oldrel2
+      with:
+        r-version: oldrel/2
+        install-r: false # No need to install. Just need version
+
+    - name: oldrel/3
+      uses: r-lib/actions/setup-r@master
+      id: oldrel3
+      with:
+        r-version: oldrel/3
+        install-r: false # No need to install. Just need version
+
+    - name: oldrel/4
+      uses: r-lib/actions/setup-r@master
+      id: oldrel4
+      with:
+        r-version: oldrel/4
+        install-r: false # No need to install. Just need version
+
+    - name: Set Output
+      id: set_versions
+      run: |
+        echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
+        echo "release: ${{ steps.release.outputs.installed-r-version }}"
+        echo "oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}"
+        echo "oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}"
+        echo "oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}"
+        echo "oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}"
+
+  pre_check:
     runs-on: ubuntu-18.04
-    name: Check for altered Shiny app files
+    name: Pre runtests checks
 
     steps:
       - name: GitHub Pull
         uses: actions/checkout@v2
 
-      - name: Collect changed file names
-        if: github.event_name == 'pull_request'
-        id: files_changed
-        uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'json'
-
-      - name: Validate >= 1 Shiny app file is altered
-        if: github.event_name == 'pull_request'
+      - name: Validate that there are tests for each non-manual app
         shell: bash
         run: |
-          # It is possible that a file contains a space, use json to parse the array
-          readarray -t FILES_CHANGED <<<"$(jq -r '.[]' <<<'${{ steps.files_changed.outputs.added_modified }}')"
-          # maintain that the file names are quoted by using [@]
-          echo Files modified or changed: $FILES_CHANGED
-          for FIL in ${FILES_CHANGED[@]}; do
-            echo "Inspecting file: '$FIL'"
-            # check if path is in apps
-            if [[ "$FIL" =~ ^"apps" ]]; then
-              SUBFIL=$(echo "$FIL" | cut -d/ -f 1-2)
-              echo "first two folders of file: '$SUBFIL'"
-              if [ -d "$SUBFIL" ]; then
-                echo 'At least 1 Shiny app folder was altered. Returning early'
-                exit 0
+          for FOLDER in apps/*; do
+            # If it is a folder...
+            if [ -d "$FOLDER" ]; then
+              if [ -d "$FOLDER/tests" ] ; then
+                # Found a tests folder.
+                # Make sure there is an R file
+                if [ -z "$(find $FOLDER/tests/*.R -type f 2>/dev/null)" ]; then
+                  echo "No ./$FOLDER/tests/*.R files found"
+                  echo "Either add tests by calling \`shinycoreci::use_tests_*('$FOLDER')\`"
+                  echo "Or set to manual by calling \`shinycoreci::use_manual_app('$FOLDER')\`"
+                  exit 1;
+                fi
+              else
+                # Test for manual app
+                grep -q "shinycoreci::::is_manual_app" `find $FOLDER -type f -maxdepth 1`
+                # If no matches were found...
+                if [ $? == 1 ]; then
+                  echo "No ./$FOLDER/tests folder found for non-manual app."
+                  echo "Either add tests by calling \`shinycoreci::use_tests_*('$FOLDER')\`"
+                  echo "Or set to manual by calling \`shinycoreci::use_manual_app('$FOLDER')\`"
+                  exit 1;
+                fi
               fi
             fi
           done
-          echo 'No apps folders added or modified'
-          exit 1
-
-  validate_no_vanilla_testing_files:
-    runs-on: ubuntu-18.04
-    name: Check for non shinycoreci::test_*() files
-
-    steps:
-      - name: GitHub Pull
-        uses: actions/checkout@v2
 
       - name: Validate all test files contain 'shinycoreci::test_*()'
         shell: bash
@@ -80,14 +133,6 @@ jobs:
               fi
             done
           echo 'Validated that test files contain shinycoreci::test_*()'
-
-  validate_shinyjster_apps_are_fully_integrated:
-    runs-on: ubuntu-18.04
-    name: Check that shinyjster is fully integrated
-
-    steps:
-      - name: GitHub Pull
-        uses: actions/checkout@v2
 
       - name: Validate all shiny jster based apps are integrated
         shell: bash
@@ -120,30 +165,48 @@ jobs:
             done
           echo 'Validated that test files contain all shinyjster requirements'
 
-  validate_no_current_shinytest_folders:
-    runs-on: ubuntu-18.04
-    name: Check for ${{ matrix.folder }} shinytest folders
-    strategy:
-      fail-fast: false
-      matrix:
-        folder:
-          - "*-current"
-          - "*-expected"
-
-    steps:
-      - name: GitHub Pull
-        uses: actions/checkout@v2
-
-      - name: Validate no shinytest ${{ matrix.folder }} folders exist
+      - name: Validate no shinytest `*-current` or `*-expected` folders exist
         shell: bash
         run: |
-          find . -name "${{ matrix.folder }}" > _folders_found.txt
-          if [ -s _folders_found.txt ]
-          then
-            cat _folders_found.txt
-            exit 1;
-          fi
-          echo 'Validated that no shinytest ${{ matrix.folder }} folders exist'
+          for FOLDER in '*-current' '*-expected'; do
+            find . -name "$FOLDER" > _folders_found.txt
+            if [ -s _folders_found.txt ]
+            then
+              cat _folders_found.txt
+              exit 1;
+            fi
+            echo "Validated that no shinytest $FOLDER folders exist"
+          done
+
+      - name: Collect changed file names
+        if: github.event_name == 'pull_request'
+        id: files_changed
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
+
+      - name: Validate >= 1 Shiny app file is altered
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          # It is possible that a file contains a space, use json to parse the array
+          readarray -t FILES_CHANGED <<<"$(jq -r '.[]' <<<'${{ steps.files_changed.outputs.added_modified }}')"
+          # maintain that the file names are quoted by using [@]
+          echo Files modified or changed: $FILES_CHANGED
+          for FIL in ${FILES_CHANGED[@]}; do
+            echo "Inspecting file: '$FIL'"
+            # check if path is in apps
+            if [[ "$FIL" =~ ^"apps" ]]; then
+              SUBFIL=$(echo "$FIL" | cut -d/ -f 1-2)
+              echo "first two folders of file: '$SUBFIL'"
+              if [ -d "$SUBFIL" ]; then
+                echo 'At least 1 Shiny app folder was altered. Returning early'
+                exit 0
+              fi
+            fi
+          done
+          echo 'No apps folders added or modified'
+          exit 1
 
   shinytest-apps:
     runs-on: ${{ matrix.config.os }}
@@ -151,10 +214,9 @@ jobs:
     name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     needs:
-      - validate_app_files_are_changed
-      - validate_no_vanilla_testing_files
-      - validate_shinyjster_apps_are_fully_integrated
-      - validate_no_current_shinytest_folders
+      - pre_check
+      - rversions
+
 
     strategy:
       fail-fast: false
@@ -164,18 +226,18 @@ jobs:
         - { branch: "master", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
-          - "4.0"
-          - "3.6"
-          - "3.5"
-          - "3.4"
+          # - ${{ needs.rversions.outputs.devel }}
+          - ${{ needs.rversions.outputs.release }}
+          - ${{ needs.rversions.outputs.oldrel1 }}
+          - ${{ needs.rversions.outputs.oldrel2 }}
+          - ${{ needs.rversions.outputs.oldrel3 }}
+          - ${{ needs.rversions.outputs.oldrel4 }}
         config:
         - { os: macOS-latest }
         - { os: windows-latest }
         - { os: ubuntu-18.04, rspm: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
-
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
-      CRAN: ${{ matrix.config.cran }}
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
@@ -226,6 +288,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@master
 
       - uses: r-lib/actions/setup-r@master
+        id: install-r
         with:
           r-version: ${{ matrix.r }}
       - name: R Options
@@ -267,7 +330,7 @@ jobs:
           if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')
       # Install raster on R 3.4
       - name: Install raster
-        if: matrix.r == '3.4'
+        if: matrix.r == '3.4.4'
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
@@ -293,11 +356,17 @@ jobs:
           sudo -s apt-get update
           sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
 
+      # Install Chinese font
+      - name: Install Chinese font
+        if: runner.os == 'Linux'
+        run: |
+          sudo -s apt-get install -y fonts-wqy-zenhei
+
       # Install Cairo system dependencies
       - name: Mac systemdeps
         if: runner.os == 'macOS'
         run: |
-          brew cask install xquartz
+          brew install --cask xquartz
           brew install cairo
 
       # Install all deps as we are installing from rspm
@@ -349,13 +418,29 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ steps.phantomjs.outputs.path }}
-          key: ${{ runner.os }}-phantomjs
-          restore-keys: ${{ runner.os }}-phantomjs
+          key: ${{ runner.os }}-phantomjs-1
+          restore-keys: ${{ runner.os }}-phantomjs-1
       - name: Install PhantomJS
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
           if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()
+
+      - name: Session info
+        shell: Rscript {0}
+        run: |
+          # init
+          if (not_installed <- system.file(package = "sessioninfo") == "") {
+            install.packages("sessioninfo")
+          }
+          # load
+          library(shinycoreci)
+          # display
+          sessioninfo::session_info()
+          # cleanup
+          if (not_installed) {
+            remove.packages("sessioninfo")
+          }
 
       - name: Notify slack TEST
         uses: voxmedia/github-action-slack-notify-build@v1
@@ -370,7 +455,13 @@ jobs:
       # do not update pkgs, as they were installed above
       # do update app pkgs, as they have NOT been installed
       - name: Run tests
-        timeout-minutes: 180
+        timeout-minutes: 240
+        env:
+          # firefox needs creds to download drivers?
+          # https://github.com/bonigarcia/webdrivermanager#http-response-code-403
+          # https://github.com/schloerke/shinyjster/pull/42
+          WDM_GITHUBTOKENNAME: ${{ github.actor }}
+          WDM_GITHUBTOKENSECRET: ${{ secrets.GITHUB_TOKEN }}
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')

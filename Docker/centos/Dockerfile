@@ -1,8 +1,8 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-4.0-centos7 .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-4.1-centos7 .
 
 
-ARG R_VERSION=4.0
+ARG R_VERSION=4.1
 
 # centos7
 ARG RELEASE=centos7
@@ -132,6 +132,8 @@ RUN R --quiet -e "pak::pkg_install('rstudio/shinycoreci@${SHINYCORECI_SHA}', dep
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 
 # install r pkgs
+## install htmltools to get dev version
+RUN R --quiet -e "remotes::install_github('rstudio/htmltools', auth_token ='${GITHUB_PAT}')"
 RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps')"
 
 

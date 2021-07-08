@@ -29,7 +29,7 @@ navbarPage("Superzip", id="nav",
         draggable = TRUE, top = 60, left = "auto", right = 20, bottom = "auto",
         width = 330, height = "auto",
 
-        h2("ZIP explorer"),
+        h2(HTML("ZIP explorer<br/>(no tiles)")),
 
         selectInput("color", "Color", vars),
         selectInput("size", "Size", vars, selected = "adultpop"),
@@ -73,8 +73,8 @@ navbarPage("Superzip", id="nav",
       )
     ),
     hr(),
-    DT::dataTableOutput("ziptable")
-  ),
-
-  conditionalPanel("false", icon("crosshair"))
+    DT::dataTableOutput("ziptable"),
+    # needed to display the crosshair in the ziptable
+    conditionalPanel("false", icon("crosshair"))
+  )
 )

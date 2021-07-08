@@ -5,27 +5,21 @@
 # To run:
 #   docker run --rm -p 3838:3838 --name sso_bionic rstudio/shinycoreci:sso-4.0-bionic
 
-# "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
-ARG R_VERSION=4.0
-ARG RELEASE=bionic
+ARG R_VERSION=4.1
+ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
 FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
 
-ARG R_VERSION=4.0
-ARG RELEASE=bionic
+ARG R_VERSION=4.1
+ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
-ARG AWS_BUILD_MACHINE=ubuntu-14.04
-
-# switch(distro,
-#   "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04"),
-#   "centos" = switch(release, "7" = "centos6.3", stop("UNKNOWN CENTOS VERSION!"))
-# )
 
 # =====================================================================
 # Shiny Server
 # =====================================================================
 
 # Download and install shiny server
+ARG AWS_BUILD_MACHINE=ubuntu-14.04
 RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
   VERSION=$(cat version.txt)  && \
   wget \
@@ -35,10 +29,6 @@ RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/${
   gdebi -n ss-latest.deb && \
   rm -f ssp-latest.deb && \
   rm /srv/shiny-server/index.html
-
-
-
-
 
 RUN echo "${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG} Shiny Server Open Source: `cat version.txt`\n" >> /srv/shiny-server/__version && \
   rm -f version.txt

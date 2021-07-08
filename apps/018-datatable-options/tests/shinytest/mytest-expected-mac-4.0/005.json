@@ -1112,13 +1112,13 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.0.9000",
+          "version": "1.1.1.9000",
           "src": {
-            "href": "crosstalk-1.1.0.9000"
+            "href": "crosstalk-1.1.1.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
@@ -1216,13 +1216,13 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.0.9000",
+          "version": "1.1.1.9000",
           "src": {
-            "href": "crosstalk-1.1.0.9000"
+            "href": "crosstalk-1.1.1.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
@@ -1308,13 +1308,13 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.0.9000",
+          "version": "1.1.1.9000",
           "src": {
-            "href": "crosstalk-1.1.0.9000"
+            "href": "crosstalk-1.1.1.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
@@ -1400,13 +1400,13 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.0.9000",
+          "version": "1.1.1.9000",
           "src": {
-            "href": "crosstalk-1.1.0.9000"
+            "href": "crosstalk-1.1.1.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true
@@ -1493,13 +1493,13 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.0.9000",
+          "version": "1.1.1.9000",
           "src": {
-            "href": "crosstalk-1.1.0.9000"
+            "href": "crosstalk-1.1.1.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.css",
+          "stylesheet": "css/crosstalk.min.css",
           "head": null,
           "attachment": null,
           "all_files": true

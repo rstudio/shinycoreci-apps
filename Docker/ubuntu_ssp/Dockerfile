@@ -1,33 +1,31 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.0-bionic .
-#   docker build --build-arg EXTRA_BASE_TAG=-rc_v1.4.0.1 --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.0-bionic-rc_v1.4.0.1 .
+#   docker build --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.1-focal .
+#   docker build --build-arg EXTRA_BASE_TAG=-rc_v1.4.0.1 --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.1-focal-rc_v1.4.0.1 .
 
 # To run:
-#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-4.0-bionic
-#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-4.0-bionic-rc_v1.4.0.1
+#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-4.1-focal
+#   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-4.1-focal-rc_v1.4.0.1
 
-
-# "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
-ARG R_VERSION=4.0
-ARG RELEASE=bionic
+ARG R_VERSION=4.1
+ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
 FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
 
-ARG R_VERSION=4.0
-ARG RELEASE=bionic
+ARG R_VERSION=4.1
+ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
-ARG AWS_BUILD_MACHINE=ubuntu-14.04
-
-RUN apt-get update && apt-get install -y \
-  libssl1.0.0 \
-  psmisc
 
 # =====================================================================
 # Shiny Server
 # =====================================================================
 
-# Download and install shiny server pro
-RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
+# https://www.rstudio.com/products/shiny/download-commercial/ubuntu/
+RUN apt-get update && apt-get install -y gdebi-core && \
+  case "${RELEASE}" in \
+    xenial) AWS_BUILD_MACHINE=ubuntu-16.04 ;; \
+    *)      AWS_BUILD_MACHINE=ubuntu-18.04 ;; \
+  esac && \
+  wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
   VERSION=$(cat version.txt)  && \
   wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/shiny-server-commercial-$VERSION-amd64.deb" -O ssp-latest.deb && \
   gdebi -n ssp-latest.deb && \

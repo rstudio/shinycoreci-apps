@@ -86,7 +86,24 @@ ui <- fluidPage(
     jst.add(function() {
       Jster.button.click('close');
     });
-    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(function(done) {
+      var start = new Date();
+      var wait = function() {
+        var curNow = new Date()
+        if (curNow > (start + (20 * 1000))) {
+          done();
+          return;
+        }
+        if (
+          /Closed/.test($('#status').text().trim())
+        ) {
+          done();
+          return;
+        }
+        setTimeout(wait, 20)
+      }
+      wait();
+    })
     jst.add(function() {
       Jster.assert.isEqual(
         $('#status').text().trim(),
@@ -116,7 +133,7 @@ server <- function(input, output, session) {
   setEnabled(FALSE)
 
   connect <- function(url) {
-    ws <- WebSocket$new("ws://echo.websocket.org")
+    ws <- WebSocket$new("wss://echo.websocket.org")
     status(paste0("Connecting to ", url, ", please wait..."))
     ws$onError(function(event) {
       setEnabled(FALSE)

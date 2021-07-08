@@ -1,10 +1,26 @@
 {
   "input": {
-    "month": "Feb"
+    ".clientValue-default-plotlyCrosstalkOpts": {
+      "on": "plotly_click",
+      "persistent": false,
+      "dynamic": false,
+      "selectize": false,
+      "opacityDim": 0.2,
+      "selected": {
+        "opacity": 1
+      },
+      "debounce": 0,
+      "color": [
+
+      ]
+    },
+    "month": "Feb",
+    "plotly_afterplot-A": "\"outb037b936e10a1db3\"",
+    "plotly_relayout-A": "{\"width\":356,\"height\":201}"
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 1da725bf39d2cb419e3f5488cdde506860541b75]",
+      "html": "[html data sha1: 92ad25706a70b05169c0784e8fb19aff863dcf97]",
       "deps": [
         {
           "name": "jquery",
@@ -35,7 +51,7 @@
             "shim/respond.min.js"
           ],
           "stylesheet": "css/cosmo.min.css",
-          "head": null,
+          "head": "<style>h1 {font-size: 34px;}\n       h1.title {font-size: 38px;}\n       h2 {font-size: 30px;}\n       h3 {font-size: 24px;}\n       h4 {font-size: 18px;}\n       h5 {font-size: 16px;}\n       h6 {font-size: 12px;}\n       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}\n       pre:not([class]) { background-color: white }<\/style>",
           "attachment": null,
           "package": null,
           "all_files": true
@@ -52,6 +68,35 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        },
+        {
+          "name": "value-box-accent-static",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-accent-static-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "theme-cosmo-value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "flexdashboard.min.css",
+            "theme-cosmo.css"
+          ],
+          "head": null,
+          "attachment": null,
           "all_files": true
         },
         {
@@ -85,6 +130,34 @@
           "all_files": true
         },
         {
+          "name": "htmlwidgets",
+          "version": "1.5.3",
+          "src": {
+            "href": "htmlwidgets-1.5.3"
+          },
+          "meta": null,
+          "script": "htmlwidgets.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-binding",
+          "version": "4.9.4.1",
+          "src": {
+            "href": "plotly-binding-4.9.4.1"
+          },
+          "meta": null,
+          "script": "plotly.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": false
+        },
+        {
           "name": "rmarkdown-performance",
           "version": "0.1",
           "src": {
@@ -100,29 +173,376 @@
         }
       ]
     },
+    "out035a8edd82f48c00": "Feb",
     "out036980023b23cf30": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\">VB2: Feb<\/span>",
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 2\" data-color-accent=\"primary\">VB2: Feb<\/span>",
       "deps": [
-
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
+    "out0c4ed20cca892f03": "Feb",
     "out372dd6df6a227499": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\">VB3: Feb<\/span>",
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 3\" data-color-accent=\"primary\">VB3: Feb<\/span>",
       "deps": [
-
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
     "out44a0bc45b351fb42": "Feb",
+    "out653cee2a3d1d7c1c": "Feb",
     "out7dd30976d7eabf77": "Feb",
-    "out91b7f72ac16f31e0": "Feb",
-    "out9ac41049c5a0fec9": {
-      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\">VB1: Feb<\/span>",
-      "deps": [
+    "out91b7f72ac16f31e0": {
+      "src": "[image data sha1: 6e4a91aec9ee0b24969160d5c2371b5ab6dc674d]",
+      "width": 356,
+      "height": 201,
+      "alt": "Shiny plot alt text: Feb",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 3.16,
+              "right": 25.84,
+              "bottom": -2.72,
+              "top": 124.72
+            },
+            "range": {
+              "left": 59.04,
+              "right": 325.76,
+              "bottom": 126.56,
+              "top": 58.04
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
 
+            }
+          }
+        ],
+        "dims": {
+          "width": 356,
+          "height": 201
+        }
+      },
+      "error": null
+    },
+    "out9ac41049c5a0fec9": {
+      "html": "<span class=\"value-output\" data-caption=\"Value Box 1\" data-color-accent=\"primary\">VB1: Feb<\/span>",
+      "deps": [
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
       ]
     },
     "outa1909d37acf95c56": "Feb",
-    "outb037b936e10a1db3": "Feb",
+    "outb037b936e10a1db3": {
+      "x": {
+        "layout": {
+          "margin": {
+            "b": 40,
+            "l": 60,
+            "t": 25,
+            "r": 10
+          },
+          "title": "Feb",
+          "xaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "title": "speed"
+          },
+          "yaxis": {
+            "domain": [
+              0,
+              1
+            ],
+            "automargin": true,
+            "title": "dist"
+          },
+          "hovermode": "closest",
+          "showlegend": false
+        },
+        "source": "A",
+        "config": {
+          "showSendToCloud": false
+        },
+        "data": [
+          {
+            "x": [
+              4,
+              4,
+              7,
+              7,
+              8,
+              9,
+              10,
+              10,
+              10,
+              11,
+              11,
+              12,
+              12,
+              12,
+              12,
+              13,
+              13,
+              13,
+              13,
+              14,
+              14,
+              14,
+              14,
+              15,
+              15,
+              15,
+              16,
+              16,
+              17,
+              17,
+              17,
+              18,
+              18,
+              18,
+              18,
+              19,
+              19,
+              19,
+              20,
+              20,
+              20,
+              20,
+              20,
+              22,
+              23,
+              24,
+              24,
+              24,
+              24,
+              25
+            ],
+            "y": [
+              2,
+              10,
+              4,
+              22,
+              16,
+              10,
+              18,
+              26,
+              34,
+              17,
+              28,
+              14,
+              20,
+              24,
+              28,
+              26,
+              34,
+              34,
+              46,
+              26,
+              36,
+              60,
+              80,
+              20,
+              26,
+              54,
+              32,
+              40,
+              32,
+              40,
+              50,
+              42,
+              56,
+              76,
+              84,
+              36,
+              46,
+              68,
+              32,
+              48,
+              52,
+              56,
+              64,
+              66,
+              54,
+              70,
+              92,
+              93,
+              120,
+              85
+            ],
+            "type": "scatter",
+            "mode": "markers",
+            "marker": {
+              "color": "rgba(31,119,180,1)",
+              "line": {
+                "color": "rgba(31,119,180,1)"
+              }
+            },
+            "error_y": {
+              "color": "rgba(31,119,180,1)"
+            },
+            "error_x": {
+              "color": "rgba(31,119,180,1)"
+            },
+            "line": {
+              "color": "rgba(31,119,180,1)"
+            },
+            "xaxis": "x",
+            "yaxis": "y",
+            "frame": null
+          }
+        ],
+        "highlight": {
+          "on": "plotly_click",
+          "persistent": false,
+          "dynamic": false,
+          "selectize": false,
+          "opacityDim": 0.2,
+          "selected": {
+            "opacity": 1
+          },
+          "debounce": 0
+        },
+        "shinyEvents": [
+          "plotly_hover",
+          "plotly_click",
+          "plotly_selected",
+          "plotly_relayout",
+          "plotly_brushed",
+          "plotly_brushing",
+          "plotly_clickannotation",
+          "plotly_doubleclick",
+          "plotly_deselect",
+          "plotly_afterplot",
+          "plotly_sunburstclick"
+        ],
+        "base_url": "https://plot.ly"
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "setprototypeof",
+          "version": "0.1",
+          "src": {
+            "href": "setprototypeof-0.1"
+          },
+          "meta": null,
+          "script": "setprototypeof.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "typedarray",
+          "version": "0.1",
+          "src": {
+            "href": "typedarray-0.1"
+          },
+          "meta": null,
+          "script": "typedarray.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "3.5.1",
+          "src": {
+            "href": "jquery-3.5.1"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.1.1.9000",
+          "src": {
+            "href": "crosstalk-1.1.1.9000"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-htmlwidgets-css",
+          "version": "1.57.1",
+          "src": {
+            "href": "plotly-htmlwidgets-css-1.57.1"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "plotly-htmlwidgets.css",
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "plotly-main",
+          "version": "1.57.1",
+          "src": {
+            "href": "plotly-main-1.57.1"
+          },
+          "meta": null,
+          "script": "plotly-latest.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        }
+      ]
+    },
     "outbc4ca252caab469b": "Feb",
     "outc6bba244da8241d7": "Feb",
     "outc9d1e58b62f86530": "Feb",

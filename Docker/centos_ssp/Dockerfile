@@ -1,18 +1,18 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.0-centos7 .
+#   docker build --build-arg SSP_LICENSE_FILE="ssp-rstudio-license-2024-09-06.lic" -t rstudio/shinycoreci:ssp-4.1-centos7 .
 #
 # To run:
-#   docker run --rm -p 7979:3838 --name ssp_centos rstudio/shinycoreci:ssp-4.0-centos7
+#   docker run --rm -p 7979:3838 --name ssp_centos rstudio/shinycoreci:ssp-4.1-centos7
 
-ARG R_VERSION=4.0
+ARG R_VERSION=4.1
 ARG RELEASE=centos7
 ARG EXTRA_BASE_TAG=
 FROM rstudio/shinycoreci:base-${R_VERSION}-${RELEASE}${EXTRA_BASE_TAG}
 
-ARG R_VERSION=4.0
+ARG R_VERSION=4.1
 ARG RELEASE=centos7
 ARG EXTRA_BASE_TAG=
-ARG AWS_BUILD_MACHINE=centos6.3
+ARG AWS_BUILD_MACHINE=centos7
 
 RUN yum install -y \
   openssl \
@@ -23,6 +23,7 @@ RUN yum install -y \
 # =====================================================================
 
 # Download and install shiny server
+# https://www.rstudio.com/products/shiny/download-commercial/redhat-centos/
 RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/VERSION" -O "version.txt" && \
   VERSION=$(cat version.txt)  && \
   wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-pro-build/${AWS_BUILD_MACHINE}/x86_64/shiny-server-commercial-$VERSION-redhat-x86_64.rpm" -O ss-latest.rpm && \

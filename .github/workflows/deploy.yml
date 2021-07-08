@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - deploy
+      - deploy**
       - ghactions
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   schedule:
@@ -24,9 +24,10 @@ jobs:
 
       matrix:
         config:
-        - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5, retry: 1 }
-        # beta.rstudioconnect does not support v4 yet
-        # - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
+        - { os: macOS-latest, r: 'release', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5, retry: 3 }
+        # beta.rstudioconnect does not support R v4.0 yet
+        # - { os: macOS-latest, r: '3.6', cran: "https://demo.rstudiopm.com/all/latest", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
+        - { os: ubuntu-18.04, r: '3.6', release: "bionic", cran: "https://demo.rstudiopm.com/all/latest", rspm: "https://demo.rstudiopm.com/all/latest", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
 
         # - { os: macOS-latest, r: '4.0', cran: "https://cloud.r-project.org", type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 1, retry: 3, extra_app_text: ", apps = c('001-hello', '002-text')" }
         # beta.rstudioconnect does not support v4 yet
@@ -35,16 +36,18 @@ jobs:
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       CRAN: ${{ matrix.config.cran }}
+      RSPM: ${{ matrix.config.rspm }}
 
     steps:
       - uses: actions/checkout@v2
         name: GitHub Pull
 
-      - uses: r-lib/actions/setup-pandoc@master
-
       - uses: r-lib/actions/setup-r@master
         with:
           r-version: ${{ matrix.config.r }}
+
+      - uses: r-lib/actions/setup-pandoc@master
+
       - name: R Options
         shell: bash
         run: |
@@ -58,13 +61,34 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
+          key: ${{ matrix.config.os }}-r-${{ matrix.config.r }}-deploy3-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-${{ matrix.config.type }}-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-shinytest-
-            ${{ runner.os }}-r-${{ matrix.config.r }}-deploy2-libs-testthat-
+            ${{ matrix.config.os }}-r-${{ matrix.config.r }}-deploy3-libs-${{ matrix.config.type }}-
+            ${{ matrix.config.os }}-r-${{ matrix.config.r }}-deploy3-libs-shinytest-
+            ${{ matrix.config.os }}-r-${{ matrix.config.r }}-deploy3-libs-testthat-
 
-      - name: Install shinycoreci
+      - name: Install curl
+        if: runner.os == 'Linux'
+        run: |
+          sudo -s apt-get update
+          sudo -s apt-get install -y libcurl4-openssl-dev
+          Rscript -e "options(install.packages.check.source = 'no'); if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
+
+      # Install ragg deps
+      - name: Ragg deps
+        if: runner.os == 'Linux'
+        run: |
+          sudo -s apt-get update
+          sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
+
+      # Install Cairo system dependencies
+      - name: Mac systemdeps
+        if: runner.os == 'macOS'
+        run: |
+          brew install --cask xquartz
+          brew install cairo
+
+      - name: Prep shinycoreci app deps
         # if non linux, install binaries
         # make sure to get the best version number possible
         # If remotes isn't installed, install it
@@ -76,18 +100,43 @@ jobs:
           -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
           -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
           -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
+      - name: Install shinycoreci
+        run: >
+          Rscript
+          -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
+      # Install all deps as we are installing from rspm
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        shell: Rscript {0}
+        run: |
+          system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))
+      - name: Install htmltools
+        run: >
+          Rscript
+          -e "# install htmltools to get dev version"
+          -e "remotes::install_cran('htmltools', type = 'source')"
+          -e "remotes::install_github('rstudio/shinythemes')"
+      - name: Install again
+        run: >
+          Rscript
+          -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
+
+      - name: Install app deps
+        run: >
+          Rscript
+          -e "shinycoreci::install_exact_shinycoreci_deps(dir = 'apps', apps = shinycoreci::apps_deploy('apps'))"
+          -e "if (system.file(package = 'rsconnect') == '') remotes::install_cran('rsconnect')"
           -e "if (system.file(package = 'plogr') == '') remotes::install_cran('plogr')"
           -e "## 141-radiant"
           -e "if (system.file(package = 'RcppEigen') == '') remotes::install_cran('RcppEigen')"
           -e "## 141-radiant"
           -e "if (system.file(package = 'radiant') == '') remotes::install_cran('radiant', dependencies = TRUE)"
-          -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
 
       - name: Deploy Apps to Shinyapps.io
         if: matrix.config.type == 'shinyappsio'
         run: >
           Rscript
-          -e "options(pkgType = 'binary')"
+          -e "## options(pkgType = 'binary')"
           -e "rsconnect::setAccountInfo(name='${{ matrix.config.account }}', token='${{ secrets.shinyapps_io_testing_apps_token }}', secret='${{ secrets.shinyapps_io_testing_apps_secret }}')"
           -e "shinycoreci::deploy_apps(dir = 'apps', retry = ${{ matrix.config.retry }}, cores = ${{ matrix.config.cores }}, account = '${{ matrix.config.account }}', server = '${{ matrix.config.server_name }}'${{ matrix.config.extra_app_text }})"
 
@@ -95,7 +144,6 @@ jobs:
         if: matrix.config.type == 'connect'
         run: >
           Rscript
-          -e "options(pkgType = 'binary')"
           -e "## add server info"
           -e "rsconnect::addConnectServer(url = '${{ matrix.config.server_url }}', name = '${{ matrix.config.server_name }}')"
           -e "## add user info"

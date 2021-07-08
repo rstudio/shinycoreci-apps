@@ -6,7 +6,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 41db4395d799c49315c3fb7061bb2609b4fb0595]",
+      "html": "[html data sha1: 3a0d8957622a290e2064a8fc6eb4647318247df4]",
       "deps": [
         {
           "name": "jquery",
@@ -37,7 +37,7 @@
             "shim/respond.min.js"
           ],
           "stylesheet": "css/bootstrap.min.css",
-          "head": null,
+          "head": "<style>h1 {font-size: 34px;}\n       h1.title {font-size: 38px;}\n       h2 {font-size: 30px;}\n       h3 {font-size: 24px;}\n       h4 {font-size: 18px;}\n       h5 {font-size: 16px;}\n       h6 {font-size: 12px;}\n       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}\n       pre:not([class]) { background-color: white }<\/style>",
           "attachment": null,
           "package": null,
           "all_files": true
@@ -147,7 +147,7 @@
     },
     "out092bb89e9393fda8": "3.25",
     "out1ba546fb6de0170a": {
-      "src": "[image data sha1: 66bfc3632c5e6ca51419c584654e6d8f13b4e410]",
+      "src": "[image data sha1: 5038aeb2a38c9fd8b454bf0e3d093f0dde6c59c3]",
       "width": 600,
       "height": 400,
       "alt": "Plot object",
@@ -161,10 +161,10 @@
               "top": 124.72
             },
             "range": {
-              "left": 59.0400098400016,
-              "right": 569.759994959999,
-              "bottom": 325.559981639995,
-              "top": 58.0400147600037
+              "left": 59.04,
+              "right": 569.76,
+              "bottom": 325.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
@@ -183,7 +183,7 @@
     },
     "out4534806ab07416dc": "A",
     "out59f0ffc8c7802ff4": {
-      "src": "[image data sha1: c70d5d870e7c584ba610c29156f4d1516f85048b]",
+      "src": "[image data sha1: 413d13d902421a57aff5712e717aeb0663bd84d5]",
       "width": 300,
       "height": 40,
       "alt": "Plot object",
@@ -193,14 +193,14 @@
             "domain": {
               "left": 1739.6033333332,
               "right": 1993.3133333368,
-              "bottom": -718.798167661389,
-              "top": 972.598167661389
+              "bottom": -718.800000012001,
+              "top": 972.600000012
             },
             "range": {
               "left": 0,
               "right": 300,
               "bottom": 39,
-              "top": -1
+              "top": -0.999999999999991
             },
             "log": {
               "x": null,

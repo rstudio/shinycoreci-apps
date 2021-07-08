@@ -3,6 +3,7 @@ title: "Shiny Location Kitchen Sink"
 output:
   flexdashboard::flex_dashboard:
     orientation: rows
+    resize_reload: false
 runtime: shiny
 ---
 
@@ -12,7 +13,6 @@ library(shiny)
 ```
 
 # Inputs: `r renderText({getmonth()})` {.sidebar}
-
 
 ```{r}
 selectInput(
@@ -35,19 +35,7 @@ Sidebar Content: `r renderText(getmonth())`
 ```{r}
 shinyjster::shinyjster_server(input, output, session)
 shinyjster::shinyjster_js("
-  var jst = jster();
-  jst.add(Jster.shiny.waitUntilStable);
-  jst.add(function() {
-    // make sure on first page
-    $('a[href=\"#section-p1\"]').click();
-  });
-  jst.add(Jster.shiny.waitUntilStable);
-  jst.add(Jster.shiny.waitUntilStable);
-  jst.add(Jster.shiny.waitUntilStable);
-  jst.add(Jster.shiny.waitUntilStable);
-  jst.add(Jster.shiny.waitUntilStable);
-  jst.add(Jster.shiny.waitUntilStable);
-
+  var jst = jster(1);
   function assert_equal(id, txt) {
     assert_equal_qs('#section-' + id, txt);
   }
@@ -62,58 +50,101 @@ shinyjster::shinyjster_js("
     })
   }
 
-  assert_equal_qs('a[href=\"#section-p1\"]', 'Page 1: Feb');
-  assert_equal_qs('a[href=\"#section-p2\"]', 'Page 2: Feb');
-  assert_equal('sidebarContent', 'Sidebar Content: Feb');
+  function assert_page(idx, month) {
+    jst.add(Jster.shiny.waitUntilStable);
 
-  assert_equal_qs('#section-hidden1 .value-output', 'VB1: Feb');
-  assert_equal_qs('#section-hidden2 .value-output', 'VB2: Feb');
-  assert_equal_qs('#section-hidden3 .value-output', 'VB3: Feb');
+    jst.add(function() {
+      // make sure on first page
+      $('a[href=\"#section-p1\"]').click();
+    });
+    jst.add(function() {
+      // make sure first tab is displayed
+      $('a[href=\"#section-tab1\"]').click();
+    });
+    jst.add(Jster.shiny.waitUntilStable);
 
-  assert_equal_qs('#section-row2 .chart-title', 'Row 2 Title: Feb');
-  assert_equal_qs('#section-row2 p', 'Row 2 Content: Feb');
-  assert_equal_qs('#section-row2 .chart-notes', 'Caption: Feb');
+    jst.add(function() {
+      Jster.selectize.click('month');
+    });
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(function() {
+      Jster.selectize.clickOption('month', idx);
+    });
 
-  assert_equal_qs('#section-row3 .chart-title', 'Row 3 Title: Feb');
-  assert_equal_qs('#section-row3 p', 'Row 3 Content: Feb');
+    // Can not use wait until idle for 1000 with flexdashboard
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
+    jst.add(Jster.shiny.waitUntilStable);
 
-  assert_equal_qs('a[href=\"#section-tab1\"]', 'Tab 1 Title: Feb');
-  assert_equal_qs('#section-tab1 p', 'Tab 1 Content: Feb');
+    assert_equal_qs('a[href=\"#section-p1\"]', 'Page 1: ' + month);
+    assert_equal_qs('a[href=\"#section-p2\"]', 'Page 2: ' + month);
+    assert_equal('sidebarContent', 'Sidebar Content: ' + month);
 
-  jst.add(function() {
-    $('a[href=\"#section-tab2\"]').click();
-  });
-  jst.add(Jster.shiny.waitUntilStable);
+    assert_equal_qs('#section-hidden1 .value-output', 'VB1: ' + month);
+    assert_equal_qs('#section-hidden2 .value-output', 'VB2: ' + month);
+    assert_equal_qs('#section-hidden3 .value-output', 'VB3: ' + month);
 
-  assert_equal_qs('a[href=\"#section-tab2\"]', 'Tab 2 Title: Feb');
-  assert_equal_qs('#section-tab2 p', 'Tab 2 Content: Feb');
+    assert_equal_qs('#section-row2_plotly .chart-title', 'Row 2 Plotly Title: ' + month);
+    assert_equal_qs('#section-row2_plotly p', 'Row 2 Plotly Content: ' + month);
+    assert_equal_qs('#section-row2_plotly .chart-notes', 'Plotly Caption: ' + month);
+    assert_equal_qs('#section-row2_plotly svg .gtitle', month);
 
-  // test second page
-  jst.add(function() {
-    $('a[href=\"#section-p2\"]').click();
-  });
-  jst.add(Jster.shiny.waitUntilStable);
+    assert_equal_qs('#section-row2_shiny .chart-title', 'Row 2 Shiny Title: ' + month);
+    assert_equal_qs('#section-row2_shiny p', 'Row 2 Shiny Content: ' + month);
+    assert_equal_qs('#section-row2_shiny .chart-notes', 'Shiny Caption: ' + month);
+    jst.add(function() {
+      Jster.assert.isEqual(
+        $('#section-row2_shiny img').attr('alt'),
+        'Shiny plot alt text: ' + month,
+        {query_string: \"$('#section-row2_shiny img').attr('alt')\", element: $('#section-row2_shiny img')}
+      );
+    })
 
-  assert_equal_qs('#section-p2r1 .chart-title', 'P2R1 Title: Feb');
-  assert_equal_qs('#section-p2r1 p', 'P2R1 Content: Feb');
+    assert_equal_qs('a[href=\"#section-tab1\"]', 'Tab 1 Title: ' + month);
+    assert_equal_qs('#section-tab1 p', 'Tab 1 Content: ' + month);
 
-  assert_equal_qs('#section-p2r2 .chart-title', 'P2R2 Title: Feb');
-  assert_equal_qs('#section-p2r2 p', 'P2R2 Content: Feb');
+    jst.add(function() {
+      $('a[href=\"#section-tab2\"]').click();
+    });
+    jst.add(Jster.shiny.waitUntilStable);
 
-  assert_equal_qs('a[href=\"#section-p2t1\"]', 'P2T1 Title: Feb');
-  assert_equal_qs('#section-p2t1 p', 'P2T1 Content: Feb');
+    assert_equal_qs('a[href=\"#section-tab2\"]', 'Tab 2 Title: ' + month);
+    assert_equal_qs('#section-tab2 p', 'Tab 2 Content: ' + month);
 
-  jst.add(function() {
-    $('a[href=\"#section-p2t2\"]').click();
-  });
-  jst.add(Jster.shiny.waitUntilStable);
-  assert_equal_qs('a[href=\"#section-p2t2\"]', 'P2T2 Title: Feb');
-  assert_equal_qs('#section-p2t2 p', 'P2T2 Content: Feb');
+    // test second page
+    jst.add(function() {
+      $('a[href=\"#section-p2\"]').click();
+    });
+    jst.add(function() {
+      $('a[href=\"#section-p2t1\"]').click();
+    });
+    jst.add(Jster.shiny.waitUntilStable);
 
+    assert_equal_qs('#section-p2r1 .chart-title', 'P2R1 Title: ' + month);
+    assert_equal_qs('#section-p2r1 p', 'P2R1 Content: ' + month);
 
+    assert_equal_qs('#section-p2r1_plot .chart-title', 'P2R1 plot Title: ' + month);
+    assert_equal_qs('#section-p2r1_plot p', 'P2R1 plot Content: ' + month);
+    assert_equal_qs('#section-p2r1_plot .chart-notes', 'Plot Caption: ' + month);
+
+    assert_equal_qs('a[href=\"#section-p2t1\"]', 'P2T1 Title: ' + month);
+    assert_equal_qs('#section-p2t1 p', 'P2T1 Content: ' + month);
+
+    jst.add(function() {
+      $('a[href=\"#section-p2t2\"]').click();
+    });
+    jst.add(Jster.shiny.waitUntilStable);
+    assert_equal_qs('a[href=\"#section-p2t2\"]', 'P2T2 Title: ' + month);
+    assert_equal_qs('#section-p2t2 p', 'P2T2 Content: ' + month);
+  }
+
+  assert_page(1, 'Feb');
+  assert_page(5, 'Jun');
 
   jst.test();
-  console.log('done!')
 ")
 ```
 
@@ -151,27 +182,35 @@ renderValueBox({
 Row
 -------------------------------------
 
-### Row 2 Title:  `r renderText(getmonth())` {id=row2}
+### Row 2 Plotly Title:  `r renderText(getmonth())` {id=row2_plotly}
 
-Row 2 Content: `r renderText(getmonth())`
+Row 2 Plotly Content: `r renderText(getmonth())`
 
 ```{r}
-plot(ldeaths)
+library(plotly)
+renderPlotly({
+  cars %>%
+    plot_ly(x = ~ speed, y = ~ dist) %>%
+    add_markers() %>%
+    layout(title = getmonth())
+})
 ```
 
-> Caption: `r renderText(getmonth())`
+> Plotly Caption: `r renderText(getmonth())`
 
+### Row 2 Shiny Title:  `r renderText(getmonth())` {id=row2_shiny}
 
-Row
--------------------------------------
+Row 2 Shiny Content: `r renderText(getmonth())`
 
-### Row 3 Title:  `r renderText(getmonth())` {id=row3}
+```{r}
+renderPlot({
+  plot(cars, main = getmonth())
+}, alt = reactive({ paste0("Shiny plot alt text: ", getmonth()) }) )
 
-Row 3 Content: `r renderText(getmonth())`
-
-```{r, fig.width=10, fig.height=7}
-plot(cars)
 ```
+
+> Shiny Caption: `r renderText(getmonth())`
+
 
 
 Row {.tabset}
@@ -204,14 +243,21 @@ Row
 
 ### P2R1 Title:  `r renderText(getmonth())` {id=p2r1}
 
-P2R1 Content: `r renderText(getmonth())`
+P2R1 Content: `r textOutput("p2r1content", inline = TRUE)`
 
-Row
--------------------------------------
+```{r}
+output$p2r1content <- renderText(getmonth())
+```
 
-### P2R2 Title:  `r renderText(getmonth())` {id=p2r2}
+### P2R1 plot Title:  `r renderText(getmonth())` {id=p2r1_plot}
 
-P2R2 Content: `r renderText(getmonth())`
+P2R1 plot Content: `r renderText(getmonth())`
+
+```{r, fig.width=10, fig.height=7}
+plot(ldeaths, main = "Static title")
+```
+
+> Plot Caption: `r renderText(getmonth())`
 
 
 Row {.tabset}
