@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 2f3efa1c82d88d665cf05b3e494e384dbd51bdee]",
+      "html": "[html data sha1: bc2f5119acaf691af4813a971d5e0f05de765d8d]",
       "deps": [
         {
           "name": "jquery",
@@ -521,7 +521,7 @@
     "outd91c9f20549f06ca": "Mar",
     "outf3f8a9f513689642": "Mar",
     "outffbf7f8633805741": {
-      "src": "[image data sha1: 7d668ebfc197a5f40013120c28746161108cf64c]",
+      "src": "[image data sha1: 2bbfe016f9866963cf9cf24a32eee1b03f31ae2b]",
       "width": 356,
       "height": 201,
       "alt": "Shiny plot alt text: Mar",
