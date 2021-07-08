@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 0c17b9950a8b9d72805da3aad945f738c3cb36b9]",
+      "html": "[html data sha1: 92ad25706a70b05169c0784e8fb19aff863dcf97]",
       "deps": [
         {
           "name": "jquery",
@@ -215,7 +215,7 @@
     "out653cee2a3d1d7c1c": "Feb",
     "out7dd30976d7eabf77": "Feb",
     "out91b7f72ac16f31e0": {
-      "src": "[image data sha1: 8170ab6ba84063f1de68fab0ab8f6ee43a5e3efe]",
+      "src": "[image data sha1: 6e4a91aec9ee0b24969160d5c2371b5ab6dc674d]",
       "width": 356,
       "height": 201,
       "alt": "Shiny plot alt text: Feb",
