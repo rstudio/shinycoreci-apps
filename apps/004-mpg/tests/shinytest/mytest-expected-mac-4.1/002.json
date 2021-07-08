@@ -1,0 +1,47 @@
+{
+  "input": {
+    "outliers": true,
+    "variable": "am"
+  },
+  "output": {
+    "caption": "mpg ~ am",
+    "mpgPlot": {
+      "src": "[image data sha1: 47b7954c7fcd8ef7a02b6af40968503cf50d529e]",
+      "width": 661,
+      "height": 400,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 0.42,
+              "right": 2.58,
+              "bottom": 9.46,
+              "top": 34.84
+            },
+            "range": {
+              "left": 59.04,
+              "right": 630.76,
+              "bottom": 325.56,
+              "top": 58.04
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 661,
+          "height": 400
+        }
+      }
+    }
+  },
+  "export": {
+
+  }
+}
