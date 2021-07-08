@@ -6,8 +6,6 @@
 #   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-4.1-focal
 #   docker run --rm -p 4949:3838 --name ssp_bionic rstudio/shinycoreci:ssp-4.1-focal-rc_v1.4.0.1
 
-
-# "ubuntu" = switch(release, "xenial" = "ubuntu-12.04", "ubuntu-14.04")
 ARG R_VERSION=4.1
 ARG RELEASE=focal
 ARG EXTRA_BASE_TAG=
@@ -21,6 +19,7 @@ ARG EXTRA_BASE_TAG=
 # Shiny Server
 # =====================================================================
 
+# https://www.rstudio.com/products/shiny/download-commercial/ubuntu/
 RUN apt-get update && apt-get install -y gdebi-core && \
   case "${RELEASE}" in \
     xenial) AWS_BUILD_MACHINE=ubuntu-16.04 ;; \
