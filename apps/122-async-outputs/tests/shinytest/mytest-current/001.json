@@ -1,0 +1,339 @@
+{
+  "input": {
+    "datatable_cell_clicked": {
+
+    },
+    "datatable_cells_selected": [
+
+    ],
+    "datatable_columns_selected": null,
+    "datatable_rows_all": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "datatable_rows_current": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "datatable_rows_selected": null,
+    "datatable_search": "",
+    "datatable_state": null,
+    "datatablea_cell_clicked": {
+
+    },
+    "datatablea_cells_selected": [
+
+    ],
+    "datatablea_columns_selected": null,
+    "datatablea_rows_all": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "datatablea_rows_current": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "datatablea_rows_selected": null,
+    "datatablea_search": "",
+    "datatablea_state": null
+  },
+  "output": {
+    "datatable": {
+      "x": {
+        "style": "bootstrap4",
+        "filter": "none",
+        "vertical": false,
+        "container": "<table class=\"table table-striped table-hover row-border order-column display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>speed<\/th>\n      <th>dist<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
+        "options": {
+          "columnDefs": [
+            {
+              "className": "dt-right",
+              "targets": [
+                1,
+                2
+              ]
+            },
+            {
+              "orderable": false,
+              "targets": 0
+            }
+          ],
+          "order": [
+
+          ],
+          "autoWidth": false,
+          "orderClasses": false,
+          "ajax": {
+            "type": "POST",
+            "data": "function(d) {\nd.search.caseInsensitive = true;\nd.search.smart = true;\nd.escape = true;\nvar encodeAmp = function(x) { x.value = x.value.replace(/&/g, \"%26\"); }\nencodeAmp(d.search);\n$.each(d.columns, function(i, v) {encodeAmp(v.search);});\n}"
+          },
+          "serverSide": true,
+          "processing": true
+        },
+        "selection": {
+          "mode": "multiple",
+          "selected": null,
+          "target": "row",
+          "selectable": null
+        }
+      },
+      "evals": [
+        "options.ajax.data"
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "dt-core-bootstrap4",
+          "version": "1.10.20",
+          "src": {
+            "href": "dt-core-bootstrap4-1.10.20"
+          },
+          "meta": null,
+          "script": [
+            "js/jquery.dataTables.min.js",
+            "js/dataTables.bootstrap4.min.js"
+          ],
+          "stylesheet": [
+            "css/dataTables.bootstrap4.min.css",
+            "css/dataTables.bootstrap4.extra.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "3.5.1",
+          "src": {
+            "href": "jquery-3.5.1"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.1.1.9000",
+          "src": {
+            "href": "crosstalk-1.1.1.9000"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
+      ]
+    },
+    "datatablea": {
+      "x": {
+        "style": "bootstrap4",
+        "filter": "none",
+        "vertical": false,
+        "container": "<table class=\"table table-striped table-hover row-border order-column display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>speed<\/th>\n      <th>dist<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
+        "options": {
+          "columnDefs": [
+            {
+              "className": "dt-right",
+              "targets": [
+                1,
+                2
+              ]
+            },
+            {
+              "orderable": false,
+              "targets": 0
+            }
+          ],
+          "order": [
+
+          ],
+          "autoWidth": false,
+          "orderClasses": false,
+          "ajax": {
+            "type": "POST",
+            "data": "function(d) {\nd.search.caseInsensitive = true;\nd.search.smart = true;\nd.escape = true;\nvar encodeAmp = function(x) { x.value = x.value.replace(/&/g, \"%26\"); }\nencodeAmp(d.search);\n$.each(d.columns, function(i, v) {encodeAmp(v.search);});\n}"
+          },
+          "serverSide": true,
+          "processing": true
+        }
+      },
+      "evals": [
+        "options.ajax.data"
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "dt-core-bootstrap4",
+          "version": "1.10.20",
+          "src": {
+            "href": "dt-core-bootstrap4-1.10.20"
+          },
+          "meta": null,
+          "script": [
+            "js/jquery.dataTables.min.js",
+            "js/dataTables.bootstrap4.min.js"
+          ],
+          "stylesheet": [
+            "css/dataTables.bootstrap4.min.css",
+            "css/dataTables.bootstrap4.extra.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": false
+        },
+        {
+          "name": "jquery",
+          "version": "3.5.1",
+          "src": {
+            "href": "jquery-3.5.1"
+          },
+          "meta": null,
+          "script": "jquery.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.1.1.9000",
+          "src": {
+            "href": "crosstalk-1.1.1.9000"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
+      ]
+    },
+    "image": {
+      "src": "[image data sha1: fd852df5478eb7eb9410ee9101bb364adf487fb0]"
+    },
+    "imagea": {
+      "src": "[image data sha1: fd852df5478eb7eb9410ee9101bb364adf487fb0]"
+    },
+    "plot": {
+      "src": "[image data sha1: 43dc72ddce1150997b4d6021bb03e950162c8037]",
+      "width": 413,
+      "height": 400,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 3.16,
+              "right": 25.84,
+              "bottom": -2.72,
+              "top": 124.72
+            },
+            "range": {
+              "left": 59.04,
+              "right": 382.76,
+              "bottom": 325.56,
+              "top": 58.04
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 413,
+          "height": 400
+        }
+      }
+    },
+    "plota": {
+      "src": "[image data sha1: 43dc72ddce1150997b4d6021bb03e950162c8037]",
+      "width": 413,
+      "height": 400,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": 3.16,
+              "right": 25.84,
+              "bottom": -2.72,
+              "top": 124.72
+            },
+            "range": {
+              "left": 59.04,
+              "right": 382.76,
+              "bottom": 325.56,
+              "top": 58.04
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 413,
+          "height": 400
+        }
+      }
+    },
+    "print": "[1] \"hello\"",
+    "print2": "[1] \"hello\"",
+    "print2a": "[1] \"hello\"",
+    "printa": "[1] \"hello\"",
+    "table": "<table  class = 'table shiny-table table- spacing-s' style = 'width:auto;'>\n<thead> <tr> <th style='text-align: right;'> speed <\/th> <th style='text-align: right;'> dist <\/th>  <\/tr> <\/thead> <tbody>\n  <tr> <td align=\"right\"> 4.00 <\/td> <td align=\"right\"> 2.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 4.00 <\/td> <td align=\"right\"> 10.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 7.00 <\/td> <td align=\"right\"> 4.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 7.00 <\/td> <td align=\"right\"> 22.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 8.00 <\/td> <td align=\"right\"> 16.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 9.00 <\/td> <td align=\"right\"> 10.00 <\/td> <\/tr>\n   <\/tbody> <\/table>",
+    "tablea": "<table  class = 'table shiny-table table- spacing-s' style = 'width:auto;'>\n<thead> <tr> <th style='text-align: right;'> speed <\/th> <th style='text-align: right;'> dist <\/th>  <\/tr> <\/thead> <tbody>\n  <tr> <td align=\"right\"> 4.00 <\/td> <td align=\"right\"> 2.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 4.00 <\/td> <td align=\"right\"> 10.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 7.00 <\/td> <td align=\"right\"> 4.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 7.00 <\/td> <td align=\"right\"> 22.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 8.00 <\/td> <td align=\"right\"> 16.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 9.00 <\/td> <td align=\"right\"> 10.00 <\/td> <\/tr>\n   <\/tbody> <\/table>",
+    "text": "hello",
+    "texta": "hello",
+    "ui": {
+      "html": "<h1>hello world<\/h1>",
+      "deps": [
+
+      ]
+    },
+    "uia": {
+      "html": "<h1>hello world<\/h1>",
+      "deps": [
+
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
