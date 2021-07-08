@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-06-30                  
+ date     2021-07-08                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -20,11 +20,11 @@ osVersion: Ubuntu 18.04.5 LTS
 5           base64enc       0.1-3   RSPM                       
 6              bitops       1.0-7   RSPM                       
 7                brio       1.1.2   RSPM                       
-8               bslib  0.2.5.9002    Git 1991ad3        /master
-9              cachem       1.0.5    Git 82d9e69        /master
+8               bslib  0.2.5.9002    Git 0650d9d        /master
+9              cachem  1.0.5.9000    Git cfb2672        /master
 10              callr       3.7.0   RSPM                       
 11          checkmate       2.0.0   RSPM                       
-12                cli       2.5.0   RSPM                       
+12                cli       3.0.0   RSPM                       
 13         colorspace       2.0-2   RSPM                       
 14         commonmark         1.7   RSPM                       
 15              cpp11       0.3.1   RSPM                       
@@ -48,7 +48,7 @@ osVersion: Ubuntu 18.04.5 LTS
 33            fastmap  1.1.0.9000    Git f3e1c3a        /master
 34           filelock       1.0.2   RSPM                       
 35      flexdashboard  0.5.2.9000    Git 19c6551        /master
-36        fontawesome  0.2.1.9001    Git 159fd98        /master
+36        fontawesome  0.2.2.9000    Git 0de890f        /master
 37                 fs       1.5.0   RSPM                       
 38           generics       0.1.0   RSPM                       
 39            ggplot2       3.3.5   RSPM                       
@@ -58,7 +58,7 @@ osVersion: Ubuntu 18.04.5 LTS
 43             gtable       0.3.0   RSPM                       
 44              highr         0.9   RSPM                       
 45                hms       1.1.0   RSPM                       
-46          htmltools  0.5.1.9005    Git 7fbab16        /master
+46          htmltools  0.5.1.9006    Git a985267        /master
 47        htmlwidgets       1.5.3   RSPM                       
 48             httpuv  1.6.1.9001    Git 0ce9175        /master
 49               httr       1.4.2   RSPM                       
@@ -85,7 +85,7 @@ osVersion: Ubuntu 18.04.5 LTS
 70           pkgbuild       1.2.0   RSPM                       
 71           pkgcache       1.2.2   RSPM                       
 72          pkgconfig       2.0.3   RSPM                       
-73         pkgdepends  0.1.1.9000    Git da12352        /master
+73         pkgdepends  0.1.2.9000    Git f3c5195        /master
 74            pkgload       1.2.1   RSPM                       
 75             plotly     4.9.4.1   RSPM                       
 76                png       0.1-7   RSPM                       
@@ -105,23 +105,23 @@ osVersion: Ubuntu 18.04.5 LTS
 90           rappdirs       0.3.3   RSPM                       
 91             raster       3.1-5   RSPM                       
 92       RColorBrewer       1.1-2   RSPM                       
-93               Rcpp       1.0.6   RSPM                       
+93               Rcpp       1.0.7   CRAN                       
 94           reactlog       1.1.0    Git 31c519d        /master
 95            rematch       1.0.1   RSPM                       
 96           rematch2       2.1.2   RSPM                       
 97            remotes       2.4.0   RSPM                       
 98               renv      0.13.2   RSPM                       
-99              rlang 0.4.11.9000 GitHub 694093a     r-lib/HEAD
+99              rlang 0.4.11.9001 GitHub 94ff8a2     r-lib/HEAD
 100         rmarkdown         2.9   RSPM                       
 101         rprojroot       2.0.2   RSPM                       
-102         rsconnect      0.8.18    Git e42166e        /master
+102         rsconnect      0.8.19    Git 8a8df23        /master
 103        rstudioapi        0.13   RSPM                       
 104              sass  0.4.0.9000    Git f148415        /master
 105            scales       1.1.1   RSPM                       
 106       sessioninfo       1.1.1   RSPM                       
-107             shiny  1.6.0.9021    Git c9770cb        /master
-108       shinycoreci  0.0.0.9005 GitHub 4e3cf7d rstudio/master
-109        shinyjster  0.0.0.9009    Git 7c97e9b        /master
+107             shiny  1.6.0.9021    Git d1e7e6c        /master
+108       shinycoreci  0.0.0.9005 GitHub 52a8719 rstudio/master
+109        shinyjster  0.0.0.9009    Git e813088        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
 111         shinytest  1.5.0.9001    Git e1bc8bd        /master
 112       shinythemes       1.2.0    Git dee0e6c        /master
@@ -133,7 +133,7 @@ osVersion: Ubuntu 18.04.5 LTS
 118           stringr       1.4.0   RSPM                       
 119            styler       1.4.1   RSPM                       
 120               sys         3.4   RSPM                       
-121          testthat       3.0.3   RSPM                       
+121          testthat       3.0.4   RSPM                       
 122          thematic     0.1.2.1    Git 9858628        /master
 123            tibble       3.1.2   RSPM                       
 124             tidyr       1.1.3   RSPM                       
