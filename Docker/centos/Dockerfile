@@ -1,8 +1,8 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-3.6-centos7 .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-4.1-centos7 .
 
 
-ARG R_VERSION=3.6
+ARG R_VERSION=4.1
 
 # centos7
 ARG RELEASE=centos7

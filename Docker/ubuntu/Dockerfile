@@ -1,17 +1,17 @@
 # To build, cd to this directory, then:
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-3.6-bionic .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-4.1-focal .
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg R_VERSION=3.5 -t rstudio/shinycoreci:base-3.5-bionic .
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg RELEASE=xenial -t rstudio/shinycoreci:base-3.6-xenial .
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg SHINYCORECI_SHA="shiny-1.4.0.1" -t rstudio/shinycoreci:base-3.6-bionic-rc_v1.4.0.1 .
 
 #
 
-ARG R_VERSION=3.6
+ARG R_VERSION=4.1
 
 # bionic, xenial
-ARG RELEASE=bionic
+ARG RELEASE=focal
 FROM rstudio/r-base:${R_VERSION}-${RELEASE}
-ARG RELEASE=bionic
+ARG RELEASE=focal
 
 MAINTAINER Barret Schloerke "barret@rstudio.com"
 
@@ -151,8 +151,6 @@ RUN apt-get update && apt-get install -y \
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 # install r pkgs
-## install htmltools to get dev version
-RUN R --quiet -e "remotes::install_github('rstudio/htmltools', auth_token ='${GITHUB_PAT}')"
 RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps')"
 
 
