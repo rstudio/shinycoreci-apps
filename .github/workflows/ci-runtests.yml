@@ -163,13 +163,7 @@ jobs:
         # - { branch: "CRAN", text: "-CRAN"}
         r:
           - "4.1"
-          - "4.0"
-          - "3.6"
-          - "3.5"
-          - "3.4"
         config:
-        - { os: macOS-latest }
-        - { os: windows-latest }
         - { os: ubuntu-18.04, rspm: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -400,7 +394,7 @@ jobs:
         run: |
           options(install.packages.check.source = 'no')
           dir <- "apps"
-          apps <- shinycoreci::apps_runtests(dir)
+          apps <- shinycoreci::apps_runtests(dir, filter = "shinyjster-chrome")
           is_pull_request <- isTRUE(jsonlite::parse_json("${{ github.event_name == 'pull_request' }}"))
           if (is_pull_request) {
             # reduce apps to only changed apps
