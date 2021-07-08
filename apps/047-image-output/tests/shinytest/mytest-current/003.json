@@ -1,0 +1,22 @@
+{
+  "input": {
+    "picture": "chainring",
+    "r": 0.25
+  },
+  "output": {
+    "image1": {
+      "src": "[image data sha1: 45b0796838a6e814f8c07bf15bc50e68d879b80a]",
+      "width": 331,
+      "height": 300,
+      "alt": "This is alternate text"
+    },
+    "image2": {
+      "src": "[image data sha1: 89263de815d4a041df81f0a26c7ccef6cf16d3ec]",
+      "filetype": "image/jpeg",
+      "alt": "This is a chainring"
+    }
+  },
+  "export": {
+
+  }
+}
