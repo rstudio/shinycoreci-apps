@@ -9,7 +9,7 @@ ARG RELEASE=centos7
 FROM rstudio/r-base:${R_VERSION}-${RELEASE}
 ARG RELEASE=centos7
 
-MAINTAINER Barret Schloerke "barret@rstudio.com"
+# MAINTAINER Barret Schloerke "barret@rstudio.com"
 
 RUN yum -y update && \
   yum -y install epel-release && \
@@ -75,32 +75,17 @@ RUN R -e 'source("https://packagemanager.rstudio.com/__docs__/admin/check-user-a
 
 
 ###
-# shinycoreci
+# shinycoreci system reqs
 ###
 
 # known deps for shinycoreci
 RUN yum install -y epel-release glpk-devel gmp-devel libcurl-devel libicu-devel libpng-devel libxml2-devel make openssl-devel pandoc zlib-devel
 
-ARG GITHUB_PAT=NOTSUPPLIED
-ENV GITHUB_PAT=$GITHUB_PAT
-
-# prep install
-RUN R --quiet -e "install.packages('remotes')"
-RUN R --quiet -e "remotes::install_cran(c('knitr', 'rmarkdown', 'curl'))"
-RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
-# some how this package isn't a dep, but is required for a package
-RUN R --quiet -e "remotes::install_cran(c('markdown'))"
-
-ARG SHINYCORECI_SHA=master
-ARG APPS_SHA=master
-
-# install testing repo at specific sha
-RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}', auth_token ='$GITHUB_PAT')"
-
 
 ###
 # shinycoreci-apps
 ###
+ARG APPS_SHA=master
 
 # Download the repo in a temp folder, then unzip it into the home folder
 RUN mkdir -p /tmp/apps_repo && \
@@ -114,9 +99,35 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 # remove radiant as it has a lot of trouble being installed
 RUN rm -r ~/apps/141-radiant
 
+###
+# shinycoreci system reqs
+###
+
+# prep install
+# RUN R --quiet -e "install.packages('remotes')"
+# RUN R --quiet -e "remotes::install_cran(c('shinytest'), dependencies = TRUE)"
+
+RUN R --quiet -e "install.packages('shinytest', dependencies = TRUE)"
+
+ARG GITHUB_PAT=NOTSUPPLIED
+# make sure the variable persists
+ENV GITHUB_PAT=$GITHUB_PAT
+
+ARG SHINYCORECI_SHA=remotes_pak_deps
+
+# install testing repo at specific sha
+RUN R --quiet -e "install.packages(c('remotes', 'curl')); remotes::install_github('r-lib/usethis')"
+RUN R --quiet -e "install.packages('pak', repos = 'https://r-lib.github.io/p/pak/dev/')"
+RUN R --quiet -e "pak::pkg_install('r-lib/usethis')"
+RUN R --quiet -e "pak::pkg_install('rstudio/shinycoreci@${SHINYCORECI_SHA}', dependencies = TRUE)"
+# RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}')"
+
+
+###
+# shinycoreci-apps install system deps and pkgs
+###
+
 # install R pkg system requirements
-## Install manually until ragg / RSPM fixes it; https://github.com/r-lib/ragg/issues/41
-RUN yum install -y freetype-devel libpng-devel libtiff-devel
 # Must use `~/apps` as default working directory is not `~`
 RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
 
