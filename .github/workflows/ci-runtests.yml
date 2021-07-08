@@ -242,6 +242,21 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
 
     steps:
+      - name: Short R version and SHA
+        id: short
+        run: |
+          # keep only the major.minor values
+          RVERSION=`echo '${{ steps.install-r.outputs.installed-r-version }}' | sed 's/\([0-9]\.[0-9]\).*/\1/'`
+          echo "r-version: $RVERSION"
+          echo "::set-output name=r-version::$RVERSION"
+
+          SHA="${{github.event.pull_request.head.sha}}${{ github.sha }}"
+          if [[ -z "$SHA" ]]; then
+            SHA=${{ github.sha }}
+          fi
+          SHORT_SHA=${SHA:0:7}
+          echo "sha: $SHORT_SHA"
+          echo "::set-output name=sha::$SHORT_SHA"
       - name: Create short sha
         id: short_sha
         shell: bash
@@ -257,7 +272,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: INSTALL (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
+          status: INSTALL (${{ steps.short.outputs.sha }} ${{ matrix.config.os }} - ${{ steps.short.outputs.r-version }})
           color: warning
 
       - name: Windows git setup
@@ -330,7 +345,7 @@ jobs:
           if (system.file(package = 'Rcpp') == '') install.packages('Rcpp', type = 'source')
       # Install raster on R 3.4
       - name: Install raster
-        if: matrix.r == '3.4.4'
+        if: steps.short.outputs.r-version == '3.4'
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
@@ -403,12 +418,12 @@ jobs:
         id: failed_branch
         shell: Rscript {0}
         run: |
-          cat('::set-output name=name::', '${{ steps.short_sha.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')
+          cat('::set-output name=name::', '${{ steps.short.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')
       - name: Create GHA branch name (i.e., test run identifier)
         id: gha_branch
         shell: Rscript {0}
         run: |
-          cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ matrix.r }}',  '-', '${{ runner.os }}', sep = '')
+          cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ steps.short.outputs.r-version }}',  '-', '${{ runner.os }}', sep = '')
 
       - name: Find PhantomJS path
         id: phantomjs
@@ -449,7 +464,7 @@ jobs:
         with:
           message_id: ${{ steps.slack.outputs.message_id }}
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: TEST (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
+          status: TEST (${{ steps.short.outputs.sha }} ${{ matrix.config.os }} - ${{ steps.short.outputs.r-version }})
           color: warning
 
       # do not update pkgs, as they were installed above
@@ -523,22 +538,22 @@ jobs:
           git checkout -B ${{ steps.gha_branch.outputs.name }}
 
           git add zzz_shinycoreci && \
-            git commit -m '`test_runtests()` output - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
+            git commit -m '`test_runtests()` output - rstudio/shinycoreci@${{ steps.short.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
             echo "No test_runtests() changes to commit"
 
           git add apps/sysinfo-* && \
-            git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
+            git commit -m '`sysinfo` Changes - rstudio/shinycoreci@${{ steps.short.outputs.sha }} ${{ matrix.shinycoreci.text }}' || \
             echo "No apps/sysinfo-* changes to commit"
 
           git add apps && \
-            git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short_sha.outputs.sha }} ${{ matrix.shinycoreci.text }}'|| \
+            git commit -m '`shinytest` Changes - rstudio/shinycoreci@${{ steps.short.outputs.sha }} ${{ matrix.shinycoreci.text }}'|| \
             echo "No shinytest changes to commit"
 
           git log -n 4 --pretty=oneline --simplify-by-decoration
 
           # if any commits occured, then push to repo (compare to sha of current execution)
-          echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}`"
-          if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
+          echo "`git rev-list --count HEAD ^${{ steps.short.outputs.sha }}`"
+          if (( `git rev-list --count HEAD ^${{ steps.short.outputs.sha }}` > 0 )); then
             # This branch should never exist. Force push
             git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
           fi
@@ -592,7 +607,7 @@ jobs:
         with:
           message_id: ${{ steps.slack.outputs.message_id }}
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: SUCCESS (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
+          status: SUCCESS (${{ steps.short.outputs.sha }} ${{ matrix.config.os }} - ${{ steps.short.outputs.r-version }})
           color: good
 
       - name: Notify slack FAILED
@@ -603,5 +618,5 @@ jobs:
         with:
           message_id: ${{ steps.slack.outputs.message_id }}
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          status: FAILED (${{ steps.short_sha.outputs.sha }} ${{ matrix.config.os }} - ${{ matrix.r }})
+          status: FAILED (${{ steps.short.outputs.sha }} ${{ matrix.config.os }} - ${{ steps.short.outputs.r-version }})
           color: danger
