@@ -134,7 +134,7 @@ jobs:
         echo "r-version: $RVERSION"
         echo "::set-output name=r-version::$RVERSION"
 
-        SHA=${{ github.event.pull_request.head.sha }}
+        SHA="${{github.event.pull_request.head.sha}}${{ github.sha }}"
         if [[ -z "$SHA" ]]; then
           SHA=${{ github.sha }}
         fi
