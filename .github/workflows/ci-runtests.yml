@@ -448,8 +448,9 @@ jobs:
           if (not_installed <- system.file(package = "sessioninfo") == "") {
             install.packages("sessioninfo")
           }
-          # load
+          # load pkgs
           library(shinycoreci)
+          shinycoreci::load_suggested_pkgs()
           # display
           sessioninfo::session_info()
           # cleanup
