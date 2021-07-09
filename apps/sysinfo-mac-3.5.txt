@@ -38,7 +38,7 @@ osVersion: macOS  10.15.7
 23            diffobj       0.3.4   CRAN                       
 24             digest      0.6.27   CRAN                       
 25              dplyr       1.0.7   CRAN                       
-26                 DT      0.18.1    Git c08891a        /master
+26                 DT      0.18.1    Git c49fb4d        /master
 27           dygraphs     1.1.1.7    Git 70b60ab        /master
 28           ellipsis       0.3.2   CRAN                       
 29            english       1.2-5   CRAN                       
@@ -47,7 +47,7 @@ osVersion: macOS  10.15.7
 32             farver       2.1.0   CRAN                       
 33            fastmap  1.1.0.9000    Git f3e1c3a        /master
 34           filelock       1.0.2   CRAN                       
-35      flexdashboard  0.5.2.9000    Git 19c6551        /master
+35      flexdashboard  0.5.2.9000    Git 96fa830        /master
 36        fontawesome  0.2.2.9000    Git 0de890f        /master
 37                 fs       1.5.0   CRAN                       
 38           generics       0.1.0   CRAN                       
@@ -58,7 +58,7 @@ osVersion: macOS  10.15.7
 43             gtable       0.3.0   CRAN                       
 44              highr         0.9   CRAN                       
 45                hms       1.1.0   CRAN                       
-46          htmltools  0.5.1.9006    Git a985267        /master
+46          htmltools  0.5.1.9006    Git ebcde4d        /master
 47        htmlwidgets       1.5.3   CRAN                       
 48             httpuv  1.6.1.9001    Git 0ce9175        /master
 49               httr       1.4.2   CRAN                       
@@ -120,12 +120,12 @@ osVersion: macOS  10.15.7
 105            scales       1.1.1   CRAN                       
 106       sessioninfo       1.1.1   CRAN                       
 107             shiny  1.6.0.9021    Git d1e7e6c        /master
-108       shinycoreci  0.0.0.9005 GitHub 52a8719 rstudio/master
+108       shinycoreci  0.0.0.9005 GitHub 25f4727 rstudio/master
 109        shinyjster  0.0.0.9009    Git e813088        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
 111         shinytest  1.5.0.9001    Git e1bc8bd        /master
 112       shinythemes       1.2.0    Git dee0e6c        /master
-113     shinyvalidate       0.1.1    Git 2ed1b47        /master
+113     shinyvalidate  0.1.1.9000    Git dcf322b        /master
 114         showimage       1.0.0   CRAN                       
 115       sourcetools       0.1.7   CRAN                       
 116                sp       1.4-5   CRAN                       
