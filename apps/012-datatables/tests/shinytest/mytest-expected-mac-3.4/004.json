@@ -1087,6 +1087,7 @@
     "mytable1": {
       "x": {
         "filter": "none",
+        "vertical": false,
         "container": "<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>z<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
         "options": {
           "columnDefs": [
@@ -1173,6 +1174,7 @@
     "mytable2": {
       "x": {
         "filter": "none",
+        "vertical": false,
         "container": "<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
         "options": {
           "orderClasses": true,
