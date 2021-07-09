@@ -650,6 +650,7 @@
     "ziptable": {
       "x": {
         "filter": "none",
+        "vertical": false,
         "container": "<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>City<\/th>\n      <th>State<\/th>\n      <th>Zipcode<\/th>\n      <th>Rank<\/th>\n      <th>Score<\/th>\n      <th>Superzip<\/th>\n      <th>Population<\/th>\n      <th>College<\/th>\n      <th>Income<\/th>\n      <th>Lat<\/th>\n      <th>Long<\/th>\n      <th>Action<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
         "options": {
           "ajax": {
