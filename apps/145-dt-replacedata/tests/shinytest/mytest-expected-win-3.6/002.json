@@ -31,6 +31,7 @@
     "one-table": {
       "x": {
         "filter": "none",
+        "vertical": false,
         "container": "<table class=\"display\">\n  <thead>\n    <tr>\n      <th>value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
         "options": {
           "dom": "t",
@@ -115,6 +116,7 @@
     "table": {
       "x": {
         "filter": "none",
+        "vertical": false,
         "container": "<table class=\"display\">\n  <thead>\n    <tr>\n      <th>value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
         "options": {
           "dom": "t",
