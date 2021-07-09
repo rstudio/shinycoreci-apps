@@ -38,14 +38,14 @@
           "all_files": true
         },
         {
-          "name": "ionrangeslider-css",
+          "name": "ionRangeSlider",
           "version": "2.3.1",
           "src": {
-            "href": "shared/ionrangeslider"
+            "href": "ionRangeSlider-2.3.1"
           },
           "meta": null,
           "script": null,
-          "stylesheet": "css/ion.rangeSlider.css",
+          "stylesheet": "ionRangeSlider.css",
           "head": null,
           "attachment": null,
           "package": null,

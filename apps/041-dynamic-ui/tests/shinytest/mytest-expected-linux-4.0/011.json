@@ -24,14 +24,14 @@
           "all_files": true
         },
         {
-          "name": "bootstrap-datepicker-css",
+          "name": "bootstrap-datepicker",
           "version": "1.9.0",
           "src": {
-            "href": "shared/datepicker"
+            "href": "bootstrap-datepicker-1.9.0"
           },
           "meta": null,
           "script": null,
-          "stylesheet": "css/bootstrap-datepicker3.min.css",
+          "stylesheet": "bootstrap-datepicker.css",
           "head": null,
           "attachment": null,
           "package": null,
