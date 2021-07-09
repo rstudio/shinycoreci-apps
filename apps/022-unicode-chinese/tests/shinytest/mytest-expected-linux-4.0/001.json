@@ -7,8 +7,8 @@
   },
   "output": {
     "rockplot": {
-      "src": "[image data sha1: 4f4be525e18f9f988ca0c7618755ae79f57f397f]",
-      "width": 631,
+      "src": "[image data sha1: 8bc13bd13d1f80d29d6ef58f5c99d2935d92303c]",
+      "width": 661,
       "height": 400,
       "alt": "Plot object",
       "coordmap": {
@@ -22,7 +22,7 @@
             },
             "range": {
               "left": 57.6,
-              "right": 629.56,
+              "right": 659.56,
               "bottom": 341.4,
               "top": 0.440000000000019
             },
@@ -36,7 +36,7 @@
           }
         ],
         "dims": {
-          "width": 631,
+          "width": 661,
           "height": 400
         }
       }
@@ -48,14 +48,14 @@
           "name": "selectize",
           "version": "0.12.4",
           "src": {
-            "href": "shared/selectize"
+            "href": "selectize-0.12.4"
           },
           "meta": null,
           "script": [
-            "js/selectize.min.js",
-            "accessibility/js/selectize-plugin-a11y.min.js"
+            "selectize.min.js",
+            "selectize-plugin-a11y.min.js"
           ],
-          "stylesheet": "css/selectize.bootstrap3.css",
+          "stylesheet": "selectize.css",
           "head": null,
           "attachment": null,
           "package": null,

@@ -7,8 +7,8 @@
   },
   "output": {
     "rockplot": {
-      "src": "[image data sha1: 5d95bd50e61c0be91441bda5e230c5410c64574d]",
-      "width": 631,
+      "src": "[image data sha1: f3969bea3a3b2a8b13e27b23df399f9baf170e13]",
+      "width": 661,
       "height": 400,
       "alt": "Plot object",
       "coordmap": {
@@ -22,7 +22,7 @@
             },
             "range": {
               "left": 57.6,
-              "right": 629.56,
+              "right": 659.56,
               "bottom": 341.4,
               "top": 0.440000000000019
             },
@@ -36,7 +36,7 @@
           }
         ],
         "dims": {
-          "width": 631,
+          "width": 661,
           "height": 400
         }
       }
