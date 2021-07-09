@@ -78,8 +78,8 @@
   },
   "output": {
     "parcoord": {
-      "src": "[image data sha1: d3b73ac78f019b501151a1e92c8c2508976a697d]",
-      "width": 383,
+      "src": "[image data sha1: b84f0859ed8d1a1d36533ae52aa1f6e26464688c]",
+      "width": 413,
       "height": 400,
       "alt": "Plot object",
       "coordmap": {
@@ -93,7 +93,7 @@
             },
             "range": {
               "left": 57.6,
-              "right": 381.56,
+              "right": 411.56,
               "bottom": 370.2,
               "top": 27.7999999999999
             },
@@ -107,15 +107,17 @@
           }
         ],
         "dims": {
-          "width": 383,
+          "width": 413,
           "height": 400
         }
       }
     },
     "rawdata": {
       "x": {
+        "style": "bootstrap4",
         "filter": "none",
-        "container": "<table class=\"display\">\n  <thead>\n    <tr>\n      <th>State<\/th>\n      <th>Murder<\/th>\n      <th>Assault<\/th>\n      <th>UrbanPop<\/th>\n      <th>Rape<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
+        "vertical": false,
+        "container": "<table class=\"table table-striped table-hover row-border order-column display\">\n  <thead>\n    <tr>\n      <th>State<\/th>\n      <th>Murder<\/th>\n      <th>Assault<\/th>\n      <th>UrbanPop<\/th>\n      <th>Rape<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
         "options": {
           "pageLength": 10,
           "columnDefs": [
@@ -156,16 +158,19 @@
       ],
       "deps": [
         {
-          "name": "dt-core",
+          "name": "dt-core-bootstrap4",
           "version": "1.10.20",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-bootstrap4-1.10.20"
           },
           "meta": null,
-          "script": "js/jquery.dataTables.min.js",
+          "script": [
+            "js/jquery.dataTables.min.js",
+            "js/dataTables.bootstrap4.min.js"
+          ],
           "stylesheet": [
-            "css/jquery.dataTables.min.css",
-            "css/jquery.dataTables.extra.css"
+            "css/dataTables.bootstrap4.min.css",
+            "css/dataTables.bootstrap4.extra.css"
           ],
           "head": null,
           "attachment": null,
@@ -174,12 +179,45 @@
         },
         {
           "name": "jquery",
-          "version": "3.5.1",
+          "version": "3.6.0",
           "src": {
-            "href": "jquery-3.5.1"
+            "href": "jquery-3.6.0"
           },
           "meta": null,
-          "script": "jquery.min.js",
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "bootstrap",
+          "version": "5.0.2",
+          "src": {
+            "href": "bootstrap-5.0.2"
+          },
+          "meta": {
+            "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no"
+          },
+          "script": "bootstrap.bundle.min.js",
+          "stylesheet": "bootstrap.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "bs3compat",
+          "version": "0.2.5.9002",
+          "src": {
+            "href": "bs3compat-0.2.5.9002"
+          },
+          "meta": null,
+          "script": [
+            "transition.js",
+            "tabs.js",
+            "bs3compat.js"
+          ],
           "stylesheet": null,
           "head": null,
           "attachment": null,
