@@ -4,8 +4,8 @@
   },
   "output": {
     "scatters-plot1": {
-      "src": "[image data sha1: 1851946d5732b46f30768432f11bf4af89b5eb81]",
-      "width": 455,
+      "src": "[image data sha1: ef49046050f7f2e4097023a178db9056e37cac64]",
+      "width": 480,
       "height": 400,
       "alt": "Plot object",
       "coordmap": {
@@ -33,22 +33,22 @@
               "y": "hwy"
             },
             "range": {
-              "left": 34.1506849315069,
-              "right": 449.520547945205,
+              "left": 34.1506849315068,
+              "right": 474.520547945206,
               "bottom": 366.849315068493,
               "top": 5.47945205479452
             }
           }
         ],
         "dims": {
-          "width": 455,
+          "width": 480,
           "height": 400
         }
       }
     },
     "scatters-plot2": {
-      "src": "[image data sha1: a2a7c88abb34a3b0a3495b112ad75196f580d487]",
-      "width": 455,
+      "src": "[image data sha1: 84f5c1339b41df74473bf7d846a4e9c82fcb7464]",
+      "width": 480,
       "height": 400,
       "alt": "Plot object",
       "coordmap": {
@@ -83,15 +83,15 @@
               "y": "hwy"
             },
             "range": {
-              "left": 34.1506849315069,
-              "right": 449.520547945205,
+              "left": 34.1506849315068,
+              "right": 474.520547945206,
               "bottom": 366.849315068493,
               "top": 5.47945205479452
             }
           }
         ],
         "dims": {
-          "width": 455,
+          "width": 480,
           "height": 400
         }
       }
