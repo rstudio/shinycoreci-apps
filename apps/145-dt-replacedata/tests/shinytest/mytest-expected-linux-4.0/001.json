@@ -30,8 +30,10 @@
   "output": {
     "one-table": {
       "x": {
+        "style": "bootstrap4",
         "filter": "none",
-        "container": "<table class=\"display\">\n  <thead>\n    <tr>\n      <th>value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
+        "vertical": false,
+        "container": "<table class=\"table table-striped table-hover row-border order-column display\">\n  <thead>\n    <tr>\n      <th>value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
         "options": {
           "dom": "t",
           "ordering": false,
@@ -68,16 +70,19 @@
       ],
       "deps": [
         {
-          "name": "dt-core",
+          "name": "dt-core-bootstrap4",
           "version": "1.10.20",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-bootstrap4-1.10.20"
           },
           "meta": null,
-          "script": "js/jquery.dataTables.min.js",
+          "script": [
+            "js/jquery.dataTables.min.js",
+            "js/dataTables.bootstrap4.min.js"
+          ],
           "stylesheet": [
-            "css/jquery.dataTables.min.css",
-            "css/jquery.dataTables.extra.css"
+            "css/dataTables.bootstrap4.min.css",
+            "css/dataTables.bootstrap4.extra.css"
           ],
           "head": null,
           "attachment": null,
@@ -86,12 +91,45 @@
         },
         {
           "name": "jquery",
-          "version": "3.5.1",
+          "version": "3.6.0",
           "src": {
-            "href": "jquery-3.5.1"
+            "href": "jquery-3.6.0"
           },
           "meta": null,
-          "script": "jquery.min.js",
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "bootstrap",
+          "version": "5.0.2",
+          "src": {
+            "href": "bootstrap-5.0.2"
+          },
+          "meta": {
+            "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no"
+          },
+          "script": "bootstrap.bundle.min.js",
+          "stylesheet": "bootstrap.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "bs3compat",
+          "version": "0.2.5.9002",
+          "src": {
+            "href": "bs3compat-0.2.5.9002"
+          },
+          "meta": null,
+          "script": [
+            "transition.js",
+            "tabs.js",
+            "bs3compat.js"
+          ],
           "stylesheet": null,
           "head": null,
           "attachment": null,
@@ -114,8 +152,10 @@
     },
     "table": {
       "x": {
+        "style": "bootstrap4",
         "filter": "none",
-        "container": "<table class=\"display\">\n  <thead>\n    <tr>\n      <th>value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
+        "vertical": false,
+        "container": "<table class=\"table table-striped table-hover row-border order-column display\">\n  <thead>\n    <tr>\n      <th>value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>",
         "options": {
           "dom": "t",
           "ordering": false,
@@ -152,16 +192,19 @@
       ],
       "deps": [
         {
-          "name": "dt-core",
+          "name": "dt-core-bootstrap4",
           "version": "1.10.20",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-bootstrap4-1.10.20"
           },
           "meta": null,
-          "script": "js/jquery.dataTables.min.js",
+          "script": [
+            "js/jquery.dataTables.min.js",
+            "js/dataTables.bootstrap4.min.js"
+          ],
           "stylesheet": [
-            "css/jquery.dataTables.min.css",
-            "css/jquery.dataTables.extra.css"
+            "css/dataTables.bootstrap4.min.css",
+            "css/dataTables.bootstrap4.extra.css"
           ],
           "head": null,
           "attachment": null,
@@ -170,12 +213,45 @@
         },
         {
           "name": "jquery",
-          "version": "3.5.1",
+          "version": "3.6.0",
           "src": {
-            "href": "jquery-3.5.1"
+            "href": "jquery-3.6.0"
           },
           "meta": null,
-          "script": "jquery.min.js",
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "bootstrap",
+          "version": "5.0.2",
+          "src": {
+            "href": "bootstrap-5.0.2"
+          },
+          "meta": {
+            "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no"
+          },
+          "script": "bootstrap.bundle.min.js",
+          "stylesheet": "bootstrap.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "bs3compat",
+          "version": "0.2.5.9002",
+          "src": {
+            "href": "bs3compat-0.2.5.9002"
+          },
+          "meta": null,
+          "script": [
+            "transition.js",
+            "tabs.js",
+            "bs3compat.js"
+          ],
           "stylesheet": null,
           "head": null,
           "attachment": null,
