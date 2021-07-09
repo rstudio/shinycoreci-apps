@@ -23,14 +23,14 @@
           "name": "selectize",
           "version": "0.12.4",
           "src": {
-            "href": "shared/selectize"
+            "href": "selectize-0.12.4"
           },
           "meta": null,
           "script": [
-            "js/selectize.min.js",
-            "accessibility/js/selectize-plugin-a11y.min.js"
+            "selectize.min.js",
+            "selectize-plugin-a11y.min.js"
           ],
-          "stylesheet": "css/selectize.bootstrap3.css",
+          "stylesheet": "selectize.css",
           "head": null,
           "attachment": null,
           "package": null,
