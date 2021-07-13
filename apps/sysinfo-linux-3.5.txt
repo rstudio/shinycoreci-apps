@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-07-09                  
+ date     2021-07-13                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -62,7 +62,7 @@ osVersion: Ubuntu 18.04.5 LTS
 47        htmlwidgets       1.5.3   RSPM                       
 48             httpuv  1.6.1.9001    Git 0ce9175        /master
 49               httr       1.4.2   RSPM                       
-50            isoband       0.2.4   RSPM                       
+50            isoband       0.2.5   CRAN                       
 51          jquerylib       0.1.4   RSPM                       
 52           jsonlite       1.7.2   RSPM                       
 53              knitr        1.33   RSPM                       
@@ -131,7 +131,7 @@ osVersion: Ubuntu 18.04.5 LTS
 116                sp       1.4-5   RSPM                       
 117           stringi       1.6.2   RSPM                       
 118           stringr       1.4.0   RSPM                       
-119            styler       1.4.1   RSPM                       
+119            styler       1.5.1   CRAN                       
 120               sys         3.4   RSPM                       
 121          testthat       3.0.4   RSPM                       
 122          thematic     0.1.2.1    Git 9858628        /master
