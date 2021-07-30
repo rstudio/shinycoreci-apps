@@ -13,7 +13,14 @@ app$snapshot()
 app$setInputs(selectizeInput = "California")
 app$snapshot()
 
+# Verify the modal is closed when Dismiss is clicked
+app$executeScript(
+    "window.modalHidden = false;
+    $(document).on('hidden.bs.modal', function(e) {window.modalHidden = true; });"
+  )
+
 # Click the Dismiss button
 app$executeScript("$('button[data-dismiss=\"modal\"]').click()")
-Sys.sleep(1)
+app$waitFor("window.modalHidden")
 app$snapshot()
+
