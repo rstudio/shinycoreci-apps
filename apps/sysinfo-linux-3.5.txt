@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-07-29                  
+ date     2021-07-31                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -80,7 +80,7 @@ osVersion: Ubuntu 18.04.5 LTS
 65            openssl       1.4.4   RSPM                       
 66            packrat       0.6.0   RSPM                       
 67          parsedate       1.2.1   RSPM                       
-68             pillar       1.6.2   CRAN                       
+68             pillar       1.6.2   RSPM                       
 69              pingr       2.0.1   RSPM                       
 70           pkgbuild       1.2.0   RSPM                       
 71           pkgcache       1.2.2   RSPM                       
