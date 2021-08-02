@@ -62,6 +62,7 @@ structure(c(`001-hello` = "https://beta.rstudioconnect.com/content/2faa225b-1516
 `111-insert-ui` = "https://beta.rstudioconnect.com/content/7b559cab-8bcf-497e-b9e7-90aea2fe91d6/", 
 `112-generate-report` = "https://beta.rstudioconnect.com/content/66293a97-3300-4011-906f-46e4acb546e2/", 
 `114-modal-dialog` = "https://beta.rstudioconnect.com/content/6a5c7b9f-f1c0-4fd4-bf8b-31d818357701/", 
+`115-remove-modal` = "https://beta.rstudioconnect.com/content/999388e0-350e-4055-b0be-75281e909b5d/", 
 `117-shinythemes` = "https://beta.rstudioconnect.com/content/cf973004-7a98-4bc7-8bc8-1fa8e238d17e/", 
 `118-highcharter-births` = "https://beta.rstudioconnect.com/content/a05e99a0-d9a8-4116-91fb-0eda0468dd59/", 
 `119-namespaced-conditionalpanel-demo` = "https://beta.rstudioconnect.com/content/8ab747b0-0adc-4f55-9f22-92d47bb820a7/", 
