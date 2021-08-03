@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-07-29                  
+ date     2021-08-03                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -38,7 +38,7 @@ osVersion: Ubuntu 18.04.5 LTS
 23            diffobj       0.3.4   RSPM                       
 24             digest      0.6.27   RSPM                       
 25              dplyr       1.0.7   RSPM                       
-26                 DT      0.18.1    Git c49fb4d        /master
+26                 DT      0.18.2    Git f0043fa        /master
 27           dygraphs     1.1.1.7    Git 70b60ab        /master
 28           ellipsis       0.3.2   RSPM                       
 29            english       1.2-5   RSPM                       
@@ -80,7 +80,7 @@ osVersion: Ubuntu 18.04.5 LTS
 65            openssl       1.4.4   RSPM                       
 66            packrat       0.6.0   RSPM                       
 67          parsedate       1.2.1   RSPM                       
-68             pillar       1.6.1   RSPM                       
+68             pillar       1.6.2   RSPM                       
 69              pingr       2.0.1   RSPM                       
 70           pkgbuild       1.2.0   RSPM                       
 71           pkgcache       1.2.2   RSPM                       
@@ -119,7 +119,7 @@ osVersion: Ubuntu 18.04.5 LTS
 104              sass  0.4.0.9000    Git f148415        /master
 105            scales       1.1.1   RSPM                       
 106       sessioninfo       1.1.1   RSPM                       
-107             shiny  1.6.0.9022    Git ffef0c2        /master
+107             shiny  1.6.0.9022    Git a6f02cf        /master
 108       shinycoreci  0.0.0.9005 GitHub 25f4727 rstudio/master
 109        shinyjster  0.0.0.9009    Git e813088        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
