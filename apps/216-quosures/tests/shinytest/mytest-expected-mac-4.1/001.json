@@ -1,0 +1,24 @@
+{
+  "input": {
+
+  },
+  "output": {
+    "example": {
+      "x": {
+        "diagram": "\n    graph LR\n      A-->B\n      A-->C\n      C-->E\n      B-->D\n      C-->D\n      D-->F\n      E-->F\n  "
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
