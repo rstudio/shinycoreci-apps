@@ -17,7 +17,7 @@
     "code": "<code>options(shiny.sanitize.errors = FALSE)<\/code>",
     "intentionalError": {
       "message": "top secret info",
-      "call": "renderText(...)",
+      "call": "renderText()",
       "type": null
     }
   },
