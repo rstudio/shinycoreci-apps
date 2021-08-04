@@ -120,7 +120,7 @@ osVersion: Ubuntu 18.04.5 LTS
 105            scales       1.1.1   RSPM                       
 106       sessioninfo       1.1.1   RSPM                       
 107             shiny  1.6.0.9022    Git a6f02cf        /master
-108       shinycoreci  0.0.0.9005 GitHub 5f398ef rstudio/master
+108       shinycoreci  0.0.0.9005 GitHub 25f4727 rstudio/master
 109        shinyjster  0.0.0.9009    Git e813088        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
 111         shinytest  1.5.0.9001    Git 9eb82c7        /master
