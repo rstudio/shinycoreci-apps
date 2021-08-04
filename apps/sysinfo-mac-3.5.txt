@@ -1,4 +1,4 @@
-Image Version:  20210725.1 
+Image Version:  20210801.1 
 osVersion: macOS  10.15.7
 --------------------------------------------------------------------------------
  setting  value                       
@@ -10,7 +10,7 @@ osVersion: macOS  10.15.7
  collate  en_US.UTF-8                 
  ctype    en_US.UTF-8                 
  tz       UTC                         
- date     2021-08-03                  
+ date     2021-08-04                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   CRAN                       
@@ -120,7 +120,7 @@ osVersion: macOS  10.15.7
 105            scales       1.1.1   CRAN                       
 106       sessioninfo       1.1.1   CRAN                       
 107             shiny  1.6.0.9022    Git a6f02cf        /master
-108       shinycoreci  0.0.0.9005 GitHub 25f4727 rstudio/master
+108       shinycoreci  0.0.0.9005 GitHub 5f398ef rstudio/master
 109        shinyjster  0.0.0.9009    Git e813088        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
 111         shinytest  1.5.0.9001    Git 9eb82c7        /master
