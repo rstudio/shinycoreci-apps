@@ -3,3 +3,6 @@ app$snapshotInit("mytest")
 
 app$snapshot()
 
+app$setInputs(n = "click")
+
+app$snapshot()
