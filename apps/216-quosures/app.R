@@ -5,9 +5,12 @@ library(DiagrammeR)
 
 shinyApp(
   ui = fluidPage(
-    tags$h1(tags$code("{shiny}"), "+", tags$code("quosure")),
+    tags$h1(tags$code("shiny::installExprFunction(rlang::quo(x), quoted = TRUE)")),
     tags$p(
-      "Init PR allowing quosures to `exprToFunction()` and `installExprFunction()` with increased usage of `installExprFunction()` within Shiny: ", tags$a("https://github.com/rstudio/shiny/pull/3472", href = "https://github.com/rstudio/shiny/pull/3472")
+      "Init PR allowing quosures to", tags$code("exprToFunction()"), "and",
+      tags$code("installExprFunction()"), "with increased usage of",
+      tags$code("installExprFunction()"), "within Shiny: ",
+      tags$a("https://github.com/rstudio/shiny/pull/3472", href = "https://github.com/rstudio/shiny/pull/3472")
     ),
     actionButton("n", "Click Me!"),
     tags$br(),
@@ -15,45 +18,45 @@ shinyApp(
       column(8,
         fluidRow(
           column(3,
-            "reactive() - Three values of ", textOutput("reactive__expected", inline = TRUE), ":", tags$br(),
+            tags$code("reactive()"), "- Three values of ", textOutput("reactive__expected", inline = TRUE), ":", tags$br(),
             verbatimTextOutput("reactive__manual", placeholder = TRUE),
             verbatimTextOutput("reactive__quoted", placeholder = TRUE),
             verbatimTextOutput("reactive__injected", placeholder = TRUE)
           ),
           column(3,
-            "renderText() - Three values of ", textOutput("text__expected", inline = TRUE), ":", tags$br(),
+            tags$code("renderText()"), "- Three values of ", textOutput("text__expected", inline = TRUE), ":", tags$br(),
             verbatimTextOutput("text__manual", placeholder = TRUE),
             verbatimTextOutput("text__quoted", placeholder = TRUE),
             verbatimTextOutput("text__injected", placeholder = TRUE)
           ),
           column(3,
-            "renderPrint() - Three values of ", textOutput("print__expected", inline = TRUE), ":", tags$br(),
+            tags$code("renderPrint()"), "- Three values of ", textOutput("print__expected", inline = TRUE), ":", tags$br(),
             verbatimTextOutput("print__manual", placeholder = TRUE),
             verbatimTextOutput("print__quoted", placeholder = TRUE),
             verbatimTextOutput("print__injected", placeholder = TRUE)
           ),
           column(3,
-            "observe() - Displays click count:", tags$br(),
+            tags$code("observe()"), "- Displays click count:", tags$br(),
             verbatimTextOutput("observe__rv", placeholder = TRUE),
-            "eventReactive() - Displays click count:", tags$br(),
+            tags$code("eventReactive()"), "- Displays click count:", tags$br(),
             verbatimTextOutput("event__value", placeholder = TRUE)
           )
         ),
         fluidRow(
           column(5,
-            "External htmlwidgets - Three diagrammer models that point to letter: ", textOutput("render__expected", inline = TRUE), tags$br(),
+            "External", tags$code("htmlwidgets"), "- Three diagrammer models that point to letter: ", textOutput("render__expected", inline = TRUE), tags$br(),
             DiagrammeROutput("render__manual"),
             DiagrammeROutput("render__quoted"),
             DiagrammeROutput("render__injected")
           ),
           column(3,
-            "renderTable() - Three tables of first ", textOutput("table__expected", inline = TRUE), "rows", tags$br(),
+            tags$code("renderTable()"), "- Three tables of first ", textOutput("table__expected", inline = TRUE), "rows", tags$br(),
             tableOutput("table__manual"),
             tableOutput("table__quoted"),
             tableOutput("table__injected")
           ),
           column(4,
-            "renderImage() - Three", textOutput("image__expected", inline = TRUE), " images:", tags$br(),
+            tags$code("renderImage()"), "- Three", textOutput("image__expected", inline = TRUE), " images:", tags$br(),
             imageOutput("image__manual", height = 150),
             imageOutput("image__quoted", height = 150),
             imageOutput("image__injected", height = 150)
@@ -61,7 +64,7 @@ shinyApp(
         )
       ),
       column(4,
-        "renderPlot() - Three plots of 1:", textOutput("plot__expected", inline = TRUE), tags$br(),
+        tags$code("renderPlot()"), "- Three plots of 1:", textOutput("plot__expected", inline = TRUE), tags$br(),
         plotOutput("plot__manual", height = 250),
         plotOutput("plot__quoted", height = 250),
         plotOutput("plot__injected", height = 250)
