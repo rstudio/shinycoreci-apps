@@ -3,9 +3,13 @@ library(rlang)
 library(DiagrammeR)
 
 
+inlineCodeOutput <- function(id) {
+  tags$code(textOutput(id, inline = TRUE), .noWS = "inside")
+}
+
 shinyApp(
   ui = fluidPage(
-    tags$h1(tags$code("shiny::installExprFunction(rlang::quo(x), quoted = TRUE)")),
+    tags$h3(tags$code("shiny::installExprFunction(rlang::quo(x), quoted = TRUE)")),
     tags$p(
       "Init PR allowing quosures to", tags$code("exprToFunction()"), "and",
       tags$code("installExprFunction()"), "with increased usage of",
@@ -18,45 +22,47 @@ shinyApp(
       column(8,
         fluidRow(
           column(3,
-            tags$code("reactive()"), "- Three values of ", textOutput("reactive__expected", inline = TRUE), ":", tags$br(),
+            tags$code("reactive()"), "- Three values of ", inlineCodeOutput("reactive__expected"), ":", tags$br(),
             verbatimTextOutput("reactive__manual", placeholder = TRUE),
             verbatimTextOutput("reactive__quoted", placeholder = TRUE),
             verbatimTextOutput("reactive__injected", placeholder = TRUE)
           ),
           column(3,
-            tags$code("renderText()"), "- Three values of ", textOutput("text__expected", inline = TRUE), ":", tags$br(),
+            tags$code("renderText()"), "- Three values of ", inlineCodeOutput("text__expected"), ":", tags$br(),
             verbatimTextOutput("text__manual", placeholder = TRUE),
             verbatimTextOutput("text__quoted", placeholder = TRUE),
             verbatimTextOutput("text__injected", placeholder = TRUE)
           ),
           column(3,
-            tags$code("renderPrint()"), "- Three values of ", textOutput("print__expected", inline = TRUE), ":", tags$br(),
+            tags$code("renderPrint()"), "- Three values of ", inlineCodeOutput("print__expected"), ":", tags$br(),
             verbatimTextOutput("print__manual", placeholder = TRUE),
             verbatimTextOutput("print__quoted", placeholder = TRUE),
             verbatimTextOutput("print__injected", placeholder = TRUE)
           ),
           column(3,
-            tags$code("observe()"), "- Displays click count:", tags$br(),
+            tags$code("observe()"), "-", inlineCodeOutput("observe__expected"), ":", tags$br(),
             verbatimTextOutput("observe__rv", placeholder = TRUE),
-            tags$code("eventReactive()"), "- Displays click count:", tags$br(),
+            tags$code("observeEvent()"), "-", inlineCodeOutput("observe_event__expected"), ":", tags$br(),
+            verbatimTextOutput("observe_event__rv", placeholder = TRUE),
+            tags$code("eventReactive()"), "-", inlineCodeOutput("event__expected"), ":", tags$br(),
             verbatimTextOutput("event__value", placeholder = TRUE)
           )
         ),
         fluidRow(
           column(5,
-            "External", tags$code("htmlwidgets"), "- Three diagrammer models that point to letter: ", textOutput("render__expected", inline = TRUE), tags$br(),
+            "External", tags$code("htmlwidgets"), "- Three diagrammer models that point to letter: ", inlineCodeOutput("render__expected"), tags$br(),
             DiagrammeROutput("render__manual"),
             DiagrammeROutput("render__quoted"),
             DiagrammeROutput("render__injected")
           ),
           column(3,
-            tags$code("renderTable()"), "- Three tables of first ", textOutput("table__expected", inline = TRUE), "rows", tags$br(),
+            tags$code("renderTable()"), "- Three tables of first ", inlineCodeOutput("table__expected"), "rows", tags$br(),
             tableOutput("table__manual"),
             tableOutput("table__quoted"),
             tableOutput("table__injected")
           ),
           column(4,
-            tags$code("renderImage()"), "- Three", textOutput("image__expected", inline = TRUE), " images:", tags$br(),
+            tags$code("renderImage()"), "- Three", inlineCodeOutput("image__expected"), " images:", tags$br(),
             imageOutput("image__manual", height = 150),
             imageOutput("image__quoted", height = 150),
             imageOutput("image__injected", height = 150)
@@ -64,7 +70,7 @@ shinyApp(
         )
       ),
       column(4,
-        tags$code("renderPlot()"), "- Three plots of 1:", textOutput("plot__expected", inline = TRUE), tags$br(),
+        tags$code("renderPlot()"), "- Three plots of", inlineCodeOutput("plot__expected"), ":", tags$br(),
         plotOutput("plot__manual", height = 250),
         plotOutput("plot__quoted", height = 250),
         plotOutput("plot__injected", height = 250)
@@ -107,6 +113,15 @@ shinyApp(
       txt <- "Clicks: "
       quo({
         observe_rv(
+          paste0(txt, input$n)
+        )
+      })
+    })
+    handler_rv <- reactiveVal(NULL)
+    handler_quo <- local({
+      txt <- "Clicks: "
+      quo({
+        handler_rv(
           paste0(txt, input$n)
         )
       })
@@ -182,7 +197,7 @@ shinyApp(
     output$render__quoted <- renderDiagrammeR(dia_quo, quoted = TRUE)
     output$render__injected <- inject(renderDiagrammeR(!!dia_quo))
 
-    output$plot__expected <- renderText(input$n + 5)
+    output$plot__expected <- renderText(paste0("1:", input$n + 5))
     output$plot__manual <- renderPlot(quo_get_expr(plot_quo), env = quo_get_env(plot_quo), quoted = TRUE)
     output$plot__quoted <- renderPlot(plot_quo, quoted = TRUE)
     output$plot__injected <- inject(renderPlot(!!plot_quo))
@@ -192,14 +207,27 @@ shinyApp(
     output$table__quoted <- renderTable(table_quo, quoted = TRUE)
     output$table__injected <- inject(renderTable(!!table_quo))
 
+    ex_quo <- quo({
+      paste0("Clicks: ", input$n)
+    })
+    output$observe__expected <- renderText(ex_quo, quoted = TRUE)
+    output$observe_event__expected <- renderText(ex_quo, quoted = TRUE)
+    output$event__expected <- renderText(ex_quo, quoted = TRUE)
+
+    # Manual only. Injected is easier to detect/handle in code
+    observe(
+      observe_quo,
+      quoted = TRUE
+    )
+    output$observe__rv <- renderText(observe_rv())
     # Manual only. Injected is easier to detect/handle in code
     observeEvent(
       eventExpr = event_quo,
-      handlerExpr = observe_quo,
+      handlerExpr = handler_quo,
       event.quoted = TRUE,
       handler.quoted = TRUE
     )
-    output$observe__rv <- renderText(observe_rv())
+    output$observe_event__rv <- renderText(handler_rv())
     # Manual only. Injected is easier to detect/handle in code
     event_ret <- eventReactive(
       eventExpr = event_quo,
