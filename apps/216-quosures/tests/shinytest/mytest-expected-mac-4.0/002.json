@@ -4,7 +4,9 @@
   },
   "output": {
     "event__expected": "Clicks: 1",
-    "event__value": "Clicks: 1",
+    "event_reactive__injected": "9 - Clicks: 1",
+    "event_reactive__manual": "7 - Clicks: 1",
+    "event_reactive__quoted": "8 - Clicks: 1",
     "image__expected": "shocked face",
     "image__injected": {
       "src": "[image data sha1: b296bc86df62efcef55faefb5d36467daddc15d8]",
@@ -25,13 +27,17 @@
       "alt": "Face"
     },
     "observe__expected": "Clicks: 1",
-    "observe__rv": "Clicks: 1",
+    "observe__injected": "3 - Clicks: 1",
+    "observe__manual": "1 - Clicks: 1",
+    "observe__quoted": "2 - Clicks: 1",
     "observe_event__expected": "Clicks: 1",
-    "observe_event__rv": "Clicks: 1",
+    "observe_event__injected": "6 - Clicks: 1",
+    "observe_event__manual": "4 - Clicks: 1",
+    "observe_event__quoted": "5 - Clicks: 1",
     "plot__expected": "1:6",
     "plot__injected": {
-      "src": "[image data sha1: b6f859f86925d9e53f8cc9ffa9bef9f9ce593504]",
-      "width": 301,
+      "src": "[image data sha1: 2dba4ed15b32741c7ee8aa1cc243e2df8d67589b]",
+      "width": 250,
       "height": 250,
       "alt": "Plot object",
       "coordmap": {
@@ -45,7 +51,7 @@
             },
             "range": {
               "left": 59.04,
-              "right": 270.76,
+              "right": 219.76,
               "bottom": 175.56,
               "top": 58.04
             },
@@ -59,14 +65,14 @@
           }
         ],
         "dims": {
-          "width": 301,
+          "width": 250,
           "height": 250
         }
       }
     },
     "plot__manual": {
-      "src": "[image data sha1: b6f859f86925d9e53f8cc9ffa9bef9f9ce593504]",
-      "width": 301,
+      "src": "[image data sha1: 2dba4ed15b32741c7ee8aa1cc243e2df8d67589b]",
+      "width": 250,
       "height": 250,
       "alt": "Plot object",
       "coordmap": {
@@ -80,7 +86,7 @@
             },
             "range": {
               "left": 59.04,
-              "right": 270.76,
+              "right": 219.76,
               "bottom": 175.56,
               "top": 58.04
             },
@@ -94,14 +100,14 @@
           }
         ],
         "dims": {
-          "width": 301,
+          "width": 250,
           "height": 250
         }
       }
     },
     "plot__quoted": {
-      "src": "[image data sha1: b6f859f86925d9e53f8cc9ffa9bef9f9ce593504]",
-      "width": 301,
+      "src": "[image data sha1: 2dba4ed15b32741c7ee8aa1cc243e2df8d67589b]",
+      "width": 250,
       "height": 250,
       "alt": "Plot object",
       "coordmap": {
@@ -115,7 +121,7 @@
             },
             "range": {
               "left": 59.04,
-              "right": 270.76,
+              "right": 219.76,
               "bottom": 175.56,
               "top": 58.04
             },
@@ -129,7 +135,7 @@
           }
         ],
         "dims": {
-          "width": 301,
+          "width": 250,
           "height": 250
         }
       }
