@@ -1,5 +1,4 @@
 app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
-app$setWindowSize(1100, 750)
 Sys.sleep(2)
 app$snapshotInit("mytest")
 Sys.sleep(2)
