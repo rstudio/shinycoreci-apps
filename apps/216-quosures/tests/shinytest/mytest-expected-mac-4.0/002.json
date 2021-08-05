@@ -3,6 +3,7 @@
     "n": 1
   },
   "output": {
+    "event__expected": "Clicks: 1",
     "event__value": "Clicks: 1",
     "image__expected": "shocked face",
     "image__injected": {
@@ -23,8 +24,11 @@
       "width": "150px",
       "alt": "Face"
     },
+    "observe__expected": "Clicks: 1",
     "observe__rv": "Clicks: 1",
-    "plot__expected": "6",
+    "observe_event__expected": "Clicks: 1",
+    "observe_event__rv": "Clicks: 1",
+    "plot__expected": "1:6",
     "plot__injected": {
       "src": "[image data sha1: b6f859f86925d9e53f8cc9ffa9bef9f9ce593504]",
       "width": 301,

@@ -3,6 +3,7 @@
     "n": 0
   },
   "output": {
+    "event__expected": "Clicks: 0",
     "event__value": "Clicks: 0",
     "image__expected": "bear lifting",
     "image__injected": {
@@ -23,8 +24,11 @@
       "width": "150px",
       "alt": "Deadlift"
     },
+    "observe__expected": "Clicks: 0",
     "observe__rv": "Clicks: 0",
-    "plot__expected": "5",
+    "observe_event__expected": "Clicks: 0",
+    "observe_event__rv": "Clicks: 0",
+    "plot__expected": "1:5",
     "plot__injected": {
       "src": "[image data sha1: aa66264185ba764ad9182356dd3cd09ed7be8673]",
       "width": 301,
