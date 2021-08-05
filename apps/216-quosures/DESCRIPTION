@@ -1,7 +1,0 @@
-Type: Shiny
-Title: quosure support for shiny custom render functions
-Author: Barret, Madhulika
-AuthorUrl: http://www.rstudio.com/
-License: MIT
-Tags: quosures
-DisplayMode: Showcase
