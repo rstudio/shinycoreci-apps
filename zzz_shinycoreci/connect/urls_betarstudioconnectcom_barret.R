@@ -148,6 +148,7 @@ structure(c(`001-hello` = "https://beta.rstudioconnect.com/content/2faa225b-1516
 `213-tab-panels` = "https://beta.rstudioconnect.com/content/041c8aab-a048-41ce-b1ab-561c359142a7/", 
 `214-render-script-attrs` = "https://beta.rstudioconnect.com/content/246ae441-1a22-4a77-8a05-71615fdfefcb/", 
 `215-bslib-nav` = "https://beta.rstudioconnect.com/content/5cf29c27-70cf-41ad-a12e-293f81ef50dc/", 
+`216-quosures` = "https://beta.rstudioconnect.com/content/6483be61-cc27-44e4-84be-e61718dc3ca3/", 
 `300-bs-themer` = "https://beta.rstudioconnect.com/content/35545a4d-ad66-4d58-8d46-24d890e43016/", 
 `301-bs-themes` = "https://beta.rstudioconnect.com/content/f8eee5ea-7a78-4821-98b9-bd5c073af443/", 
 `302-bootswatch-themes` = "https://beta.rstudioconnect.com/content/17225553-a042-4bee-bb37-d961bcdbf482/", 
