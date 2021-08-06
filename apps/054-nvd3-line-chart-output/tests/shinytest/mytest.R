@@ -1,11 +1,13 @@
 app <- ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
-app$setWindowSize(1100, 750)
 app$snapshotInit("mytest")
+
 Sys.sleep(2)
 app$snapshot()
+
 app$setInputs(sineAmplitude = -1.5)
 Sys.sleep(2)
 app$snapshot()
+
 app$setInputs(sineAmplitude = -0.1)
 app$setInputs(sinePhase = 100)
 Sys.sleep(2)
