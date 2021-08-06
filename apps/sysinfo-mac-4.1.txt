@@ -1,7 +1,7 @@
-Image Version:  20210801.1 
+Image Version:  20210801.1
 osVersion: macOS Catalina 10.15.7
 --------------------------------------------------------------------------------
- setting  value                       
+ setting  value
  version  R version 4.1.0 (2021-05-18)
  os       macOS Catalina 10.15.7      
  system   x86_64, darwin17.0          
