@@ -318,6 +318,5 @@ shinyApp(
     output$image__quoted <- renderImage(image_quo, quoted = TRUE, deleteFile = FALSE)
     output$image__injected <- inject(renderImage(!!image_quo, deleteFile = FALSE))
 
-
   }
 )
