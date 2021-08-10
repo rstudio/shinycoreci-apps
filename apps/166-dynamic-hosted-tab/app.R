@@ -1,6 +1,3 @@
-### Keep this line to manually test this shiny application. Do not edit this line; shinycoreci::::is_manual_app
-
-
 
 # devtools::install_github("rstudio/shiny#2545")
 # devtools::install_github("rstudio/shiny")
