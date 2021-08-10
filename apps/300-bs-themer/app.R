@@ -17,18 +17,22 @@ if (FALSE) {
   #   paste0("library(", ., ")", collapse = "\n") %>%
   #   cat()
 
-  library(curl)
-  library(DT)
-  library(ggplot2)
-  library(hexbin)
-  library(lattice)
-  library(reactable)
-  library(rlang)
-  library(rprojroot)
-  library(rsconnect)
-  library(shiny)
-  library(thematic)
-  library(tools)
+library(bslib)
+library(curl)
+library(DT)
+library(ggplot2)
+library(hexbin)
+library(htmltools)
+library(knitr)
+library(lattice)
+library(reactable)
+library(rlang)
+library(rprojroot)
+library(rsconnect)
+library(shiny)
+library(thematic)
+library(tools)
+
 }
 
 # Essentially the same as bs_theme_preview(), but deployable
