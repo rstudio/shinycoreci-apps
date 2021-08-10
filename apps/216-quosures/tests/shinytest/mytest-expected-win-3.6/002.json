@@ -36,7 +36,7 @@
     "observe_event__quoted": "5 - Clicks: 1",
     "plot__expected": "1:6",
     "plot__injected": {
-      "src": "[image data sha1: ab9f9c558a088551961e08adfc8d7b6b8a3d9f3d]",
+      "src": "[image data sha1: d269b3a16d866c5f41870f1f932353873b173a6d]",
       "width": 250,
       "height": 250,
       "alt": "Plot object",
@@ -50,10 +50,10 @@
               "top": 6.2
             },
             "range": {
-              "left": 59.0400236160094,
-              "right": 219.759987903995,
-              "bottom": 175.559970623988,
-              "top": 58.0400236160095
+              "left": 59.04,
+              "right": 219.76,
+              "bottom": 175.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
@@ -71,7 +71,7 @@
       }
     },
     "plot__manual": {
-      "src": "[image data sha1: ab9f9c558a088551961e08adfc8d7b6b8a3d9f3d]",
+      "src": "[image data sha1: d269b3a16d866c5f41870f1f932353873b173a6d]",
       "width": 250,
       "height": 250,
       "alt": "Plot object",
@@ -85,10 +85,10 @@
               "top": 6.2
             },
             "range": {
-              "left": 59.0400236160094,
-              "right": 219.759987903995,
-              "bottom": 175.559970623988,
-              "top": 58.0400236160095
+              "left": 59.04,
+              "right": 219.76,
+              "bottom": 175.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
@@ -106,7 +106,7 @@
       }
     },
     "plot__quoted": {
-      "src": "[image data sha1: ab9f9c558a088551961e08adfc8d7b6b8a3d9f3d]",
+      "src": "[image data sha1: d269b3a16d866c5f41870f1f932353873b173a6d]",
       "width": 250,
       "height": 250,
       "alt": "Plot object",
@@ -120,10 +120,10 @@
               "top": 6.2
             },
             "range": {
-              "left": 59.0400236160094,
-              "right": 219.759987903995,
-              "bottom": 175.559970623988,
-              "top": 58.0400236160095
+              "left": 59.04,
+              "right": 219.76,
+              "bottom": 175.56,
+              "top": 58.04
             },
             "log": {
               "x": null,
