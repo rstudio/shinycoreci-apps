@@ -165,7 +165,8 @@ server <- function(input, output, session) {
 
   showModal(
     modalDialog(
-      textInput("url", "WebSocket URL", "wss://echo.websocket.org"),
+      textInput("url", "WebSocket URL", paste0("ws://127.0.0.1:", wsPort)),
+      HTML("Note: Can only test <code>127.0.0.1</code> addresses when testing locally.<br/>Ex: Can not test on RStudio Connect as <code>127.0.0.1</code> does not exist."),
       footer = actionButton("connect", "OK"),
       easyClose = FALSE,
       size = "s"
