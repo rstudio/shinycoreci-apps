@@ -81,7 +81,7 @@ ui <- fluidPage(
         Jster.assert.isEqual(
           // first output value is equal to test value
           $('#output table tr:nth-child(1) td:nth-child(2)').text().trim(),
-          testVal
+          'local relay: ' + testVal
         );
       });
     });
