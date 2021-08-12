@@ -2,6 +2,9 @@ library(shiny)
 library(websocket)
 library(shinyjs)
 
+# Host local websocket server
+wsPort <- httpuv::randomPort()
+
 ui <- fluidPage(
   shinyjs::useShinyjs(),
   fluidRow(
@@ -21,7 +24,7 @@ ui <- fluidPage(
       tableOutput("output")
     )
   ),
-  shinyjster::shinyjster_js("
+  shinyjster::shinyjster_js(paste0("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() { Jster.button.click('connect'); });
@@ -52,7 +55,7 @@ ui <- fluidPage(
         wait();
       })
       jst.add(function() {
-        Jster.assert.isEqual($('#status').text().trim(), 'Connected to wss://echo.websocket.org');
+        Jster.assert.isEqual($('#status').text().trim(), 'Connected to ws://127.0.0.1:", wsPort, "');
 
         Jster.input.setValue('input', testVal);
       });
@@ -107,12 +110,12 @@ ui <- fluidPage(
     jst.add(function() {
       Jster.assert.isEqual(
         $('#status').text().trim(),
-        'Closed: 1000 -'
+        'Closed: 1006 -'
       );
     });
 
     jst.test();
-  ")
+  "))
 )
 
 server <- function(input, output, session) {
@@ -192,6 +195,30 @@ server <- function(input, output, session) {
     status()
   })
 
+  cat("Starting local httpuv WS server on port ", wsPort, "...\n", sep = "")
+  wsServer <- httpuv::startServer("127.0.0.1", wsPort,
+    list(
+    #   onHeaders = function(req) {
+    #     # Print connection headers
+    #     cat(capture.output(str(as.list(req))), sep = "\n")
+    #   },
+      onWSOpen = function(ws) {
+        # cat("Connection opened.\n")
+        ws$onMessage(function(binary, message) {
+          # cat("Server received message:", message, "\n")
+          ws$send(paste0("local relay: ", message))
+        })
+        # ws$onClose(function() {
+        #   cat("Connection closed.\n")
+        # })
+      }
+    )
+  )
+  onStop(function() {
+    cat("Closing local httpuv WS server on port ", wsPort, "\n", sep = "")
+    httpuv::stopServer(wsServer)
+  })
 }
+
 
 shinyApp(ui, server)
