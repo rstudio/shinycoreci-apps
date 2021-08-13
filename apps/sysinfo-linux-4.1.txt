@@ -1,8 +1,8 @@
-Image Version:  20210803.5 
+Image Version:  20210810.1 
 osVersion: Ubuntu 18.04.5 LTS
 --------------------------------------------------------------------------------
  setting  value                       
- version  R version 4.1.0 (2021-05-18)
+ version  R version 4.1.1 (2021-08-10)
  os       Ubuntu 18.04.5 LTS          
  system   x86_64, linux-gnu           
  ui       X11                         
@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.5 LTS
  collate  C.UTF-8                     
  ctype    C.UTF-8                     
  tz       UTC                         
- date     2021-08-10                  
+ date     2021-08-13                  
 --------------------------------------------------------------------------------
               Package     Version Source     SHA            Ref
 1         AsioHeaders    1.16.1-1   RSPM                       
@@ -119,7 +119,7 @@ osVersion: Ubuntu 18.04.5 LTS
 104              sass  0.4.0.9000    Git f148415        /master
 105            scales       1.1.1   RSPM                       
 106       sessioninfo       1.1.1   RSPM                       
-107             shiny  1.6.0.9022    Git 68deab9        /master
+107             shiny  1.6.0.9022    Git 8e40c81        /master
 108       shinycoreci  0.0.0.9005 GitHub 5f398ef rstudio/master
 109        shinyjster  0.0.0.9009    Git e813088        /master
 110         shinymeta  0.2.0.9000    Git 6180c18        /master
@@ -162,8 +162,8 @@ osVersion: Ubuntu 18.04.5 LTS
 147        KernSmooth     2.23-20   CRAN                       
 148           lattice     0.20-44   CRAN                       
 149              MASS      7.3-54   CRAN                       
-150            Matrix       1.3-3   CRAN                       
-151              mgcv      1.8-35   CRAN                       
+150            Matrix       1.3-4   CRAN                       
+151              mgcv      1.8-36   CRAN                       
 152              nlme     3.1-152   CRAN                       
 153              nnet      7.3-16   CRAN                       
 154             rpart      4.1-15   CRAN                       
