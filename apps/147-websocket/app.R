@@ -2,6 +2,9 @@ library(shiny)
 library(websocket)
 library(shinyjs)
 
+# Host local websocket server
+wsPort <- httpuv::randomPort()
+
 ui <- fluidPage(
   shinyjs::useShinyjs(),
   fluidRow(
@@ -21,7 +24,7 @@ ui <- fluidPage(
       tableOutput("output")
     )
   ),
-  shinyjster::shinyjster_js("
+  shinyjster::shinyjster_js(paste0("
     var jst = jster();
     jst.add(Jster.shiny.waitUntilStable);
     jst.add(function() { Jster.button.click('connect'); });
@@ -52,7 +55,7 @@ ui <- fluidPage(
         wait();
       })
       jst.add(function() {
-        Jster.assert.isEqual($('#status').text().trim(), 'Connected to wss://echo.websocket.org');
+        Jster.assert.isEqual($('#status').text().trim(), 'Connected to ws://127.0.0.1:", wsPort, "');
 
         Jster.input.setValue('input', testVal);
       });
@@ -72,13 +75,13 @@ ui <- fluidPage(
         }
         wait();
       });
-      jst.add(Jster.shiny.waitUntilIdleFor(2000));
+      jst.add(Jster.shiny.waitUntilIdleFor(500));
 
       jst.add(function() {
         Jster.assert.isEqual(
           // first output value is equal to test value
           $('#output table tr:nth-child(1) td:nth-child(2)').text().trim(),
-          testVal
+          'local relay: ' + testVal
         );
       });
     });
@@ -107,12 +110,12 @@ ui <- fluidPage(
     jst.add(function() {
       Jster.assert.isEqual(
         $('#status').text().trim(),
-        'Closed: 1000 -'
+        'Closed: 1006 -'
       );
     });
 
     jst.test();
-  ")
+  "))
 )
 
 server <- function(input, output, session) {
@@ -133,7 +136,7 @@ server <- function(input, output, session) {
   setEnabled(FALSE)
 
   connect <- function(url) {
-    ws <- WebSocket$new("wss://echo.websocket.org")
+    ws <- websocket::WebSocket$new(url)
     status(paste0("Connecting to ", url, ", please wait..."))
     ws$onError(function(event) {
       setEnabled(FALSE)
@@ -149,7 +152,7 @@ server <- function(input, output, session) {
     })
     ws$onOpen(function(event) {
       setEnabled(TRUE)
-      status(paste0("Connected to ", isolate(input$url)))
+      status(paste0("Connected to ", url))
     })
     ws$onClose(function(event) {
       setEnabled(FALSE)
@@ -162,7 +165,8 @@ server <- function(input, output, session) {
 
   showModal(
     modalDialog(
-      textInput("url", "WebSocket URL", "wss://echo.websocket.org"),
+      textInput("url", "WebSocket URL", paste0("ws://127.0.0.1:", wsPort)),
+      HTML("Note: Can only test <code>127.0.0.1</code> addresses when testing locally.<br/>Ex: Can not test on RStudio Connect as <code>127.0.0.1</code> does not exist."),
       footer = actionButton("connect", "OK"),
       easyClose = FALSE,
       size = "s"
@@ -192,6 +196,30 @@ server <- function(input, output, session) {
     status()
   })
 
+  cat("Starting local httpuv WS server on port ", wsPort, "...\n", sep = "")
+  wsServer <- httpuv::startServer("127.0.0.1", wsPort,
+    list(
+    #   onHeaders = function(req) {
+    #     # Print connection headers
+    #     cat(capture.output(str(as.list(req))), sep = "\n")
+    #   },
+      onWSOpen = function(ws) {
+        # cat("Connection opened.\n")
+        ws$onMessage(function(binary, message) {
+          # cat("Server received message:", message, "\n")
+          ws$send(paste0("local relay: ", message))
+        })
+        # ws$onClose(function() {
+        #   cat("Connection closed.\n")
+        # })
+      }
+    )
+  )
+  onStop(function() {
+    cat("Closing local httpuv WS server on port ", wsPort, "\n", sep = "")
+    httpuv::stopServer(wsServer)
+  })
 }
+
 
 shinyApp(ui, server)
