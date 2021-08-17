@@ -85,7 +85,7 @@ osVersion: Ubuntu 18.04.5 LTS
 70           pkgbuild       1.2.0   RSPM                       
 71           pkgcache       1.2.2   RSPM                       
 72          pkgconfig       2.0.3   RSPM                       
-73         pkgdepends  0.1.2.9000    Git f3c5195        /master
+73         pkgdepends  0.1.2.9000    Git 622837f        /master
 74            pkgload       1.2.1   RSPM                       
 75             plotly     4.9.4.1   RSPM                       
 76                png       0.1-7   RSPM                       
