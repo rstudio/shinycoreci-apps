@@ -131,16 +131,15 @@
         },
         {
           "name": "htmlwidgets",
-          "version": "1.5.3",
+          "version": "1.5.4",
           "src": {
-            "href": "htmlwidgets-1.5.3"
+            "href": "htmlwidgets-1.5.4"
           },
           "meta": null,
           "script": "htmlwidgets.js",
           "stylesheet": null,
           "head": null,
           "attachment": null,
-          "package": null,
           "all_files": true
         },
         {
@@ -154,7 +153,6 @@
           "stylesheet": null,
           "head": null,
           "attachment": null,
-          "package": null,
           "all_files": false
         },
         {
