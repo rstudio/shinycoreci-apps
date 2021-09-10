@@ -49,5 +49,12 @@ release <- paste0(
   collapse = "."
 )
 if (identical(paste0("mac-", release), shinycoreci::platform_rversion())) {
+  # Yell if there are extra expected folders
+  folders <- dir("shinytest", pattern = "-expected-")
+  is_bad_folder <- !(grepl(paste0("-", release, "$"), folders) & grepl("-mac-", folders))
+  if (any(is_bad_folder)) {
+    stop("Unexpected output folders found:\n", paste0("* ", folders[is_bad_folder], collapse = "\n"))
+  }
+
   run_test_app()
 }
