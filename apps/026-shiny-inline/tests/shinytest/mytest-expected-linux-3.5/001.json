@@ -10,16 +10,15 @@
       "deps": [
         {
           "name": "jquery",
-          "version": "1.11.3",
+          "version": "3.6.0",
           "src": {
-            "href": "jquery-1.11.3"
+            "href": "jquery-3.6.0"
           },
           "meta": null,
-          "script": "jquery.min.js",
+          "script": "jquery-3.6.0.min.js",
           "stylesheet": null,
           "head": null,
           "attachment": null,
-          "package": null,
           "all_files": true
         },
         {
