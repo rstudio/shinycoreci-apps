@@ -131,7 +131,7 @@ osVersion: macOS Catalina 10.15.7
 116                sp      1.4-5   CRAN                       
 117           stringi      1.7.4   CRAN                       
 118           stringr      1.4.0   CRAN                       
-119            styler      1.5.1   CRAN                       
+119            styler      1.6.1   CRAN                       
 120               sys        3.4   CRAN                       
 121          testthat      3.0.4   CRAN                       
 122          thematic    0.1.2.1    Git 9858628        /master
