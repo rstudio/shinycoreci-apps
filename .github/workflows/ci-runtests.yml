@@ -437,6 +437,11 @@ jobs:
           options(install.packages.check.source = 'no')
           if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()
 
+      - name: Temp install of shiny from GitHub
+        shell: Rscript {0}
+        run: |
+          remotes::install_github('rstudio/shiny#3515', force = TRUE)
+
       - name: Session info
         shell: Rscript {0}
         run: |
