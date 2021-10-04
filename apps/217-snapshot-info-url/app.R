@@ -4,12 +4,18 @@ library(shiny)
 
 shinyOptions(shiny.testmode = TRUE)
 
-items <- c("aa", "bb", "åå", "∫∫", "AA", "BB", "a_", "b_", "_A", "_B")
-items_expected <- c("AA", "BB", "_A", "_B", "a_", "aa", "b_", "bb", "åå", "∫∫")
-# sort(items, method = "radix")
-# #> [1] "AA" "BB" "_A" "_B" "a_" "aa" "b_" "bb" "åå" "∫∫"
-# sort(items, method = "shell")
-# #> [1] "_A" "_B" "∫∫" "a_" "aa" "AA" "åå" "b_" "bb" "BB"
+if (shinytest::osName() == "win") {
+  # Windows does not like UTF-8
+  items <- c("aa", "bb", "AA", "BB", "a_", "b_", "_A", "_B")
+  items_expected <- c("AA", "BB", "_A", "_B", "a_", "aa", "b_", "bb")
+} else {
+  items <- c("aa", "bb", "åå", "∫∫", "AA", "BB", "a_", "b_", "_A", "_B")
+  items_expected <- c("AA", "BB", "_A", "_B", "a_", "aa", "b_", "bb", "åå", "∫∫")
+  # sort(items, method = "radix")
+  # #> [1] "AA" "BB" "_A" "_B" "a_" "aa" "b_" "bb" "åå" "∫∫"
+  # sort(items, method = "shell")
+  # #> [1] "_A" "_B" "∫∫" "a_" "aa" "AA" "åå" "b_" "bb" "BB"
+}
 
 uiItems <- lapply(items, function(item) {
   textOutput(item, inline = TRUE)
