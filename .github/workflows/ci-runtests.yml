@@ -3,10 +3,12 @@ name: runTests
 on:
   push:
     branches:
+      - main
       - master
       - ghactions
   pull_request:
     branches:
+      - main
       - master
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_16
@@ -31,42 +33,42 @@ jobs:
       oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}
     steps:
     - name: devel
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: devel
       with:
         r-version: devel
         install-r: false # No need to install. Just need version
 
     - name: release
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: release
       with:
         r-version: release
         install-r: false # No need to install. Just need version
 
     - name: oldrel/1
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: oldrel1
       with:
         r-version: oldrel/1
         install-r: false # No need to install. Just need version
 
     - name: oldrel/2
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: oldrel2
       with:
         r-version: oldrel/2
         install-r: false # No need to install. Just need version
 
     - name: oldrel/3
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: oldrel3
       with:
         r-version: oldrel/3
         install-r: false # No need to install. Just need version
 
     - name: oldrel/4
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: oldrel4
       with:
         r-version: oldrel/4
@@ -296,9 +298,9 @@ jobs:
         with:
           format: 'json'
 
-      - uses: r-lib/actions/setup-pandoc@master
+      - uses: r-lib/actions/setup-pandoc@v1
 
-      - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-r@v1
         id: install-r
         with:
           r-version: ${{ matrix.r }}
