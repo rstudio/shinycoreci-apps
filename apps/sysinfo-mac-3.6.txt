@@ -120,7 +120,7 @@ osVersion: macOS Catalina 10.15.7
 105            scales      1.1.1   CRAN                       
 106       sessioninfo      1.1.1   CRAN                       
 107             shiny 1.7.1.9000    Git a8c14da        /master
-108       shinycoreci 0.0.0.9005 GitHub 2e7b004 rstudio/master
+108       shinycoreci 0.0.0.9005 GitHub bc451a5 rstudio/master
 109        shinyjster 0.0.0.9009    Git 80d62b6        /master
 110         shinymeta 0.2.0.9000    Git 6180c18        /master
 111         shinytest 1.5.1.9000    Git d0f6d73        /master
