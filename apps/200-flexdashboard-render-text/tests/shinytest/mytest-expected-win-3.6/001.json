@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: ebd37c414cfb4475131a9bdac0a63953ab0a422a]",
+      "html": "[html data sha1: d1b52a9838831bcdb4f768dff980c6df2ee02539]",
       "deps": [
         {
           "name": "jquery",
@@ -143,9 +143,9 @@
         },
         {
           "name": "plotly-binding",
-          "version": "4.9.4.1",
+          "version": "4.10.0",
           "src": {
-            "href": "plotly-binding-4.9.4.1"
+            "href": "plotly-binding-4.10.0"
           },
           "meta": null,
           "script": "plotly.js",
@@ -297,6 +297,10 @@
         },
         "source": "A",
         "config": {
+          "modeBarButtonsToAdd": [
+            "hoverclosest",
+            "hovercompare"
+          ],
           "showSendToCloud": false
         },
         "data": [
@@ -514,9 +518,9 @@
         },
         {
           "name": "plotly-htmlwidgets-css",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-htmlwidgets-css-1.57.1"
+            "href": "plotly-htmlwidgets-css-2.5.1"
           },
           "meta": null,
           "script": null,
@@ -527,9 +531,9 @@
         },
         {
           "name": "plotly-main",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-main-1.57.1"
+            "href": "plotly-main-2.5.1"
           },
           "meta": null,
           "script": "plotly-latest.min.js",
