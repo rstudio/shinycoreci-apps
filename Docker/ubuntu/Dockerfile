@@ -1,8 +1,8 @@
 # To build, cd to this directory, then:
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} -t rstudio/shinycoreci:base-4.1-focal .
 #   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg R_VERSION=3.5 -t rstudio/shinycoreci:base-3.5-bionic .
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg RELEASE=xenial -t rstudio/shinycoreci:base-3.6-xenial .
-#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg SHINYCORECI_SHA="shiny-1.4.0.1" -t rstudio/shinycoreci:base-3.6-bionic-rc_v1.4.0.1 .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg RELEASE=xenial -t rstudio/shinycoreci:base-4.0-xenial .
+#   docker build --build-arg GITHUB_PAT=${GITHUB_PAT} --build-arg SHINYCORECI_SHA="shiny-1.4.0.1" -t rstudio/shinycoreci:base-4.0-bionic-rc_v1.4.0.1 .
 
 #
 
@@ -13,7 +13,7 @@ ARG RELEASE=focal
 FROM rstudio/r-base:${R_VERSION}-${RELEASE}
 ARG RELEASE=focal
 
-MAINTAINER Barret Schloerke "barret@rstudio.com"
+# MAINTAINER Barret Schloerke "barret@rstudio.com"
 
 # Don't print "debconf: unable to initialize frontend: Dialog" messages
 ARG DEBIAN_FRONTEND=noninteractive
@@ -106,29 +106,11 @@ RUN echo "options(\n\
 
 RUN R -e 'source("https://packagemanager.rstudio.com/__docs__/admin/check-user-agent.R")'
 
-###
-# shinycoreci
-###
-
-ARG GITHUB_PAT=NOTSUPPLIED
-# make sure the variable persists
-ENV GITHUB_PAT=$GITHUB_PAT
-
-# prep install
-RUN R --quiet -e "install.packages('remotes')"
-RUN R --quiet -e "remotes::install_cran(c('knitr', 'rmarkdown', 'curl'))"
-RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
-
-ARG SHINYCORECI_SHA=master
-ARG APPS_SHA=master
-
-# install testing repo at specific sha
-RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}', auth_token ='${GITHUB_PAT}')"
-
 
 ###
 # shinycoreci-apps
 ###
+ARG APPS_SHA=master
 
 # Download the repo in a temp folder, then unzip it into the home folder
 RUN mkdir -p /tmp/apps_repo && \
@@ -142,16 +124,50 @@ RUN ls -alh ~ && echo '' &&  ls -alh ~/apps
 # remove radiant as it has a lot of trouble being installed
 RUN rm -r ~/apps/141-radiant
 
+###
+# shinycoreci
+###
+
+# Remove prior installed
+# RUN R --quiet -e 'a <- as.data.frame(installed.packages()); print(a); remove.packages(print(a$Package[is.na(a$Priority)]))'
+
+
+# prep install
+# RUN R --quiet -e "install.packages('remotes')"
+# RUN R --quiet -e "remotes::install_cran(c('shinytest'), dependencies = TRUE)"
+# ENV R_LIBS_USER=~/R_LIB
+# RUN mkdir -p "${R_LIBS_USER}"
+# # RUN echo "R_LIBS_USER=${R_LIBS_USER}" >> `Rscript -e "cat(R.home())"`/etc/Renviron
+# RUN echo "R_LIBS_USER=${R_LIBS_USER}" >> ~/.Renviron
+# RUN cat ~/.Renviron
+# RUN R --quiet -e ".libPaths()"
+# RUN R --quiet -e "as.data.frame(available.packages())"
+# RUN ls -R `Rscript --quiet -e "cat(R.home())"`
+
+# RUN R --quiet -e "install.packages('shinytest', dependencies = TRUE)"
+
+ARG SHINYCORECI_SHA=remotes_pak_deps
+ARG GITHUB_PAT=NOTSUPPLIED
+# make sure the variable persists
+ENV GITHUB_PAT=$GITHUB_PAT
+
+# install testing repo at specific sha
+RUN R --quiet -e "install.packages('pak', repos = 'https://r-lib.github.io/p/pak/dev/')" \
+  -e "pak::pkg_install('rstudio/shinycoreci@${SHINYCORECI_SHA}')" \
+  -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))" \
+  -e "shinycoreci:::update_packages_installed('~/apps')"
+# RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}')"
+
+
+###
+# shinycoreci-apps install system deps and pkgs
+###
+
 # install R pkg system requirements
-## Install manually until ragg / RSPM fixes it; https://github.com/r-lib/ragg/issues/41
-RUN apt-get update && apt-get install -y \
-  libfreetype6-dev \
-  libpng-dev \
-  libtiff5-dev
 # Must use `~/apps` as default working directory is not `~`
-RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
-# install r pkgs
-RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps')"
+# RUN R --quiet -e "system(print(shinycoreci::rspm_all_install_scripts('~/apps', release = '${RELEASE}')))"
+# # install r pkgs and all deps
+# RUN R --quiet -e "shinycoreci:::update_packages_installed('~/apps')"
 
 
 COPY retail.c _retail.c
