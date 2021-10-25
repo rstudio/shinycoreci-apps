@@ -1,4 +1,4 @@
-Image Version:  20211011.0 
+Image Version:  20211018.0 
 osVersion: Windows Server x64 (build 17763)
 --------------------------------------------------------------------------------
  setting  value                       
@@ -10,7 +10,7 @@ osVersion: Windows Server x64 (build 17763)
  collate  English_United States.1252  
  ctype    English_United States.1252  
  tz       UTC                         
- date     2021-10-19                  
+ date     2021-10-22                  
 --------------------------------------------------------------------------------
               Package    Version Source     SHA            Ref
 1         AsioHeaders   1.16.1-1   CRAN                       
@@ -20,7 +20,7 @@ osVersion: Windows Server x64 (build 17763)
 5           base64enc      0.1-3   CRAN                       
 6              bitops      1.0-7   CRAN                       
 7                brio      1.1.2   CRAN                       
-8               bslib 0.3.1.9000    Git e89f267        /master
+8               bslib 0.3.1.9000    Git 5698142        /master
 9              cachem 1.0.6.9000    Git dc280fa        /master
 10              callr      3.7.0   CRAN                       
 11          checkmate      2.0.0   CRAN                       
@@ -47,7 +47,7 @@ osVersion: Windows Server x64 (build 17763)
 32             farver      2.1.0   CRAN                       
 33            fastmap 1.1.0.9000    Git f3e1c3a        /master
 34           filelock      1.0.2   CRAN                       
-35      flexdashboard 0.5.2.9000    Git bb9bd14        /master
+35      flexdashboard 0.5.2.9000    Git 69e46f4        /master
 36        fontawesome 0.2.2.9000    Git 0de890f        /master
 37                 fs      1.5.0   CRAN                       
 38           generics      0.1.0   CRAN                       
@@ -83,9 +83,9 @@ osVersion: Windows Server x64 (build 17763)
 68             pillar      1.6.4   CRAN                       
 69              pingr      2.0.1   CRAN                       
 70           pkgbuild      1.2.0   CRAN                       
-71           pkgcache      1.2.2   CRAN                       
+71           pkgcache 1.2.2.9000 GitHub d0e75f3     r-lib/HEAD
 72          pkgconfig      2.0.3   CRAN                       
-73         pkgdepends 0.1.2.9000    Git 6803bbf        /master
+73         pkgdepends 0.1.2.9000    Git 0e3f693        /master
 74            pkgload      1.2.3   CRAN                       
 75             plotly     4.10.0   CRAN                       
 76                png      0.1-7   CRAN                       
@@ -120,7 +120,7 @@ osVersion: Windows Server x64 (build 17763)
 105            scales      1.1.1   CRAN                       
 106       sessioninfo      1.1.1   CRAN                       
 107             shiny 1.7.1.9000    Git a8c14da        /master
-108       shinycoreci 0.0.0.9005 GitHub bc451a5 rstudio/master
+108       shinycoreci 0.0.0.9005 GitHub d520048 rstudio/master
 109        shinyjster 0.0.0.9009    Git 80d62b6        /master
 110         shinymeta 0.2.0.9000    Git 6180c18        /master
 111         shinytest 1.5.1.9000    Git d0f6d73        /master
@@ -135,7 +135,7 @@ osVersion: Windows Server x64 (build 17763)
 120               sys        3.4   CRAN                       
 121             terra     1.4-11   CRAN                       
 122          testthat      3.1.0   CRAN                       
-123          thematic    0.1.2.1    Git 9858628        /master
+123          thematic 0.1.2.9000    Git 98b5102        /master
 124            tibble      3.1.5   CRAN                       
 125             tidyr      1.1.4   CRAN                       
 126        tidyselect      1.1.1   CRAN                       
