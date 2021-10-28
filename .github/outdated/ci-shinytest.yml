@@ -3,11 +3,11 @@ name: shinytest
 on:
   push:
     branches:
-      - master
+      - main
       - ghactions
   pull_request:
     branches:
-      - master
+      - main
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   schedule:
     - cron:  '0 6 * * 0-4' # every work night at ~ midnight central time
@@ -28,11 +28,11 @@ jobs:
 
       matrix:
         shinycoreci:
-        - { branch: "master", text: ""}
+        - { branch: "main", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         config:
-        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "master", shinycoreci_text: ""}
-        - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "master", shinycoreci_text: ""}
+        - { os: macOS-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "main", shinycoreci_text: ""}
+        - { os: windows-latest, r: '3.6', cran: "https://cloud.r-project.org", shinycoreci_branch: "main", shinycoreci_text: ""}
         - { os: ubuntu-18.04, r: '3.6', cran: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
 
     env:
@@ -55,9 +55,9 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/checkout@v2
 
-      - uses: r-lib/actions/setup-pandoc@master
+      - uses: r-lib/actions/setup-pandoc@v1
 
-      - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-r@v1
         with:
           r-version: ${{ matrix.config.r }}
       - name: R Options
@@ -110,7 +110,7 @@ jobs:
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
-      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If master branch, only the `.sha` exists. If a PR, the PR sha exists.
+      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If main branch, only the `.sha` exists. If a PR, the PR sha exists.
       #  Either way, take the first 7 characters.
       # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
       # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent

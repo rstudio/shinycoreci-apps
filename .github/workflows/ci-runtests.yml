@@ -3,11 +3,11 @@ name: runTests
 on:
   push:
     branches:
-      - master
+      - main
       - ghactions
   pull_request:
     branches:
-      - master
+      - main
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_16
   schedule:
@@ -31,42 +31,42 @@ jobs:
       oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}
     steps:
     - name: devel
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: devel
       with:
         r-version: devel
         install-r: false # No need to install. Just need version
 
     - name: release
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: release
       with:
         r-version: release
         install-r: false # No need to install. Just need version
 
     - name: oldrel/1
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: oldrel1
       with:
         r-version: oldrel/1
         install-r: false # No need to install. Just need version
 
     - name: oldrel/2
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: oldrel2
       with:
         r-version: oldrel/2
         install-r: false # No need to install. Just need version
 
     - name: oldrel/3
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: oldrel3
       with:
         r-version: oldrel/3
         install-r: false # No need to install. Just need version
 
     - name: oldrel/4
-      uses: r-lib/actions/setup-r@master
+      uses: r-lib/actions/setup-r@v1
       id: oldrel4
       with:
         r-version: oldrel/4
@@ -224,7 +224,7 @@ jobs:
       max-parallel: 6
       matrix:
         shinycoreci:
-        - { branch: "master", text: ""}
+        - { branch: "main", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
           # - ${{ needs.rversions.outputs.devel }}
@@ -296,9 +296,9 @@ jobs:
         with:
           format: 'json'
 
-      - uses: r-lib/actions/setup-pandoc@master
+      - uses: r-lib/actions/setup-pandoc@v1
 
-      - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-r@v1
         id: install-r
         with:
           r-version: ${{ matrix.r }}
@@ -406,7 +406,7 @@ jobs:
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
-      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If master branch, only the `.sha` exists. If a PR, the PR sha exists.
+      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If main branch, only the `.sha` exists. If a PR, the PR sha exists.
       #  Either way, take the first 7 characters.
       # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
       # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
