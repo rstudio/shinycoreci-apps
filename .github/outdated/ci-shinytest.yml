@@ -177,7 +177,7 @@ jobs:
           # if any commits occured, then push to repo (compare to sha of current execution)
           echo "`git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}`"
           if (( `git rev-list --count HEAD ^${{ steps.short_sha.outputs.sha }}` > 0 )); then
-            git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
+            git push --force https://schloerke:${{secrets.GITHUB_TOKEN}}@github.com/rstudio/shinycoreci-apps.git "HEAD:$BRANCH"
           fi
 
 
