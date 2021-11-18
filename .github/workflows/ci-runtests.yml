@@ -240,7 +240,7 @@ jobs:
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
-      GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Short R version and SHA
@@ -552,7 +552,7 @@ jobs:
           echo "`git rev-list --count HEAD ^${{ steps.short.outputs.sha }}`"
           if (( `git rev-list --count HEAD ^${{ steps.short.outputs.sha }}` > 0 )); then
             # This branch should never exist. Force push
-            git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
+            git push --force "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/rstudio/shinycoreci-apps.git" "HEAD:${{ steps.gha_branch.outputs.name }}"
           fi
 
       - name: Push test results to rstudio/shinycoreci-apps
@@ -573,7 +573,7 @@ jobs:
           # attempt to push until success. Allow for 15 attempts
           counter=0
           git pull origin _test_results
-          until git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+          until git push "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/rstudio/shinycoreci-apps.git" _test_results
           do
             # wait 5-15 seconds to avoid deadlock
             sleep $[ ($RANDOM % 10) + 5 ]s

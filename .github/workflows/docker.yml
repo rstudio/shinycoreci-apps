@@ -120,6 +120,11 @@ jobs:
 
     steps:
 
+    - name: Stop boom
+      run: |
+        echo "Need to find a way around the PAT storage issue"
+        exit 1
+
     - name: Get R version
       uses: r-lib/actions/setup-r@v1
       id: install-r
@@ -160,7 +165,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         cache: ${{ github.event_name == 'push' }}
         workdir: ${{ matrix.docker.workdir }}
-        buildargs: "R_VERSION=${{ steps.short.outputs.r-version }},RELEASE=${{ matrix.docker.type }},APPS_SHA=${{ steps.short.outputs.sha }},SHINYCORECI_SHA=${{ matrix.flavor.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_PAT }}"
+        buildargs: "R_VERSION=${{ steps.short.outputs.r-version }},RELEASE=${{ matrix.docker.type }},APPS_SHA=${{ steps.short.outputs.sha }},SHINYCORECI_SHA=${{ matrix.flavor.shinycoreci_sha }},GITHUB_PAT=${{ secrets.GITHUB_TOKEN }}"
         tags: "base-${{ steps.short.outputs.r-version }}-${{ matrix.docker.type }}${{ matrix.flavor.extra_base_tag }}"
 
 
