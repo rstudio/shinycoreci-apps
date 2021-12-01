@@ -13,7 +13,31 @@
     "one-table_rows_current": 1,
     "one-table_rows_selected": null,
     "one-table_search": "",
-    "one-table_state": null,
+    "one-table_state": {
+      "time": 1638267929372,
+      "start": 0,
+      "length": 10,
+      "order": [
+
+      ],
+      "search": {
+        "search": "",
+        "smart": true,
+        "regex": false,
+        "caseInsensitive": true
+      },
+      "columns": [
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        }
+      ]
+    },
     "table_cell_clicked": {
 
     },
@@ -25,7 +49,31 @@
     "table_rows_current": 1,
     "table_rows_selected": null,
     "table_search": "",
-    "table_state": null
+    "table_state": {
+      "time": 1638267929368,
+      "start": 0,
+      "length": 10,
+      "order": [
+
+      ],
+      "search": {
+        "search": "",
+        "smart": true,
+        "regex": false,
+        "caseInsensitive": true
+      },
+      "columns": [
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        }
+      ]
+    }
   },
   "output": {
     "one-table": {
@@ -83,9 +131,9 @@
         },
         {
           "name": "dt-core",
-          "version": "1.10.20",
+          "version": "1.11.3",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-1.11.3"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
@@ -168,9 +216,9 @@
         },
         {
           "name": "dt-core",
-          "version": "1.10.20",
+          "version": "1.11.3",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-1.11.3"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
