@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.6 LTS
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2021-12-03
+ date     2021-12-08
  pandoc   2.7.3 @ /usr/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
@@ -119,7 +119,7 @@ osVersion: Ubuntu 18.04.6 LTS
 103        rstudioapi       0.13   RSPM                     
 104              sass 0.4.0.9000    Git f7a9540        /main
 105            scales      1.1.1   RSPM                     
-106       sessioninfo      1.2.1   RSPM                     
+106       sessioninfo      1.2.2   RSPM                     
 107             shiny 1.7.1.9002    Git 6a7ffef        /main
 108       shinycoreci 0.0.0.9005 GitHub fa63471 rstudio/main
 109        shinyjster 0.0.0.9009    Git 72ac7e4        /main
@@ -135,7 +135,7 @@ osVersion: Ubuntu 18.04.6 LTS
 119            styler      1.6.2   RSPM                     
 120               sys        3.4   RSPM                     
 121             terra     1.4-22   RSPM                     
-122          testthat      3.1.0   RSPM                     
+122          testthat      3.1.1   RSPM                     
 123          thematic 0.1.2.9000    Git dc79f6d        /main
 124            tibble      3.1.6   RSPM                     
 125             tidyr      1.1.4   RSPM                     
