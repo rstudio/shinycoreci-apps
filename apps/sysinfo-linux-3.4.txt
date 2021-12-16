@@ -1,4 +1,4 @@
-Image Version:  20211209.3 
+Image Version:  20211212.1 
 osVersion: Ubuntu 18.04.6 LTS
 --------------------------------------------------------------------------------
  setting  value
@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.6 LTS
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2021-12-15
+ date     2021-12-16
  pandoc   2.7.3 @ /usr/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
@@ -58,14 +58,14 @@ osVersion: Ubuntu 18.04.6 LTS
 42             gtable      0.3.0   RSPM                     
 43              highr        0.9   RSPM                     
 44                hms      1.1.1   RSPM                     
-45          htmltools 0.5.2.9000    Git 21cdfa4        /main
+45          htmltools 0.5.2.9000    Git 72cc41e        /main
 46        htmlwidgets      1.5.4   RSPM                     
 47             httpuv 1.6.4.9000    Git d1ebe75        /main
 48               httr      1.4.2   RSPM                     
 49            isoband      0.2.5   RSPM                     
 50          jquerylib      0.1.4   RSPM                     
 51           jsonlite      1.7.2   RSPM                     
-52              knitr       1.36   RSPM                     
+52              knitr       1.37   CRAN                     
 53           labeling      0.4.2   RSPM                     
 54              later 1.3.0.9000    Git 1d1b6a6        /main
 55           lazyeval      0.2.2   RSPM                     
