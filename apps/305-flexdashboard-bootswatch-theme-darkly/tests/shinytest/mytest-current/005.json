@@ -1,0 +1,750 @@
+{
+  "input": {
+    "htmlwidget-5f0bb5a83f4c95559f8b_cell_clicked": {
+
+    },
+    "htmlwidget-5f0bb5a83f4c95559f8b_cells_selected": [
+
+    ],
+    "htmlwidget-5f0bb5a83f4c95559f8b_columns_selected": null,
+    "htmlwidget-5f0bb5a83f4c95559f8b_rows_all": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "htmlwidget-5f0bb5a83f4c95559f8b_rows_current": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "htmlwidget-5f0bb5a83f4c95559f8b_rows_selected": null,
+    "htmlwidget-5f0bb5a83f4c95559f8b_search": "",
+    "htmlwidget-5f0bb5a83f4c95559f8b_state": {
+      "time": 1639685174430,
+      "start": 0,
+      "length": 10,
+      "order": [
+
+      ],
+      "search": {
+        "search": "",
+        "smart": true,
+        "regex": false,
+        "caseInsensitive": true
+      },
+      "columns": [
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        }
+      ]
+    },
+    "slider": 50
+  },
+  "output": {
+    "__reactivedoc__": {
+      "html": "[html data sha1: 19ff465f549625bdac29ab58a47ab235a59bba4f]",
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "3.6.0",
+          "src": {
+            "href": "jquery-3.6.0"
+          },
+          "meta": null,
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "bootstrap",
+          "version": "4.6.0",
+          "src": {
+            "href": "bootstrap-4.6.0"
+          },
+          "meta": {
+            "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no"
+          },
+          "script": "bootstrap.bundle.min.js",
+          "stylesheet": "bootstrap.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "bs3compat",
+          "version": "0.3.1.9000",
+          "src": {
+            "href": "bs3compat-0.3.1.9000"
+          },
+          "meta": null,
+          "script": [
+            "transition.js",
+            "tabs.js",
+            "bs3compat.js"
+          ],
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "flexdashboard-css",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "flexdashboard-css-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "flexdashboard-css.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "stickytableheaders",
+          "version": "0.1.19",
+          "src": {
+            "href": "stickytableheaders-0.1.19"
+          },
+          "meta": null,
+          "script": "jquery.stickytableheaders.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "font-awesome",
+          "version": "5.1.0",
+          "src": {
+            "href": "font-awesome-5.1.0"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": [
+            "css/all.css",
+            "css/v4-shims.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "featherlight",
+          "version": "1.3.5",
+          "src": {
+            "href": "featherlight-1.3.5"
+          },
+          "meta": null,
+          "script": "featherlight.min.js",
+          "stylesheet": "featherlight.min.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "prism",
+          "version": "1.4.1",
+          "src": {
+            "href": "prism-1.4.1"
+          },
+          "meta": null,
+          "script": "prism.js",
+          "stylesheet": "prism.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "ionrangeslider-javascript",
+          "version": "2.3.1",
+          "src": {
+            "href": "ionrangeslider-javascript-2.3.1"
+          },
+          "meta": null,
+          "script": "js/ion.rangeSlider.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "strftime",
+          "version": "0.9.2",
+          "src": {
+            "href": "strftime-0.9.2"
+          },
+          "meta": null,
+          "script": "strftime-min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "ionRangeSlider",
+          "version": "2.3.1",
+          "src": {
+            "href": "ionRangeSlider-2.3.1"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "ionRangeSlider.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "value-box-core",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-core-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "value-box-accent-dynamic",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "value-box-accent-dynamic-0.5.2.9000"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "value-box-accent-dynamic.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "htmlwidgets",
+          "version": "1.5.4",
+          "src": {
+            "href": "htmlwidgets-1.5.4"
+          },
+          "meta": null,
+          "script": "htmlwidgets.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "raphael",
+          "version": "2.1.4",
+          "src": {
+            "href": "raphael-2.1.4"
+          },
+          "meta": null,
+          "script": "raphael-2.1.4.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "justgage",
+          "version": "1.2.2.1",
+          "src": {
+            "href": "justgage-1.2.2.1"
+          },
+          "meta": null,
+          "script": "justgage.js",
+          "stylesheet": "justgage.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "gauge-binding",
+          "version": "0.5.2.9000",
+          "src": {
+            "href": "gauge-binding-0.5.2.9000"
+          },
+          "meta": null,
+          "script": "gauge.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "datatables-css",
+          "version": "0.0.0",
+          "src": {
+            "href": "datatables-css-0.0.0"
+          },
+          "meta": null,
+          "script": null,
+          "stylesheet": "datatables-crosstalk.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "datatables-binding",
+          "version": "0.20.1",
+          "src": {
+            "href": "datatables-binding-0.20.1"
+          },
+          "meta": null,
+          "script": "datatables.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "dt-core-bootstrap4",
+          "version": "1.11.3",
+          "src": {
+            "href": "dt-core-bootstrap4-1.11.3"
+          },
+          "meta": null,
+          "script": [
+            "js/jquery.dataTables.min.js",
+            "js/dataTables.bootstrap4.min.js"
+          ],
+          "stylesheet": [
+            "css/dataTables.bootstrap4.min.css",
+            "css/dataTables.bootstrap4.extra.css"
+          ],
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": false
+        },
+        {
+          "name": "crosstalk",
+          "version": "1.2.0.9000",
+          "src": {
+            "href": "crosstalk-1.2.0.9000"
+          },
+          "meta": null,
+          "script": "js/crosstalk.min.js",
+          "stylesheet": "css/crosstalk.min.css",
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        },
+        {
+          "name": "plotly-binding",
+          "version": "4.10.0",
+          "src": {
+            "href": "plotly-binding-4.10.0"
+          },
+          "meta": null,
+          "script": "plotly.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": false
+        },
+        {
+          "name": "sly",
+          "version": "1.6.1",
+          "src": {
+            "href": "sly-1.6.1"
+          },
+          "meta": null,
+          "script": "sly.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        },
+        {
+          "name": "rmarkdown-performance",
+          "version": "0.1",
+          "src": {
+            "href": "rmarkdown-performance-0.1"
+          },
+          "meta": null,
+          "script": "rmd_perf.js",
+          "stylesheet": "rmd_perf.css",
+          "head": null,
+          "attachment": null,
+          "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "out51701265bcae0999": {
+      "x": {
+        "value": 50,
+        "min": 0,
+        "max": 100,
+        "customSectors": {
+          "percents": false,
+          "ranges": [
+            {
+              "lo": 80,
+              "hi": 100,
+              "color": "#00bc8c"
+            },
+            {
+              "lo": 20,
+              "hi": 80,
+              "color": "#f39c12"
+            },
+            {
+              "lo": 0,
+              "hi": 20,
+              "color": "#e74c3c"
+            }
+          ]
+        },
+        "symbol": "%",
+        "label": null,
+        "humanFriendly": true,
+        "humanFriendlyDecimal": 1,
+        "href": null,
+        "gaugeColor": "#343434",
+        "valueFontColor": "#E6E6E6",
+        "labelFontColor": "#AAAAAA",
+        "valueFontFamily": "Lato, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+        "labelFontFamily": "Lato, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\""
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "3.6.0",
+          "src": {
+            "href": "jquery-3.6.0"
+          },
+          "meta": null,
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
+      ]
+    },
+    "outaeb2bcf3888f7ae8": {
+      "src": "[image data sha1: 8687bf83e310b9844dd9e0608f2e535cca88e880]",
+      "width": 650,
+      "height": 512,
+      "alt": "Plot object",
+      "coordmap": {
+        "panels": [
+          {
+            "panel": 1,
+            "row": 1,
+            "col": 1,
+            "panel_vars": {
+
+            },
+            "log": {
+              "x": null,
+              "y": null
+            },
+            "domain": {
+              "left": 39.9560810810811,
+              "right": 99.0439189189189,
+              "bottom": 1.39898648648649,
+              "top": 5.30101351351351
+            },
+            "mapping": {
+              "fill": "density",
+              "x": "waiting",
+              "y": "eruptions",
+              "z": "density"
+            },
+            "range": {
+              "left": 27.1506807544784,
+              "right": 586.185663242234,
+              "bottom": 479.849221347924,
+              "top": 22.9588996254281
+            }
+          }
+        ],
+        "dims": {
+          "width": 650,
+          "height": 512
+        }
+      }
+    },
+    "outd8476721e2b0e3e4": {
+      "x": {
+        "value": 7,
+        "min": 0,
+        "max": 10,
+        "customSectors": {
+          "percents": false,
+          "ranges": [
+            {
+              "lo": 1,
+              "hi": 2,
+              "color": "#00bc8c"
+            },
+            {
+              "lo": 3,
+              "hi": 7,
+              "color": "#f39c12"
+            },
+            {
+              "lo": 7,
+              "hi": 10,
+              "color": "#e74c3c"
+            }
+          ]
+        },
+        "symbol": null,
+        "label": null,
+        "humanFriendly": true,
+        "humanFriendlyDecimal": 1,
+        "href": null,
+        "gaugeColor": "#343434",
+        "valueFontColor": "#E6E6E6",
+        "labelFontColor": "#AAAAAA",
+        "valueFontFamily": "Lato, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+        "labelFontFamily": "Lato, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\""
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "3.6.0",
+          "src": {
+            "href": "jquery-3.6.0"
+          },
+          "meta": null,
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
+      ]
+    },
+    "outebfdefa266112547": {
+      "x": {
+        "value": 3.4,
+        "min": 0,
+        "max": 5,
+        "customSectors": {
+          "percents": false,
+          "ranges": [
+            {
+              "lo": 5,
+              "hi": 5,
+              "color": "#00bc8c"
+            },
+            {
+              "lo": 3,
+              "hi": 4,
+              "color": "#f39c12"
+            },
+            {
+              "lo": 1,
+              "hi": 2,
+              "color": "#e74c3c"
+            }
+          ]
+        },
+        "symbol": null,
+        "label": null,
+        "humanFriendly": true,
+        "humanFriendlyDecimal": 1,
+        "href": null,
+        "gaugeColor": "#343434",
+        "valueFontColor": "#E6E6E6",
+        "labelFontColor": "#AAAAAA",
+        "valueFontFamily": "Lato, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+        "labelFontFamily": "Lato, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\""
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "3.6.0",
+          "src": {
+            "href": "jquery-3.6.0"
+          },
+          "meta": null,
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
+      ]
+    }
+  },
+  "export": {
+
+  }
+}
