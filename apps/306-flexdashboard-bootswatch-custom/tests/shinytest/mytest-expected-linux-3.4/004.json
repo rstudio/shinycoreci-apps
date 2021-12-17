@@ -70,7 +70,7 @@
     "htmlwidget-5f0bb5a83f4c95559f8b_rows_selected": null,
     "htmlwidget-5f0bb5a83f4c95559f8b_search": "",
     "htmlwidget-5f0bb5a83f4c95559f8b_state": {
-      "time": 1639609411513,
+      "time": 1639685505960,
       "start": 0,
       "length": 10,
       "order": [
@@ -198,7 +198,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 97fc7f233d21ed225bcbcacfd81d964858d0ec5d]",
+      "html": "[html data sha1: 087547edfcdf9b1908e31b52cf96aabeb2b8ad59]",
       "deps": [
         {
           "name": "jquery",
@@ -38792,7 +38792,7 @@
                 "title": "density",
                 "titlefont": {
                   "color": "rgba(206,201,201,1)",
-                  "family": "'DejaVu Serif'",
+                  "family": "Pacifico",
                   "size": 24.906600249066
                 },
                 "tickmode": "array",
@@ -38808,7 +38808,7 @@
                 ],
                 "tickfont": {
                   "color": "rgba(206,201,201,1)",
-                  "family": "'DejaVu Serif'",
+                  "family": "Pacifico",
                   "size": 19.9252801992528
                 },
                 "ticklen": 2,
@@ -38831,14 +38831,14 @@
           "paper_bgcolor": "rgba(16,16,16,1)",
           "font": {
             "color": "rgba(206,201,201,1)",
-            "family": "'DejaVu Serif'",
+            "family": "Pacifico",
             "size": 24.906600249066
           },
           "title": {
             "text": "2d density estimate of Old Faithful data",
             "font": {
               "color": "rgba(206,201,201,1)",
-              "family": "'DejaVu Serif'",
+              "family": "Pacifico",
               "size": 29.8879202988792
             },
             "x": 0,
@@ -38890,7 +38890,7 @@
             "showticklabels": true,
             "tickfont": {
               "color": "rgba(137,134,134,1)",
-              "family": "'DejaVu Serif'",
+              "family": "Pacifico",
               "size": 19.9252801992528
             },
             "tickangle": 0,
@@ -38906,7 +38906,7 @@
               "text": "waiting",
               "font": {
                 "color": "rgba(206,201,201,1)",
-                "family": "'DejaVu Serif'",
+                "family": "Pacifico",
                 "size": 24.906600249066
               }
             },
@@ -38952,7 +38952,7 @@
             "showticklabels": true,
             "tickfont": {
               "color": "rgba(137,134,134,1)",
-              "family": "'DejaVu Serif'",
+              "family": "Pacifico",
               "size": 19.9252801992528
             },
             "tickangle": 0,
@@ -38968,7 +38968,7 @@
               "text": "eruptions",
               "font": {
                 "color": "rgba(206,201,201,1)",
-                "family": "'DejaVu Serif'",
+                "family": "Pacifico",
                 "size": 24.906600249066
               }
             },
@@ -38998,14 +38998,14 @@
             "borderwidth": 3.43593414459556,
             "font": {
               "color": "rgba(206,201,201,1)",
-              "family": "'DejaVu Serif'",
+              "family": "Pacifico",
               "size": 19.9252801992528
             },
             "title": {
               "text": "",
               "font": {
                 "color": "rgba(206,201,201,1)",
-                "family": "'DejaVu Serif'",
+                "family": "Pacifico",
                 "size": 24.906600249066
               }
             }
