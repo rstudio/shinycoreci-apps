@@ -1,10 +1,10 @@
 {
   "input": {
-
+    "slider": 91
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: a1578e4a3edb79e409cf215735cb6122c83bcd28]",
+      "html": "[html data sha1: e061d8c5dea14ddd5a213095ce415eba5b898c79]",
       "deps": [
         {
           "name": "jquery",
@@ -342,6 +342,180 @@
           "head": null,
           "attachment": null,
           "package": null,
+          "all_files": true
+        }
+      ]
+    },
+    "out51701265bcae0999": {
+      "x": {
+        "value": 91,
+        "min": 0,
+        "max": 100,
+        "customSectors": {
+          "percents": false,
+          "ranges": [
+            {
+              "lo": 80,
+              "hi": 100,
+              "color": "#28a745"
+            },
+            {
+              "lo": 20,
+              "hi": 80,
+              "color": "#ffc107"
+            },
+            {
+              "lo": 0,
+              "hi": 20,
+              "color": "#dc3545"
+            }
+          ]
+        },
+        "symbol": "%",
+        "label": null,
+        "humanFriendly": true,
+        "humanFriendlyDecimal": 1,
+        "href": null,
+        "gaugeColor": "#E2E2E2",
+        "valueFontColor": "#1B1B1B",
+        "labelFontColor": "#525252",
+        "valueFontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Liberation Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "labelFontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Liberation Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "3.6.0",
+          "src": {
+            "href": "jquery-3.6.0"
+          },
+          "meta": null,
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
+      ]
+    },
+    "outd8476721e2b0e3e4": {
+      "x": {
+        "value": 7,
+        "min": 0,
+        "max": 10,
+        "customSectors": {
+          "percents": false,
+          "ranges": [
+            {
+              "lo": 1,
+              "hi": 2,
+              "color": "#28a745"
+            },
+            {
+              "lo": 3,
+              "hi": 7,
+              "color": "#ffc107"
+            },
+            {
+              "lo": 7,
+              "hi": 10,
+              "color": "#dc3545"
+            }
+          ]
+        },
+        "symbol": null,
+        "label": null,
+        "humanFriendly": true,
+        "humanFriendlyDecimal": 1,
+        "href": null,
+        "gaugeColor": "#E2E2E2",
+        "valueFontColor": "#1B1B1B",
+        "labelFontColor": "#525252",
+        "valueFontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Liberation Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "labelFontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Liberation Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "3.6.0",
+          "src": {
+            "href": "jquery-3.6.0"
+          },
+          "meta": null,
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
+          "all_files": true
+        }
+      ]
+    },
+    "outebfdefa266112547": {
+      "x": {
+        "value": 3.4,
+        "min": 0,
+        "max": 5,
+        "customSectors": {
+          "percents": false,
+          "ranges": [
+            {
+              "lo": 5,
+              "hi": 5,
+              "color": "#28a745"
+            },
+            {
+              "lo": 3,
+              "hi": 4,
+              "color": "#ffc107"
+            },
+            {
+              "lo": 1,
+              "hi": 2,
+              "color": "#dc3545"
+            }
+          ]
+        },
+        "symbol": null,
+        "label": null,
+        "humanFriendly": true,
+        "humanFriendlyDecimal": 1,
+        "href": null,
+        "gaugeColor": "#E2E2E2",
+        "valueFontColor": "#1B1B1B",
+        "labelFontColor": "#525252",
+        "valueFontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Liberation Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "labelFontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Liberation Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+      },
+      "evals": [
+
+      ],
+      "jsHooks": [
+
+      ],
+      "deps": [
+        {
+          "name": "jquery",
+          "version": "3.6.0",
+          "src": {
+            "href": "jquery-3.6.0"
+          },
+          "meta": null,
+          "script": "jquery-3.6.0.min.js",
+          "stylesheet": null,
+          "head": null,
+          "attachment": null,
           "all_files": true
         }
       ]
