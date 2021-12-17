@@ -55,27 +55,136 @@
     ],
     "htmlwidget-4838ad5ef6d0b95e3cbb_rows_selected": null,
     "htmlwidget-4838ad5ef6d0b95e3cbb_search": "",
-    "htmlwidget-4838ad5ef6d0b95e3cbb_state": null,
+    "htmlwidget-4838ad5ef6d0b95e3cbb_state": {
+      "time": 1639684669663,
+      "start": 0,
+      "length": 10,
+      "order": [
+
+      ],
+      "search": {
+        "search": "",
+        "smart": true,
+        "regex": false,
+        "caseInsensitive": true
+      },
+      "columns": [
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        }
+      ]
+    },
     "slider": 50
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: 619532dbed10f21aa139f575f150797e6d178a5e]",
+      "html": "[html data sha1: d5e100cbac6c3ee3816bbc9d9ba1da58f437e857]",
       "deps": [
-        {
-          "name": "header-attrs",
-          "version": "2.11",
-          "src": {
-            "href": "header-attrs-2.11"
-          },
-          "meta": null,
-          "script": "header-attrs.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "package": null,
-          "all_files": true
-        },
         {
           "name": "jquery",
           "version": "3.6.0",
@@ -149,9 +258,9 @@
         },
         {
           "name": "bs3compat",
-          "version": "0.3.1",
+          "version": "0.3.1.9000",
           "src": {
-            "href": "bs3compat-0.3.1"
+            "href": "bs3compat-0.3.1.9000"
           },
           "meta": null,
           "script": [
@@ -371,9 +480,9 @@
         },
         {
           "name": "datatables-binding",
-          "version": "0.19.1",
+          "version": "0.20.1",
           "src": {
-            "href": "datatables-binding-0.19.1"
+            "href": "datatables-binding-0.20.1"
           },
           "meta": null,
           "script": "datatables.js",
@@ -384,9 +493,9 @@
         },
         {
           "name": "dt-core-bootstrap4",
-          "version": "1.10.20",
+          "version": "1.11.3",
           "src": {
-            "href": "dt-core-bootstrap4-1.10.20"
+            "href": "dt-core-bootstrap4-1.11.3"
           },
           "meta": null,
           "script": [
@@ -404,9 +513,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.1.9000",
+          "version": "1.2.0.9000",
           "src": {
-            "href": "crosstalk-1.1.1.9000"
+            "href": "crosstalk-1.2.0.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",

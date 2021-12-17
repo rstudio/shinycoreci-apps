@@ -10,7 +10,7 @@ osVersion: macOS Big Sur 10.16
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       UTC
- date     2021-12-15
+ date     2021-12-16
  pandoc   2.7.3 @ /usr/local/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
@@ -58,14 +58,14 @@ osVersion: macOS Big Sur 10.16
 42             gtable      0.3.0   CRAN                     
 43              highr        0.9   CRAN                     
 44                hms      1.1.1   CRAN                     
-45          htmltools 0.5.2.9000    Git 21cdfa4        /main
+45          htmltools 0.5.2.9000    Git 72cc41e        /main
 46        htmlwidgets      1.5.4   CRAN                     
 47             httpuv 1.6.4.9000    Git d1ebe75        /main
 48               httr      1.4.2   CRAN                     
 49            isoband      0.2.5   CRAN                     
 50          jquerylib      0.1.4   CRAN                     
 51           jsonlite      1.7.2   CRAN                     
-52              knitr       1.36   CRAN                     
+52              knitr       1.37   CRAN                     
 53           labeling      0.4.2   CRAN                     
 54              later 1.3.0.9000    Git 1d1b6a6        /main
 55           lazyeval      0.2.2   CRAN                     
