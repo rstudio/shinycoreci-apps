@@ -182,9 +182,10 @@ jobs:
       - name: Collect changed file names
         if: github.event_name == 'pull_request'
         id: files_changed
-        uses: jitterbit/get-changed-files@v1
+        uses: Ana06/get-changed-files@v2.0.0
         with:
           format: 'json'
+          filter: '*'
 
       - name: Validate >= 1 Shiny app file is altered
         if: github.event_name == 'pull_request'
@@ -292,9 +293,10 @@ jobs:
       - name: Collect changed file names
         if: github.event_name == 'pull_request'
         id: files_changed
-        uses: jitterbit/get-changed-files@v1
+        uses: Ana06/get-changed-files@v2.0.0
         with:
           format: 'json'
+          filter: '*'
 
       - uses: r-lib/actions/setup-pandoc@v1
 
