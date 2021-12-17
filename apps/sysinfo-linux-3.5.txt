@@ -1,4 +1,4 @@
-Image Version:  20211129.1 
+Image Version:  20211212.1 
 osVersion: Ubuntu 18.04.6 LTS
 --------------------------------------------------------------------------------
  setting  value
@@ -10,14 +10,14 @@ osVersion: Ubuntu 18.04.6 LTS
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2021-12-08
+ date     2021-12-17
  pandoc   2.7.3 @ /usr/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
 1         AsioHeaders   1.16.1-1   RSPM                     
 2             askpass        1.1   RSPM                     
 3          assertthat      0.2.1   RSPM                     
-4           backports      1.4.0   RSPM                     
+4           backports      1.4.1   RSPM                     
 5           base64enc      0.1-3   RSPM                     
 6              bitops      1.0-7   RSPM                     
 7                brio      1.1.3   RSPM                     
@@ -39,7 +39,7 @@ osVersion: Ubuntu 18.04.6 LTS
 23            diffobj      0.3.5   RSPM                     
 24             digest     0.6.29   RSPM                     
 25              dplyr      1.0.7   RSPM                     
-26                 DT     0.20.1    Git d741c40        /main
+26                 DT     0.20.1    Git 24565b5        /main
 27           ellipsis      0.3.2   RSPM                     
 28            english      1.2-6   RSPM                     
 29           evaluate       0.14   RSPM                     
@@ -48,24 +48,24 @@ osVersion: Ubuntu 18.04.6 LTS
 32            fastmap 1.1.0.9000    Git d2722e7        /main
 33           filelock      1.0.2   RSPM                     
 34      flexdashboard 0.5.2.9000    Git 33458ea        /main
-35        fontawesome 0.2.2.9000    Git 982dda5        /main
-36                 fs      1.5.1   RSPM                     
+35        fontawesome 0.2.2.9000    Git a442d71        /main
+36                 fs      1.5.2   RSPM                     
 37           generics      0.1.1   RSPM                     
 38            ggplot2      3.3.5   RSPM                     
-39               glue      1.5.1   RSPM                     
+39               glue      1.6.0   CRAN                     
 40          gridExtra        2.3   RSPM                     
 41                 gt      0.3.1   RSPM                     
 42             gtable      0.3.0   RSPM                     
 43              highr        0.9   RSPM                     
 44                hms      1.1.1   RSPM                     
-45          htmltools 0.5.2.9000    Git e80e23c        /main
+45          htmltools 0.5.2.9000    Git 72cc41e        /main
 46        htmlwidgets      1.5.4   RSPM                     
-47             httpuv 1.6.3.9000    Git 499be24        /main
+47             httpuv 1.6.4.9000    Git d1ebe75        /main
 48               httr      1.4.2   RSPM                     
 49            isoband      0.2.5   RSPM                     
 50          jquerylib      0.1.4   RSPM                     
 51           jsonlite      1.7.2   RSPM                     
-52              knitr       1.36   RSPM                     
+52              knitr       1.37   CRAN                     
 53           labeling      0.4.2   RSPM                     
 54              later 1.3.0.9000    Git 1d1b6a6        /main
 55           lazyeval      0.2.2   RSPM                     
@@ -83,10 +83,10 @@ osVersion: Ubuntu 18.04.6 LTS
 67          parsedate      1.2.1   RSPM                     
 68             pillar      1.6.4   RSPM                     
 69              pingr      2.0.1   RSPM                     
-70           pkgbuild      1.2.1   RSPM                     
+70           pkgbuild      1.3.0   RSPM                     
 71           pkgcache      1.3.0   RSPM                     
 72          pkgconfig      2.0.3   RSPM                     
-73         pkgdepends 0.2.0.9000    Git 3fb96ed        /main
+73         pkgdepends 0.2.0.9000    Git ca05256        /main
 74            pkgload      1.2.4   RSPM                     
 75             plotly     4.10.0   RSPM                     
 76                png      0.1-7   RSPM                     
@@ -104,7 +104,7 @@ osVersion: Ubuntu 18.04.6 LTS
 88            R.utils     2.11.0   RSPM                     
 89                 R6      2.5.1   RSPM                     
 90           rappdirs      0.3.3   RSPM                     
-91             raster      3.5-2   RSPM                     
+91             raster      3.5-9   RSPM                     
 92       RColorBrewer      1.1-2   RSPM                     
 93               Rcpp      1.0.7   RSPM                     
 94           reactlog      1.1.0    Git e8f0548        /main
@@ -120,7 +120,7 @@ osVersion: Ubuntu 18.04.6 LTS
 104              sass 0.4.0.9000    Git f7a9540        /main
 105            scales      1.1.1   RSPM                     
 106       sessioninfo      1.2.2   RSPM                     
-107             shiny 1.7.1.9002    Git 6a7ffef        /main
+107             shiny 1.7.1.9002    Git 9389160        /main
 108       shinycoreci 0.0.0.9005 GitHub fa63471 rstudio/main
 109        shinyjster 0.0.0.9009    Git 72ac7e4        /main
 110         shinymeta    0.2.0.3    Git 5af8086        /main
@@ -150,7 +150,7 @@ osVersion: Ubuntu 18.04.6 LTS
 134         webdriver 1.0.6.9001    Git 6fd7344        /main
 135         websocket 1.4.1.9000    Git 2161ee7        /main
 136             withr      2.4.3   RSPM                     
-137              xfun       0.28   RSPM                     
+137              xfun       0.29   RSPM                     
 138            xtable      1.8-4   RSPM                     
 139              yaml      2.2.1   RSPM                     
 140               zip      2.2.0   RSPM                     
