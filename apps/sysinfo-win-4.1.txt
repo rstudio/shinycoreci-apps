@@ -1,4 +1,4 @@
-Image Version:  20211229.2 
+Image Version:  20211212.1 
 osVersion: Windows Server x64 (build 17763)
 --------------------------------------------------------------------------------
  setting  value
@@ -10,14 +10,14 @@ osVersion: Windows Server x64 (build 17763)
  collate  English_United States.1252
  ctype    English_United States.1252
  tz       UTC
- date     2021-12-08
+ date     2021-12-17
  pandoc   2.7.3 @ C:\\HOSTED~1\\windows\\pandoc\\270C81~1.3\\x64\\PANDOC~1.3-W\\pandoc.exe
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
 1         AsioHeaders   1.16.1-1   CRAN                     
 2             askpass        1.1   CRAN                     
 3          assertthat      0.2.1   CRAN                     
-4           backports      1.4.0   CRAN                     
+4           backports      1.4.1   CRAN                     
 5           base64enc      0.1-3   CRAN                     
 6              bitops      1.0-7   CRAN                     
 7                brio      1.1.3   CRAN                     
@@ -39,7 +39,7 @@ osVersion: Windows Server x64 (build 17763)
 23            diffobj      0.3.5   CRAN                     
 24             digest     0.6.29   CRAN                     
 25              dplyr      1.0.7   CRAN                     
-26                 DT     0.20.1    Git d741c40        /main
+26                 DT     0.20.1    Git 24565b5        /main
 27           ellipsis      0.3.2   CRAN                     
 28            english      1.2-6   CRAN                     
 29           evaluate       0.14   CRAN                     
@@ -48,8 +48,8 @@ osVersion: Windows Server x64 (build 17763)
 32            fastmap 1.1.0.9000    Git d2722e7        /main
 33           filelock      1.0.2   CRAN                     
 34      flexdashboard 0.5.2.9000    Git 33458ea        /main
-35        fontawesome 0.2.2.9000    Git 982dda5        /main
-36                 fs      1.5.1   CRAN                     
+35        fontawesome 0.2.2.9000    Git a442d71        /main
+36                 fs      1.5.2   CRAN                     
 37           generics      0.1.1   CRAN                     
 38            ggplot2      3.3.5   CRAN                     
 39               glue      1.5.1   CRAN                     
@@ -58,14 +58,14 @@ osVersion: Windows Server x64 (build 17763)
 42             gtable      0.3.0   CRAN                     
 43              highr        0.9   CRAN                     
 44                hms      1.1.1   CRAN                     
-45          htmltools 0.5.2.9000    Git e80e23c        /main
+45          htmltools 0.5.2.9000    Git 72cc41e        /main
 46        htmlwidgets      1.5.4   CRAN                     
-47             httpuv 1.6.3.9000    Git 499be24        /main
+47             httpuv 1.6.4.9000    Git d1ebe75        /main
 48               httr      1.4.2   CRAN                     
 49            isoband      0.2.5   CRAN                     
 50          jquerylib      0.1.4   CRAN                     
 51           jsonlite      1.7.2   CRAN                     
-52              knitr       1.36   CRAN                     
+52              knitr       1.37   CRAN                     
 53           labeling      0.4.2   CRAN                     
 54              later 1.3.0.9000    Git 1d1b6a6        /main
 55           lazyeval      0.2.2   CRAN                     
@@ -83,10 +83,10 @@ osVersion: Windows Server x64 (build 17763)
 67          parsedate      1.2.1   CRAN                     
 68             pillar      1.6.4   CRAN                     
 69              pingr      2.0.1   CRAN                     
-70           pkgbuild      1.2.1   CRAN                     
+70           pkgbuild      1.3.0   CRAN                     
 71           pkgcache      1.3.0   CRAN                     
 72          pkgconfig      2.0.3   CRAN                     
-73         pkgdepends 0.2.0.9000    Git 3fb96ed        /main
+73         pkgdepends 0.2.0.9000    Git 9ab195c        /main
 74            pkgload      1.2.4   CRAN                     
 75             plotly     4.10.0   CRAN                     
 76                png      0.1-7   CRAN                     
@@ -104,7 +104,7 @@ osVersion: Windows Server x64 (build 17763)
 88            R.utils     2.11.0   CRAN                     
 89                 R6      2.5.1   CRAN                     
 90           rappdirs      0.3.3   CRAN                     
-91             raster      3.5-2   CRAN                     
+91             raster      3.5-9   CRAN                     
 92       RColorBrewer      1.1-2   CRAN                     
 93               Rcpp      1.0.7   CRAN                     
 94           reactlog      1.1.0    Git e8f0548        /main
@@ -120,7 +120,7 @@ osVersion: Windows Server x64 (build 17763)
 104              sass 0.4.0.9000    Git f7a9540        /main
 105            scales      1.1.1   CRAN                     
 106       sessioninfo      1.2.2   CRAN                     
-107             shiny 1.7.1.9002    Git 6a7ffef        /main
+107             shiny 1.7.1.9002    Git 9389160        /main
 108       shinycoreci 0.0.0.9005 GitHub fa63471 rstudio/main
 109        shinyjster 0.0.0.9009    Git 72ac7e4        /main
 110         shinymeta    0.2.0.3    Git 5af8086        /main
@@ -150,7 +150,7 @@ osVersion: Windows Server x64 (build 17763)
 134         webdriver 1.0.6.9001    Git 6fd7344        /main
 135         websocket 1.4.1.9000    Git 2161ee7        /main
 136             withr      2.4.3   CRAN                     
-137              xfun       0.28   CRAN                     
+137              xfun       0.29   CRAN                     
 138            xtable      1.8-4   CRAN                     
 139              yaml      2.2.1   CRAN                     
 140               zip      2.2.0   CRAN                     
