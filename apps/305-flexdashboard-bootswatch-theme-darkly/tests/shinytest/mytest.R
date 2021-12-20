@@ -1,6 +1,11 @@
 app <- ShinyDriver$new("../../flexlib.Rmd", seed = 101)
 app$snapshotInit("mytest")
 
+# Wait for the entire page to load and be Idle
+app$waitForShiny()
+# Gauge meters: Waiting for the css animations to be completed
+Sys.sleep(2)
+
 app$snapshot()
 
 ## Components tab
