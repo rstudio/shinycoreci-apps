@@ -1025,7 +1025,6 @@
     "mytable1_rows_selected": null,
     "mytable1_search": "",
     "mytable1_state": {
-      "time": 1638959773945,
       "start": 0,
       "length": 10,
       "order": [
@@ -1114,7 +1113,6 @@
     "mytable2_rows_selected": null,
     "mytable2_search": "",
     "mytable2_state": {
-      "time": 1638959775340,
       "start": 0,
       "length": 10,
       "order": [

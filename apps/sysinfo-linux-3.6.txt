@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.6 LTS
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2021-12-16
+ date     2021-12-17
  pandoc   2.7.3 @ /usr/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
@@ -39,7 +39,7 @@ osVersion: Ubuntu 18.04.6 LTS
 23            diffobj      0.3.5   RSPM                     
 24             digest     0.6.29   RSPM                     
 25              dplyr      1.0.7   RSPM                     
-26                 DT     0.20.1    Git d741c40        /main
+26                 DT     0.20.1    Git 24565b5        /main
 27           ellipsis      0.3.2   RSPM                     
 28            english      1.2-6   RSPM                     
 29           evaluate       0.14   RSPM                     
@@ -52,7 +52,7 @@ osVersion: Ubuntu 18.04.6 LTS
 36                 fs      1.5.2   RSPM                     
 37           generics      0.1.1   RSPM                     
 38            ggplot2      3.3.5   RSPM                     
-39               glue      1.5.1   RSPM                     
+39               glue      1.6.0   CRAN                     
 40          gridExtra        2.3   RSPM                     
 41                 gt      0.3.1   RSPM                     
 42             gtable      0.3.0   RSPM                     
