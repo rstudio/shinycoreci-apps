@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.6 LTS
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2021-12-17
+ date     2021-12-21
  pandoc   2.7.3 @ /usr/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
@@ -33,7 +33,7 @@ osVersion: Ubuntu 18.04.6 LTS
 17          crosstalk 1.2.0.9000    Git 8128ef3        /main
 18               curl      4.3.2   CRAN                     
 19         data.table     1.14.2   RSPM                     
-20                DBI      1.1.1   RSPM                     
+20                DBI      1.1.2   CRAN                     
 21            debugme      1.1.0   RSPM                     
 22               desc      1.4.0   RSPM                     
 23            diffobj      0.3.5   RSPM                     
@@ -58,14 +58,14 @@ osVersion: Ubuntu 18.04.6 LTS
 42             gtable      0.3.0   RSPM                     
 43              highr        0.9   RSPM                     
 44                hms      1.1.1   RSPM                     
-45          htmltools 0.5.2.9000    Git 72cc41e        /main
+45          htmltools 0.5.2.9000    Git 9490b62        /main
 46        htmlwidgets      1.5.4   RSPM                     
 47             httpuv 1.6.4.9000    Git d1ebe75        /main
 48               httr      1.4.2   RSPM                     
 49            isoband      0.2.5   RSPM                     
 50          jquerylib      0.1.4   RSPM                     
 51           jsonlite      1.7.2   RSPM                     
-52              knitr       1.37   CRAN                     
+52              knitr       1.37   RSPM                     
 53           labeling      0.4.2   RSPM                     
 54              later 1.3.0.9000    Git 1d1b6a6        /main
 55           lazyeval      0.2.2   RSPM                     
@@ -78,15 +78,15 @@ osVersion: Ubuntu 18.04.6 LTS
 62            memoise      2.0.1   RSPM                     
 63               mime       0.12   RSPM                     
 64            munsell      0.5.0   RSPM                     
-65            openssl      1.4.5   RSPM                     
+65            openssl      1.4.6   CRAN                     
 66            packrat      0.7.0   RSPM                     
 67          parsedate      1.2.1   RSPM                     
 68             pillar      1.6.4   RSPM                     
 69              pingr      2.0.1   RSPM                     
-70           pkgbuild      1.3.0   RSPM                     
+70           pkgbuild      1.3.1   CRAN                     
 71           pkgcache      1.3.0   RSPM                     
 72          pkgconfig      2.0.3   RSPM                     
-73         pkgdepends 0.2.0.9000    Git 06079e2        /main
+73         pkgdepends 0.2.0.9000    Git 2e84d23        /main
 74            pkgload      1.2.4   RSPM                     
 75             plotly     4.10.0   RSPM                     
 76                png      0.1-7   RSPM                     
@@ -139,7 +139,7 @@ osVersion: Ubuntu 18.04.6 LTS
 123            tibble      3.1.6   RSPM                     
 124             tidyr      1.1.4   RSPM                     
 125        tidyselect      1.1.1   RSPM                     
-126           tinytex       0.35   RSPM                     
+126           tinytex       0.36   CRAN                     
 127              utf8      1.2.2   RSPM                     
 128              uuid      1.0-3   RSPM                     
 129             vctrs      0.3.8   RSPM                     
