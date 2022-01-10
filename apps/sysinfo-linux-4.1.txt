@@ -1,4 +1,4 @@
-Image Version:  20211212.1 
+Image Version:  20211219.1 
 osVersion: Ubuntu 18.04.6 LTS
 --------------------------------------------------------------------------------
  setting  value
@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.6 LTS
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2021-12-21
+ date     2022-01-10
  pandoc   2.7.3 @ /usr/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
@@ -33,7 +33,7 @@ osVersion: Ubuntu 18.04.6 LTS
 17          crosstalk 1.2.0.9000    Git 8128ef3        /main
 18               curl      4.3.2   CRAN                     
 19         data.table     1.14.2   RSPM                     
-20                DBI      1.1.2   CRAN                     
+20                DBI      1.1.2   RSPM                     
 21            debugme      1.1.0   RSPM                     
 22               desc      1.4.0   RSPM                     
 23            diffobj      0.3.5   RSPM                     
@@ -43,7 +43,7 @@ osVersion: Ubuntu 18.04.6 LTS
 27           ellipsis      0.3.2   RSPM                     
 28            english      1.2-6   RSPM                     
 29           evaluate       0.14   RSPM                     
-30              fansi      0.5.0   RSPM                     
+30              fansi      1.0.0   CRAN                     
 31             farver      2.1.0   RSPM                     
 32            fastmap 1.1.0.9000    Git d2722e7        /main
 33           filelock      1.0.2   RSPM                     
@@ -52,7 +52,7 @@ osVersion: Ubuntu 18.04.6 LTS
 36                 fs      1.5.2   RSPM                     
 37           generics      0.1.1   RSPM                     
 38            ggplot2      3.3.5   RSPM                     
-39               glue      1.6.0   CRAN                     
+39               glue      1.6.0   RSPM                     
 40          gridExtra        2.3   RSPM                     
 41                 gt      0.3.1   RSPM                     
 42             gtable      0.3.0   RSPM                     
@@ -60,7 +60,7 @@ osVersion: Ubuntu 18.04.6 LTS
 44                hms      1.1.1   RSPM                     
 45          htmltools 0.5.2.9000    Git 9490b62        /main
 46        htmlwidgets      1.5.4   RSPM                     
-47             httpuv 1.6.4.9000    Git d1ebe75        /main
+47             httpuv 1.6.5.9000    Git 7ff6fbb        /main
 48               httr      1.4.2   RSPM                     
 49            isoband      0.2.5   RSPM                     
 50          jquerylib      0.1.4   RSPM                     
@@ -78,12 +78,12 @@ osVersion: Ubuntu 18.04.6 LTS
 62            memoise      2.0.1   RSPM                     
 63               mime       0.12   RSPM                     
 64            munsell      0.5.0   RSPM                     
-65            openssl      1.4.6   CRAN                     
+65            openssl      1.4.6   RSPM                     
 66            packrat      0.7.0   RSPM                     
 67          parsedate      1.2.1   RSPM                     
 68             pillar      1.6.4   RSPM                     
 69              pingr      2.0.1   RSPM                     
-70           pkgbuild      1.3.1   CRAN                     
+70           pkgbuild      1.3.1   RSPM                     
 71           pkgcache      1.3.0   RSPM                     
 72          pkgconfig      2.0.3   RSPM                     
 73         pkgdepends 0.2.0.9000    Git 2e84d23        /main
@@ -104,14 +104,14 @@ osVersion: Ubuntu 18.04.6 LTS
 88            R.utils     2.11.0   RSPM                     
 89                 R6      2.5.1   RSPM                     
 90           rappdirs      0.3.3   RSPM                     
-91             raster      3.5-9   RSPM                     
+91             raster     3.5-11   RSPM                     
 92       RColorBrewer      1.1-2   RSPM                     
 93               Rcpp      1.0.7   RSPM                     
 94           reactlog      1.1.0    Git e8f0548        /main
 95            rematch      1.0.1   RSPM                     
 96           rematch2      2.1.2   RSPM                     
 97            remotes      2.4.2   RSPM                     
-98               renv     0.14.0   RSPM                     
+98               renv     0.15.0   RSPM                     
 99              rlang     0.4.12   RSPM                     
 100         rmarkdown       2.11   RSPM                     
 101         rprojroot      2.0.2   RSPM                     
@@ -140,7 +140,7 @@ osVersion: Ubuntu 18.04.6 LTS
 124            tibble      3.1.6   RSPM                     
 125             tidyr      1.1.4   RSPM                     
 126        tidyselect      1.1.1   RSPM                     
-127           tinytex       0.36   CRAN                     
+127           tinytex       0.36   RSPM                     
 128              utf8      1.2.2   RSPM                     
 129              uuid      1.0-3   RSPM                     
 130             vctrs      0.3.8   RSPM                     
