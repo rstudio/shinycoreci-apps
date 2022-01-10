@@ -10,7 +10,7 @@ osVersion: macOS Big Sur 10.16
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       UTC
- date     2021-12-21
+ date     2022-01-10
  pandoc   2.7.3 @ /usr/local/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
@@ -43,7 +43,7 @@ osVersion: macOS Big Sur 10.16
 27           ellipsis      0.3.2   CRAN                     
 28            english      1.2-6   CRAN                     
 29           evaluate       0.14   CRAN                     
-30              fansi      0.5.0   CRAN                     
+30              fansi      1.0.0   CRAN                     
 31             farver      2.1.0   CRAN                     
 32            fastmap 1.1.0.9000    Git d2722e7        /main
 33           filelock      1.0.2   CRAN                     
@@ -60,7 +60,7 @@ osVersion: macOS Big Sur 10.16
 44                hms      1.1.1   CRAN                     
 45          htmltools 0.5.2.9000    Git 9490b62        /main
 46        htmlwidgets      1.5.4   CRAN                     
-47             httpuv 1.6.4.9000    Git d1ebe75        /main
+47             httpuv 1.6.5.9000    Git 7ff6fbb        /main
 48               httr      1.4.2   CRAN                     
 49            isoband      0.2.5   CRAN                     
 50          jquerylib      0.1.4   CRAN                     
@@ -104,14 +104,14 @@ osVersion: macOS Big Sur 10.16
 88            R.utils     2.11.0   CRAN                     
 89                 R6      2.5.1   CRAN                     
 90           rappdirs      0.3.3   CRAN                     
-91             raster      3.5-9   CRAN                     
+91             raster     3.5-11   CRAN                     
 92       RColorBrewer      1.1-2   CRAN                     
 93               Rcpp      1.0.7   CRAN                     
 94           reactlog      1.1.0    Git e8f0548        /main
 95            rematch      1.0.1   CRAN                     
 96           rematch2      2.1.2   CRAN                     
 97            remotes      2.4.2   CRAN                     
-98               renv     0.14.0   CRAN                     
+98               renv     0.15.0   CRAN                     
 99              rlang     0.4.12   CRAN                     
 100         rmarkdown       2.11   CRAN                     
 101         rprojroot      2.0.2   CRAN                     
