@@ -20,7 +20,7 @@
     "text": "Enter text..."
   },
   "output": {
-    "actionOut": "[1] 0\nattr(,\"class\")\n[1] \"integer\"                \"shinyActionButtonValue\"",
+    "actionOut": "[1] 0\nattr(,\"class\")\n[1] \"shinyActionButtonValue\" \"integer\"               ",
     "checkboxOut": "[1] TRUE",
     "checkGroupOut": "[1] \"1\"",
     "dateOut": "[1] \"2014-01-01\"",
