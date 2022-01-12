@@ -33,7 +33,7 @@
     "text": "More text"
   },
   "output": {
-    "actionOut": "[1] 6\nattr(,\"class\")\n[1] \"integer\"                \"shinyActionButtonValue\"",
+    "actionOut": "[1] 6\nattr(,\"class\")\n[1] \"shinyActionButtonValue\" \"integer\"               ",
     "checkboxOut": "[1] TRUE",
     "checkGroupOut": "NULL",
     "dateOut": "[1] \"2014-01-30\"",
