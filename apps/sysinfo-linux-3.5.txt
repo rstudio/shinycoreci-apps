@@ -10,7 +10,7 @@ osVersion: Ubuntu 18.04.6 LTS
  collate  C.UTF-8
  ctype    C.UTF-8
  tz       UTC
- date     2022-01-10
+ date     2022-01-12
  pandoc   2.7.3 @ /usr/bin/pandoc
 --------------------------------------------------------------------------------
               Package    Version Source     SHA          Ref
@@ -43,7 +43,7 @@ osVersion: Ubuntu 18.04.6 LTS
 27           ellipsis      0.3.2   RSPM                     
 28            english      1.2-6   RSPM                     
 29           evaluate       0.14   RSPM                     
-30              fansi      1.0.0   CRAN                     
+30              fansi      1.0.0   RSPM                     
 31             farver      2.1.0   RSPM                     
 32            fastmap 1.1.0.9000    Git d2722e7        /main
 33           filelock      1.0.2   RSPM                     
@@ -120,7 +120,7 @@ osVersion: Ubuntu 18.04.6 LTS
 104              sass 0.4.0.9000    Git f7a9540        /main
 105            scales      1.1.1   RSPM                     
 106       sessioninfo      1.2.2   RSPM                     
-107             shiny 1.7.1.9002    Git 9389160        /main
+107             shiny 1.7.1.9002    Git fc7e237        /main
 108       shinycoreci 0.0.0.9005 GitHub fa63471 rstudio/main
 109        shinyjster 0.0.0.9009    Git 72ac7e4        /main
 110         shinymeta    0.2.0.3    Git 5af8086        /main
