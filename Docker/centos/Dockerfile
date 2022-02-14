@@ -91,8 +91,8 @@ RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
 # some how this package isn't a dep, but is required for a package
 RUN R --quiet -e "remotes::install_cran(c('markdown'))"
 
-ARG SHINYCORECI_SHA=master
-ARG APPS_SHA=master
+ARG SHINYCORECI_SHA=main
+ARG APPS_SHA=main
 
 # install testing repo at specific sha
 RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}', auth_token ='$GITHUB_PAT')"

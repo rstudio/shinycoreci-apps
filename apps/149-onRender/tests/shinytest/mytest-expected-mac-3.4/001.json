@@ -60,6 +60,10 @@
         },
         "source": "A",
         "config": {
+          "modeBarButtonsToAdd": [
+            "hoverclosest",
+            "hovercompare"
+          ],
           "showSendToCloud": false
         },
         "data": [
@@ -165,22 +169,22 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.1.9000",
+          "version": "1.1.1",
           "src": {
-            "href": "crosstalk-1.1.1.9000"
+            "href": "crosstalk-1.1.1"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.min.css",
+          "stylesheet": "css/crosstalk.css",
           "head": null,
           "attachment": null,
           "all_files": true
         },
         {
           "name": "plotly-htmlwidgets-css",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-htmlwidgets-css-1.57.1"
+            "href": "plotly-htmlwidgets-css-2.5.1"
           },
           "meta": null,
           "script": null,
@@ -191,9 +195,9 @@
         },
         {
           "name": "plotly-main",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-main-1.57.1"
+            "href": "plotly-main-2.5.1"
           },
           "meta": null,
           "script": "plotly-latest.min.js",
@@ -246,6 +250,10 @@
         },
         "source": "A",
         "config": {
+          "modeBarButtonsToAdd": [
+            "hoverclosest",
+            "hovercompare"
+          ],
           "showSendToCloud": false
         },
         "data": [
@@ -351,22 +359,22 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.1.9000",
+          "version": "1.1.1",
           "src": {
-            "href": "crosstalk-1.1.1.9000"
+            "href": "crosstalk-1.1.1"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.min.css",
+          "stylesheet": "css/crosstalk.css",
           "head": null,
           "attachment": null,
           "all_files": true
         },
         {
           "name": "plotly-htmlwidgets-css",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-htmlwidgets-css-1.57.1"
+            "href": "plotly-htmlwidgets-css-2.5.1"
           },
           "meta": null,
           "script": null,
@@ -377,9 +385,9 @@
         },
         {
           "name": "plotly-main",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-main-1.57.1"
+            "href": "plotly-main-2.5.1"
           },
           "meta": null,
           "script": "plotly-latest.min.js",
@@ -432,6 +440,10 @@
         },
         "source": "A",
         "config": {
+          "modeBarButtonsToAdd": [
+            "hoverclosest",
+            "hovercompare"
+          ],
           "showSendToCloud": false
         },
         "data": [
@@ -537,22 +549,22 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.1.9000",
+          "version": "1.1.1",
           "src": {
-            "href": "crosstalk-1.1.1.9000"
+            "href": "crosstalk-1.1.1"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
-          "stylesheet": "css/crosstalk.min.css",
+          "stylesheet": "css/crosstalk.css",
           "head": null,
           "attachment": null,
           "all_files": true
         },
         {
           "name": "plotly-htmlwidgets-css",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-htmlwidgets-css-1.57.1"
+            "href": "plotly-htmlwidgets-css-2.5.1"
           },
           "meta": null,
           "script": null,
@@ -563,9 +575,9 @@
         },
         {
           "name": "plotly-main",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-main-1.57.1"
+            "href": "plotly-main-2.5.1"
           },
           "meta": null,
           "script": "plotly-latest.min.js",

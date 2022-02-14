@@ -20,7 +20,7 @@
   },
   "output": {
     "__reactivedoc__": {
-      "html": "[html data sha1: ebd37c414cfb4475131a9bdac0a63953ab0a422a]",
+      "html": "[html data sha1: 6b4ac1e46825e078d683cb40e24aeab725294aab]",
       "deps": [
         {
           "name": "jquery",
@@ -102,7 +102,7 @@
           "name": "selectize",
           "version": "0.12.4",
           "src": {
-            "href": "shared/selectize"
+            "href": "selectize-0.12.4"
           },
           "meta": null,
           "script": [
@@ -112,7 +112,6 @@
           "stylesheet": "css/selectize.bootstrap3.css",
           "head": null,
           "attachment": null,
-          "package": null,
           "all_files": true
         },
         {
@@ -143,9 +142,9 @@
         },
         {
           "name": "plotly-binding",
-          "version": "4.9.4.1",
+          "version": "4.10.0",
           "src": {
-            "href": "plotly-binding-4.9.4.1"
+            "href": "plotly-binding-4.10.0"
           },
           "meta": null,
           "script": "plotly.js",
@@ -212,7 +211,7 @@
     "out653cee2a3d1d7c1c": "Mar",
     "out7dd30976d7eabf77": "Mar",
     "out91b7f72ac16f31e0": {
-      "src": "[image data sha1: aa8ac40eca59c521555b248c9bd605be89b40f9d]",
+      "src": "[image data sha1: 5f9e2994184cb2783f5f238ae2b090b8f2e4b7d5]",
       "width": 356,
       "height": 199,
       "alt": "Shiny plot alt text: Mar",
@@ -296,6 +295,10 @@
         },
         "source": "A",
         "config": {
+          "modeBarButtonsToAdd": [
+            "hoverclosest",
+            "hovercompare"
+          ],
           "showSendToCloud": false
         },
         "data": [
@@ -500,9 +503,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.1.9000",
+          "version": "1.2.0.9000",
           "src": {
-            "href": "crosstalk-1.1.1.9000"
+            "href": "crosstalk-1.2.0.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",
@@ -513,9 +516,9 @@
         },
         {
           "name": "plotly-htmlwidgets-css",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-htmlwidgets-css-1.57.1"
+            "href": "plotly-htmlwidgets-css-2.5.1"
           },
           "meta": null,
           "script": null,
@@ -526,9 +529,9 @@
         },
         {
           "name": "plotly-main",
-          "version": "1.57.1",
+          "version": "2.5.1",
           "src": {
-            "href": "plotly-main-1.57.1"
+            "href": "plotly-main-2.5.1"
           },
           "meta": null,
           "script": "plotly-latest.min.js",

@@ -31756,11 +31756,142 @@
     ],
     "ziptable_rows_selected": null,
     "ziptable_search": "",
-    "ziptable_state": null
+    "ziptable_state": {
+      "start": 0,
+      "length": 10,
+      "order": [
+
+      ],
+      "search": {
+        "search": "",
+        "smart": true,
+        "regex": false,
+        "caseInsensitive": true
+      },
+      "columns": [
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        }
+      ]
+    }
   },
   "output": {
     "histCentile": {
-      "src": "[image data sha1: 4fa5ac8b7808bdf6e0a96ec2d5c25c92ae0ebe70]",
+      "src": "[image data sha1: b78d18973c3048c9237ed7c9726fadd1b895545c]",
       "width": 288,
       "height": 200,
       "alt": "Plot object",
@@ -31829,7 +31960,7 @@
       ]
     },
     "scatterCollegeIncome": {
-      "src": "[image data sha1: 786489e70eb137a494ca1f4ee3b7204a6985ff05]",
+      "src": "[image data sha1: cef65a08c2a5f98b2dfa1a35391871a181fe2c19]",
       "width": 288,
       "height": 250,
       "alt": "Plot object",
@@ -31929,9 +32060,9 @@
         },
         {
           "name": "dt-core",
-          "version": "1.10.20",
+          "version": "1.11.3",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-1.11.3"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
@@ -31946,9 +32077,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.1.9000",
+          "version": "1.2.0.9000",
           "src": {
-            "href": "crosstalk-1.1.1.9000"
+            "href": "crosstalk-1.2.0.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",

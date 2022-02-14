@@ -1,10 +1,10 @@
 # shinycoreci-apps
 
 <!-- badges: start -->
-[![Run Tests](https://github.com/rstudio/shinycoreci-apps/workflows/runTests/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ArunTests)
-[![Docker](https://github.com/rstudio/shinycoreci-apps/workflows/Docker/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
-[![Deploy](https://github.com/rstudio/shinycoreci-apps/workflows/Deploy/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADeploy)
-[![Trim Branches](https://github.com/rstudio/shinycoreci-apps/workflows/Trim%20Old%20Branches/badge.svg?branch=master)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ATrim%20Old%20Branches)
+[![Run Tests](https://github.com/rstudio/shinycoreci-apps/workflows/runTests/badge.svg?branch=main)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ArunTests)
+[![Docker](https://github.com/rstudio/shinycoreci-apps/workflows/Docker/badge.svg?branch=main)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
+[![Deploy](https://github.com/rstudio/shinycoreci-apps/workflows/Deploy/badge.svg?branch=main)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADeploy)
+[![Trim Branches](https://github.com/rstudio/shinycoreci-apps/workflows/Trim%20Old%20Branches/badge.svg?branch=main)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ATrim%20Old%20Branches)
 
 <!-- badges: end -->
 
