@@ -2,8 +2,6 @@
 
 library(shiny)
 
-shinyOptions(shiny.testmode = TRUE)
-
 if (shinytest::osName() == "win") {
   # Windows does not like UTF-8
   items <- c("aa", "bb", "AA", "BB", "a_", "b_", "_A", "_B")
