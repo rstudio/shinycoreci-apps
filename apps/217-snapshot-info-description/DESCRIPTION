@@ -1,5 +1,0 @@
-Package: snapshotInfoApp217
-Type: Application
-Title: Test for DESCRIPTION config
-Version: 0.0.1
-Config/shiny/snapshotSortC: 1

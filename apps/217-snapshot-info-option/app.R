@@ -2,7 +2,10 @@
 
 library(shiny)
 
-shinyOptions(shiny.testmode = TRUE)
+shinyOptions(
+  shiny.testmode = TRUE,
+  shiny.snapshotsortc = TRUE
+)
 
 if (shinytest::osName() == "win") {
   # Windows does not like UTF-8
