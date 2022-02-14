@@ -73,12 +73,71 @@
     ],
     "rawdata_rows_selected": null,
     "rawdata_search": "",
-    "rawdata_state": null,
+    "rawdata_state": {
+      "start": 0,
+      "length": 10,
+      "order": [
+
+      ],
+      "search": {
+        "search": "",
+        "smart": true,
+        "regex": false,
+        "caseInsensitive": true
+      },
+      "columns": [
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        },
+        {
+          "visible": true,
+          "search": {
+            "search": "",
+            "smart": true,
+            "regex": false,
+            "caseInsensitive": true
+          }
+        }
+      ]
+    },
     "state": "Alabama"
   },
   "output": {
     "parcoord": {
-      "src": "[image data sha1: 676c517b8803711e27a54d0b2f181e52a85001cc]",
+      "src": "[image data sha1: 5ac78f823219e2bd895e3992c38824201486a3d8]",
       "width": 383,
       "height": 400,
       "alt": "Plot object",
@@ -92,10 +151,10 @@
               "top": 350.448
             },
             "range": {
-              "left": 57.6000150391684,
-              "right": 381.559999624021,
-              "bottom": 370.199992799998,
-              "top": 27.8000072000017
+              "left": 57.6,
+              "right": 381.56,
+              "bottom": 370.2,
+              "top": 27.7999999999999
             },
             "log": {
               "x": null,
@@ -171,9 +230,9 @@
         },
         {
           "name": "dt-core",
-          "version": "1.10.20",
+          "version": "1.11.3",
           "src": {
-            "href": "dt-core-1.10.20"
+            "href": "dt-core-1.11.3"
           },
           "meta": null,
           "script": "js/jquery.dataTables.min.js",
@@ -188,9 +247,9 @@
         },
         {
           "name": "crosstalk",
-          "version": "1.1.1.9000",
+          "version": "1.2.0.9000",
           "src": {
-            "href": "crosstalk-1.1.1.9000"
+            "href": "crosstalk-1.2.0.9000"
           },
           "meta": null,
           "script": "js/crosstalk.min.js",

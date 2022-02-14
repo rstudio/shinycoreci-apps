@@ -4,12 +4,10 @@ on:
   push:
     branches:
       - main
-      - master
       - ghactions
   pull_request:
     branches:
       - main
-      - master
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_16
   schedule:
@@ -184,9 +182,10 @@ jobs:
       - name: Collect changed file names
         if: github.event_name == 'pull_request'
         id: files_changed
-        uses: jitterbit/get-changed-files@v1
+        uses: Ana06/get-changed-files@v2.0.0
         with:
           format: 'json'
+          filter: '*'
 
       - name: Validate >= 1 Shiny app file is altered
         if: github.event_name == 'pull_request'
@@ -226,7 +225,7 @@ jobs:
       max-parallel: 6
       matrix:
         shinycoreci:
-        - { branch: "master", text: ""}
+        - { branch: "main", text: ""}
         # - { branch: "CRAN", text: "-CRAN"}
         r:
           # - ${{ needs.rversions.outputs.devel }}
@@ -236,13 +235,13 @@ jobs:
           - ${{ needs.rversions.outputs.oldrel3 }}
           - ${{ needs.rversions.outputs.oldrel4 }}
         config:
-        - { os: macOS-latest }
+        - { os: macos-11 }
         - { os: windows-latest }
         - { os: ubuntu-18.04, rspm: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
-      GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Short R version and SHA
@@ -294,9 +293,10 @@ jobs:
       - name: Collect changed file names
         if: github.event_name == 'pull_request'
         id: files_changed
-        uses: jitterbit/get-changed-files@v1
+        uses: Ana06/get-changed-files@v2.0.0
         with:
           format: 'json'
+          filter: '*'
 
       - uses: r-lib/actions/setup-pandoc@v1
 
@@ -408,7 +408,7 @@ jobs:
 
       # The `github.sha` value is the commit sha as if the PR was merged. :-(
       # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
-      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If master branch, only the `.sha` exists. If a PR, the PR sha exists.
+      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If main branch, only the `.sha` exists. If a PR, the PR sha exists.
       #  Either way, take the first 7 characters.
       # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
       # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
@@ -438,11 +438,6 @@ jobs:
         run: |
           options(install.packages.check.source = 'no')
           if (!shinytest::dependenciesInstalled()) shinytest::installDependencies()
-
-      - name: Temp install of shiny from GitHub
-        shell: Rscript {0}
-        run: |
-          remotes::install_github('rstudio/shiny#3515', force = TRUE)
 
       - name: Session info
         shell: Rscript {0}
@@ -559,7 +554,7 @@ jobs:
           echo "`git rev-list --count HEAD ^${{ steps.short.outputs.sha }}`"
           if (( `git rev-list --count HEAD ^${{ steps.short.outputs.sha }}` > 0 )); then
             # This branch should never exist. Force push
-            git push --force https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git "HEAD:${{ steps.gha_branch.outputs.name }}"
+            git push --force "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/rstudio/shinycoreci-apps.git" "HEAD:${{ steps.gha_branch.outputs.name }}"
           fi
 
       - name: Push test results to rstudio/shinycoreci-apps
@@ -580,7 +575,7 @@ jobs:
           # attempt to push until success. Allow for 15 attempts
           counter=0
           git pull origin _test_results
-          until git push https://schloerke:${{secrets.GITHUB_PAT}}@github.com/rstudio/shinycoreci-apps.git _test_results
+          until git push "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/rstudio/shinycoreci-apps.git" _test_results
           do
             # wait 5-15 seconds to avoid deadlock
             sleep $[ ($RANDOM % 10) + 5 ]s

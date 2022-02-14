@@ -53,7 +53,7 @@ RUN apt-get update && apt-get install -y \
 # From FAQ 5 and 6 here: https://yihui.name/tinytex/faq/
 # Also install ae, parskip, and listings packages to build R vignettes
 RUN wget -qO- \
-  "https://github.com/yihui/tinytex/raw/master/tools/install-unx.sh" | \
+  "https://github.com/yihui/tinytex/raw/main/tools/install-unx.sh" | \
   sh -s - --admin --no-path \
   && ~/.TinyTeX/bin/*/tlmgr path add \
   && tlmgr install metafont mfware inconsolata tex ae parskip listings \
@@ -119,8 +119,8 @@ RUN R --quiet -e "install.packages('remotes')"
 RUN R --quiet -e "remotes::install_cran(c('knitr', 'rmarkdown', 'curl'))"
 RUN R --quiet -e "remotes::install_cran(c('shinytest'))"
 
-ARG SHINYCORECI_SHA=master
-ARG APPS_SHA=master
+ARG SHINYCORECI_SHA=main
+ARG APPS_SHA=main
 
 # install testing repo at specific sha
 RUN R --quiet -e "remotes::install_github('rstudio/shinycoreci@${SHINYCORECI_SHA}', auth_token ='${GITHUB_PAT}')"

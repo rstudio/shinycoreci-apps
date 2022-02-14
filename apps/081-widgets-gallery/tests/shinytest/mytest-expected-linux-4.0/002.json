@@ -24,7 +24,7 @@
     "text": "Enter hagjhfafglak"
   },
   "output": {
-    "actionOut": "[1] 2\nattr(,\"class\")\n[1] \"integer\"                \"shinyActionButtonValue\"",
+    "actionOut": "[1] 2\nattr(,\"class\")\n[1] \"shinyActionButtonValue\" \"integer\"               ",
     "checkboxOut": "[1] FALSE",
     "checkGroupOut": "[1] \"1\" \"2\" \"3\"",
     "dateOut": "[1] \"2014-01-01\"",
