@@ -28,7 +28,7 @@ ui <- fluidPage(
   p("This app tests whether the local snapshot calculation respects the ", code("shinyOptions(snapshotsortc = TRUE)"), " option when the url query parameter `sortC=1` is not present."),
   p("Original issue: ", a(href="https://github.com/rstudio/shinytest/issues/409", "https://github.com/rstudio/shinytest/issues/409#issuecomment-930498442")),
   p("PR: ", a(href="https://github.com/rstudio/shiny/pull/3515", "https://github.com/rstudio/shiny/pull/3515")),
-  p("To run the application: ", code('shiny::runApp("apps/217-snapshot-info-description/", test.mode = TRUE)')),
+  p("To run the application: ", code('shiny::runApp("apps/217-snapshot-info-option/", test.mode = TRUE)')),
   hr(),
 
   strong("Status"), textOutput("status", inline = TRUE),br(),
