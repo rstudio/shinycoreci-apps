@@ -90,14 +90,14 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           cache-version: deploy-4
-          packages: rstudio/shinycoreci,
+          packages: rstudio/shinycoreci
           extra-packages: |
             any::rsconnect
-            any::plogr
-            any::RcppEigen
-            any::radiant
-            any::ggplot2
-            any::rcmdcheck
+            cran::plogr
+            cran::RcppEigen
+            cran::radiant
+            cran::ggplot2
+            cran::rcmdcheck
 
       # - name: Prep shinycoreci app deps
       #   # if non linux, install binaries
