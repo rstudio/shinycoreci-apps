@@ -21,62 +21,26 @@ jobs:
     outputs:
       devel: ${{ steps.devel.outputs.installed-r-version }}
       release: ${{ steps.release.outputs.installed-r-version }}
-      oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}
-      oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}
-      oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}
-      oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}
+      oldrel1: ${{ steps.oldrel-1.outputs.installed-r-version }}
+      oldrel2: ${{ steps.oldrel-2.outputs.installed-r-version }}
+      oldrel3: ${{ steps.oldrel-3.outputs.installed-r-version }}
+      oldrel4: ${{ steps.oldrel-4.outputs.installed-r-version }}
     steps:
-    - name: devel
-      uses: r-lib/actions/setup-r@v1
-      id: devel
-      with:
-        r-version: devel
-        install-r: false # No need to install. Just need version
-
-    - name: release
-      uses: r-lib/actions/setup-r@v1
-      id: release
-      with:
-        r-version: release
-        install-r: false # No need to install. Just need version
-
-    - name: oldrel/1
-      uses: r-lib/actions/setup-r@v1
-      id: oldrel1
-      with:
-        r-version: oldrel/1
-        install-r: false # No need to install. Just need version
-
-    - name: oldrel/2
-      uses: r-lib/actions/setup-r@v1
-      id: oldrel2
-      with:
-        r-version: oldrel/2
-        install-r: false # No need to install. Just need version
-
-    - name: oldrel/3
-      uses: r-lib/actions/setup-r@v1
-      id: oldrel3
-      with:
-        r-version: oldrel/3
-        install-r: false # No need to install. Just need version
-
-    - name: oldrel/4
-      uses: r-lib/actions/setup-r@v1
-      id: oldrel4
-      with:
-        r-version: oldrel/4
-        install-r: false # No need to install. Just need version
-
-    - name: Set Output
+    - { name: devel,    id: devel,    uses: r-lib/actions/setup-r@v2, with: { r-version: devel,    install-r: false } }
+    - { name: release,  id: release,  uses: r-lib/actions/setup-r@v2, with: { r-version: release,  install-r: false } }
+    - { name: oldrel-1, id: oldrel-1, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-1, install-r: false } }
+    - { name: oldrel-2, id: oldrel-2, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-2, install-r: false } }
+    - { name: oldrel-3, id: oldrel-3, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-3, install-r: false } }
+    - { name: oldrel-4, id: oldrel-4, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-4, install-r: false } }
+    - name: Display Outputs
       id: set_versions
       run: |
         echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
         echo "release: ${{ steps.release.outputs.installed-r-version }}"
-        echo "oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}"
-        echo "oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}"
-        echo "oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}"
-        echo "oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}"
+        echo "oldrel1: ${{ steps.oldrel-1.outputs.installed-r-version }}"
+        echo "oldrel2: ${{ steps.oldrel-2.outputs.installed-r-version }}"
+        echo "oldrel3: ${{ steps.oldrel-3.outputs.installed-r-version }}"
+        echo "oldrel4: ${{ steps.oldrel-4.outputs.installed-r-version }}"
 
   docker:
     needs: rversions
