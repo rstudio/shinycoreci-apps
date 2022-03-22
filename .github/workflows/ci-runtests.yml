@@ -25,62 +25,26 @@ jobs:
     outputs:
       devel: ${{ steps.devel.outputs.installed-r-version }}
       release: ${{ steps.release.outputs.installed-r-version }}
-      oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}
-      oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}
-      oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}
-      oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}
+      oldrel1: ${{ steps.oldrel-1.outputs.installed-r-version }}
+      oldrel2: ${{ steps.oldrel-2.outputs.installed-r-version }}
+      oldrel3: ${{ steps.oldrel-3.outputs.installed-r-version }}
+      oldrel4: ${{ steps.oldrel-4.outputs.installed-r-version }}
     steps:
-    - name: devel
-      uses: r-lib/actions/setup-r@v1
-      id: devel
-      with:
-        r-version: devel
-        install-r: false # No need to install. Just need version
-
-    - name: release
-      uses: r-lib/actions/setup-r@v1
-      id: release
-      with:
-        r-version: release
-        install-r: false # No need to install. Just need version
-
-    - name: oldrel/1
-      uses: r-lib/actions/setup-r@v1
-      id: oldrel1
-      with:
-        r-version: oldrel/1
-        install-r: false # No need to install. Just need version
-
-    - name: oldrel/2
-      uses: r-lib/actions/setup-r@v1
-      id: oldrel2
-      with:
-        r-version: oldrel/2
-        install-r: false # No need to install. Just need version
-
-    - name: oldrel/3
-      uses: r-lib/actions/setup-r@v1
-      id: oldrel3
-      with:
-        r-version: oldrel/3
-        install-r: false # No need to install. Just need version
-
-    - name: oldrel/4
-      uses: r-lib/actions/setup-r@v1
-      id: oldrel4
-      with:
-        r-version: oldrel/4
-        install-r: false # No need to install. Just need version
-
-    - name: Set Output
+    - { name: devel,    id: devel,    uses: r-lib/actions/setup-r@v2, with: { r-version: devel,    install-r: false } }
+    - { name: release,  id: release,  uses: r-lib/actions/setup-r@v2, with: { r-version: release,  install-r: false } }
+    - { name: oldrel-1, id: oldrel-1, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-1, install-r: false } }
+    - { name: oldrel-2, id: oldrel-2, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-2, install-r: false } }
+    - { name: oldrel-3, id: oldrel-3, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-3, install-r: false } }
+    - { name: oldrel-4, id: oldrel-4, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-4, install-r: false } }
+    - name: Display Outputs
       id: set_versions
       run: |
         echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
         echo "release: ${{ steps.release.outputs.installed-r-version }}"
-        echo "oldrel1: ${{ steps.oldrel1.outputs.installed-r-version }}"
-        echo "oldrel2: ${{ steps.oldrel2.outputs.installed-r-version }}"
-        echo "oldrel3: ${{ steps.oldrel3.outputs.installed-r-version }}"
-        echo "oldrel4: ${{ steps.oldrel4.outputs.installed-r-version }}"
+        echo "oldrel1: ${{ steps.oldrel-1.outputs.installed-r-version }}"
+        echo "oldrel2: ${{ steps.oldrel-2.outputs.installed-r-version }}"
+        echo "oldrel3: ${{ steps.oldrel-3.outputs.installed-r-version }}"
+        echo "oldrel4: ${{ steps.oldrel-4.outputs.installed-r-version }}"
 
   pre_check:
     runs-on: ubuntu-18.04
@@ -219,7 +183,6 @@ jobs:
       - pre_check
       - rversions
 
-
     strategy:
       fail-fast: false
       max-parallel: 6
@@ -237,7 +200,7 @@ jobs:
         config:
         - { os: macos-11 }
         - { os: windows-latest }
-        - { os: ubuntu-18.04, rspm: "https://packagemanager.rstudio.com/all/__linux__/bionic/latest", release: bionic }
+        - { os: ubuntu-18.04, release: bionic, http-user-agent: release }
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
@@ -260,6 +223,23 @@ jobs:
           SHORT_SHA="${SHA:0:7}"
           echo "sha: $SHORT_SHA"
           echo "::set-output name=sha::$SHORT_SHA"
+
+      # The `github.sha` value is the commit sha as if the PR was merged. :-(
+      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
+      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If main branch, only the `.sha` exists. If a PR, the PR sha exists.
+      #  Either way, take the first 7 characters.
+      # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
+      # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
+      - name: Create failure branch name
+        id: failed_branch
+        shell: Rscript {0}
+        run: |
+          cat('::set-output name=name::', '${{ steps.short.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')
+      - name: Create GHA branch name (i.e., test run identifier)
+        id: gha_branch
+        shell: Rscript {0}
+        run: |
+          cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ steps.short.outputs.r-version }}',  '-', '${{ runner.os }}', sep = '')
 
       - name: Notify slack INSTALL
         uses: voxmedia/github-action-slack-notify-build@v1
@@ -298,28 +278,30 @@ jobs:
           format: 'json'
           filter: '*'
 
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-r@v2
         id: install-r
         with:
           r-version: ${{ matrix.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
+          use-public-rspm: true
       - name: R Options
         shell: bash
         run: |
           echo 'MAKEFLAGS=-j2' >> .Renviron
 
-      - name: Create cache ID from time
-        id: cache_id
-        run: |
-          echo "::set-output name=value::$(Rscript -e 'cat(as.numeric(Sys.time()))')"
-      - name: Cache R packages
-        uses: actions/cache@v1
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-${{ steps.cache_id.outputs.value }}
-          restore-keys: |
-            ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-
+      # - name: Create cache ID from time
+      #   id: cache_id
+      #   run: |
+      #     echo "::set-output name=value::$(Rscript -e 'cat(as.numeric(Sys.time()))')"
+      # - name: Cache R packages
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ${{ env.R_LIBS_USER }}
+      #     key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-${{ steps.cache_id.outputs.value }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-
 
       - name: Install curl
         if: runner.os == 'Linux'
@@ -350,25 +332,17 @@ jobs:
           if (system.file(package = 'remotes') == '') install.packages('remotes')
           if (system.file(package = 'raster') == '') remotes::install_version("raster", "3.1-5")
 
-      - name: Install remotes and shinycoreci (no suggests)
-        # if non linux, install binaries
-        # make sure to get the best version number possible
-        # If remotes isn't installed, install it
-        # If shinytest isn't available, install the cran version to init the R library
-        # install the specific branch of shinycoreci
-        shell: Rscript {0}
-        run: |
-          options(install.packages.check.source = 'no')
-          if (system.file(package = 'remotes') == '') install.packages('remotes')
-          remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', force = TRUE)
-
-      # Install ragg deps
-      - name: Ragg deps
-        if: runner.os == 'Linux'
-        run: |
-          sudo -s apt-get update
-          sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
-
+      # - name: Install remotes and shinycoreci (no suggests)
+      #   # if non linux, install binaries
+      #   # make sure to get the best version number possible
+      #   # If remotes isn't installed, install it
+      #   # If shinytest isn't available, install the cran version to init the R library
+      #   # install the specific branch of shinycoreci
+      #   shell: Rscript {0}
+      #   run: |
+      #     options(install.packages.check.source = 'no')
+      #     if (system.file(package = 'remotes') == '') install.packages('remotes')
+      #     remotes::install_github('rstudio/shinycoreci@${{ matrix.shinycoreci.branch }}', force = TRUE)
       # Install Chinese font
       - name: Install Chinese font
         if: runner.os == 'Linux'
@@ -382,6 +356,40 @@ jobs:
           brew install --cask xquartz
           brew install cairo
 
+      # do not install apps deps, this will happen at run time
+
+      # - name: Install troublesome pkgs
+      #   shell: Rscript {0}
+      #   run: |
+      #     options(install.packages.check.source = 'no')
+      #     if (system.file(package = 'ps') == '') remotes::install_cran('ps')
+
+      # - name: Install pak and shinycoreci
+      #   uses: r-lib/actions/setup-r-dependencies@v2
+      #   with:
+      #     cache-version: 3
+      #     packages: deps::., any::sessioninfo
+      #     extra-packages: |
+      #       any::remotes
+      #       any::ps
+      - name: Install pak and shinycoreci
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          cache-version: 3
+          packages: rstudio/shinycoreci, any::sessioninfo
+          dependencies: "NA"
+          extra-packages: |
+            any::remotes
+            any::ps
+
+      # # Install ragg deps
+      # - name: Ragg deps
+      #   if: runner.os == 'Linux'
+      #   run: |
+      #     sudo -s apt-get update
+      #     sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
+
+
       # Install all deps as we are installing from rspm
       - name: Install system dependencies
         if: runner.os == 'Linux'
@@ -389,39 +397,16 @@ jobs:
         run: |
           system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))
 
-      # do not install apps deps, this will happen at run time
-      - name: Install troublesome pkgs
-        shell: Rscript {0}
-        run: |
-          options(install.packages.check.source = 'no')
-          if (system.file(package = 'ps') == '') remotes::install_cran('ps')
-      - name: Install CRAN Versions
-        shell: Rscript {0}
-        run: |
-          options(install.packages.check.source = 'no')
-          if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers', 'english', 'dplyr', 'tidyr', 'gt'))
+      # - name: Install CRAN Versions
+      #   shell: Rscript {0}
+      #   run: |
+      #     options(install.packages.check.source = 'no')
+      #     if (system.file(package = 'shiny') == '') remotes::install_cran(c('httr', 'callr', 'tibble', 'sessioninfo', 'testthat', 'rmarkdown', 'rsconnect', 'shinytest', 'shiny', 'htmltools', 'httpuv', 'promises', 'later', 'htmlwidgets', 'reactlog', 'fastmap', 'websocket', 'plotly', 'crosstalk', 'flexdashboard', 'pool', 'leaflet', 'leaflet.providers', 'english', 'dplyr', 'tidyr', 'gt'))
       - name: Install core packages
         shell: Rscript {0}
         run: |
           options(install.packages.check.source = 'no')
           shinycoreci:::install_ci()
-
-      # The `github.sha` value is the commit sha as if the PR was merged. :-(
-      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#pull-request-event-pull_request
-      # Checking for the pull request sha and then pasting it to the possibly 'merged' sha.  If main branch, only the `.sha` exists. If a PR, the PR sha exists.
-      #  Either way, take the first 7 characters.
-      # Found `github.event.pull_request.head.sha` example here: https://github.com/actions/checkout/commit/cab31617d857bf9e70dc35fd9e4dafe350794082#diff-04c6e90faac2675aa89e2176d2eec7d8R92
-      # The webhook payload example (equivalent to `github.event.pull_request`) shows the keys `head > sha` : https://developer.github.com/v3/activity/events/types/#pullrequestevent
-      - name: Create failure branch name
-        id: failed_branch
-        shell: Rscript {0}
-        run: |
-          cat('::set-output name=name::', '${{ steps.short.outputs.sha }}', '${{ matrix.shinycoreci.text }}', '-', format(Sys.time(), '%Y_%m_%d_%H_%M'), sep = '')
-      - name: Create GHA branch name (i.e., test run identifier)
-        id: gha_branch
-        shell: Rscript {0}
-        run: |
-          cat('::set-output name=name::gha-', '${{ steps.failed_branch.outputs.name }}', '-', '${{ steps.short.outputs.r-version }}',  '-', '${{ runner.os }}', sep = '')
 
       - name: Find PhantomJS path
         id: phantomjs
