@@ -314,7 +314,7 @@ jobs:
         run: |
           echo "::set-output name=value::$(Rscript -e 'cat(as.numeric(Sys.time()))')"
       - name: Cache R packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-r-${{ matrix.r }}${{ matrix.shinycoreci.text }}-libs-2-runtests-${{ steps.cache_id.outputs.value }}
@@ -428,7 +428,7 @@ jobs:
         run: |
           echo "::set-output name=path::$(Rscript -e 'cat(shinytest:::phantom_paths()[[1]])')"
       - name: Cache PhantomJS
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ steps.phantomjs.outputs.path }}
           key: ${{ runner.os }}-phantomjs-1

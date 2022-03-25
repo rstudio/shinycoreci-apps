@@ -59,7 +59,7 @@ jobs:
         run: |
           echo "::set-output name=value::$(Rscript -e 'cat(as.numeric(Sys.time()))')"
       - name: Cache R packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ matrix.config.os }}-r-${{ matrix.config.r }}-deploy3-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
