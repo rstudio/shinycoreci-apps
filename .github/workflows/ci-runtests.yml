@@ -381,7 +381,7 @@ jobs:
       #   run: |
       #     system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))
       - name: Install shinycoreci deps
-        if: steps.library.outputs.cache-hit != 'true' &&
+        if: steps.library.outputs.cache-hit != 'true'
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           cache-version: 3
