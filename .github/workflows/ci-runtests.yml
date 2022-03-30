@@ -400,7 +400,7 @@ jobs:
         with:
           cache-version: 3
           packages: rstudio/shinycoreci
-          dependencies: "all"
+          dependencies: "TRUE"
 
       # - name: Install CRAN Versions
       #   shell: Rscript {0}
