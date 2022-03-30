@@ -389,12 +389,12 @@ jobs:
       #     sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
 
 
-      # Install all deps as we are installing from rspm
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
-        shell: Rscript {0}
-        run: |
-          system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))
+      # # Install all deps as we are installing from rspm
+      # - name: Install system dependencies
+      #   if: runner.os == 'Linux'
+      #   shell: Rscript {0}
+      #   run: |
+      #     system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))
       - name: Install shinycoreci deps
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
