@@ -186,7 +186,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 1
+      # max-parallel: 2
       matrix:
         shinycoreci:
         - { branch: "main", text: ""}
@@ -195,13 +195,13 @@ jobs:
           # - ${{ needs.rversions.outputs.devel }}
           - ${{ needs.rversions.outputs.release }}
           - ${{ needs.rversions.outputs.oldrel1 }}
-          - ${{ needs.rversions.outputs.oldrel2 }}
-          - ${{ needs.rversions.outputs.oldrel3 }}
-          - ${{ needs.rversions.outputs.oldrel4 }}
+          # - ${{ needs.rversions.outputs.oldrel2 }}
+          # - ${{ needs.rversions.outputs.oldrel3 }}
+          # - ${{ needs.rversions.outputs.oldrel4 }}
         config:
         - { os: ubuntu-18.04, release: bionic}
-        - { os: macos-11 }
-        - { os: windows-latest }
+        # - { os: macos-11 }
+        # - { os: windows-latest }
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -414,7 +414,6 @@ jobs:
 
 
   test:
-    if: false
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
@@ -434,12 +433,12 @@ jobs:
           # - ${{ needs.rversions.outputs.devel }}
           - ${{ needs.rversions.outputs.release }}
           - ${{ needs.rversions.outputs.oldrel1 }}
-          - ${{ needs.rversions.outputs.oldrel2 }}
-          - ${{ needs.rversions.outputs.oldrel3 }}
-          - ${{ needs.rversions.outputs.oldrel4 }}
+          # - ${{ needs.rversions.outputs.oldrel2 }}
+          # - ${{ needs.rversions.outputs.oldrel3 }}
+          # - ${{ needs.rversions.outputs.oldrel4 }}
         config:
-        - { os: macos-11 }
-        - { os: windows-latest }
+        # - { os: macos-11 }
+        # - { os: windows-latest }
         - { os: ubuntu-18.04, release: bionic}
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
