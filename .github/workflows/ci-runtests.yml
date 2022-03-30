@@ -227,7 +227,8 @@ jobs:
           echo "sha: $SHORT_SHA"
           echo "::set-output name=sha::$SHORT_SHA"
 
-          cat("::set-output name=os-version::", sessionInfo()$running, "\n", sep = "")
+          OS=`Rscript -e 'cat(sessionInfo()$running, "\n", sep = "")'`
+          echo "::set-output name=os-version::$OS"
 
       - name: Restore R package cache
         uses: actions/cache@v2
