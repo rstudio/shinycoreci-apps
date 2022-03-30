@@ -230,15 +230,15 @@ jobs:
           OS=`Rscript -e 'cat(sessionInfo()$running, "\n", sep = "")'`
           echo "::set-output name=os-version::$OS"
 
-      - name: Restore R package cache
-        uses: actions/cache@v2
-        id: library
-        with:
-          path: |
-            ${{ env.R_LIBS_USER }}/*
-            !${{ env.R_LIBS_USER }}/pak
-          key: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.rversions.outputs.cache-version }}-
-          restore-keys: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.rversions.outputs.cache-version }}-
+      # - name: Restore R package cache
+      #   uses: actions/cache@v2
+      #   id: library
+      #   with:
+      #     path: |
+      #       ${{ env.R_LIBS_USER }}/*
+      #       !${{ env.R_LIBS_USER }}/pak
+      #     key: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.rversions.outputs.cache-version }}-
+      #     restore-keys: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.rversions.outputs.cache-version }}-
 
       - name: Notify slack INSTALL
         uses: voxmedia/github-action-slack-notify-build@v1
