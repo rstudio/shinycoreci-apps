@@ -178,7 +178,7 @@ jobs:
   install:
     runs-on: ${{ matrix.config.os }}
 
-    name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
+    name: Install ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     needs:
       - pre_check
@@ -398,7 +398,7 @@ jobs:
   test:
     runs-on: ${{ matrix.config.os }}
 
-    name: ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
+    name: Test ${{ matrix.config.os }}${{ matrix.shinycoreci.text }} (${{ matrix.r }})
 
     needs:
       - install
@@ -490,22 +490,6 @@ jobs:
           brew install --cask xquartz
           brew install cairo
 
-      - name: Session info
-        shell: Rscript {0}
-        run: |
-          # init
-          if (not_installed <- system.file(package = "sessioninfo") == "") {
-            install.packages("sessioninfo")
-          }
-          # load pkgs
-          library(shinycoreci)
-          shinycoreci::load_suggested_pkgs()
-          # display
-          sessioninfo::session_info()
-          # cleanup
-          if (not_installed) {
-            remove.packages("sessioninfo")
-          }
       - name: Install shinycoreci deps
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
