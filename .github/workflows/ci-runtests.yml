@@ -237,8 +237,8 @@ jobs:
           path: |
             ${{ env.R_LIBS_USER }}/*
             !${{ env.R_LIBS_USER }}/pak
-          key: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.r-version.outputs.cache-version }}-
-          restore-keys: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.r-version.outputs.cache-version }}-
+          key: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.rversions.outputs.cache-version }}-
+          restore-keys: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.rversions.outputs.cache-version }}-
 
       - name: Notify slack INSTALL
         uses: voxmedia/github-action-slack-notify-build@v1
@@ -303,7 +303,7 @@ jobs:
         if: steps.library.outputs.cache-hit != 'true' && runner.os == 'Windows'
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: ${{ needs.r-version.outputs.cache-version }}
+          cache-version: ${{ needs.rversions.outputs.cache-version }}
           packages: openssl, curl, any::sessioninfo
 
       # make sure this is the latest
@@ -366,7 +366,7 @@ jobs:
         if: steps.library.outputs.cache-hit != 'true'
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: ${{ needs.r-version.outputs.cache-version }}
+          cache-version: ${{ needs.rversions.outputs.cache-version }}
           packages: rstudio/shinycoreci, any::sessioninfo
           dependencies: "NA"
 
@@ -388,7 +388,7 @@ jobs:
         if: steps.library.outputs.cache-hit != 'true'
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: ${{ needs.r-version.outputs.cache-version }}
+          cache-version: ${{ needs.rversions.outputs.cache-version }}
           packages: rstudio/shinycoreci
           extra-packages: |
             any::sessioninfo
@@ -528,7 +528,7 @@ jobs:
       - name: Install shinycoreci deps
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: ${{ needs.r-version.outputs.cache-version }}
+          cache-version: ${{ needs.rversions.outputs.cache-version }}
           packages: rstudio/shinycoreci
           extra-packages: |
             any::sessioninfo
