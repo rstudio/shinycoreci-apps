@@ -362,13 +362,13 @@ jobs:
       #     extra-packages: |
       #       any::remotes
       #       any::ps
-      - name: Install pak and shinycoreci
-        if: steps.library.outputs.cache-hit != 'true'
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          cache-version: ${{ needs.rversions.outputs.cache-version }}
-          packages: rstudio/shinycoreci, any::sessioninfo
-          dependencies: "NA"
+      # - name: Install pak and shinycoreci
+      #   if: steps.library.outputs.cache-hit != 'true'
+      #   uses: r-lib/actions/setup-r-dependencies@v2
+      #   with:
+      #     cache-version: ${{ needs.rversions.outputs.cache-version }}
+      #     packages: rstudio/shinycoreci, any::sessioninfo
+      #     dependencies: "NA"
 
       # # Install ragg deps
       # - name: Ragg deps
@@ -384,7 +384,7 @@ jobs:
       #   shell: Rscript {0}
       #   run: |
       #     system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))
-      - name: Install shinycoreci deps
+      - name: Install shinycoreci
         if: steps.library.outputs.cache-hit != 'true'
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
@@ -392,24 +392,6 @@ jobs:
           packages: rstudio/shinycoreci
           extra-packages: |
             any::sessioninfo
-
-      - name: Session info
-        if: steps.library.outputs.cache-hit != 'true'
-        shell: Rscript {0}
-        run: |
-          # init
-          if (not_installed <- system.file(package = "sessioninfo") == "") {
-            install.packages("sessioninfo")
-          }
-          # load pkgs
-          library(shinycoreci)
-          shinycoreci::load_suggested_pkgs()
-          # display
-          sessioninfo::session_info()
-          # cleanup
-          if (not_installed) {
-            remove.packages("sessioninfo")
-          }
 
 
 
