@@ -210,7 +210,7 @@ jobs:
       r-version: ${{ steps.short.output.r-version }}
 
     steps:
-      - name: Short R version and SHA
+      - name: Short R version, SHA, and OS
         id: short
         shell: bash
         run: |
@@ -227,10 +227,6 @@ jobs:
           echo "sha: $SHORT_SHA"
           echo "::set-output name=sha::$SHORT_SHA"
 
-      - name: Installing pak querying dependencies
-        id: os
-        shell: Rscript {0}
-        run: |
           cat("::set-output name=os-version::", sessionInfo()$running, "\n", sep = "")
 
       - name: Restore R package cache
@@ -240,8 +236,8 @@ jobs:
           path: |
             ${{ env.R_LIBS_USER }}/*
             !${{ env.R_LIBS_USER }}/pak
-          key: ${{ steps.install.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.r-version.outputs.cache-version }}-
-          restore-keys: ${{ steps.install.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.r-version.outputs.cache-version }}-
+          key: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.r-version.outputs.cache-version }}-
+          restore-keys: ${{ steps.short.outputs.os-version }}-${{ steps.short.outputs.r-version }}-${{ needs.r-version.outputs.cache-version }}-
 
       - name: Notify slack INSTALL
         uses: voxmedia/github-action-slack-notify-build@v1
