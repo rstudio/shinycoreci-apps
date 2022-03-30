@@ -198,9 +198,9 @@ jobs:
           - ${{ needs.rversions.outputs.oldrel3 }}
           - ${{ needs.rversions.outputs.oldrel4 }}
         config:
+        - { os: ubuntu-18.04, release: bionic}
         - { os: macos-11 }
         - { os: windows-latest }
-        - { os: ubuntu-18.04, release: bionic, http-user-agent: release }
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -225,6 +225,12 @@ jobs:
           SHORT_SHA="${SHA:0:7}"
           echo "sha: $SHORT_SHA"
           echo "::set-output name=sha::$SHORT_SHA"
+
+      - name: Installing pak querying dependencies
+        id: os
+        shell: Rscript {0}
+        run: |
+          cat("::set-output name=os-version::", sessionInfo()$running, "\n", sep = "")
 
       - name: Restore R package cache
         uses: actions/cache@v2
@@ -436,7 +442,7 @@ jobs:
         config:
         - { os: macos-11 }
         - { os: windows-latest }
-        - { os: ubuntu-18.04, release: bionic, http-user-agent: release }
+        - { os: ubuntu-18.04, release: bionic}
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
