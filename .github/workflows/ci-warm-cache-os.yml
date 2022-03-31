@@ -37,10 +37,10 @@ name: Warm library cache - single OS
 
 jobs:
 
-  warm:
+  warm-cache:
     runs-on: ${{ inputs.os }}
 
-    name: Warm - R ${{ inputs.r-version }}${{ inputs.extra-key }}
+    name: Warm cache - R ${{ inputs.r-version }}${{ inputs.extra-key }}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
