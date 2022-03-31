@@ -40,7 +40,7 @@ Remotes:
   rstudio/leaflet.providers
 OldImports:
     rmarkdown (>= 2.9),
-    rsconnect (>= 0.8.16-9001),
+    rsconnect (>= 0.8.16-9001)
 Imports:
     shinytest (>= 1.4.0),
     shinytest2,
@@ -107,7 +107,7 @@ Config/Needs/install:
     cran::rlang,
     cran::rmarkdown,
     cran::rprojroot,
-    cran::rsconnect
+    cran::rsconnect,
     cran::RSQLite,
     cran::rversions,
     cran::scales,
