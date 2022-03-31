@@ -185,6 +185,9 @@ jobs:
       r-version: ${{ needs.config.outputs.release }}
       os: ${{ needs.config.outputs.ubuntu }}
       cache-version: ${{ needs.config.outputs.cache-version }}
+    secrets:
+      SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
   ubuntu-oldrel-1:
     needs: [pre_check, config]
     uses: ./.github/workflows/ci-runtests-os.yml
@@ -192,3 +195,6 @@ jobs:
       r-version: ${{ needs.config.outputs.oldrel1 }}
       os: ${{ needs.config.outputs.ubuntu }}
       cache-version: ${{ needs.config.outputs.cache-version }}
+    secrets:
+      SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

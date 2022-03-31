@@ -38,7 +38,11 @@ on:
       #   type: boolean
       #   default: true
       #   required: false
-
+    secrets:
+      SLACK_CHANNEL_ID:
+        required: true
+      SLACK_BOT_TOKEN:
+        required: true
 name: runTests Single
 
 jobs:
@@ -46,7 +50,7 @@ jobs:
   install:
     runs-on: ${{ inputs.os }}
 
-    name: Install - ${{ inputs.os }}${{ inputs.extra-key }} (${{ inputs.r-version }})
+    name: Install - (${{ inputs.r-version }})${{ inputs.extra-key }}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -192,7 +196,7 @@ jobs:
   test:
     runs-on: ${{ inputs.os }}
 
-    name: Test ${{ inputs.os }}${{ inputs.extra-key }} (${{ inputs.r-version }})
+    name: Test - (${{ inputs.r-version }})${{ inputs.extra-key }}
 
     needs:
       - install
