@@ -6,16 +6,39 @@ on:
     #     default: release
     #     required: false
     outputs:
-      macos: "macos-11"
-      windows: "windows-latest"
-      ubuntu: "ubuntu-18.04"
-      cache-version: "3"
-      devel: ${{ jobs.config.outputs.devel }}
-      release: ${{ jobs.config.outputs.release }}
-      oldrel1: ${{ jobs.config.outputs.oldrel1 }}
-      oldrel2: ${{ jobs.config.outputs.oldrel2 }}
-      oldrel3: ${{ jobs.config.outputs.oldrel3 }}
-      oldrel4: ${{ jobs.config.outputs.oldrel4 }}
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.example_job.outputs.output1 }}
+      macos:
+        description: macos OS value
+        value: "macos-11"
+      windows:
+        description: windows OS value
+        value: "windows-latest"
+      ubuntu:
+        description: ubuntu OS value
+        value: "ubuntu-18.04"
+      cache-version:
+        description: cache-version to be used when pulling library cache
+        value: "3"
+      devel:
+        description: Resolved r devel version
+        value: ${{ jobs.config.outputs.devel }}
+      release:
+        description: Resolved r release version
+        value: ${{ jobs.config.outputs.release }}
+      oldrel1:
+        description: Resolved r oldrel-1 version
+        value: ${{ jobs.config.outputs.oldrel1 }}
+      oldrel2:
+        description: Resolved r oldrel-2 version
+        value: ${{ jobs.config.outputs.oldrel2 }}
+      oldrel3:
+        description: Resolved r oldrel-3 version
+        value: ${{ jobs.config.outputs.oldrel3 }}
+      oldrel4:
+        description: Resolved r oldrel-4 version
+        value: ${{ jobs.config.outputs.oldrel4 }}
 
 name: Config
 
