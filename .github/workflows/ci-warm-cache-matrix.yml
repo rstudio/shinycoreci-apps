@@ -1,0 +1,33 @@
+name: Warm cache matrix
+
+on:
+  push:
+    branches:
+      - deploy_issue_202
+  # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
+  # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_16
+  schedule:
+    - cron:  '0 2 * * 1-5' # every work night before
+  repository_dispatch:
+    types:
+      - all
+      - warm
+
+jobs:
+  config:
+    uses: ./github/workflows/ci-config.yml
+
+  ubuntu-release:
+    needs: config
+    uses: ./.github/workflows/ci-warm-cache-os.yml
+    with:
+      r-version: ${{ needs.config.outputs.release }}
+      os: ${{ needs.config.outputs.ubuntu }}
+      cache-version: ${{ needs.config.outputs.cache-version }}
+  ubuntu-oldrel-1:
+    needs: config
+    uses: ./.github/workflows/ci-warm-cache-os.yml
+    with:
+      r-version: ${{ needs.config.outputs.oldrel1 }}
+      os: ${{ needs.config.outputs.ubuntu }}
+      cache-version: ${{ needs.config.outputs.cache-version }}
