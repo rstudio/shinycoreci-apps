@@ -93,6 +93,5 @@ jobs:
           cache-version: ${{ inputs.cache-version }}-warm
           http-user-agent: ${{ inputs.http-user-agent }}
           pandoc-version: ${{ inputs.pandoc-version }}
-          extra-packages:
-            any::remotes
-            ${{ inputs.extra-packages }}
+          needs: install
+          extra-packages: ${{ inputs.extra-packages }}
