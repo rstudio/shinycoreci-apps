@@ -40,7 +40,7 @@ jobs:
   warm:
     runs-on: ${{ inputs.os }}
 
-    name: Warm - (${{ inputs.r-version }})${{ inputs.extra-key }}
+    name: Warm - R ${{ inputs.r-version }}${{ inputs.extra-key }}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
