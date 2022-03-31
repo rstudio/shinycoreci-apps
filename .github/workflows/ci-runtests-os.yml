@@ -103,7 +103,6 @@ jobs:
         shell: bash
         run: |
           echo 'MAKEFLAGS=-j2' >> .Renviron
-      - name: rstudio/shiny-workflows/
 
       - name: Install shinycoreciapps
         uses: rstudio/shiny-workflows/setup-r-package@v1
@@ -251,7 +250,6 @@ jobs:
         shell: bash
         run: |
           echo 'MAKEFLAGS=-j2' >> .Renviron
-      - name: rstudio/shiny-workflows/
 
       - name: Install shinycoreciapps
         uses: rstudio/shiny-workflows/setup-r-package@v1
