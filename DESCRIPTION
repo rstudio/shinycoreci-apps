@@ -18,7 +18,6 @@ Remotes:
   rstudio/promises,
   rstudio/websocket,
   r-lib/later,
-  rstudio/rsconnect,
   schloerke/shinyjster,
   rstudio/crosstalk,
   rstudio/thematic,
@@ -39,9 +38,10 @@ Remotes:
   rstudio/fontawesome,
   rstudio/leaflet,
   rstudio/leaflet.providers
-Imports:
+OldImports:
     rmarkdown (>= 2.9),
     rsconnect (>= 0.8.16-9001),
+Imports:
     shinytest (>= 1.4.0),
     shinytest2,
     shinyjster (>= 0.0.0.9008),
@@ -108,6 +108,7 @@ Config/Needs/install:
     cran::rlang,
     cran::rmarkdown,
     cran::rprojroot,
+    cran::rsconnect
     cran::RSQLite,
     cran::rversions,
     cran::scales,
