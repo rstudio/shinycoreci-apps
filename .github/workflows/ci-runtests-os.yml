@@ -29,11 +29,6 @@ on:
         type: string
         default: "2.7.3"
         required: false
-      extra-check-args:
-        type: string
-        # default: '"--run-donttest", "--no-manual", "--as-cran"'
-        default: 'NULL'
-        required: false
       # rtools-35:
       #   type: boolean
       #   default: true
@@ -129,10 +124,13 @@ jobs:
       - name: Install shinycoreciapps
         uses: rstudio/shiny-workflows/setup-r-package@v1
         with:
+          needs: install
           r-version: ${{ inputs.r-version }}
           http-user-agent: ${{ inputs.http-user-agent }}
           pandoc-version: ${{ inputs.pandoc-version }}
-          extra-packages: any::remotes
+          cache-version: ${{ inputs.cache-version }}
+          extra-packages: ${{ inputs.extra-packages }}
+
 
       - name: Notify slack TEST
         uses: voxmedia/github-action-slack-notify-build@v1
