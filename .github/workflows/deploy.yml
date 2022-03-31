@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - adeploy**
+      - deploy**
       - ghactions
   # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onschedule
   schedule:
@@ -14,6 +14,10 @@ on:
       - deploy
 
 jobs:
+
+  config:
+    uses: ./.github/workflows/ci-config.yml
+
   deploy:
     runs-on: ${{ matrix.config.os }}
 
@@ -41,96 +45,19 @@ jobs:
       - uses: actions/checkout@v2
         name: GitHub Pull
 
-      - uses: r-lib/actions/setup-r@v2
-        id: install-r
-        with:
-          r-version: ${{ matrix.config.r }}
-          use-public-rspm: true
-
-      - uses: r-lib/actions/setup-pandoc@v2
-
       - name: R Options
         shell: bash
         run: |
           echo 'MAKEFLAGS=-j2' >> .Renviron
 
-      # - name: Create cache ID from time
-      #   id: cache_id
-      #   run: |
-      #     echo "::set-output name=value::$(Rscript -e 'cat(as.numeric(Sys.time()))')"
-      # - name: Cache R packages
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: ${{ env.R_LIBS_USER }}
-      #     key: ${{ matrix.config.os }}-r-${{ matrix.config.r }}-deploy4-libs-${{ matrix.config.type }}-${{ steps.cache_id.outputs.value }}
-      #     restore-keys: |
-      #       ${{ matrix.config.os }}-r-${{ matrix.config.r }}-deploy4-libs-${{ matrix.config.type }}-
-
-      # - name: Install curl
-      #   if: runner.os == 'Linux'
-      #   run: |
-      #     sudo -s apt-get update
-      #     sudo -s apt-get install -y libcurl4-openssl-dev
-      #     Rscript -e "options(install.packages.check.source = 'no'); if (system.file(package = 'curl') == '') install.packages('curl', repos = 'https://cloud.r-project.org')"
-
-      # # Install ragg deps
-      # - name: Ragg deps
-      #   if: runner.os == 'Linux'
-      #   run: |
-      #     sudo -s apt-get update
-      #     sudo -s apt-get install -y libfreetype6-dev libpng-dev libtiff5-dev
-
-      # Install Cairo system dependencies
-      - name: Mac systemdeps
-        if: runner.os == 'macOS'
-        run: |
-          brew install --cask xquartz
-          brew install cairo
-
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Install shinycoreciapps
+        uses: rstudio/shiny-workflows/setup-r-package@v1
         with:
-          cache-version: deploy-4
-          packages: rstudio/shinycoreci
-          extra-packages: |
-            any::rsconnect
-            cran::plogr
-            cran::RcppEigen
-            cran::radiant
-            cran::ggplot2
-            cran::rcmdcheck
-
-      # - name: Prep shinycoreci app deps
-      #   # if non linux, install binaries
-      #   # make sure to get the best version number possible
-      #   # If remotes isn't installed, install it
-      #   # If shinytest isn't available, install the cran version to init the R library
-      #   # install the specific branch of shinycoreci
-      #   run: >
-      #     Rscript
-      #     -e "## options(pkgType = 'binary')"
-      #     -e "update.packages(ask = FALSE, lib.loc = .libPaths()[1])"
-      #     -e "if (system.file(package = 'remotes') == '') install.packages('remotes')"
-      #     -e "if (system.file(package = 'shinytest') == '') remotes::install_cran('shinytest')"
-      # - name: Install shinycoreci
-      #   run: >
-      #     Rscript
-      #     -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
-      # # Install all deps as we are installing from rspm
-      # - name: Install system dependencies
-      #   if: runner.os == 'Linux'
-      #   shell: Rscript {0}
-      #   run: |
-      #     system(print(paste0('sudo -s ', shinycoreci::rspm_all_install_scripts('./apps', release = '${{ matrix.config.release }}'))))
-      # - name: Install htmltools
-      #   run: >
-      #     Rscript
-      #     -e "# install htmltools to get dev version"
-      #     -e "remotes::install_cran('htmltools', type = 'source')"
-      #     -e "remotes::install_github('rstudio/shinythemes')"
-      # - name: Install again
-      #   run: >
-      #     Rscript
-      #     -e "remotes::install_github('rstudio/shinycoreci', dependencies = TRUE, force = TRUE)"
+          needs: install
+          r-version: ${{ matrix.config.r }}
+          # add suffix so that prefix matching works but key is diff than ci-runtests-os.yml cache key
+          cache-version: ${{ needs.config.outputs.cache-version }}-deploy
+          extra-packages: rstudio/shinycoreci
 
       - name: Install app deps
         run: >
