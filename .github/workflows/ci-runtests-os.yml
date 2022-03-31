@@ -393,6 +393,7 @@ jobs:
 
           git checkout $CURRENT_BRANCH
 
+
       - name: Notify slack SUCCESS
         if: success()
         uses: voxmedia/github-action-slack-notify-build@v1
