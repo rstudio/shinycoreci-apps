@@ -21,40 +21,40 @@ jobs:
     uses: ./.github/workflows/ci-config.yml
 
 
-  mac-release:
+  macos-release:
     needs: config
     uses: ./.github/workflows/ci-warm-cache-os.yml
     with:
       r-version: ${{ needs.config.outputs.release }}
-      os: ${{ needs.config.outputs.mac }}
+      os: ${{ needs.config.outputs.macos }}
       cache-version: ${{ needs.config.outputs.cache-version }}
-  mac-oldrel-1:
+  macos-oldrel-1:
     needs: config
     uses: ./.github/workflows/ci-warm-cache-os.yml
     with:
       r-version: ${{ needs.config.outputs.oldrel1 }}
-      os: ${{ needs.config.outputs.mac }}
+      os: ${{ needs.config.outputs.macos }}
       cache-version: ${{ needs.config.outputs.cache-version }}
-  mac-oldrel-2:
+  macos-oldrel-2:
     needs: config
     uses: ./.github/workflows/ci-warm-cache-os.yml
     with:
       r-version: ${{ needs.config.outputs.oldrel2 }}
-      os: ${{ needs.config.outputs.mac }}
+      os: ${{ needs.config.outputs.macos }}
       cache-version: ${{ needs.config.outputs.cache-version }}
-  mac-oldrel-3:
+  macos-oldrel-3:
     needs: config
     uses: ./.github/workflows/ci-warm-cache-os.yml
     with:
       r-version: ${{ needs.config.outputs.oldrel3 }}
-      os: ${{ needs.config.outputs.mac }}
+      os: ${{ needs.config.outputs.macos }}
       cache-version: ${{ needs.config.outputs.cache-version }}
-  mac-oldrel-4:
+  macos-oldrel-4:
     needs: config
     uses: ./.github/workflows/ci-warm-cache-os.yml
     with:
       r-version: ${{ needs.config.outputs.oldrel4 }}
-      os: ${{ needs.config.outputs.mac }}
+      os: ${{ needs.config.outputs.macos }}
       cache-version: ${{ needs.config.outputs.cache-version }}
 
 
