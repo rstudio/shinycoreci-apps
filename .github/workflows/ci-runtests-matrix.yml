@@ -180,14 +180,14 @@ jobs:
 
   ubuntu-release:
     needs: [pre_check, config]
-    uses: ./.github/workflows/ci-runtests-os.yml@deploy_issue_202
+    uses: ./.github/workflows/ci-runtests-os.yml
     with:
       r-version: ${{ needs.config.outputs.release }}
       os: ${{ needs.config.outputs.ubuntu }}
       cache-version: ${{ needs.config.outputs.cache-version }}
   ubuntu-oldrel-1:
     needs: [pre_check, config]
-    uses: ./.github/workflows/ci-runtests-os.yml@deploy_issue_202
+    uses: ./.github/workflows/ci-runtests-os.yml
     with:
       r-version: ${{ needs.config.outputs.oldrel1 }}
       os: ${{ needs.config.outputs.ubuntu }}
