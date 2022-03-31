@@ -76,7 +76,6 @@ Config/Needs/install:
     cran::Cairo,
     cran::clipr,
     cran::curl,
-    cran::datasets,
     cran::dbplyr,
     cran::DiagrammeR,
     cran::dplyr,
