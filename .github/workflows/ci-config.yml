@@ -1,0 +1,48 @@
+on:
+  workflow_call:
+    # inputs:
+    #   r-version:
+    #     type: string
+    #     default: release
+    #     required: false
+    outputs:
+      macos: "macos-11"
+      windows: "windows-latest"
+      ubuntu: "ubuntu-18.04"
+      cache-version: "3"
+      devel: ${{ jobs.config.outputs.devel }}
+      release: ${{ jobs.config.outputs.release }}
+      oldrel1: ${{ jobs.config.outputs.oldrel1 }}
+      oldrel2: ${{ jobs.config.outputs.oldrel2 }}
+      oldrel3: ${{ jobs.config.outputs.oldrel3 }}
+      oldrel4: ${{ jobs.config.outputs.oldrel4 }}
+
+name: Config
+
+jobs:
+  config:
+    name: Config
+    runs-on: ubuntu-latest
+    outputs:
+      devel: ${{ steps.devel.outputs.installed-r-version }}
+      release: ${{ steps.release.outputs.installed-r-version }}
+      oldrel1: ${{ steps.oldrel-1.outputs.installed-r-version }}
+      oldrel2: ${{ steps.oldrel-2.outputs.installed-r-version }}
+      oldrel3: ${{ steps.oldrel-3.outputs.installed-r-version }}
+      oldrel4: ${{ steps.oldrel-4.outputs.installed-r-version }}
+    steps:
+    - { name: devel,    id: devel,    uses: r-lib/actions/setup-r@v2, with: { r-version: devel,    install-r: false } }
+    - { name: release,  id: release,  uses: r-lib/actions/setup-r@v2, with: { r-version: release,  install-r: false } }
+    - { name: oldrel-1, id: oldrel-1, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-1, install-r: false } }
+    - { name: oldrel-2, id: oldrel-2, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-2, install-r: false } }
+    - { name: oldrel-3, id: oldrel-3, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-3, install-r: false } }
+    - { name: oldrel-4, id: oldrel-4, uses: r-lib/actions/setup-r@v2, with: { r-version: oldrel-4, install-r: false } }
+    - name: Display Outputs
+      id: set_versions
+      run: |
+        echo "devel: ${{ steps.devel.outputs.installed-r-version }}"
+        echo "release: ${{ steps.release.outputs.installed-r-version }}"
+        echo "oldrel1: ${{ steps.oldrel-1.outputs.installed-r-version }}"
+        echo "oldrel2: ${{ steps.oldrel-2.outputs.installed-r-version }}"
+        echo "oldrel3: ${{ steps.oldrel-3.outputs.installed-r-version }}"
+        echo "oldrel4: ${{ steps.oldrel-4.outputs.installed-r-version }}"
