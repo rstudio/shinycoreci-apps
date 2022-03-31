@@ -57,7 +57,9 @@ jobs:
           r-version: ${{ matrix.config.r }}
           # add suffix so that prefix matching works but key is diff than ci-runtests-os.yml cache key
           cache-version: ${{ needs.config.outputs.cache-version }}-deploy
-          extra-packages: rstudio/shinycoreci
+          extra-packages:
+            rstudio/shinycoreci,
+            any::rsconnect
 
       - name: Install app deps
         run: >
