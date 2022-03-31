@@ -129,7 +129,9 @@ jobs:
           http-user-agent: ${{ inputs.http-user-agent }}
           pandoc-version: ${{ inputs.pandoc-version }}
           cache-version: ${{ inputs.cache-version }}
-          extra-packages: ${{ inputs.extra-packages }}
+          extra-packages:
+            rstudio/shinycoreci
+            ${{ inputs.extra-packages }}
 
 
       - name: Notify slack TEST
