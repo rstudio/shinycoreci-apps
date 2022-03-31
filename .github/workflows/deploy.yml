@@ -31,7 +31,7 @@ jobs:
         - { os: macOS-latest, r: 'release', type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 5, retry: 3 }
         # beta.rstudioconnect does not support R v4.0 yet
         # - { os: macOS-latest, r: '3.6', type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
-        - { os: ubuntu-18.04, r: '3.6', release: "bionic", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
+        - { os: ubuntu-18.04, r: 'release', release: "bionic", type: "connect", account: "barret", server_name: "beta.rstudioconnect.com", server_url: "https://beta.rstudioconnect.com/__api__", cores: 1, retry: 3 }
 
         # - { os: macOS-latest, r: '4.0', type: "shinyappsio", account: "testing-apps", server_name: "shinyapps.io", cores: 1, retry: 3, extra_app_text: ", apps = c('001-hello', '002-text')" }
         # beta.rstudioconnect does not support v4 yet
