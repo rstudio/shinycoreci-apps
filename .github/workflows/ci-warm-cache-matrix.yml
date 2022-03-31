@@ -15,7 +15,7 @@ on:
 
 jobs:
   config:
-    uses: ./github/workflows/ci-config.yml
+    uses: ./.github/workflows/ci-config.yml
 
   ubuntu-release:
     needs: config

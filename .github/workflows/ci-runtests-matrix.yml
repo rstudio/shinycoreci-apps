@@ -19,7 +19,7 @@ on:
       - ci
 
 jobs:
-  pre_check:
+  precheck:
     uses: ./.github/workflows/ci-precheck.yml
   config:
     uses: ./.github/workflows/ci-config.yml
