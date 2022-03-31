@@ -45,7 +45,7 @@ jobs:
   test:
     runs-on: ${{ inputs.os }}
 
-    name: Test - (${{ inputs.r-version }})${{ inputs.extra-key }}
+    name: Test - R ${{ inputs.r-version }})${{ inputs.extra-key }}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true

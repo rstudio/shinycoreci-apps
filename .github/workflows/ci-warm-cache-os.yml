@@ -33,7 +33,7 @@ on:
       #   type: boolean
       #   default: true
       #   required: false
-name: Warm library cache
+name: Warm library cache - single OS
 
 jobs:
 

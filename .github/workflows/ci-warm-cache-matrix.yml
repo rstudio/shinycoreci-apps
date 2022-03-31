@@ -1,7 +1,7 @@
 # Cache warming is possible now that cache works for all events using actinos/cache@v2
 # https://github.com/actions/cache/issues/63#issuecomment-629422053
 
-name: Warm cache matrix
+name: Warm library cache
 
 on:
   push:
