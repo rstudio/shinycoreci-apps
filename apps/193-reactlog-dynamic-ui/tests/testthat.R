@@ -18,5 +18,5 @@ if (identical(paste0("mac-", release), shinycoreci::platform_rversion())) {
     stop("Unexpected output folders found:\n", paste0("* ", folders[is_bad_folder], collapse = "\n"))
   }
 
-  shinycoreci::test_shinytest_app()
+  shinytest2::test_app()
 }
