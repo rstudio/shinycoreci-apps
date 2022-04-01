@@ -1,4 +1,4 @@
 if (nzchar(system.file(package = "ragg")) &&
     packageVersion("ragg") >= "0.2") {
-  shinycoreci::test_shinytest_app()
+  shinytest2::test_app()
 }
