@@ -1,1 +1,1 @@
-shinycoreci::test_testhat_app()
+shinytest2::test_app()

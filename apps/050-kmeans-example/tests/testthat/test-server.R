@@ -1,5 +1,3 @@
-context("app")
-
 testServer(expr = {
   test_that("it works", {
     session$setInputs(
