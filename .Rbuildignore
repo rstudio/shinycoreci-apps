@@ -1,0 +1,10 @@
+^apps$
+^failing_apps$
+^Docker$
+^README_files$
+^_test_results$
+^shinycoreci-apps.Rproj$
+^zzz_shinycoreci$
+
+^.github$
+^LICENSE\.md$
