@@ -38,6 +38,7 @@ on:
         required: true
       SLACK_BOT_TOKEN:
         required: true
+
 name: runTests Single
 
 jobs:
