@@ -70,7 +70,7 @@ Suggests:
     gt,
     DT,
     dygraphs
-Config/Needs/install:
+NotConfig/Needs/install:
     any::base64enc,
     any::brio,
     any::Cairo,
