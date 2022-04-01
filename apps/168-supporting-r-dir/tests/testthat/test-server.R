@@ -1,5 +1,3 @@
-context("app")
-
 test_that("counter works", {
   testServer(counterServer, {
     inc <- function(x) if (is.null(x)) 0 else x+1

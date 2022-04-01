@@ -1,5 +1,3 @@
-context("app")
-
 test_that("inputs are stored", {
   testServer(expr = {
     session$setInputs(

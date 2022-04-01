@@ -1,4 +1,3 @@
-context("app")
 
 test_that("reactives update", {
   testServer(expr = {

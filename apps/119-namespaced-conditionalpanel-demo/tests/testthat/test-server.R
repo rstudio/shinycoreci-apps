@@ -1,5 +1,3 @@
-context("app")
-
 test_that("app works", {
   testServer(expr = {
     session$setInputs(`plot1-n` = 4)
