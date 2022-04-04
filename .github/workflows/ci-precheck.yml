@@ -91,10 +91,11 @@ jobs:
       - name: Validate no shinytest `*-current` or `*-expected` folders exist
         shell: bash
         run: |
-          for FOLDER in '*-current' '*-expected' '*-current-*' '*-expected-*'; do
+          for FOLDER in '*-current' '*-expected'; do
             find . -name "$FOLDER" > _folders_found.txt
             if [ -s _folders_found.txt ]
             then
+              echo "Found shinytest folder with regex: '$FOLDER'"
               cat _folders_found.txt
               exit 1;
             fi
