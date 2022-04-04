@@ -21,3 +21,5 @@ cleantable <- allzips %>%
     Lat = latitude,
     Long = longitude
   )
+
+readr::write_csv(cleantable, "data/superzip2.csv")

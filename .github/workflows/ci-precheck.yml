@@ -40,21 +40,22 @@ jobs:
             fi
           done
 
-      - name: Validate all test files contain 'shinycoreci::test_*()'
-        shell: bash
-        run: |
-          # find all files that don't contain a test function
-          grep -L "shinycoreci::test_" ./apps/*/tests/*.R | \
-            while read FIL; do
-              if [[ "$FIL" =~ .*/169-.* ]]; then
-                echo "skipping 169" > /dev/null
-              else
-                echo "Testing file '$FIL' does not contain a shinycoreci testing function."
-                echo "See './apps/001-hello/tests' for examples"
-                exit 1
-              fi
-            done
-          echo 'Validated that test files contain shinycoreci::test_*()'
+      ## TODO-barret; undo when shinyjster is converted to use testthat in followup PR
+      # - name: Validate all test files contain 'shinytest2::test_app()'
+      #   shell: bash
+      #   run: |
+      #     # find all files that don't contain a test function
+      #     grep -L "shinytest2::test_app" ./apps/*/tests/*.R | \
+      #       while read FIL; do
+      #         if [[ "$FIL" =~ .*/169-.* ]]; then
+      #           echo "skipping 169" > /dev/null
+      #         else
+      #           echo "Testing file '$FIL' does not contain 'shinytest2::test_app()'"
+      #           echo "See './apps/001-hello/tests' for an example"
+      #           exit 1
+      #         fi
+      #       done
+      #     echo 'Validated that test files contain shinytest2::test_app()'
 
       - name: Validate all shiny jster based apps are integrated
         shell: bash
@@ -94,6 +95,7 @@ jobs:
             find . -name "$FOLDER" > _folders_found.txt
             if [ -s _folders_found.txt ]
             then
+              echo "Found shinytest folder with regex: '$FOLDER'"
               cat _folders_found.txt
               exit 1;
             fi
