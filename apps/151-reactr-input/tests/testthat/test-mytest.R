@@ -1,3 +1,5 @@
+skip_if_not_installed("reactR", "0.4")
+
 library(shinytest2)
 
 test_that("Migrated shinytest test: mytest.R", {

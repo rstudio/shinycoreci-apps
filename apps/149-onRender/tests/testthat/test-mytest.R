@@ -1,3 +1,5 @@
+skip_if_not_installed("htmlwidgets", "1.4")
+
 library(shinytest2)
 
 test_that("Migrated shinytest test: mytest.R", {
