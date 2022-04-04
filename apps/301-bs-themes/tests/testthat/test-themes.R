@@ -40,7 +40,11 @@ for (theme_name in names(themes)) {
       seed = 101,
       options = list(bslib_theme = theme)
     )
+    withr::defer({ app$stop() })
+
     # I don't know why, but when calling `app$get_screenshot()`, the app gets wider and wider
+    # Mitigating that by resetting the size each time. This is a hack, but it works.
+
     # app$view()
     # browser()
 

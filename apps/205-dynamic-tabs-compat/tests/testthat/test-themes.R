@@ -22,6 +22,8 @@ for (version in c(3,4)) {
         ),
         name = name
       )
+      withr::defer({ app$stop() })
+
 
       app$expect_values()
       app$expect_screenshot()
