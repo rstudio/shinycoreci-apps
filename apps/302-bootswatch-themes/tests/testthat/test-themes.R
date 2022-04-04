@@ -57,13 +57,7 @@ for (theme in themes) {
   pb$tick(tokens = list(name = name))
 
   test_that(paste0("theme: ", name), {
-    theme <- yaml::yaml.load_file('../../themes.yaml', eval.expr = TRUE)[['yeti4']]
-    if (!is_bs_theme(theme)) {
-      theme <- do.call(bs_theme, theme)
-    }
 
-    # This `shinytest::` below is a hack to avoid shiny::runTests() thinking this
-    # template is itself a testing app https://github.com/rstudio/shiny/blob/24a1ef/R/test.R#L36
     app <- AppDriver$new(
       name = name,
       variant = shinycoreci::platform_rversion(),

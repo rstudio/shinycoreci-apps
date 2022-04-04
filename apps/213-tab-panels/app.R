@@ -5,7 +5,7 @@ library(shiny)
 library(bslib)
 
 ui <- fluidPage(
-  theme = bs_theme(version = 4),
+  theme = bs_theme(version = 5),
   sidebarLayout(
     sidebarPanel(
       actionButton("add", "Add 'Dynamic' tab"),
