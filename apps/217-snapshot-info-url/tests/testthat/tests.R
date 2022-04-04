@@ -1,16 +1,10 @@
 test_that("text passes", {
-  app <- shinytest::ShinyDriver$new("../../", seed = 100, shinyOptions = list(display.mode = "normal"))
+  app <- AppDriver$new(seed = 100, variant = shinycoreci::platform_rversion(), shiny_args = list(display.mode = "normal"))
 
-  val <- app$waitForValue("status", iotype = "output", ignore = list(NULL, ""))
-
-  for (i in 1:50) {
-    Sys.sleep(0.5)
-    textVal <- app$findElement("#status")$getText()
-    if (textVal != "") break
-  }
+  app$wait_for_js("$('#status').text().length > 0")
 
   testthat::expect_equal(
-    textVal,
+    app$get_js("$('#status').text()"),
     "PASS"
   )
 })
