@@ -21,7 +21,7 @@ test_that("Migrated shinytest test: mytest.R", {
     timeout = 10000)
 
   try_find_element <- function(css) {
-    app$wait_for_js(paste0("$(\"", css, "\").length() > 0"),
+    app$wait_for_js(paste0("$(\"", css, "\").length > 0"),
         timeout = 3000)
   }
 
