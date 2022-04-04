@@ -6,18 +6,18 @@ test_that("Migrated shinytest test: mytest.R", {
 
   # date picker snapshots
   # TODO: do we need to wait until the calendar renders?
-  app$get_js(script = "$('#date input').bsDatepicker('show')",
+  app$run_js(script = "$('#date input').bsDatepicker('show')",
     timeout = 10000)
   app$expect_values()
   app$expect_screenshot()
-  app$get_js(script = "$('#date input').bsDatepicker('hide')",
+  app$run_js(script = "$('#date input').bsDatepicker('hide')",
     timeout = 10000)
 
-  app$get_js(script = "$('#date_range input:first').bsDatepicker('show')",
+  app$run_js(script = "$('#date_range input:first').bsDatepicker('show')",
     timeout = 10000)
   app$expect_values()
   app$expect_screenshot()
-  app$get_js(script = "$('#date_range input:first').bsDatepicker('hide')",
+  app$run_js(script = "$('#date_range input:first').bsDatepicker('hide')",
     timeout = 10000)
 
   try_find_element <- function(css) {
@@ -34,15 +34,15 @@ test_that("Migrated shinytest test: mytest.R", {
   }
 
   # Take snapshot of dropdown once it has content
-  app$get_js(script = "$('#select')[0].selectize.open()", timeout = 10000)
+  app$run_js(script = "$('#select')[0].selectize.open()", timeout = 10000)
   content <- find_selectize_content()
   Sys.sleep(1)
   app$expect_values()
   app$expect_screenshot()
 
   # Do the same for the selectInput(multiple=T)
-  app$get_js(script = "$('#select')[0].selectize.close()", timeout = 10000)
-  app$get_js(script = "$('#select_multiple')[0].selectize.open()",
+  app$run_js(script = "$('#select')[0].selectize.close()", timeout = 10000)
+  app$run_js(script = "$('#select_multiple')[0].selectize.open()",
     timeout = 10000)
   content <- find_selectize_content()
   Sys.sleep(1)
@@ -50,10 +50,10 @@ test_that("Migrated shinytest test: mytest.R", {
   app$expect_screenshot()
 
   # Make sure the item styling is sensible
-  app$get_js(script = "$('#select_multiple')[0].selectize.setValue(['MN', 'CA'])",
+  app$run_js(script = "$('#select_multiple')[0].selectize.setValue(['MN', 'CA'])",
     timeout = 10000)
   app$expect_values()
   app$expect_screenshot()
-  app$get_js(script = "$('#select_multiple')[0].selectize.close()",
+  app$run_js(script = "$('#select_multiple')[0].selectize.close()",
     timeout = 10000)
 })
