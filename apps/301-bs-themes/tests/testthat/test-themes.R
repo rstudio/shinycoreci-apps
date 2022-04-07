@@ -60,7 +60,6 @@ for (theme_name in names(themes)) {
     appshot <- function() {
       app$expect_values()
       app$expect_screenshot()
-      reset_size()
     }
     appshot()
 
