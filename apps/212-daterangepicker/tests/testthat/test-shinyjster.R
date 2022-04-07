@@ -1,1 +1,1 @@
-shinycoreci::testthat_shinyjster()
+shinycoreciapps::testthat_shinyjster()
