@@ -1,0 +1,1 @@
+shinycoreciapps::testthat_shinyjster()

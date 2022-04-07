@@ -1,3 +1,5 @@
+skip_if_not_installed("htmltools", "0.5.0")
+
 library(shinytest2)
 
 test_that("Migrated shinytest test: mytest.R", {

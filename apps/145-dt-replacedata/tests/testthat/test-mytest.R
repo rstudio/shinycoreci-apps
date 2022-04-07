@@ -1,3 +1,4 @@
+skip_if_not_installed("DT", "0.6")
 library(shinytest2)
 
 test_that("Migrated shinytest test: mytest.R", {
