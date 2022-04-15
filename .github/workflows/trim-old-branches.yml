@@ -8,8 +8,8 @@ on:
     types:
       - all
       - trim
-  schedule:
-    - cron:  '0 0 * * *' # every day at midnight
+  # schedule:
+  #   - cron:  '0 0 * * 0' # every day at midnight
 
 jobs:
   trim_branches:
