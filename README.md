@@ -1,5 +1,11 @@
 # shinycoreci-apps
 
+> :triangular_flag_on_post::triangular_flag_on_post:<br/>
+> `rstudio/shinycoreci-apps` has functionality is being merged into [rstudio/shinycoreci](https://github.com/rstudio/shinycoreci) <br/>
+> Please do not use this repo <br/>
+> :triangular_flag_on_post::triangular_flag_on_post:
+
+
 <!-- badges: start -->
 [![Run Tests](https://github.com/rstudio/shinycoreci-apps/workflows/runTests/badge.svg?branch=main)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ArunTests)
 [![Docker](https://github.com/rstudio/shinycoreci-apps/workflows/Docker/badge.svg?branch=main)](https://github.com/rstudio/shinycoreci-apps/actions?query=workflow%3ADocker)
