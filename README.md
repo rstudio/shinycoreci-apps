@@ -1,4 +1,4 @@
-# shinycoreci-apps
+# SUPERSEDED!!! shinycoreci-apps
 
 > :triangular_flag_on_post::triangular_flag_on_post:<br/>
 > `rstudio/shinycoreci-apps` has functionality is being merged into [rstudio/shinycoreci](https://github.com/rstudio/shinycoreci) <br/>
