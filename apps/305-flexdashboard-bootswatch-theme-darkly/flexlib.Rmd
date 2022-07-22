@@ -1,0 +1,217 @@
+---
+title: "Flexdashboard theming demo"
+runtime: shiny
+output: 
+  flexdashboard::flex_dashboard:
+    theme: 
+    # Note: bootstrap 5 does not work with shinytest (version set to 4 until shinytest2 is ready)
+      version: 4
+      bootswatch: darkly
+    orientation: rows
+    resize_reload: false
+    social: menu
+    source_code: embed
+    navbar:
+      - { title: "About", href: "https://google.com", align: right, icon: glyphicon-time}
+      - { title: "Home", href: "https://google.com", align: right, icon: fa-facebook }
+---
+
+
+```{r, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+thematic::thematic_rmd(font = "auto")
+```
+
+
+Components
+===================================== 
+
+Sidebar {.sidebar}
+-------------------------------------
+
+```{r}
+sliderInput("slider", "Set contact rate", value = 91, min = 0, max = 100)
+```
+
+Value Boxes {data-width=200}
+-------------------------------------
+
+### Primary
+
+```{r}
+valueBox(1, caption = "primary", icon = "fa-github")
+```
+
+### Info
+
+```{r}
+valueBox(2, caption = "info", color = "info", icon = "fa-twitter")
+```
+
+### Success
+
+```{r}
+valueBox(3, caption = "success", color = "success", icon = "glyphicon-time")
+```
+
+### Warning
+
+```{r}
+valueBox(4, caption = "warning", color = "warning", icon = "fa-facebook")
+```
+
+### Danger
+
+```{r}
+valueBox(5, caption = "danger", color = "danger", icon = "fa-facebook")
+```
+
+### Custom
+
+```{r}
+# TODO: why is there a linked value here?
+valueBox(
+  6, caption = "custom", color = "lightgray",
+  icon = "fab fa-r-project"
+)
+```
+
+Gauges {data-width=200}
+-------------------------------------
+
+### Success Rate
+
+```{r}
+renderGauge({
+  gauge(
+    input$slider, min = 0, max = 100, symbol = '%', 
+    sectors = gaugeSectors(
+      danger = c(0, 20),
+      warning = c(20, 80),
+      success = c(80, 100)
+    )
+  )  
+})
+```
+
+### Warning metric
+
+```{r}
+renderGauge({
+  gauge(
+    3.4, min = 0, max = 5, 
+    sectors = gaugeSectors(
+      danger = c(1, 2),
+      warning = c(3, 4),
+      success = c(5, 5)
+    )
+  )
+})
+```
+
+### Danger!
+
+```{r}
+renderGauge({
+  gauge(
+    7, min = 0, max = 10, 
+    sectors = gaugeSectors(
+      danger = c(7, 10),
+      warning = c(3, 7),
+      success = c(1, 2)
+    )
+  )
+})
+```
+
+    
+3rd Party Outputs {.tabset}
+-------------------------------------
+
+### Basic Table
+    
+```{r}
+knitr::kable(mtcars)
+```
+
+### Interactive Table
+    
+```{r}
+DT::datatable(mtcars, fillContainer = TRUE)
+```
+
+
+Storyboard {.storyboard}
+=========================================
+
+### Static Plots
+
+```{r}
+p <- ggplot(faithfuld, aes(waiting, eruptions, z = density)) + 
+  geom_raster(aes(fill = density)) +
+  geom_contour() +
+  ggtitle("2d density estimate of Old Faithful data")
+
+renderPlot(p)
+```
+
+*** 
+
+Put `thematic_rmd()` for auto-plot theming!
+
+### Interactive Plots
+
+```{r}
+library(plotly)
+plotlyOutput("plotly")
+```
+
+```{r}
+output$plotly <- renderPlotly({
+  cd <- session$clientData
+  ggplotly(p, height = cd$output_plotly_height, width = cd$output_plotly_width)
+})
+```
+
+*** 
+
+`thematic_rmd()` also works with `ggplotly()`!
+
+### Learn more
+
+https://rstudio.github.io/thematic/
+
+Cards
+=====================================     
+   
+Row {data-height=300}
+-------------------------------------
+
+### Basic card
+
+Some descriptive text here.
+
+
+### 
+
+No header should appear above. Content should be overflowing
+
+```{r, echo = TRUE}
+# Some pretty R code
+str(mtcars)
+```
+
+
+
+
+Row
+-------------------------------------
+   
+### Primary background {.bg-primary}
+
+This 'card' has a `.bg-primary` class.
+
+### Secondary background {.bg-secondary}
+
+This 'card' has a `.bg-secondary` class (only supported in BS4+).
