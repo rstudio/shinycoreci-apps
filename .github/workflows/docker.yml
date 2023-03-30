@@ -122,7 +122,7 @@ jobs:
     # https://github.com/marketplace/actions/publish-docker
     - name: Build Base
       if: steps.can-build.conclusion != 'skipped'
-      uses: elgohr/Publish-Docker-Github-Action@2.12
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -136,7 +136,7 @@ jobs:
     # https://github.com/marketplace/actions/publish-docker
     - name: Build SSO
       if: steps.can-build.conclusion != 'skipped'
-      uses: elgohr/Publish-Docker-Github-Action@2.12
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -157,7 +157,7 @@ jobs:
     # https://github.com/marketplace/actions/publish-docker
     - name: Build SSP
       if: steps.can-build.conclusion != 'skipped'
-      uses: elgohr/Publish-Docker-Github-Action@2.12
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: rstudio/shinycoreci
         username: ${{ secrets.DOCKERHUB_USERNAME }}
